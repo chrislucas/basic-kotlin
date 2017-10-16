@@ -1,0 +1,11 @@
+https://kotlinlang.org/docs/reference/collections.html
+
+Mutable list
+https://stackoverflow.com/questions/33278869/how-do-i-initialize-kotlins-mutablelist-to-empty-mutablelist
+
+mapTo
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-to.html
+
+
+Exemplo interessante
+https://stackoverflow.com/questions/41312629/how-to-convert-a-type-erased-list-to-an-array-in-kotlin
