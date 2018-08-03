@@ -1,4 +1,4 @@
-
+package oop
 /**
  * Ao instanciar a classe cada linha é executada na ordem que aparece. O exemplo
  * abaixo temos 2 blocos de inicializacao imprimindo uma mensagem com numero 2 e 1. Eles
@@ -10,8 +10,8 @@
 
 class Point2f(x: Double, y: Double) {
 
-    var x: Double = x;
-    var y: Double = y;
+    private var x: Double = x;
+    private var y: Double = y;
 
     init {
         println("Executando bloco inicializar 2")
@@ -42,4 +42,5 @@ fun main(args: Array<String>) {
     println(p)
 
     val q = ImmutablePoint2F(12.5, -23.5)
+    println("${q.getX}, ${q.getY}")
 }
