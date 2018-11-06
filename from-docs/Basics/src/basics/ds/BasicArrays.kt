@@ -22,6 +22,5 @@ fun main(args: Array<String>) {
             print(String.format("%d ", mat[i][j]))
         println()
     }
-
 }
 

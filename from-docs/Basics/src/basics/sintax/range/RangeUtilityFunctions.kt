@@ -52,6 +52,7 @@ fun testReversed() {
 
 }
 
+// https://kotlinlang.org/docs/reference/ranges.html#step
 fun testStep() {
 
 }
