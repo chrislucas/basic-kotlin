@@ -13,8 +13,6 @@ package basics.sintax.range
 fun testRangeTo() {
     println('c'.rangeTo('z'))
     println(0xff.rangeTo(0x1ff))
-
-
     /**
      * o metodo rangeTo para String e Double/Float tem um comportamento
      * diferente dos outros tipos primitivos. Tais classes nao definem um operador
@@ -47,17 +45,22 @@ fun testDownTo() {
     println()
 }
 
+
+
 // https://kotlinlang.org/docs/reference/ranges.html#reversed
 fun testReversed() {
-
+    println((10..20).reversed())
+    println((0b0101..10).reversed())
 }
 
 // https://kotlinlang.org/docs/reference/ranges.html#step
 fun testStep() {
-
+    val s =(10..20).step(2)
+    s.iterator().forEachRemaining {
+        i: Int -> print(String.format(" %d", i))
+    }
 }
 
-
 fun main(args: Array<String>) {
-    testDownTo()
+    testReversed()
 }

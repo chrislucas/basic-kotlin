@@ -25,11 +25,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RangeUtilityFunctions.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RangeUtilityFunctions.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+            <state relative-caret-position="884">
+              <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Functions.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point2D.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TailRecursiveFn.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/TailRecursiveFn.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilterList.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/ds/collections/FilterList.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CallableReferences.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/CallableReferences.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicLambda.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="96" lean-forward="false" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -40,16 +100,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="78" lean-forward="false" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iterator-collections" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/raw/iterator-collections">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -83,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/basics/ds/FilterList.kt" />
         <option value="$PROJECT_DIR$/raw/list" />
         <option value="$PROJECT_DIR$/src/basics/ds/collections/TestList.kt" />
-        <option value="$PROJECT_DIR$/src/basics/function/Functions.kt" />
         <option value="$PROJECT_DIR$/src/basics/sintax/Loops.kt" />
         <option value="$PROJECT_DIR$/src/basics/ds/collections/TestTuple.kt" />
         <option value="$PROJECT_DIR$/src/basics/ds/TestPair.kt" />
@@ -103,7 +152,16 @@
         <option value="$PROJECT_DIR$/raw/functions" />
         <option value="$PROJECT_DIR$/raw/iterator-collections" />
         <option value="$PROJECT_DIR$/src/basics/ds/BasicArrays.kt" />
+        <option value="$PROJECT_DIR$/src/basics/math/ModularMultiplicative.kt" />
+        <option value="$PROJECT_DIR$/src/basics/math/numbertheory/ModularMultiplicative.kt" />
+        <option value="$PROJECT_DIR$/src/basics/function/BasicVararg.kt" />
+        <option value="$PROJECT_DIR$/src/basics/function/BasicLambda.kt" />
+        <option value="$PROJECT_DIR$/raw/number_theory" />
         <option value="$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt" />
+        <option value="$PROJECT_DIR$/src/basics/function/Functions.kt" />
+        <option value="$PROJECT_DIR$/src/basics/Point2D.kt" />
+        <option value="$PROJECT_DIR$/src/basics/clazz/Point2D.kt" />
+        <option value="$PROJECT_DIR$/src/basics/function/TailRecursiveFn.kt" />
       </list>
     </option>
   </component>
@@ -128,8 +186,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,15 +215,21 @@
               <item name="Basics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="basics" type="462c0819:PsiDirectoryNode" />
-              <item name="ds" type="462c0819:PsiDirectoryNode" />
+              <item name="clazz" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
               <item name="Basics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="basics" type="462c0819:PsiDirectoryNode" />
-              <item name="ds" type="462c0819:PsiDirectoryNode" />
-              <item name="collections" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Basics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basics" type="462c0819:PsiDirectoryNode" />
+              <item name="numbertheory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
@@ -174,28 +237,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="basics" type="462c0819:PsiDirectoryNode" />
               <item name="sintax" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Basics" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basics" type="462c0819:PsiDirectoryNode" />
-              <item name="sintax" type="462c0819:PsiDirectoryNode" />
-              <item name="range" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\clazz" />
+      <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\math\numbertheory" />
       <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\ds" />
       <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\sintax\range" />
       <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\ds\collections" />
-      <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\function" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -210,7 +267,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.basics.ds.BasicArraysKt">
+  <component name="RunManager" selected="Kotlin.basics.clazz.Point2DKt">
     <configuration name="BasicSyntax" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="VM_PARAMETERS" value="" />
@@ -364,6 +421,18 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="basics.clazz.Point2DKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="basics.clazz.Point2DKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <module name="Basics" />
+      <envs />
+    </configuration>
     <configuration name="basics.ds.BasicArraysKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="VM_PARAMETERS" value="" />
@@ -376,14 +445,14 @@
       <module name="Basics" />
       <envs />
     </configuration>
-    <configuration name="basics.ds.TestPairKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="basics.function.BasicLambdaKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="basics.ds.TestPairKt" />
+      <option name="MAIN_CLASS_NAME" value="basics.function.BasicLambdaKt" />
       <option name="WORKING_DIRECTORY" value="" />
       <module name="Basics" />
       <envs />
@@ -412,23 +481,25 @@
       <module name="Basics" />
       <envs />
     </configuration>
-    <list size="9">
+    <list size="10">
       <item index="0" class="java.lang.String" itemvalue="Kotlin.CallableReferences" />
       <item index="1" class="java.lang.String" itemvalue="Kotlin.FilterList" />
       <item index="2" class="java.lang.String" itemvalue="Kotlin.BasicSyntax" />
       <item index="3" class="java.lang.String" itemvalue="Kotlin.Loops" />
       <item index="4" class="java.lang.String" itemvalue="Kotlin.RangeUtilityFunctions" />
-      <item index="5" class="java.lang.String" itemvalue="Kotlin.basics.ds.TestPairKt" />
-      <item index="6" class="java.lang.String" itemvalue="Kotlin.basics.sintax.BasicTypesKt" />
-      <item index="7" class="java.lang.String" itemvalue="Kotlin.basics.interop.BasicInteropKt" />
-      <item index="8" class="java.lang.String" itemvalue="Kotlin.basics.ds.BasicArraysKt" />
+      <item index="5" class="java.lang.String" itemvalue="Kotlin.basics.sintax.BasicTypesKt" />
+      <item index="6" class="java.lang.String" itemvalue="Kotlin.basics.interop.BasicInteropKt" />
+      <item index="7" class="java.lang.String" itemvalue="Kotlin.basics.ds.BasicArraysKt" />
+      <item index="8" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicLambdaKt" />
+      <item index="9" class="java.lang.String" itemvalue="Kotlin.basics.clazz.Point2DKt" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Kotlin.basics.ds.BasicArraysKt" />
-        <item index="1" class="java.lang.String" itemvalue="Kotlin.basics.interop.BasicInteropKt" />
-        <item index="2" class="java.lang.String" itemvalue="Kotlin.basics.sintax.BasicTypesKt" />
-        <item index="3" class="java.lang.String" itemvalue="Kotlin.basics.ds.TestPairKt" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Kotlin.basics.clazz.Point2DKt" />
+        <item index="1" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicLambdaKt" />
+        <item index="2" class="java.lang.String" itemvalue="Kotlin.basics.ds.BasicArraysKt" />
+        <item index="3" class="java.lang.String" itemvalue="Kotlin.basics.interop.BasicInteropKt" />
+        <item index="4" class="java.lang.String" itemvalue="Kotlin.basics.sintax.BasicTypesKt" />
       </list>
     </recent_temporary>
   </component>
@@ -473,7 +544,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39327484" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2618868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26943398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -504,20 +575,23 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="sqrt((x - q.x * x - q.x) + (y - q.y * y - q.y) )" />
+        <watch expression="(x - q.x * x - q.x) + (y - q.y * y - q.y)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/basics/ds/BasicArrays.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/raw/functions">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -530,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -570,20 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/ds/collections/FilterList.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/ds/collections/TestList.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/String.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -602,13 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -721,14 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="108" column="15" lean-forward="false" selection-start-line="108" selection-start-column="15" selection-end-line="108" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/CallableReferences.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -750,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1303">
           <caret line="456" column="19" lean-forward="false" selection-start-line="456" selection-start-column="19" selection-end-line="456" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,22 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/raw/functions">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="78" lean-forward="false" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/raw/iterator-collections">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/basics/ds/BasicArrays.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -829,10 +856,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicVararg.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/math/numbertheory/ModularMultiplicative.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raw/number_theory">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="47" lean-forward="false" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raw/iterator-collections">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raw/functions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="78" lean-forward="false" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Library.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="40" column="45" lean-forward="false" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/ds/collections/TestList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="96" lean-forward="false" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/ds/collections/FilterList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/CallableReferences.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+        <state relative-caret-position="884">
+          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/TailRecursiveFn.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
           <folding />
         </state>
       </provider>
