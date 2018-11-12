@@ -61,15 +61,10 @@ val regexIsNumber =  "[0-9]*".toRegex()
 
 fun String.isNumber() = this.matches(fnIsNumber())
 
-
-fun  testPredicate(range: IntRange, s: Int,  pred: (Int) -> Boolean) {
-
+fun testPredicate(range: IntRange, s: Int,  pred: (Int) -> Boolean) {
     val rs = range.step(s).toList().toTypedArray().all { it -> pred(it) }
-
     println("Intervalo $range ${if (rs) "formado somente por pares" else "possui números impares" }")
 }
-
-
 
 fun main(args: Array<String>) {
     val p1 = Point()
@@ -101,11 +96,8 @@ fun main(args: Array<String>) {
     println("abc".isNumber())
     println("12456798798798797987".isNumber())
 
-
     testPredicate(0..100, 2, f)
     testPredicate(0..100, 1, f)
-
-
 
     println(arrayOf("123", "asdasd", "123asd123").filter(regexIsNumber::matches))
 

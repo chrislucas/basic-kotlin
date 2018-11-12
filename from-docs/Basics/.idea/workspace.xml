@@ -25,20 +25,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RangeUtilityFunctions.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BasicLambda.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1268">
+            <state relative-caret-position="1632">
               <caret line="96" column="4" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
               <folding>
                 <element signature="e#25#78#0" expanded="true" />
@@ -47,21 +37,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicFunctions.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/basics/function/BasicFunctions.kt">
+      <file leaf-file-name="Functions.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="100" column="29" lean-forward="true" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+            <state relative-caret-position="119">
+              <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+              <folding>
+                <element signature="e#25#99#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point2D.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Primitives.kt" pinned="false" current-in-tab="false">
-        <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Primitives.kt">
+      <file leaf-file-name="Bitwise.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/basics/function/bits/Bitwise.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="365" column="13" lean-forward="false" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
+            <state relative-caret-position="231">
+              <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bitwise" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/raw/bitwise">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -149,7 +161,6 @@
         <option value="$PROJECT_DIR$/raw/number_theory" />
         <option value="$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt" />
         <option value="$PROJECT_DIR$/src/basics/Point2D.kt" />
-        <option value="$PROJECT_DIR$/src/basics/clazz/Point2D.kt" />
         <option value="$PROJECT_DIR$/src/basics/function/TailRecursiveFn.kt" />
         <option value="$PROJECT_DIR$/raw/generics_inlinefun_reified" />
         <option value="$PROJECT_DIR$/src/basics/sintax/range/RangeToList.kt" />
@@ -158,11 +169,14 @@
         <option value="$PROJECT_DIR$/src/basics/function/Functions.kt" />
         <option value="$PROJECT_DIR$/raw/keywords-operators" />
         <option value="$PROJECT_DIR$/src/basics/function/CallableReferences.kt" />
+        <option value="$PROJECT_DIR$/raw/bitwise" />
         <option value="$PROJECT_DIR$/src/basics/function/BasicFunctions.kt" />
+        <option value="$PROJECT_DIR$/src/basics/clazz/Point2D.kt" />
+        <option value="$PROJECT_DIR$/src/basics/function/bits/Bitwise.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="118" />
     <option name="y" value="87" />
     <option name="width" value="1385" />
@@ -235,6 +249,14 @@
               <item name="Basics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="basics" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
+              <item name="bits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Basics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basics" type="462c0819:PsiDirectoryNode" />
               <item name="numbertheory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -280,7 +302,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.basics.function.BasicFunctionsKt">
+  <component name="RunManager" selected="Kotlin.basics.function.bits.BitwiseKt">
     <configuration name="BasicSyntax" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="VM_PARAMETERS" value="" />
@@ -482,14 +504,14 @@
       <module name="Basics" />
       <envs />
     </configuration>
-    <configuration name="basics.sintax.range.RangeToListKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="basics.function.bits.BitwiseKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="basics.sintax.range.RangeToListKt" />
+      <option name="MAIN_CLASS_NAME" value="basics.function.bits.BitwiseKt" />
       <option name="WORKING_DIRECTORY" value="" />
       <module name="Basics" />
       <envs />
@@ -501,18 +523,18 @@
       <item index="3" class="java.lang.String" itemvalue="Kotlin.Loops" />
       <item index="4" class="java.lang.String" itemvalue="Kotlin.RangeUtilityFunctions" />
       <item index="5" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicLambdaKt" />
-      <item index="6" class="java.lang.String" itemvalue="Kotlin.basics.sintax.range.RangeToListKt" />
-      <item index="7" class="java.lang.String" itemvalue="Kotlin.basics.function.FnLiteralReceiverKt" />
-      <item index="8" class="java.lang.String" itemvalue="Kotlin.basics.function.FunctionsKt" />
-      <item index="9" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicFunctionsKt" />
+      <item index="6" class="java.lang.String" itemvalue="Kotlin.basics.function.FnLiteralReceiverKt" />
+      <item index="7" class="java.lang.String" itemvalue="Kotlin.basics.function.FunctionsKt" />
+      <item index="8" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicFunctionsKt" />
+      <item index="9" class="java.lang.String" itemvalue="Kotlin.basics.function.bits.BitwiseKt" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicFunctionsKt" />
-        <item index="1" class="java.lang.String" itemvalue="Kotlin.basics.function.FunctionsKt" />
-        <item index="2" class="java.lang.String" itemvalue="Kotlin.basics.function.FnLiteralReceiverKt" />
-        <item index="3" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicLambdaKt" />
-        <item index="4" class="java.lang.String" itemvalue="Kotlin.basics.sintax.range.RangeToListKt" />
+        <item index="0" class="java.lang.String" itemvalue="Kotlin.basics.function.bits.BitwiseKt" />
+        <item index="1" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicFunctionsKt" />
+        <item index="2" class="java.lang.String" itemvalue="Kotlin.basics.function.FunctionsKt" />
+        <item index="3" class="java.lang.String" itemvalue="Kotlin.basics.function.FnLiteralReceiverKt" />
+        <item index="4" class="java.lang.String" itemvalue="Kotlin.basics.function.BasicLambdaKt" />
       </list>
     </recent_temporary>
   </component>
@@ -530,7 +552,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="118" y="87" width="1385" height="842" extended-state="1" />
+    <frame x="118" y="87" width="1385" height="842" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -555,7 +577,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39327484" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39327484" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27320755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -672,20 +694,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/common/kotlin/collections/Collections.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="152" column="25" lean-forward="false" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Unit.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Char.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -869,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/FnLiteralReceiver.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="4" column="131" lean-forward="false" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="131" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeToList.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -906,34 +906,6 @@
         <state relative-caret-position="238">
           <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding>
-            <element signature="e#25#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/Extensions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="56" lean-forward="false" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1268">
-          <caret line="96" column="4" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
-          <folding>
-            <element signature="e#25#78#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,50 +941,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/FunOperator.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/basics/function/HighOrderFunctions.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/raw/generics_inlinefun_reified">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="59" lean-forward="false" selection-start-line="0" selection-start-column="59" selection-end-line="0" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/sintax/BasicSintax.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1049,6 +981,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicFunctions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="66" column="1" lean-forward="false" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/FunOperator.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/sintax/BasicSintax.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raw/generics_inlinefun_reified">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="59" lean-forward="false" selection-start-line="0" selection-start-column="59" selection-end-line="0" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="96" column="4" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+          <folding>
+            <element signature="e#25#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Primitives.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1057,10 +1039,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basics/function/BasicFunctions.kt">
+    <entry file="file://$PROJECT_DIR$/raw/bitwise">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="100" column="29" lean-forward="true" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+        <state relative-caret-position="102">
+          <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/Extensions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="56" lean-forward="false" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/FnLiteralReceiver.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1381">
+          <caret line="4" column="131" lean-forward="false" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/Functions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <element signature="e#25#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/clazz/Point2D.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/function/bits/Bitwise.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding />
         </state>
       </provider>
