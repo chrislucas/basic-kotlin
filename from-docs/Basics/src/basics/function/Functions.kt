@@ -1,5 +1,9 @@
 package basics.function
 
+import basics.sintax.between
+import kotlin.math.max
+import kotlin.math.min
+
 /**
  * https://kotlinlang.org/docs/reference/functions.html
  *
@@ -17,7 +21,7 @@ open class Point2D(private val x: Double, private val y: Double) {
     }
 
     override fun toString(): String {
-        return "${x},${y}";
+        return "$x,$y";
     }
 }
 
@@ -27,13 +31,15 @@ open class Point2D(private val x: Double, private val y: Double) {
  * https://kotlinlang.org/docs/reference/functions.html#infix-notation
  * */
 
-
+// funcao de extensao na classe Int
+infix fun Int.between(range: IntRange): Boolean = this in range
 
 
 fun testInfixNotation() {
-
+    println(10 between 0..10)
+    println(10 between 10..12)
 }
 
 fun main(args: Array<String>) {
-
+    testInfixNotation()
 }
