@@ -45,6 +45,20 @@ fun testLetOperator() {
             .forEach { it?.let { println("$it size: ${it.length}") } }
 }
 
+/**
+ * https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator
+ * */
+fun testElvisOperator(p: String ?) {
+    // um opearador parecido com o comparador ternario ?:
+    // porem funciona para testar variaveis que podem estar nulas
+    // Podemos testar se uma variavel eh nula da seguinte forma
+    // if (p == null) -1 else p.length
+    // ou
+    println(p?.length ?: -1)
+}
+
 fun main(args: Array<String>) {
     testLetOperator()
+    testElvisOperator(null)
+    testElvisOperator(readLine())
 }
