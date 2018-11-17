@@ -1,0 +1,3 @@
+rootProject.name = 'natkotlin'
+
+include 'natkotlin-common', 'natkotlin-jvm', 'natkotlin-js'
