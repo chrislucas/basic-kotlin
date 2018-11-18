@@ -17,7 +17,7 @@ open class Point2D(private val x: Double, private val y: Double) {
     }
 
     override fun toString(): String {
-        return "${x},${y}";
+        return "$x,$y";
     }
 }
 

@@ -2,6 +2,7 @@ package basics.clazz
 
 import kotlin.math.sqrt
 
+
 open class Point2D(open val x: Double, open val y: Double) {
 
     /**
@@ -19,13 +20,17 @@ open class Point2D(open val x: Double, open val y: Double) {
     override fun toString(): String {
         return "$x, $y";
     }
+
+
 }
 
 /**
  * https://kotlinlang.org/docs/reference/functions.html#infix-notation
  * Podemos criar funcao infix como funcao de extensao
+ *
+ * // kotlin.math.sqrt
  * */
-infix fun Point2D.distance(q: Point2D): Double = sqrt((x - q.x) * (x - q.x) + (y - q.y) * (y - q.y) )
+infix fun Point2D.distance(q: Point2D): Double = sqrt((x - q.x) * (x - q.x) + (y - q.y) * (y - q.y))
 
 
 fun main(args: Array<String>) {
