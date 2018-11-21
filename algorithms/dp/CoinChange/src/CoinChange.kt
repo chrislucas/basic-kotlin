@@ -54,7 +54,7 @@ fun topDown(i: Int, k: Int, s: Array<Int>) : Int {
 }
 
 fun bottomUp1(k: Int, s: Array<Int>): Int {
-    val i = s.size
+    val coins = s.size
     /**
      * usando uma tabela para abordagem bottomUp
      * memo[sub-problemas 0..k][modeas do conjunto S]
@@ -62,13 +62,13 @@ fun bottomUp1(k: Int, s: Array<Int>): Int {
     val memo = array2D(k+1, i) { 0 }
     // para k == 0 a resposta sera 1 independete do conjunto de moedas
     // a resposta eh 1 pq nao usamos nenhuma moeda, ou seja conjunto vazio de S
-    for (idx in 0 until i)
+    for (idx in 0 until coins)
         memo[0][idx] = 1
 
     // v-esima valor de k de 1..k
     for(v in 1 .. k) {
         // c-esima moeda do conjunto S
-        for(c in 0 until i) {
+        for(c in 0 until coins) {
             // verificando se a c-esima moeda cabe na v-esima sub solucao do problema
             val p = if (v - s[c] >= 0) memo[v-s[c]][c] else 0
             // contando a quantidade de moedas sem incluir a c-esima moeda
@@ -76,7 +76,7 @@ fun bottomUp1(k: Int, s: Array<Int>): Int {
             memo[v][c] = p + q
         }
     }
-    return memo[k][i-1]
+    return memo[k][coins-1]
 }
 
 
