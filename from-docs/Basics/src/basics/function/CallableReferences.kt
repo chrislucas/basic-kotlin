@@ -13,6 +13,9 @@ fun testCallableReferenceRegex() {
 }
 
 
+/**
+ * Function reference
+ * */
 fun isPowerOf2(x: Long) = x.and(x-1) == 0L
 
 

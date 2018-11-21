@@ -1,0 +1,5 @@
+https://www.geeksforgeeks.org/min-cost-path-dp-6/
+https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+
+solving dp
+https://www.geeksforgeeks.org/solve-dynamic-programming-problem/
