@@ -26,6 +26,22 @@ fun testMutableMap() {
 }
 
 
+fun testFnHashMap() {
+    val mMap = hashMapOf<Char, Int>()
+    mMap.let {
+        val text = "Returns a list containing all elements of the original collection and then all elements of the given "
+        val lhm = it
+        for (c in text) {
+            if (lhm[c] != null)
+                lhm[c] = lhm[c]!!.plus(1)
+            else
+                lhm[c] = 1
+        }
+    }
+    println(mMap)
+}
+
+
 fun testMutableList() {
     val mutableList = MutableList(5) { it -> MutableList(5) { 0 } }
 
@@ -45,5 +61,5 @@ fun immutableList() {
 
 
 fun main(args: Array<String>) {
-
+    testFnHashMap()
 }
