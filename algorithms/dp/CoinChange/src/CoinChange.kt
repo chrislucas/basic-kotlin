@@ -59,7 +59,7 @@ fun bottomUp1(k: Int, s: Array<Int>): Int {
      * usando uma tabela para abordagem bottomUp
      * memo[sub-problemas 0..k][modeas do conjunto S]
      * */
-    val memo = array2D(k+1, i) { 0 }
+    val memo = array2D(k+1, coins) { 0 }
     // para k == 0 a resposta sera 1 independete do conjunto de moedas
     // a resposta eh 1 pq nao usamos nenhuma moeda, ou seja conjunto vazio de S
     for (idx in 0 until coins)
