@@ -36,11 +36,32 @@ class Point2D {
 
 fun simpleTestAlsoFn() {
     val test = "Um texto qualquer para o test1"
-    val rsTest = test.also { it.subSequence(0..2) }
-    val test2 = "Um texto qualquer maroto"
-    val rsTest2 = test2.let { it.subSequence(0..1) }
+    /**
+     * a funcao 'also' eh executada atraves de uma instancia de um objeto 'T' () e
+     * toma como argumento uma funcao 'F'. A funcao 'F' por sua vez toma como
+     * argumento um objeto 'T'. a funcao also retorna 'this', que eh a referencia
+     * a instancia que a chamou
+     * */
 
+    val op: (it: String) -> CharSequence = { it.subSequence(0..2) }
+    val rsTest = test.also { op(it) }
+    // rsTest == test uma vez que also retorna 'this' o valor
+    // passado para funcao op(String) pode ate mudar, mas isso
+    // nao sera retornado por 'also'
     println("$test, $rsTest, ${test == rsTest}")
+
+
+    val test2 = "Um texto qualquer maroto"
+    /**
+     * a funcao 'let' eh executada a partir de uma instancia de um objeto T
+     * e recebe uma funcao por argumento F. 'F 'toma como argumento 'T' e retorna
+     * um valor do tipo 'T'
+     * */
+
+    val op1 : (i: String) -> String = { it.substring(0..1) }
+    val rsTest2 = test2.let { op1(it) }
+
+
     println("$test2, $rsTest2")
 }
 
@@ -57,7 +78,8 @@ fun testAssignClassPropertiesWithAlso() {
 }
 
 fun main(args: Array<String>) {
-    testAssignmentWithAlsoFun()
+    simpleTestAlsoFn()
+    //testAssignmentWithAlsoFun()
 }
 
 fun testAssignmentWithAlsoFun() {
@@ -71,7 +93,11 @@ fun testAssignmentWithAlsoFun() {
         }
         q
     };
-    var p: Int
-    fun getP () = fb(10).also { p = it }
-    println( getP() )
+    val op: (i: Int) -> Int = { it -> it and 1 }
+    // aqui a funcao 'also' eh aplicada no retorno da funcao fb
+    // porem also retorna o valor de fb.
+    val fn = fb(10).also { op(it) }
+    println(fn)
+    //fun getP() = fb(10).also {  }
+    //println( getP() )
 }
