@@ -11,7 +11,6 @@ fun main(args: Array<String>) {
         val t = v.toString()
         //
         t.substring(0, t.lastIndex) + t.last().toString().toUpperCase()
-
     }
 
     println(cName.joinToString("*", limit = 3, truncated = "...", transform = fn))

@@ -31,7 +31,7 @@ fun binaryOpInteger(p: Int, q: Int, op : Int.(q: Int) -> Int) : Int {
 
 // lambda
 // https://kotlinlang.org/docs/reference/lambdas.html
-val decToBin2 = {
+val anonDecToBin = {
     v : Int ->
     var v = v
     val s = StringBuilder()
@@ -42,8 +42,11 @@ val decToBin2 = {
     s.toString().reversed()
 }
 
+val extIntToBin: Int.() -> String = anonDecToBin
+
 // extension function
-fun Int.toBin() : String = decToBin2(this)
+fun Int.toBin() : String = anonDecToBin(this)
+
 fun Int.isOdd() : Boolean = this and 1 > 0
 
 fun testFnWithReceiver() {
@@ -62,7 +65,7 @@ fun testFnWithReceiver() {
 }
 
 
-fun testLetFun() {
+fun relationLetAndRunScopeFunction() {
     /**
      * Scope functions levam o mesmo conceito de high-order function.
      *
@@ -73,6 +76,12 @@ fun testLetFun() {
     // public inline fun <T, R> T.let(block: (T) -> R): R
 
     println(10.let { it and 1 })
+    println( 127.run { toBin() } )
+    println( 127.let { extIntToBin(it) } )
+    println( 15.run(extIntToBin) )
+    println( 127.run(anonDecToBin) )
+    println( 23.extIntToBin() )
+    println( 34.toBin() )
 
     // callable reference ou Feature Literals
     /**
@@ -80,14 +89,14 @@ fun testLetFun() {
      * */
 
     // Pesquisar por KProperty
-    val op = ::decToBin2
+    val op = ::anonDecToBin
     // retorna uma funcao
     val rs = 10.let { op.call() }
     println(rs(127))
     // retorna o retultado da funcao decToBin2
     println(127.let { it::toBin.call()})
     //
-    println(127.let { decToBin2(it) } )
+    println(127.let { anonDecToBin(it) } )
 
     // KFunction<Boolean>
     val rs2= 10.let { return@let it::isOdd }
@@ -102,5 +111,5 @@ fun testLetFun() {
 fun main(args: Array<String>) {
     //testHigherOrderFunTable()
     //testFnWithReceiver()
-    testLetFun()
+    relationLetAndRunScopeFunction()
 }

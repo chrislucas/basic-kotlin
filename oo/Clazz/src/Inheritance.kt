@@ -25,14 +25,7 @@ open class Point3F(x: Double, y: Double, var z: Double) : Point2F(x, y) {
     }
 }
 
-class Point4F :  Point3F {
-    private var t: Double
-
-    constructor(x: Double, y: Double, z: Double, t: Double) : super(x, y, z) {
-        this.z = z
-        this.t = t
-    }
-
+class Point4F(x: Double, y: Double, z: Double, private var t: Double) : Point3F(x, y, z) {
     override fun toString(): String {
         return "P($x, $y, $z, $t)"
     }

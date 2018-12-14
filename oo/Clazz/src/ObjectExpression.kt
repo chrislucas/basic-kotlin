@@ -3,11 +3,8 @@
  *
  * */
 
-
-
 // Object Declaration
 object Triangle {
-
     fun getId(): String {
         return "Triangle"
     }

@@ -15,8 +15,8 @@ fun testApplyFunScope() {
      * enquanto also recebe uma funcao F cujo argumento eh 'T')
      * da mesma forma que let e run
      * */
-    val op: Int.() -> Int = { this xor 0xf }
-    val rs = value.apply { print("Op-apply : ${op()} ") }
+    val extFunction: Int.() -> Int = { this xor 0xf }
+    val rs = value.apply { print("Op-apply : ${extFunction()} ") }
     println("Apply: $rs")
 
     /**
@@ -25,8 +25,8 @@ fun testApplyFunScope() {
      * e essa funcao retorna pode retornar qualquer valor, uma vez
      * que also retorna 'this' que eh a referecia ao objeto 'T'
      * */
-    val op1: (i: Int) -> Int = { it xor 0xf }
-    val rs2 = value.also { print("Op1-also: ${op1(it)} ") }
+    val parameterizedFunc: (i: Int) -> Int = { it xor 0xf }
+    val rs2 = value.also { print("Op1-also: ${parameterizedFunc(it)} ") }
     println("Also: $rs2")
 
     /**
@@ -42,12 +42,23 @@ fun testApplyFunScope() {
      * uma vez que 'F' eh executada no final de 'run'
      * */
 
-    val q = value.let(op)
-    println("Let: $q")
+    /**
+     * A funcao let e run recebem como argumento uma funcao 'F' e o retorno de ambas
+     * e o retorno de 'F'
+     * */
+
+    val q = value.let { parameterizedFunc(it) }
+    // o interessante eh que a linha abaixo tambem eh possivel
+    val q1 = value.let(extFunction)
+    val q2 = value.let(parameterizedFunc)
+
+    println("Let: $q, $q1, $q2")
 
     // 'run' recebendo uma funcao de extensao da classe Int
-    val k = value.run { op() }
-    println("Run: $k")
+    val k   = value.run { extFunction() }
+    val k1  = value.run(extFunction)
+    val k2  = value.run(parameterizedFunc)
+    println("Run: $k, $k1, $k2")
 }
 
 fun main(args: Array<String>) {
