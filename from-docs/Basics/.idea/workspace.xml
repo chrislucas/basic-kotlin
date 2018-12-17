@@ -21,7 +21,7 @@
       <file leaf-file-name="let_apply_run" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/raw/let_apply_run">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="0">
               <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
               <folding />
             </state>
@@ -82,11 +82,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FindGoogle.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FindGoogle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/basics/regex/FindGoogle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-156">
               <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XrangePancakes.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/basics/math/geom/XrangePancakes.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Array.kt" pinned="false" current-in-tab="false">
+        <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Array.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -111,6 +131,7 @@
       <find>decToBin(</find>
       <find>rs</find>
       <find>Comparator</find>
+      <find>get</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics</dir>
@@ -124,10 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/basics/math/ModularMultiplicative.kt" />
-        <option value="$PROJECT_DIR$/src/basics/math/numbertheory/ModularMultiplicative.kt" />
-        <option value="$PROJECT_DIR$/src/basics/function/BasicVararg.kt" />
-        <option value="$PROJECT_DIR$/raw/number_theory" />
         <option value="$PROJECT_DIR$/src/basics/Point2D.kt" />
         <option value="$PROJECT_DIR$/src/basics/function/TailRecursiveFn.kt" />
         <option value="$PROJECT_DIR$/src/basics/function/Functions.kt" />
@@ -177,6 +194,8 @@
         <option value="$PROJECT_DIR$/src/basics/safety/ElvisOperator.kt" />
         <option value="$PROJECT_DIR$/src/basics/safety/SafetyUseReferences.kt" />
         <option value="$PROJECT_DIR$/src/basics/sintax/range/RangeUtilityFunctions.kt" />
+        <option value="$PROJECT_DIR$/src/basics/math/numbertheory/geom/XrangePancakes.kt" />
+        <option value="$PROJECT_DIR$/src/basics/math/geom/XrangePancakes.kt" />
       </list>
     </option>
   </component>
@@ -236,7 +255,15 @@
               <item name="Basics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="basics" type="462c0819:PsiDirectoryNode" />
-              <item name="interop" type="462c0819:PsiDirectoryNode" />
+              <item name="math" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Basics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basics" type="462c0819:PsiDirectoryNode" />
+              <item name="math" type="462c0819:PsiDirectoryNode" />
+              <item name="numbertheory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Basics" type="b2602c69:ProjectViewProjectNode" />
@@ -276,6 +303,9 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="basics.math" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\function\functionscope" />
       <recent name="C:\Users\r028367\Documents\repositories\github\basic-kotlin\from-docs\Basics\src\basics\clazz" />
@@ -612,6 +642,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="260" y="23" width="1440" height="815" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -635,7 +666,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22753623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -921,21 +952,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Date.java" />
-    <entry file="file://$PROJECT_DIR$/src/basics/function/functionscope/BasicLet.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/common/generated/_Strings.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="1251" column="52" lean-forward="false" selection-start-line="1251" selection-start-column="52" selection-end-line="1251" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/basics/function/BasicLambda2.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1089,6 +1105,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,7 +1136,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/raw/let_apply_run">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="0">
           <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
           <folding />
         </state>
@@ -1205,6 +1222,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="895">
           <caret line="142" column="11" lean-forward="false" selection-start-line="142" selection-start-column="11" selection-end-line="142" selection-end-column="11" />
+          <folding>
+            <element signature="e#5293#5294#0" expanded="false" />
+            <element signature="e#5345#5346#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1293,6 +1314,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-156">
           <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Array.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/collections/ArraysJVM.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="34" column="70" lean-forward="false" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basics/math/geom/XrangePancakes.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
           <folding />
         </state>
       </provider>
