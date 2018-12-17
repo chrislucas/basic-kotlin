@@ -60,7 +60,6 @@ fun testFnWithReceiver() {
         s.toString().reversed()
     }
     println(bin)
-
     println(binaryOpInteger(127, 3) { q -> this.rem(q) })
 }
 
@@ -76,12 +75,12 @@ fun relationLetAndRunScopeFunction() {
     // public inline fun <T, R> T.let(block: (T) -> R): R
 
     println(10.let { it and 1 })
-    println( 127.run { toBin() } )
-    println( 127.let { extIntToBin(it) } )
-    println( 15.run(extIntToBin) )
-    println( 127.run(anonDecToBin) )
-    println( 23.extIntToBin() )
-    println( 34.toBin() )
+    println(127.run { toBin() })
+    println(127.let { extIntToBin(it) })
+    println(15.run(extIntToBin))
+    println(127.run(anonDecToBin))
+    println(23.extIntToBin())
+    println(34.toBin())
 
     // callable reference ou Feature Literals
     /**
