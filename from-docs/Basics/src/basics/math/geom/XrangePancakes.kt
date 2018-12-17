@@ -1,4 +1,4 @@
-package basics.ma th.geom
+
 /**
  * https://www.hackerrank.com/challenges/xrange-and-pizza/problem
  * */
@@ -11,8 +11,8 @@ fun rotator(k: Int) = (360*k) / 2
 fun execute(n: Int, m: Int) {
     val size = if (n and 1 == 1) n else (2 * n)
 
-    var rotates =  Array<Int>(size) { 0 }
-    var flips =  Array<Int>(size) { 0 }
+    val rotates =  Array<Int>(size) { 0 }
+    val flips =  Array<Int>(size) { 0 }
 
     for ( i in 0 until m) {
         val values = readLine()?.split(" ")?.map { it.toInt() }?.toTypedArray()
