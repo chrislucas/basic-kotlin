@@ -38,11 +38,23 @@ fun testDownTo() {
     for ( i in 10.downTo(10)) {
         print(String.format(" %d", i))
     }
-    println()
+    println("")
     for (i  in 'z'.downTo('a').filter { matches(it, "[^aeiou]".toRegex()) }) {
         print(String.format(" %c", i) )
     }
-    println()
+    println("")
+}
+
+
+fun testCharRange() {
+    val t: (ch: Char) -> CharSequence = { it.toString() }
+    val atoz = ('a' .. 'z').step(4).joinToString(separator = "|", transform = t)
+    println(atoz)
+
+
+    println(CharProgression.fromClosedRange('z', 'a',  -2).joinToString(separator = "|", transform = t))
+    println(CharProgression.fromClosedRange('z', 'c', -1).toList().toCharArray())
+    println('z'.downTo('a').toList().toCharArray())
 }
 
 
@@ -62,5 +74,5 @@ fun testStep() {
 }
 
 fun main(args: Array<String>) {
-    testReversed()
+    testCharRange()
 }
