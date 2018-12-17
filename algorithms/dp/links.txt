@@ -1,0 +1,35 @@
+https://a2oj.com/category?ID=33
+
+Estudos
+https://github.com/kobusgiovanna/camp-ufrgs-2018/tree/master/dia1-pd
+
+
+Linear Recurrence Relations
+https://brilliant.org/wiki/linear-recurrence-relations/
+https://discuss.codechef.com/questions/80783/solving-linear-recurrence-for-programming-contest
+
+Matrix Power problems 
+https://a2oj.com/Category.jsp?ID=32
+
+Odd even conditional function on Matrix exponentiation
+http://codeforces.com/blog/entry/53202
+
+Coin Change problems 
+https://a2oj.com/category?ID=130
+https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
+
+0-1 Knapsack Problem | DP-10
+https://pt.wikipedia.org/wiki/Problema_da_mochila
+https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+https://www.hackerearth.com/practice/notes/the-knapsack-problem/
+
+0/1 Knapsack problems 
+https://a2oj.com/category?ID=125
+https://www.a2oj.com/contest?ID=33614
+
+Backtracking | Introduction
+https://www.geeksforgeeks.org/backtracking-introduction/
+https://www.geeksforgeeks.org/backtracking-algorithms/
+
+https://codeforces.com/blog/entry/20935
+https://codeforces.com/blog/entry/20935

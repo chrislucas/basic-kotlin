@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StartActivities</string>
+    <string name="button_start_activity">Iniciar Activity</string>
+</resources>
