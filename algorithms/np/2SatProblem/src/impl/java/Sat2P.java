@@ -125,9 +125,9 @@ public class Sat2P {
             , {new Node(2, true), new Node(2, true), new Node(2, false), new Node(2, false)}
         };
 
-        System.out.println(isSatisfiable(a[0], b[0], 5));
-        System.out.println(isSatisfiable(a[1], b[1], 3));
-        System.out.println(isSatisfiable(a[2], b[2], 2));
+        //System.out.println(isSatisfiable(a[0], b[0], 5));
+        //System.out.println(isSatisfiable(a[1], b[1], 3));
+        //System.out.println(isSatisfiable(a[2], b[2], 2));
         System.out.println(isSatisfiable(a[3], b[3], 2));
     }
 
