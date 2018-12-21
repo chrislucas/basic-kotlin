@@ -39,6 +39,7 @@ public class BasicGenericsContraVariant {
     private static void testInvarianceInGenericType() {
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(new Transaction() {});
+        transactions.add(new Deposit() {});
 
         /**
          * Com o wildcar ? super T podemos tornar um tipo generico em contravariante
@@ -52,9 +53,8 @@ public class BasicGenericsContraVariant {
         withDrawals.add(new SavingAccountWithDrawal());
         withDrawals.add(new SavingAccountWithDrawal());
 
-        Transaction t = (Transaction) withDrawals.get(0);
-
-
+        // Funciona
+        //Transaction t = (Transaction) withDrawals.get(0);
 
 
         // Nao podemos adicionar a lista a lista um outro tipo que nao SavingAccountWithDrawal
