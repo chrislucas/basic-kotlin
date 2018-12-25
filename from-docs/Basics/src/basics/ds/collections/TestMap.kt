@@ -7,9 +7,8 @@ import kotlin.math.sqrt
  *
  * */
 
-
 fun isPrime(i: Int) : Boolean {
-    if ( i < 2)
+    if (i < 2)
         return false
     else if((i > 2 && i % 2 == 0) || (i > 3 && i % 3 == 0))
         return false

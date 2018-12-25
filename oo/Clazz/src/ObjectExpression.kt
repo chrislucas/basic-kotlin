@@ -3,11 +3,8 @@
  *
  * */
 
-
-
 // Object Declaration
 object Triangle {
-
     fun getId(): String {
         return "Triangle"
     }
@@ -39,27 +36,17 @@ interface Geom {
 
 
 class Square {
-
-     val l: Double
-
-    constructor(l: Double) {
-        this.l = l
-    }
-
+    val l: Double
+    constructor(l: Double) { this.l = l }
 
     /**
      * Companion Object podem implementar interfaces ou ser especializacoes
-     * de outras classes
+     * de outras classes, isso porque companion object sao membros de instancia
+     * de objetos da classe que os contem.
      * */
     companion object : Geom, Polygon() {
-
-        override fun area(): Double {
-            return 0.0
-        }
-
-        override fun rotate() {
-
-        }
+        override fun area(): Double { return 0.0 }
+        override fun rotate() {}
     }
 }
 
