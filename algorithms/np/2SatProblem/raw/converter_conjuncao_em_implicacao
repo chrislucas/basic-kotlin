@@ -1,0 +1,30 @@
+// http://sites.millersville.edu/bikenaga/math-proof/truth-tables/truth-tables.html
+A e B
+T e T = T
+T e F = F
+F e T = F
+F e F = F
+
+
+A ou B
+T ou T = T
+T ou F = T
+F ou T = T
+F ou F = F
+
+A -> B
+T -> T = T
+T -> F = F
+F -> T = T
+F -> F = T
+
+
+A ou B = (~A -> B) e (~B -> A)
+
+~A -> B     e    ~B -> A
+F -> T = T      F -> T = T  = T
+F -> F = T      F -> F = T  = T
+T -> T = T      T -> T = T  = T
+T -> F = F      T -> F = F  = F
+
+
