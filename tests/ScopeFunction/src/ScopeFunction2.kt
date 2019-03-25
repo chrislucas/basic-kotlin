@@ -7,11 +7,12 @@ import java.util.*
  * Diferenca entre scope function applu, also, let, run e with em relacao a
  * outras funcoes que criam tambem seu proprio escopo como forEach, Filter, map entre outras:
  *
- * As ultimas sao aplicadas a elementos do tipo iterador, elas não são funções e escopo (scope functions)
- * , alem de criarem o seu proprio escopo de
- * funcao elas passam por cada elemento de uma
- * colecao e aplicam ou nao uma operacao em cada elemento. As scope function also, let e etc
- * simplesmente criam um escopo de funcao separado, elas sao mais simples do que as funcoes de iteracao
+ * As ultimas sao aplicadas a elementos do tipo iterador, elas não são funções de escopo (scope functions)
+ * Elas criam o seu proprio escopo de funcao e iteram por cada elemento de uma
+ * colecao e aplicam ou nao uma operacao em cada elemento.
+ *
+ * As scope function also, let e etc simplesmente criam o seu proprio escopo de funcao e nada mais. Elas sao mais
+ * simples do que as funcoes de iteracao
  *
  *
  * */
@@ -37,6 +38,17 @@ import java.util.*
  *
  * assinatura
  * public inline fun <T> T.apply(block: T.() -> Unit): T
+ *
+ * As funcoes apply, run e with tem como elemento em comum
+ * receber como argumento uma funcao T.(), isso e denominado
+ * no linguagem kotlin uma "Function literals with receive"
+ *
+ * fonte: (https://kotlinlang.org/docs/reference/lambdas.html
+ * , https://try.kotlinlang.org/#/Kotlin%20Koans/Builders/Function%20literals%20with%20receiver/Task.kt)
+ * Elas tem o comportamento de funcoes de extensao, possibilitando o acesso dos atributos
+ * publicos do objeto receptor (receiver) dentro do escopo da funcao.
+ *
+ * Exemplo simples -> Point().apply { this.x = 10, this.y = 10}
  *
  * */
 
