@@ -37,7 +37,7 @@ fun <R> applyOp(p : () -> R)  : R = p()
  * */
 fun <O, R> O.applyOpWithReceiver(p : O.() -> R)  : R = p()
 
-fun testAnonymoysFun() {
+fun testAnonymousFun() {
 
     /**
      * https://kotlinlang.org/docs/reference/lambdas.html#invoking-a-function-type-instance
@@ -62,7 +62,7 @@ fun testAnonymoysFun() {
 }
 
 fun main(args: Array<String>) {
-    testAnonymoysFun()
+    testAnonymousFun()
 
     // teste de extension function
     println(    applyOp { 10.isOdd() } )
