@@ -1,0 +1,37 @@
+Kotlin generics
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/generics.html
+ - ao declarar uma classe como generica, podemos usar o tipo generico como
+ tipo "comum" para definir membros de classe, argumentos de funcao ou retornos de funcoes
+
+ - podemos criar 'funcoes membros' que criem mais parametros genericos do que os definidos pela
+ classe
+
+Constraints - Restricoes ao definir um tipo generico
+
+- podemos criar classes genericas cujos tipos genericos possuem restricoes
+exemplo Class Box<T: Comparable>(val value: T)> = classe Box possui uma parametrizacao generica
+que deve ser uma subclasse ou implementacao de Comparable
+
+Variancia
+
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/generics.html#variance
+Exemplo: Temos num sistema a classe Apple e e Fruit, onde Apple eh um subclasse da Fruit
+Caso exista classes genericas Generic<Fruit> e Generic<Apple>, a segunda nao poderia ser
+subclasse da primeira e ao implementar algo dessa natureza deve quebrar em tempo de compilacao
+ senao poderiamos criar implementacoes da seguinte forma
+
+ fun add(ArrayList<Fruit>, Fruit)
+
+list = ArrayList<Apple>
+add(list, Pear())       // aqui ocorre um erro de compilacao
+var apple = list[0]
+
+
+
+https://discuss.kotlinlang.org/t/generic-object-creation/1663/7
+
+Pesquisar sobre "problem with type mismatch generic inner class"
+
+Questoes interesantes sobre possiveis problemas futuros
+How do I use paramertized generic types in an inner class?
+https://stackoverflow.com/questions/2009809/how-do-i-use-paramertized-generic-types-in-an-inner-class/2009868
