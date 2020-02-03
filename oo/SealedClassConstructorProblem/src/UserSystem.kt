@@ -2,7 +2,7 @@
  * Um exemplo para explorar a sintaxe e p qie a linguagem tem a oferecer
  * */
 
-sealed class Level  constructor(@IntLevel val levelId: Int) {
+sealed class Level constructor(@IntLevel val levelId: Int) {
     class FullLevel() : Level(Full)
     class AdminLevel() : Level(Admin)
     class DeveloperLevel() : Level(Dev)
@@ -11,7 +11,7 @@ sealed class Level  constructor(@IntLevel val levelId: Int) {
     companion object {
         @Retention(AnnotationRetention.SOURCE)
         annotation class IntLevel
-        const val Full = 0
+        const val Full : Int = 0
         const val Admin = 1
         const val Dev = 2
         const val Guest = 3

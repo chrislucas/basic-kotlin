@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cf7760e-443f-408d-9d7d-08e4180047a1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/CurrencyMoneyAPI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/src/Dinheiro.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/src/Moeda.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/src/Produto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/src/ProdutoUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../CurrencyMoneyAPI/src/TestCurrencyApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/DisjointSet/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/StateMachine/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/StateMachine/StateMachine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/StateMachine/links/automatos-finitos" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/StateMachine/src/DFA.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../graph/StateMachine/src/pattern_search/Naive.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/Heap.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/raw/generics" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/raw/links" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/src/BinarySearchTree.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/src/samples/TestGenerics.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../trees/Heap/src/samples/TestInnerClass.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/DelegatedProperties/DelegatedProperties.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/DelegatedProperties/src/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/SealedClass/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/SealedClass/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/SealedClass/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/SealedClass/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../oo/SealedClassConstructorProblem/SealedClassConstructorProblem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/META-INF/CollectionsAndSequencies.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/META-INF/CollectionsAndSequencies.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/SampleKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/SampleKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$anounModI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$anounModI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$fn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$main$fn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$modAlias$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$modAlias$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$modI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt$modI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/FunctionsKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/TypealiasKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/functions/TypealiasKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/hof/HOFKt$combineExt$rs$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/hof/HOFKt$combineExt$rs$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/hof/HOFKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/hof/HOFKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt$test1$op1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt$test1$op1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt$test2$op2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt$test2$op2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CollectionsAndSequencies/inline/InlineFunKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/Typealias.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/Typealias.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../graph/DisjointSet/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../graph/DisjointSet/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../oo/DelegatePattern/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../oo/DelegatePattern/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../oo/SealedClass/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../oo/SealedClass/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4cf7760e-443f-408d-9d7d-08e4180047a1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
