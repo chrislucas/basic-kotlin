@@ -5,3 +5,11 @@ Caracteristicas de uma sealed class
 -> Nao possuem construtores publicos, seus construtores sao privados por padrao
 -> podem possuir subclasses mas essas devem ser internas ou estarem no mesmo arquivo que sua superclasse
 -> sub sealed classes podem possuir subclasses que nao sao definidas no mesmo arquivo que elas
+
+Artigo interessante
+https://antonioleiva.com/sealed-classes-kotlin/
+https://proandroiddev.com/kotlin-sealed-classes-enums-with-swag-d3c4b799bcd4
+https://medium.com/tompee/idiomatic-kotlin-sealed-classes-bf1772d9d607
+
+Discussao para leitura
+https://discuss.kotlinlang.org/t/sealed-inner-classes/2371
