@@ -1,2 +1,42 @@
 https://kotlinlang.org/docs/reference/delegated-properties.html#lazy
 
+Keywords
+https://kotlinlang.org/docs/reference/keyword-reference.html#soft-keywords
+Soft keyword -> Em kotlin as "soft keywords" agem dentro de um contexto especifico
+e podem ser usadas como identificadores em outros contextos
+Exemplo de keywords
+"by":
+    - Delegando uma implementacao de uma interface para um objeto
+      (Delegation: https://kotlinlang.org/docs/reference/delegation.html)
+      interface Base {
+        fun execute()
+      }
+
+      class BaseImpl : Base {
+        override fun execute() {
+            // faz qualquer coisa
+        }
+      }
+
+        // o uso do "by" delegando para a classe "ClassQualquer" o comportamento
+        // da instancia da interface Base que eh passada em seu construtorr
+      class ClasseQualquer(behavior: Base) : Base by behavior
+
+      fun main() {
+        val base = BaseImpl()
+        val clazz = ClasseQualquer(base)
+        clazz.execute()
+      }
+     - Delegar a implementacao de acesso a propriedades de um objeto para outro objeto
+       (https://kotlinlang.org/docs/reference/delegated-properties.html)
+       Exemplos
+       - by lazy {}
+       - by CustomDelegate(parametros caso necessario)
+       Em momentos que o acesso a um determinado membro de uma classe pode ser delegado a um outro objeto. Com
+       esse recurso podemos implementar alguns recursos como
+       - lazy properties: O valor eh computado apenas no primeiro acesso
+       , nos proximos temos o valor retornado diretamente (cache)
+       -propriedades observaveis: Implementacao de listeners que notificam mudancas do membro da classe observavel
+       - armazenamento de propriedades em mapas ao inves de membros separadas para cada propriedade
+
+

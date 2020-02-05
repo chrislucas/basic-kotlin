@@ -1,3 +1,5 @@
+package models
+
 /**
  * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html
  *
@@ -5,7 +7,7 @@
  * instancia da interface Lazy<T> que funciona como um 'delegate'
  *
  * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-lazy/index.html
- *  @link kotlin.Lazy
+ *  @see [kotlin.lazy]
  * Interface Lazy: representa um valor inicializado by lazy function
  * Por padrao 'lazy properties' eh 'synchronized'
  *
