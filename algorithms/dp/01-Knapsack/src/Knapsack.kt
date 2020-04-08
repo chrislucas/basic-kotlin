@@ -6,7 +6,6 @@
 
 
 open class Item(val w: Int, val v: Int) {
-
     override fun toString(): String {
         return String.format("[w: %d, v: %d]", w, v)
     }

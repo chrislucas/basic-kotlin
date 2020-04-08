@@ -32,15 +32,15 @@ open class BaseClass(open val str: String? = null){
     val str2: String? = null
 
     init {
-        println("Valor de this no bloco de inicializacao da classe BaseClass: $this")
-        println("Valor de str2 in init block: ${str2}")
+        println("Valor de this no bloco de inicializacao da classe BaseClass: ${javaClass.name}")
+        println("Valor de str2 in init block: $str2")
     }
 
 
     constructor() : this(null) {
         // Pesquisar sobre esse vazamento leaking 'this' in constructor of non-final class
-        println("Valor de this no construtor da classe BaseClass: $this")
-        println("Valor de str2 no construtor da classe BaseClass: $str2}")
+        println("Valor de this no construtor da classe BaseClass: ${javaClass.name}")
+        println("Valor de str2 no construtor da classe BaseClass: $str2")
     }
 }
 

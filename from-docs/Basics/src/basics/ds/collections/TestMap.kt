@@ -8,10 +8,12 @@ import kotlin.math.sqrt
  * */
 
 fun isPrime(i: Int) : Boolean {
-    if (i < 2)
+    if (i < 2) {
         return false
-    else if((i > 2 && i % 2 == 0) || (i > 3 && i % 3 == 0))
+    }
+    else if(i > 2 && i % 2 == 0 || (i > 3 && i % 3 == 0)) {
         return false
+    }
     val lim = sqrt(i * 1.0).toInt()
     for (value in 5 .. lim) {
         if (i % value == 0)
