@@ -10,7 +10,7 @@ fun <T> intersect(cA: Array<Data<T>>, cB: Array<Data<T>>
     val grouping = mutableMapOf<Int, IndexArray>()
 
     cA.forEachIndexed() { index, element ->
-        grouping[element.id]?.let { arrIndex ->
+        grouping[element.id]?.safeLet { arrIndex ->
             arrIndex.add(index)
         }.orElse {
             grouping[element.id] = mutableListOf(index)
@@ -38,8 +38,12 @@ fun <T> intersect(cA: Array<Data<T>>, cB: Array<Data<T>>
 fun testSample1() {
     val l1 = arrayOf(Data(1, "a")
             , Data(2, "b")
+            , Data(2, "2b")
+            , Data(2, "3b")
+            , Data(2, "4b")
             , Data(3, "c")
-            , Data(4, "e")
+            , Data(3, "ccc")
+            , Data(4, "d")
     )
 
     val l2 = arrayOf(Data(1, "a2")
@@ -47,7 +51,7 @@ fun testSample1() {
             , Data(2, "b2")
             , Data(2, "b3")
             , Data(3, "c2")
-            , Data(4, "e2")
+            , Data(4, "d2")
     )
 
     val comp :  (Data<String>, Data<String>) -> Boolean = {

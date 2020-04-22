@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0a441f0-f208-4fd5-819e-1b47c3095e8c" name="Default Changelist" comment="" />
+    <list default="true" id="e0a441f0-f208-4fd5-819e-1b47c3095e8c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/raw/refs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solution/GenericIntersect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/solution/GenericIntersect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solution/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/solution/CollectionHigherOrderFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solution/tests/TestGenericIntersect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/solution/tests/TestGenericIntersect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/out/production/basic-kotlin/META-INF/basic-kotlin.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/out/production/basic-kotlin/META-INF/basic-kotlin.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/out/production/basic-kotlin/solution/TestLeapYearKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/out/production/basic-kotlin/solution/TestLeapYearKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestLeapYear/src/solution/TestLeapYear.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TestLeapYear/src/solution/TestLeapYear.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +27,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1agW1HjodjOoFwqywI42EeoLdqR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -29,7 +47,7 @@
       <recent name="$PROJECT_DIR$/src/solution/tests" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.SampleIntersectCollectionsKt">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -62,6 +80,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestGenericIntersectKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="SampleIntersectArrays" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="solution.tests.TestGenericIntersectKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -83,6 +114,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.SampleIntersectCollectionsKt" />
+        <item itemvalue="Kotlin.TestGenericIntersectKt" />
       </list>
     </recent_temporary>
   </component>
@@ -100,60 +132,62 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="455" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587570635969">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="455" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1587570635969" />
     <state x="502" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1587229929196">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="502" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1587229929196" />
-    <state width="1358" height="269" key="GridCell.Tab.0.bottom" timestamp="1587567695459">
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587569935204">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587567695459" />
-    <state width="1358" height="269" key="GridCell.Tab.0.center" timestamp="1587567695458">
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1587569935204" />
+    <state width="1358" height="217" key="GridCell.Tab.0.bottom" timestamp="1587572594566">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587567695458" />
-    <state width="1358" height="269" key="GridCell.Tab.0.left" timestamp="1587567695458">
+    <state width="1358" height="217" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587572594566" />
+    <state width="1358" height="217" key="GridCell.Tab.0.center" timestamp="1587572594565">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587567695458" />
-    <state width="1358" height="269" key="GridCell.Tab.0.right" timestamp="1587567695458">
+    <state width="1358" height="217" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587572594565" />
+    <state width="1358" height="217" key="GridCell.Tab.0.left" timestamp="1587572594565">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587567695458" />
-    <state width="1358" height="269" key="GridCell.Tab.1.bottom" timestamp="1587567695460">
+    <state width="1358" height="217" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587572594565" />
+    <state width="1358" height="217" key="GridCell.Tab.0.right" timestamp="1587572594566">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587567695460" />
-    <state width="1358" height="269" key="GridCell.Tab.1.center" timestamp="1587567695459">
+    <state width="1358" height="217" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587572594566" />
+    <state width="1358" height="269" key="GridCell.Tab.1.bottom" timestamp="1587572407465">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587567695459" />
-    <state width="1358" height="269" key="GridCell.Tab.1.left" timestamp="1587567695459">
+    <state width="1358" height="269" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587572407465" />
+    <state width="1358" height="269" key="GridCell.Tab.1.center" timestamp="1587572407465">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587567695459" />
-    <state width="1358" height="269" key="GridCell.Tab.1.right" timestamp="1587567695460">
+    <state width="1358" height="269" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587572407465" />
+    <state width="1358" height="269" key="GridCell.Tab.1.left" timestamp="1587572407465">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1358" height="269" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587567695460" />
+    <state width="1358" height="269" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587572407465" />
+    <state width="1358" height="269" key="GridCell.Tab.1.right" timestamp="1587572407465">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1358" height="269" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587572407465" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1587231574759">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1587231574759" />
+    <state x="385" y="206" width="670" height="676" key="search.everywhere.popup" timestamp="1587572204448">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="206" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1587572204448" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
-          <line>34</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
-          <line>25</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt</url>
           <line>19</line>
@@ -161,12 +195,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt</url>
-          <line>57</line>
+          <line>61</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt</url>
-          <line>62</line>
+          <line>66</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -176,6 +210,36 @@
           <url>file://$PROJECT_DIR$/src/solution/SampleIntersectCollections.kt</url>
           <line>26</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/tests/TestGenericIntersect.kt</url>
+          <line>25</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
+          <line>23</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/CollectionHigherOrderFunctions.kt</url>
+          <line>7</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
+          <line>17</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/solution/GenericIntersect.kt</url>
+          <line>19</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
