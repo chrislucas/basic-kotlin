@@ -9,7 +9,7 @@ fun isLeapYear(year: Long) : Boolean {
 
 fun main(args: Array<String>) {
     var acc = 0
-    for (i in 1800 .. 2018L) {
+    for (i in 1800 .. 2020L) {
         if (isLeapYear(i)) {
             println(i)
             acc++;
