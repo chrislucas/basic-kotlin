@@ -25,7 +25,7 @@ public class TypeErasureProcessEdgeCases {
                         .add(new CompositeSegment(Segment.create(1, 1, 2, 3)))
                         .add(new CompositeSegment(Segment.create(1, -1, 2, -3)))
                         .add(new CompositeSegment(Segment.create(-1, -1, -2, -3)))
-                    .build();
+                        .build();
 
         if (cs != null) {
             cs.iterate(target -> {
@@ -35,26 +35,52 @@ public class TypeErasureProcessEdgeCases {
 
         /**
          * Edge cases
+         * Abaixo segue um exemplo onde de um problema que pode ser percebido somente em tempo de execucao.
+         *
+         * A variável 'c' eh um super tipo de 'cs' porem 'c' nao foi parametrizado.  Todos os metodos
+         * e atributos da instancia de 'c' que usam um tipo generico serao transformados em Object, tornando
+         * o uso deles 'perigoso' numa situacao de tentativa de 'casting' por exemplo, podendo em tempo de execucao
+         * causar um ClassCastingException.
+         * Esse codigo ambiguo pode causar confusao para outros programadores
          * */
         TypeErasureProcess.Composite c = cs;
         if (c != null) {
             TypeErasureProcess.CompositeBuilder builder
                     = new TypeErasureProcess.CompositeBuilder<Segment>(c);
-            builder.add(Segment.create(12,13,14,15));
+            builder.add(Segment.create(12, 13, 14, 15));
             // nao paremetrizar o tipo de variavel nos permite fazer umas bizarrices
             // dessa como adicionar um objeto qualquer, pq no processo de Type Erasuer
             // o argumento Generico passado para o metodo torna-se um Object
             builder.add("10123");
             // ou isso
-            builder.add(new Point2D(10,23));
+            builder.add(new Point2D(10, 23));
 
             c.iterate(target -> {
                 // fazer o casting aqui eh perigoso, pois ja nao temos certeza do que adicionamos
                 // no atributo data
+                try {
+                    Segment o = (Segment)  target.getData();
+                    System.out.printf("%s, %s\n", target, o);
+                } catch (ClassCastException classCastException) {
+                    System.out.printf("\n%s\n", classCastException.getMessage());
+                }
+            });
+            System.out.println("");
+
+            // parametrizando na forma <Segment> nao sera mais possivel
+            // inserir nada diferente de uma instancia de Segment
+            TypeErasureProcess.CompositeBuilder<Segment> sdBuilder =
+                    new TypeErasureProcess.CompositeBuilder<>(c);
+
+            sdBuilder.add(Segment.create(10,20,30,456));
+            // A linha abaixo nao compila, como explicado acima
+            //sdBuilder.add("00000")
+
+            // mas como 'c' nao foi parametrizado, o argumento 'target' ainda eh um Object
+            c.iterate( target ->  {
                 Object o = target.getData();
                 System.out.printf("%s, %s\n", target, o);
             });
-
         }
     }
 
