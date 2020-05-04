@@ -7,7 +7,7 @@ package sample;
 public class TypeErasureProcessEdgeCases {
 
     private static void testSegmentCompositeBuilder() {
-        TypeErasureProcess.Composite<Segment> c = new TypeErasureProcess.CompositeBuilder<Segment>()
+        Composite<Segment> c = new CompositeBuilder<Segment>()
                 .add(Segment.create(1, 1, 2, 3))
                 .add(Segment.create(10, 1, 152, 3))
                 .add(Segment.create(-10, 1, -152, 3))
@@ -21,15 +21,17 @@ public class TypeErasureProcessEdgeCases {
 
     private static void testGenComposeBuilder() {
         CompositeSegment cs =
-                new TypeErasureProcess.GenCompositeBuilder<Segment, CompositeSegment>()
+                new GenCompositeBuilder<Segment, CompositeSegment>()
                         .add(new CompositeSegment(Segment.create(1, 1, 2, 3)))
                         .add(new CompositeSegment(Segment.create(1, -1, 2, -3)))
                         .add(new CompositeSegment(Segment.create(-1, -1, -2, -3)))
                         .build();
 
+        String format2Strings = "%s, %s\n";
+
         if (cs != null) {
             cs.iterate(target -> {
-                //System.out.printf("%s, %s\n", target, target.getData());
+                System.out.printf(format2Strings, target, target.getData());
             });
         }
 
@@ -42,11 +44,24 @@ public class TypeErasureProcessEdgeCases {
          * o uso deles 'perigoso' numa situacao de tentativa de 'casting' por exemplo, podendo em tempo de execucao
          * causar um ClassCastingException.
          * Esse codigo ambiguo pode causar confusao para outros programadores
+         *
+         * Bridge Methods
+         *
+         * Para resolver o caso onde O processo de Type Erasure converte tipos genericos em Object
+         * o compilador cria metodos sinteticos denomiados de 'bridge methods' que realizam conversoes explicitas
+         *
+         *      synthetic method or brigde methods
+         *      public void push(Object value) {
+         *         push((Integer)value);
+         *     }
+     *         public void push(Integer value) {
+         *         super.push(value);
+         *     }
          * */
-        TypeErasureProcess.Composite c = cs;
+        Composite c = cs;
         if (c != null) {
-            TypeErasureProcess.CompositeBuilder builder
-                    = new TypeErasureProcess.CompositeBuilder<Segment>(c);
+            CompositeBuilder builder
+                    = new CompositeBuilder<Segment>(c);
             builder.add(Segment.create(12, 13, 14, 15));
             // nao paremetrizar o tipo de variavel nos permite fazer umas bizarrices
             // dessa como adicionar um objeto qualquer, pq no processo de Type Erasuer
@@ -60,7 +75,7 @@ public class TypeErasureProcessEdgeCases {
                 // no atributo data
                 try {
                     Segment o = (Segment)  target.getData();
-                    System.out.printf("%s, %s\n", target, o);
+                    System.out.printf(format2Strings, target, o);
                 } catch (ClassCastException classCastException) {
                     System.out.printf("\n%s\n", classCastException.getMessage());
                 }
@@ -69,8 +84,7 @@ public class TypeErasureProcessEdgeCases {
 
             // parametrizando na forma <Segment> nao sera mais possivel
             // inserir nada diferente de uma instancia de Segment
-            TypeErasureProcess.CompositeBuilder<Segment> sdBuilder =
-                    new TypeErasureProcess.CompositeBuilder<>(c);
+            CompositeBuilder<Segment> sdBuilder = new CompositeBuilder<>(c);
 
             sdBuilder.add(Segment.create(10,20,30,456));
             // A linha abaixo nao compila, como explicado acima
@@ -79,19 +93,13 @@ public class TypeErasureProcessEdgeCases {
             // mas como 'c' nao foi parametrizado, o argumento 'target' ainda eh um Object
             c.iterate( target ->  {
                 Object o = target.getData();
-                System.out.printf("%s, %s\n", target, o);
+                System.out.printf(format2Strings, target, o);
             });
         }
     }
 
     public static void main(String[] args) {
         testGenComposeBuilder();
-    }
-
-    static class CompositeSegment extends TypeErasureProcess.Composite<Segment> {
-        CompositeSegment(Segment data) {
-            super(data);
-        }
     }
 
     static class Segment {
