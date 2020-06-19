@@ -88,22 +88,26 @@ import kotlin.math.sqrt
  * */
 
 fun phi(n: Long) : Long {
-    val limit = sqrt(n * 1.0).roundToLong()
     var cN = n
     var result = n
-    for(i in 2 .. limit) {
+    var i = 2
+    while(i*i <= cN) {
         if (cN % i == 0L) {
+            // fatorando por i-esimo divivel por n
             while (cN % i == 0L) {
                 cN/=i
             }
             result -= (result / i)
         }
+        i++
     }
+    if (cN>1)
+        result -= (result/cN)
     return result
 }
 
 fun testPHIFunctionWithNumbers() {
-    (2 .. 100L).forEach {
+    (100 .. 1000L).forEach {
         println(String.format("%d %d", it, phi(it)))
     }
 }
@@ -132,5 +136,7 @@ private fun isPrimeNumber(i: Long) : Boolean {
 }
 
 fun main() {
+    testPHIFunctionWithPrimeNumbers()
+    println()
     testPHIFunctionWithNumbers()
 }
