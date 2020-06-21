@@ -112,8 +112,8 @@ fun phi(n: Long) : Long {
              * n - (n/p) ou (np - n) / p
              *
              * */
-            result -= (result / p)
-            //result = (result * p - result) / p
+            //result -= (result / p)
+            result = (result * p - result) / p
         }
         p++
     }
@@ -122,8 +122,8 @@ fun phi(n: Long) : Long {
     // outro exemplo eh o numero 513 (3 ^ 3 * 19), 19 um numero primo
     if (cN>1) {
         // euler product - veja comentario no loop acima
-        result -= (result/cN)
-        //result = (result * cN - result) / cN
+        //result -= (result/cN)
+        result = (result * cN - result) / cN
     }
 
     return result
@@ -153,7 +153,10 @@ fun testPHIFunctionWithNumbers() {
     (529 .. 2000L).forEach {
         val r1 = phi(it)
         val r2 = anotherPHIImpl(it)
-        buffer.append(String.format("phi(%d) = %d and anotherFun(%d) = %d %s\n", it, r1, it, r2, r1 == r2))
+        if (r1 != r2) {
+            buffer.append(String.format("phi(%d) = %d and anotherFun(%d) = %d %s\n"
+                , it, r1, it, r2, r1 == r2))
+        }
     }
     IO.writeFile(buffer.toString(), "raw/output.txt")
 }
@@ -183,6 +186,6 @@ private fun isPrimeNumber(i: Long) : Boolean {
 
 fun main() {
     //testPHIFunctionWithPrimeNumbers()
-    println()
+    //println()
     testPHIFunctionWithNumbers()
 }
