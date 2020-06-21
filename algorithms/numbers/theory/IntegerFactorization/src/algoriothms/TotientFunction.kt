@@ -1,13 +1,18 @@
 package algoriothms
 
 
-import kotlin.math.roundToLong
+import java.lang.StringBuilder
 import kotlin.math.sqrt
 
 /**
+ * Calculadora online phi euler
+ * https://www.dcode.fr/euler-totient
+ *
+ *
  * Totient Function
  * https://en.wikipedia.org/wiki/Euler%27s_totient_function
  * https://cp-algorithms.com/algebra/phi-function.html
+ * https://www.geeksforgeeks.org/eulers-totient-function/
  *
  * Funcao Totient ou phi function conta quantos numeros entre [1 e n] sao coprimos com n
  *
@@ -90,31 +95,72 @@ import kotlin.math.sqrt
 fun phi(n: Long) : Long {
     var cN = n
     var result = n
-    var i = 2
-    while(i*i <= cN) {
-        if (cN % i == 0L) {
-            // fatorando por i-esimo divivel por n
-            while (cN % i == 0L) {
-                cN/=i
+    var p = 2
+    while(p*p <= cN) {
+        if (cN % p == 0L) {
+            /**
+             * Fato interessante: Esse condicional so sera verdadeiro para um p primo
+             * pq como p eh usado para fatorar cN e assim todos os numeros compostos P^2 ... p^n
+             * cujo cN eh divisivel ja foram usados na fatoracao
+             * */
+            // fatorando cN por p ate que cN e eliminando todos os numeros compostos que dividem cN
+            while (cN % p == 0L) {
+                cN/=p
             }
-            result -= (result / i)
+            /**
+             * n * (1 - (1/p)) -> Produto de Euler
+             * n - (n/p) ou (np - n) / p
+             *
+             * */
+            result -= (result / p)
+            //result = (result * p - result) / p
         }
-        i++
+        p++
     }
-    if (cN>1)
+    // caso N (cN eh a copia que foi processada), tiver um fator primo maior que sqrt(n)
+    // um caso eh quando N eh primo e o unico numero fator dividivel e ele mesmo
+    // outro exemplo eh o numero 513 (3 ^ 3 * 19), 19 um numero primo
+    if (cN>1) {
+        // euler product - veja comentario no loop acima
         result -= (result/cN)
+        //result = (result * cN - result) / cN
+    }
+
     return result
 }
 
-fun testPHIFunctionWithNumbers() {
-    (100 .. 1000L).forEach {
-        println(String.format("%d %d", it, phi(it)))
+fun anotherPHIImpl(n: Long): Long {
+    var cN = n
+    var p = 2
+    var result = n * 1.0
+    while (p*p<=cN) {
+        if (cN%p==0L) {
+            while (cN%p==0L)
+                cN/=p
+            // euler`s product
+            result *= (1.0 - (1.0/(p*1.0)))
+        }
+        p++
     }
+    if (cN>1) {
+        result *= (1.0 - (1.0/(cN*1.0)))
+    }
+    return result.toLong()
+}
+
+fun testPHIFunctionWithNumbers() {
+    val buffer = StringBuilder()
+    (529 .. 2000L).forEach {
+        val r1 = phi(it)
+        val r2 = anotherPHIImpl(it)
+        buffer.append(String.format("phi(%d) = %d and anotherFun(%d) = %d %s\n", it, r1, it, r2, r1 == r2))
+    }
+    IO.writeFile(buffer.toString(), "raw/output.txt")
 }
 
 fun testPHIFunctionWithPrimeNumbers() {
     var counter = 0
-    (2 .. 1000L).forEach {
+    (81 .. 1000L).forEach {
         i ->
         // a ideia aqui eh testar a propriedade 1)
         if (isPrimeNumber(i)) {
@@ -136,7 +182,7 @@ private fun isPrimeNumber(i: Long) : Boolean {
 }
 
 fun main() {
-    testPHIFunctionWithPrimeNumbers()
+    //testPHIFunctionWithPrimeNumbers()
     println()
     testPHIFunctionWithNumbers()
 }
