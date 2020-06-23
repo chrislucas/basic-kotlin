@@ -1,11 +1,11 @@
-package basic
+package basic.kotlin
 
 class Node<T> () {
     var left: Node<*>? = null
     var right: Node<*>? = null
     var value: T? = null
 
-    private constructor(left: Node<T>,  right: Node<T>) : this() {
+    private constructor(left: Node<T>, right: Node<T>) : this() {
         this.left = left
         this.right = right
     }

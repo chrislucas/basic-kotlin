@@ -1,4 +1,4 @@
-package basic.java;
+package basic.java.com.br.contravariant;
 
 import java.util.ArrayList;
 import java.util.List;

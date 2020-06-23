@@ -1,9 +1,46 @@
+Mocking and stubs
+https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs
+
+Resenha do artigo:
+
+Martin Fowler: Mock eh definido como um objeto "especial" criado para imitar um objeto
+real para testes.
+
+O artigo tem o proposito de demonstra
+    - Como objetos mock
+    - Como mocks ajudam em testes baseado em verificacao de comportamento
+    - Como a comunidade utiliza mocks para desenvolver diferentes estilos de teste
+
+
+  XUnit Testes seguem tipicamente uma sequencia de quatro fases: SETUP, EXERCISE, VERIFY e TEARDOWN
+  SETUP: Configuracao das dependencias do teste
+  EXERCISE: Execucao do metodo que se esta testando
+  VERIFY: Assercao
+  TEARDOWN: despejo dos objetos alocados em memoria. O artigo afirma que essa fase para testes em Java
+  e implicita por conta do GC.
+
+  Durante a construcao do teste existe a parte do sistema que realmente queremos testar e os elementos
+  adjacentes a essa parte. Esses elementos adjacentes nao sao o foco do teste, dessa forma temos a liberdade
+  de cria-los com a informacao minima necessária para que eles existam e cumpram o seu proposito.
+
+  No Exemplo do artigo, num dado testes que avaliava se uma Pedido de um item vindo de um armazem(Objeto Warehouse)
+  era aramzenado numa ordem (Objeto: Order) de pedido. O objeto que se deseja testar e o Order mais para testa-lo
+  precisamos criar um Warehouse. Ao objeto que se quer testar eh dado o nome de Object-Under-Test ou
+  System-Under-Test
+
+
+
 https://github.com/mockk/mockk
 https://blog.kotlin-academy.com/
 
+refs sobre mocking e Mockk
 https://mockk.io/ANDROID.html
-no answer found for: Point2f(#1).euclideanDistance(Point2f(#2))
-Mockk
+https://blog.kotlin-academy.com/mocking-is-not-rocket-science-basics-ae55d0aadf2b
+https://blog.kotlin-academy.com/mocking-is-not-rocket-science-expected-behavior-and-behavior-verification-3862dd0e0f03
+https://blog.kotlin-academy.com/mocking-is-not-rocket-science-mockk-features-e5d55d735a98
+
+
+
 
 Non-Strict and strict Mock
 https://stackoverflow.com/questions/3134108/what-are-strict-and-non-strict-mocks

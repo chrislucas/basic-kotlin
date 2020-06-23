@@ -1,4 +1,4 @@
-package basic.java;
+package basic.java.com.br.covariance.sample.transaction;
 
 import static java.lang.System.*;
 
@@ -16,50 +16,6 @@ import static java.lang.System.*;
  */
 public class BasicCovariantReturn {
 
-    static class BaseTransaction {
-        @Override
-        public String toString() {
-            return "I'm a base transaction";
-        }
-    }
-
-    static class FastTransaction extends BaseTransaction {
-        @Override
-        public String toString() {
-            return "I'm a fast transaction";
-        }
-    }
-
-    static class SafeFastTransaction extends FastTransaction {
-        @Override
-        public String toString() {
-            return "I'm a safe fast transaction";
-        }
-    }
-
-    interface IBaseTransfer {
-        BaseTransaction get();
-    }
-
-    /**
-     * Covariant return.
-     * <p>
-     * A interface 'B' eh uma especializacao da interface A e podemos
-     * sobreescrever o metodo get() e retornarmos um subtipo do
-     * retorno do metodo get() da interface 'A'
-     */
-    interface IDirectTransfer extends IBaseTransfer {
-        FastTransaction get();
-        // Object | String | Integer ... get(); exemplos do que nao pode ser feito
-    }
-
-    static class SafeTransfer implements IBaseTransfer {
-        @Override
-        public SafeFastTransaction get() {
-            return new SafeFastTransaction();
-        }
-    }
-
     public static void main(String[] args) {
         IDirectTransfer directFastTransfer = FastTransaction::new;
 
@@ -73,7 +29,7 @@ public class BasicCovariantReturn {
         };
         IBaseTransfer baseTransaction = BaseTransaction::new;
 
-        IBaseTransfer safeTransfer = new SafeTransfer();
+        IBaseTransfer safeTransfer = new FastSafeTransfer();
 
         out.println(directFastTransfer.get());
         out.println(anotherDirectTransfer.get());

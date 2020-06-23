@@ -1,4 +1,4 @@
-package basic.java;
+package basic.java.com.br.invariant;
 
 public class BasicTestInvariance {
 

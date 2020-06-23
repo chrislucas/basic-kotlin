@@ -1,4 +1,4 @@
-package basic.java;
+package basic.java.com.br.invariant;
 
 import java.util.ArrayList;
 import java.util.List;

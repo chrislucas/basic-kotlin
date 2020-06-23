@@ -1,4 +1,4 @@
-package basic
+package basic.kotlin
 
 /**
  * https://kotlinlang.org/docs/reference/generics.html

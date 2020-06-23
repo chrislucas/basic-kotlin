@@ -1,38 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3184155-2907-4cea-a11a-c5009e8903c6" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="d3184155-2907-4cea-a11a-c5009e8903c6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../../collections/KotlinCollections/KotlinCollections.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../collections/KotlinCollections/raw/ref" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../collections/KotlinCollections/src/samples/SampleAgregatteOps.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/META-INF/Generics.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/META-INF/Generics.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$Deposit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn$Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicCovariantReturn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$Deposit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$SavingAccountWithDrawal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant$WithDrawalCurrentAccount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsContraVariant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicGenericsInvariant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicTestInvariance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicTestInvariance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicTestInvariance$Source.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/BasicTestInvariance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/GenericsKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/Inbox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/Outbox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/ProducersAndConsumers$WrapperReference.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/ProducersAndConsumers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/out/production/Generics/basic/TreeKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/raw/covariancia-java-notes" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/raw/covariancia-java-notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/raw/refs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/raw/refs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/contravariant/BasicGenericsContraVariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/contravariant/BasicGenericsContraVariant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/BaseTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/BaseTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/BasicCovariantReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/BasicCovariantReturn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/FastSafeTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/FastSafeTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/FastTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/FastTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/IBaseTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/IBaseTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/IDirectTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/IDirectTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/SafeFastTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/covariance/sample/transaction/SafeFastTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/invariant/BasicGenericsInvariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/invariant/BasicGenericsInvariant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/invariant/BasicTestInvariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/invariant/BasicTestInvariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/sample/pac/ProducersAndConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/java/com/br/sample/pac/ProducersAndConsumers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/kotlin/Generics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/kotlin/Generics.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Generics/src/basic/kotlin/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Generics/src/basic/kotlin/Tree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ad-hoc/SampleIntersectArrays/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ad-hoc/SampleIntersectArrays/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw/links" beforeDir="false" afterPath="$PROJECT_DIR$/raw/links" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../tests/SampleMockk/raw/ref" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../tests/SampleMockk/raw/ref" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../tests/SampleMockk/src/test/kotlin/Point2fTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../tests/SampleMockk/src/test/kotlin/Point2fTest.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BinarySearchTree.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="links" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/raw/links">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,73 +72,19 @@
       </list>
     </option>
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/raw/links" />
-        <option value="$PROJECT_DIR$/src/BinarySearchTree.kt" />
-      </list>
-    </option>
+  <component name="ProjectId" id="1cXcHbMI7RXRnRlE5nWZdrBA0qa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="368" />
-    <option name="y" value="35" />
-    <option name="width" value="1540" />
-    <option name="height" value="920" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BinarySearchTree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BinarySearchTree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BinarySearchTree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BinarySearchTree" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -118,82 +95,39 @@
       <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -204,70 +138,6 @@
       <updated>1544469615984</updated>
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="368" y="35" width="1540" height="920" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/raw/links">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

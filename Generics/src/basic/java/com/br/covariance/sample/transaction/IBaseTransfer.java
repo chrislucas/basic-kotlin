@@ -1,4 +1,5 @@
 package basic.java.com.br.covariance.sample.transaction;
 
-public class IBaseTransfer {
+interface IBaseTransfer {
+    BaseTransaction get();
 }

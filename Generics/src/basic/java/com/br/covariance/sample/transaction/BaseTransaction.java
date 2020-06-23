@@ -1,4 +1,8 @@
 package basic.java.com.br.covariance.sample.transaction;
 
-public class BaseTransaction {
+class BaseTransaction {
+    @Override
+    public String toString() {
+        return "I'm a base transaction";
+    }
 }

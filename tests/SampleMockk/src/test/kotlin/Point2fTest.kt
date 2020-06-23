@@ -12,6 +12,9 @@ class Point2fTest {
     fun calculateAbsDiffXTwoPoints() {
         val p = mockk<Point2f>()
 
+        every { p.x } returns 10.0
+        every { p.y } returns 10.0
+
         /**
          * O metodo abaixo lanca essa exception: io.mockk.MockKException
          * Strict Mocks:
