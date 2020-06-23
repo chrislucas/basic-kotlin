@@ -16,3 +16,10 @@ https://blog.kotlin-academy.com/kotlin-cheat-sheet-1137588c75a
 https://kotlinlang.org/docs/reference/inline-functions.html
 
 https://discuss.kotlinlang.org/t/deep-nested-inline-functions-run-slowly-and-can-causes-an-error-at-compile/1423
+
+// illegal usage inline parameter
+https://stackoverflow.com/questions/47419811/kotlin-illegal-usage-of-inline-parameter-callback
+https://medium.com/tompee/idiomatic-kotlin-inline-functions-e39b2f90a291
+https://discuss.kotlinlang.org/t/kotlin-illegal-usage-of-inline-parameter-callback/5526
+https://proandroiddev.com/dissecting-the-inline-keyword-in-kotlin-chapter-2-32f4bc0fcbf9
+https://antonioleiva.com/function-references-kotlin/

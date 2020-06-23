@@ -1,0 +1,47 @@
+https://www.geeksforgeeks.org/eulers-totient-function/
+
+1) Para um numero primo P, phi(P) = P-1. Isso porque para todo N onde 1 <= N < p gcd(p, N) = 1
+
+2) gcd(a, b) = 1 entao phi(ab) = phi(a) * phi(b)
+
+exemplo gcd(5, 6) = 1, phi(5) = 4 e phi(6) = 2 entao phi(30) = 8
+
+3) Para quaisquer 2 primos P e Q, phi(PQ) = (P-1)*(Q-1), essa propriedade eh utilziada no algoritmo de RSA
+
+# https://en.wikipedia.org/wiki/Euler%27s_totient_function
+4) se P for um primo, entao phi(P^k) = P^(k-1) * P-1. Isso pode ser demonstrado usilizando Euler`s product formula
+
+que pode ser reescrito como (P^k) * (1 - 1/P)
+
+5) O somatorio da funcao phi de todos os divisores de um numero N eh igual a N
+
+Exemplo: Seja N = 6 os seus divisores sao 1,2,3,6. se somarmos phi(1) = 1 + phi(2) = 1 + phi(3) = 2 + phi(6) = 2
+temos como resultado 6
+
+6) Euler's Theorem or Fermat-Euler Theorem or Euler's totient Theorem
+Euler`s theorem
+https://en.wikipedia.org/wiki/Euler%27s_theorem
+
+No estudo de teoria dos numeros, Euler's Theorem afirma que
+
+"Se N e A inteiros positivos e coprimos, entao A^(phi(N)) eh congruente a 1 modulo N, ou seja A^(phi(N)) % N = 1"
+
+"O inverso do teorema tbm eh verdade, podemos concluir partindo da congruencia 1 modulo N que A e N sao coprimos"
+
+"Esse teorema eh uma generalizacao para o Fermat's little theorem e Carmichael's Theorem"
+
+Fermat's little theorem
+https://en.wikipedia.org/wiki/Fermat%27s_little_theorem
+Seja p um numero primo, entao para qualquer inteiro a, o numero a^p - a eh um inteiro multiplo de p
+
+Na notacao de aritmetica modular podemos expressar da seguinte forma = a ^ p eh congruente a "a" modulo p
+
+Se a nao for divivel por p, o teorema eh equivalente para seguinte declaracao: a ^(p-1) - 1 eh um inteiro multiplo de p
+a^(p-1) eh congruente a 1 mod p
+
+7) Number Theory | Generators of finite cyclic group under addition
+https://www.geeksforgeeks.org/generators-finite-cyclic-group-addition/
+
+
+
+
