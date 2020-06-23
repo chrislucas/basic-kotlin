@@ -1,0 +1,105 @@
+Algoritmos
+https://cp-algorithms.com/algebra/factorization.html
+https://stackoverflow.com/questions/2267146/what-is-the-fastest-factorization-algorithm
+https://pt.wikipedia.org/wiki/Fatora%C3%A7%C3%A3o_de_inteiros
+
+
+Proofs of Logarithm Properties or Rules
+https://www.chilimath.com/lessons/advanced-algebra/proofs-of-logarithm-properties/
+https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:logs/x2ec2f6f830c9fb89:log-prop/a/justifying-the-logarithm-properties
+
+
+https://en.wikipedia.org/wiki/Integer_factorization#:~:text=In%20number%20theory%2C%20integer%20factorization,process%20is%20called%20prime%20factorization.
+https://medium.com/coinmonks/integer-factorization-defining-the-limits-of-rsa-cracking-71fc0675bc0e
+https://brilliant.org/wiki/factorization-of-integers/
+
+Calculator
+https://www.alpertron.com.ar/ECM.HTM
+
+RSA
+https://en.wikipedia.org/wiki/RSA_(cryptosystem)#:~:text=Breaking%20RSA%20encryption%20is%20known,large%20enough%20key%20is%20used.
+https://en.wikipedia.org/wiki/RSA_numbers
+
+Prime Generator Algorithm
+http://sandbox.mc.edu/~bennet/cs220/codeex/pgenintro.html
+
+Less than 2^16 or so: Lookup table.
+
+
+Less than 2^70 or so: Richard Brent's modification of Pollard's rho algorithm.
+https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
+https://maths-people.anu.edu.au/~brent/pub/pub051.html
+
+Cycle detection
+https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_Tortoise_and_Hare
+
+Less than 10^50: Lenstra elliptic curve factorization
+Less than 10^100: Quadratic Sieve https://en.wikipedia.org/wiki/Quadratic_sieve
+More than 10^100: General Number Field Sieve
+
+https://en.wikipedia.org/wiki/Divisor_function
+
+https://en.wikipedia.org/wiki/Multiplicative_function
+
+algorithm used in Maple, the Quadratic Sieve.
+https://stackoverflow.com/questions/2267146/what-is-the-fastest-factorization-algorithm
+
+Totient Function
+https://cp-algorithms.com/algebra/phi-function.html#:~:text=Euler's%20totient%20function%2C%20also%20known,be%20coprime%20to%20any%20number).
+https://www.geeksforgeeks.org/eulers-totient-function/
+https://www.geeksforgeeks.org/eulers-totient-function-for-all-numbers-smaller-than-or-equal-to-n/
+https://en.wikipedia.org/wiki/Euler%27s_totient_function
+https://stackoverflow.com/questions/52262524/is-there-a-fast-algorithm-for-eulers-totient-function-of-big-numbers-128bit
+
+Birthday problem
+https://www.spoj.com/problems/PROG0506/
+https://br.spoj.com/problems/BIRTHDAY/
+https://www.spoj.com/problems/PROG0139/
+https://www.spoj.com/problems/PROG0138/
+https://www.geeksforgeeks.org/birthday-paradox/
+https://codeforces.com/problemset/problem/711/E
+https://codeforces.com/blog/entry/55371
+
+
+Somatorios e Produtorios
+http://arsilva.weebly.com/uploads/2/1/0/0/21008856/somatrio.pdf
+
+Teorema fundamentao da aritmetica
+https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic
+
+
+euler totient problems spoj
+https://www.spoj.com/problems/TIP1/
+https://www.spoj.com/problems/ETFS/
+https://www.spoj.com/problems/ETFD/
+https://www.spoj.com/problems/ETF/
+https://www.spoj.com/problems/INVPHI/
+https://www.spoj.com/problems/CERI2018J/
+
+euler totient problems project euler
+https://projecteuler.net/problem=214
+https://projecteuler.net/problem=69
+https://projecteuler.net/problem=512
+https://projecteuler.net/problem=70
+
+euler totient problems codeforces
+https://codeforces.com/problemset/problem/1114/F
+https://codeforces.com/blog/entry/22622
+https://codeforces.com/blog/entry/15408
+https://codeforces.com/blog/entry/7308
+https://codeforces.com/problemset/problem/809/E
+
+
+Funcao phi de euler e Teorema de Euler
+Procurar na secao Euler's theorem
+https://en.wikipedia.org/wiki/Euler%27s_totient_function
+Link do artigo completo
+https://en.wikipedia.org/wiki/Euler%27s_theorem
+
+Euler’s Totient function for all numbers smaller than or equal to n
+https://www.geeksforgeeks.org/eulers-totient-function-for-all-numbers-smaller-than-or-equal-to-n/
+
+How hard is it to compute the Euler totient function?
+https://mathoverflow.net/questions/3274/how-hard-is-it-to-compute-the-euler-totient-function
+
+

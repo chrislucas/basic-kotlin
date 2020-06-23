@@ -1,0 +1,60 @@
+https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_hash
+
+Paradoxo do aniversário
+https://pt.wikipedia.org/w/index.php?title=Paradoxo_do_anivers%C3%A1rio&oldid=47106633
+https://pt.wikipedia.org/wiki/Paradoxo_do_anivers%C3%A1rio
+http://etutorials.org/Programming/Programming+.net+security/Part+III+.NET+Cryptography/Chapter+13.+Hashing+Algorithms/13.1+Hashing+Algorithms+Explained/
+
+The Galois/Counter Mode of Operation (GCM)
+https://luca-giuzzi.unibs.it/corsi/Support/papers-cryptography/gcm-spec.pdf
+https://en.wikipedia.org/wiki/Galois/Counter_Mode
+https://en.wikipedia.org/wiki/Finite_field
+
+The State of Hashing Algorithms — The Why, The How, and The Future
+https://medium.com/@rauljordan/the-state-of-hashing-algorithms-the-why-the-how-and-the-future-b21d5c0440de
+
+XOR
+https://hackernoon.com/xor-the-magical-bit-wise-operator-24d3012ed821
+https://en.wikipedia.org/wiki/XOR_cipher
+https://accu.org/index.php/journals/1915
+https://crypto.stackexchange.com/questions/19470/how-is-xor-used-for-encryption
+https://www.khanacademy.org/computing/computer-science/cryptography/ciphers/a/xor-bitwise-operation
+
+Tabela de simbolos
+https://www.ime.usp.br/~pf/mac0122-2002/aulas/symbol-table.html
+
+Tabela de dispersão
+https://pt.wikipedia.org/wiki/Tabela_de_dispers%C3%A3o
+
+Codeforces
+https://codeforces.com/blog/entry/60445
+https://codeforces.com/blog/entry/60442
+https://codeforces.com/blog/entry/58730
+https://codeforces.com/blog/entry/191
+https://codeforces.com/blog/entry/13741
+
+SHA-256 Cryptographic Hash Algorithm
+https://www.movable-type.co.uk/scripts/sha256.html
+
+Problems
+https://ieee.nitk.ac.in/blog/hashing-in-competitive-programming/
+
+Criptgrafia
+https://www.youtube.com/watch?v=CcU5Kc_FN_4&t=0s
+
+Tabela de espalhamento
+https://www.ime.usp.br/~pf/mac0122-2002/aulas/hashing.html
+https://www.caelum.com.br/apostila-java-estrutura-dados/tabelas-de-espalhamento/
+
+Seguranca da iunformacao
+https://diferenciall.com.br/conheca-os-5-pilares-da-seguranca-da-informacao/
+https://triplait.com/os-pilares-da-seguranca-da-informacao/
+
+Integridade
+Elemento que garante a veracidade da informcacao. Para alterar um dado deve-se possuir permissao
+para isso, alteracoes indevidas causam o comprometimento na confianca sobre o dado armazenado ferindo
+sua integridade. Pode existir niveis de acesso ao dado, onde usuarios que possuem acesso tambem podem
+manipular o dado, com niveis de restricoes.
+
+Autenticidade
+Elemento que garante a legitimidade do dado, pessoas sem acesso ao dado nao podem ter permissao para altera-lo

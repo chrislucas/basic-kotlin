@@ -1,0 +1,74 @@
+Decorator
+https://pt.wikipedia.org/wiki/Decorator
+https://refactoring.guru/pt-br/design-patterns/decorator
+https://en.wikipedia.org/wiki/Decorator_pattern
+
+Proxy
+https://en.wikipedia.org/wiki/Proxy_pattern
+https://refactoring.guru/pt-br/design-patterns/proxy
+
+Proxy Pattern - Design patterns com Java projeto OO guiado por padroes
+
+No capitulo 5 do livro, os padroes proxy e decorator sao apresentados simultaneamento pois segundo o autor
+os dois padroes possuem a mesma estrutura, sendo diferenciados pela motivacao e o contexto de aplicacao deles.
+
+A ideia desses padroes eh criar uma classe A que encapsule a si mesma, assim ela pode ser passada para uma outra classe cliente
+que ira utiliza-la como se A fosse a classe original
+
+classe cliente -> (invoca metodo da classe encapsulada) -> classe externar [objeto encapsulado]
+
+Isso permite uma modelagem da solucao em camadas. Ao inves de implementar tudo num unico metodo, podesse quebrar
+essa implementacao em multiplos metodos que estao na classe que encapsula o comportamento. Esse tipo de modelagem
+tras consigo a capacidade implementar regras e algoritmos em diferentes camadas
+
+Exemplo:
+
+Ao inves de implementar uma validacao dentro do metodo que esta na classe encapsulada, podemos trazer essa validacao
+para classe que encapsula. Com isso podemos reaproveitar essa validacao em outros contextos inclusive
+
+Estrutura dos padroes:
+
+Proxy e Decorator utilizam a composicao recursiva, ou seja uma classe que possui a si mesma.
+
+Proxy
+
+<Interface> Abstract
+    + operacao
+
+Decorator : Abstract
+    - Abstract abstract
+    + operacao
+
+ImplAbstract : Abstract
+    + operacao()
+
+Decorator
+<Interface> Abstract
+    + operacao
+
+Decorator : Abstract
+    - ImplAbstract implAbstract
+    + operacao
+
+ImplAbstract : Abstract
+    + operacao()
+
+O Padrao Decorator tem o objetivo de adicionar comportamentos a uma classe de forma imperceptivel ao cliente,
+como uma moldura adiciona uma característica a um quadro
+
+O Padrao Proxy esta relacionado a prover um objeto intermediario que se comunica com o objeto principal. Um exemplo
+disso eh intermediar o acesso a um objeto remoto como se eles existisse localmente. Para conseguir isso, encapsula-se o
+a implementaçao de acesso remoto ao objeto alvo, fazendo parecer que o acesso eh local
+
+Proxy tbm pode ser utilizado para encapsular a construcao de objetos computacionalmente complexos de serem construidos,
+dando a impressao que ele mesmo eh o objeto original e assim o objeto que se quer ter e construido somente quando necessario.
+
+Ambos os padroes por possuirem uma estrutura de composicao recursiva podem conter-se a si mesmo de tal forma a parecer
+com o Pattern Chain of Responsability, ou seja Um Proxy pode encapsular outro Proxy da mesma forma que um Decorator tambem
+pode realizar tal feito.
+
+Entao, a principal diferenca entre os 2 patterns e o seu objetivo:
+    - O Proxy tem o objetivo de encapsular a classe principal em uma ou mais camadas de si mesmo e intermediar o acesso
+    ao objeto principal de uma forma imperceptivel ao cliente
+
+    - O Decorator tem o objetivo de encapsular uma classe em camadas e adicionando comportamentos em cada uma delas
