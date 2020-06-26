@@ -69,6 +69,26 @@ pode realizar tal feito.
 
 Entao, a principal diferenca entre os 2 patterns e o seu objetivo:
     - O Proxy tem o objetivo de encapsular a classe principal em uma ou mais camadas de si mesmo e intermediar o acesso
-    ao objeto principal de uma forma imperceptivel ao cliente
+    ao objeto principal de uma forma imperceptivel ao cliente (encapsula o objeto principal)
 
     - O Decorator tem o objetivo de encapsular uma classe em camadas e adicionando comportamentos em cada uma delas
+    (adiciona comportamento)
+
+
+Exemplo de uso dos padroes supracitados
+
+"Em cenários em que precisamos implementar protecoes de uso de codigo, tentando impedir invocacoes de metodos com parâmtros
+errados ou uso em contexto errado"
+
+Exemplos de Decorator na API Java
+
+Como vimos, o padrao decorator adiciona funcionalidade ou caracteristica a uma classe. Podemos encontrar implementacoes
+na API Java que seguem essa caracteristica, um exemplo sao os metodos estaticos da classe Collections
+synchronizedList(List<T> list) que recebe uma lista e devolve-a com sincronizacao e o metodo
+unmodidiableList(List<? extends T>) que recebe uma lista e retorna uma copia imutável.
+
+Proxies Dinnâmicos em Java
+
+Quando criamos proxies a classe A que encapsula a classe original B precisa implementar a mesma interface que eh
+implementada em B. Em java atraves da api de REFLECTION conseguimos implementar proxies dinâmicos. Com a capacidade
+de assumir dinamicamente uma iunterface, pode utilizar esse recurso para diversas interfaces
