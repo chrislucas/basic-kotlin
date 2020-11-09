@@ -1,0 +1,58 @@
+Math
+https://www.geeksforgeeks.org/birthday-paradox/
+https://en.wikipedia.org/wiki/Birthday_problem
+https://pt.wikipedia.org/wiki/Paradoxo_do_anivers%C3%A1rio
+
+Tabela de probabilidade de N pessoas terem a data de nascimento coincidente
+
+n	p(n)
+1	0.0%
+5	2.7%
+10	11.7%
+20	41.1%
+23	50.7%
+30	70.6%
+40	89.1%
+50	97.0%
+60	99.4%
+70	99.9%
+75	99.97%
+100	99.99997%
+200	99.9999999999999999999999999998%
+300	(100 − 6×10−80)%
+350	(100 − 3×10−129)%
+365	(100 − 1.45×10−155)%
+≥ 366	100%
+
+Probabilidade condicional
+https://matematicabasica.net/probabilidade-condicional/
+
+Birthday Attack
+https://en.wikipedia.org/wiki/Birthday_attack
+
+CP
+
+Nem todos sao problemas de probabilidade, cabe verificar
+birthday problem codeforces
+https://codeforces.com/blog/entry/55371
+
+https://codeforces.com/problemset/problem/711/E
+https://programmersought.com/article/88252247012/
+
+https://codeforces.com/problemset/problem/248/E
+https://codeforces.com/problemset/problem/494/D
+
+https://codeforces.com/problemset/problem/1131/C
+https://codeforces.com/problemset/problem/1068/A
+https://codeforces.com/problemset/problem/1419/D1
+
+
+birthday problem spoj
+https://www.spoj.com/problems/PROG0138/
+https://www.spoj.com/problems/PROG0506/
+https://www.spoj.com/problems/PROG0139/
+https://br.spoj.com/problems/TJANDRAS/
+
+
+birthday problem hackerearth
+https://www.hackerearth.com/practice/math/number-theory/primality-tests/practice-problems/algorithm/ma5terminds-birthday-party/

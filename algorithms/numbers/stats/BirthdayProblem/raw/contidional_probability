@@ -1,0 +1,20 @@
+https://www.mathsisfun.com/data/probability-events-conditional.html
+https://www.mathsisfun.com/data/probability-shared-birthday.html
+
+https://www.hackerearth.com/practice/machine-learning/prerequisites-of-machine-learning/bayes-rules-conditional-probability-chain-rule/tutorial/
+
+CP - Problems
+https://www.hackerearth.com/practice/machine-learning/prerequisites-of-machine-learning/basic-probability-models-and-rules/practice-problems/machine-learning/predicting-tweet-sentiments-231101b4/
+https://www.hackerearth.com/practice/machine-learning/prerequisites-of-machine-learning/bayes-rules-conditional-probability-chain-rule/practice-problems/algorithm/conditional-probability-and-bayes-theorem/description/
+https://www.hackerearth.com/pt-br/problem/algorithm/chandu-and-probability/
+https://www.hackerearth.com/problem/algorithm/so-random/
+https://www.hackerearth.com/problem/algorithm/killing-assistants/
+
+
+Standard deviation and Variance
+https://www.mathsisfun.com/data/standard-deviation.html
+
+Variance
+Definition of equation: The average of squared differences from the Mean
+
+sqrt -> [sum  i=0 to n [ ( mean - xi ) * ( mean - xi ) ] ] * 1/n
