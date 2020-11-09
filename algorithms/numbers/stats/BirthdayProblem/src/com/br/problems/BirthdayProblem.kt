@@ -181,6 +181,7 @@ private fun executeSimulation() {
     table.add(executeSimulation(57, 365, 1000))
     table.add(executeSimulation(70, 365, 1000))
     table.add(executeSimulation(75, 365, 1000))
+    table.add(executeSimulation(100, 365, 1000))
 
     table.forEach { simulations ->
         val mean = simulations.mean()
