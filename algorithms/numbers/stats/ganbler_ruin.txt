@@ -1,0 +1,6 @@
+https://en.wikipedia.org/wiki/Gambler%27s_ruin
+http://www.columbia.edu/~ks20/FE-Notes/4700-07-Notes-GR.pdf
+
+Gambler.java
+https://introcs.cs.princeton.edu/java/13flow/
+https://introcs.cs.princeton.edu/java/13flow/Gambler.java.html
