@@ -1,0 +1,13 @@
+
+Q	java:S125A"<This block of commented-out lines of code should be removed.(Ã‚¶
+V	java:S125#"<This block of commented-out lines of code should be removed.(ŠŒñóüÿÿÿÿ
+H
+java:S1144"2Remove this unused private "testConsumers" method.(†ïÍã
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ú“Üİ
+S	java:S106="9Replace this use of System.out or System.err by a logger.(Ã¦ªøùÿÿÿÿ
+7
+java:S1116="Remove this empty statement.(Ã¦ªøùÿÿÿÿ
+N	java:S106&"9Replace this use of System.out or System.err by a logger.(Ú“Üİ
+H
+java:S1144"2Remove this unused private "testProducers" method.(Ÿ„‰ú
+Q	java:S1259"<This block of commented-out lines of code should be removed.(Æ ÷¾

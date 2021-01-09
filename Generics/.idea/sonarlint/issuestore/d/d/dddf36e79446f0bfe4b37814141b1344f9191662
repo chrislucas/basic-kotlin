@@ -1,0 +1,18 @@
+
+Q
+java:S1128"6Remove this unused import 'java.util.StringTokenizer'.(ÈÄ¬ñşÿÿÿÿ
+S	java:S106k"9Replace this use of System.out or System.err by a logger.(“–àúÿÿÿÿ
+R
+java:S1144S"<Remove this unused private "testConvarianceInArrays" method.(’¸şş
+M	java:S106$"9Replace this use of System.out or System.err by a logger.(ƒÚáB
+Q	java:S125_"<This block of commented-out lines of code should be removed.(¾¾‹À
+Q	java:S125i"<This block of commented-out lines of code should be removed.(Å²˜‚
+Q	java:S125"<This block of commented-out lines of code should be removed.(Û°²–
+N	java:S106b"9Replace this use of System.out or System.err by a logger.(ŞÒ©Ø
+V	java:S1259"<This block of commented-out lines of code should be removed.(´æ”øÿÿÿÿ
+X
+java:S2094"BRemove this empty class, write its code or make it an "interface".(Ú¨ÏÔ
+V
+java:S1144'"@Remove this unused private "testInvarianceInGenericType" method.(¢ÿïÈ
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(Œ­ÿ…
+Q	java:S125?"<This block of commented-out lines of code should be removed.(ƒ‹ä½

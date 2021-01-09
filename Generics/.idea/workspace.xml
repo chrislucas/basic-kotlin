@@ -1,197 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="ba9e8a99-58f5-4282-a500-a2dd3fc3d8cf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/raw/ds" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/raw/refs_java_generic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/ext/mutablelist/ExtensionOperator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/java/Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/java/ArraysVariance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/java/BasicGenericsVariances.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/java/FeatureVarianceSample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/java/Multiset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/kotlin/AnotherVarianceStudy.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/basic/samples/kotlin/BasicGenVariance.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/classes/kotlin/main/META-INF/OperatorOverloadingSamples.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/classes/kotlin/main/br/com/samples/OpOverloadingSamplesKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/classes/kotlin/main/br/com/samples/Point2Df.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/src/main/kotlin/br/com/samples/OpOverloadingSamples.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/sonarlint/issuestore/0/7/078e76d54abab974be74f1439cdbf96c97644f04" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/sonarlint/issuestore/7/6/760d099d9ee84d0d1928881e10d9a78dcd335851" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/sonarlint/issuestore/c/4/c4dfb24622d253c825cd1135a2704c9c2ea44adb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/WhatsNews.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/out/production/WhatsNews/META-INF/WhatsNews.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/out/production/WhatsNews/br/com/samples/news/kotlin13/UnsignedIntegersKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/out/production/WhatsNews/com/br/samples/news/kotlin14/SimpleMatch.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/out/production/WhatsNews/com/br/samples/news/kotlin14/SingleAbstractMethodKt$validate$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/out/production/WhatsNews/com/br/samples/news/kotlin14/SingleAbstractMethodKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/src/br/com/samples/news/kotlin13/InlineClass.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/src/br/com/samples/news/kotlin13/UnsignedIntegers.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WhatsNews/src/br/com/samples/news/kotlin14/SingleAbstractMethod.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/sonarlint/issuestore/7/6/760d099d9ee84d0d1928881e10d9a78dcd335851" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/grahamscan/grahamscan.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/grahamscan/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/grahamscan/src/com/br/grahanscan/GrahanScanAlgorithm.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/picktheorem/picktheorem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/picktheorem/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/geom/AlgorithmsGeom/picktheorem/src/algortihm/PickTheorem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/EloRatingSystem/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/EloRatingSystem/EloRatingSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/EloRatingSystem/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/EloRatingSystem/src/com/br/algorithm/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/ganbler_ruin.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/prob_stats/markov_chain.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/raw/desvio_padrao_variancia" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/raw/principio_inclusao_exclusao" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/raw/probabilidade_condicional" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/raw/refs_basic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/raw/stats_kotlin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/src/samples/DiceProblem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/src/samples/GamblerRuinSample.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/src/samples/MathFun.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/src/samples/hackerearth/BasicRulesProblem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/src/samples/hackerearth/Stats.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/ganbler_ruin.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/markov_chain.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/theory/InclusionExclusionPrinciple/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/theory/InclusionExclusionPrinciple/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/numbers/theory/InclusionExclusionPrinciple/src/com/br/algorithm/IncExcPrinciple.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/backtracking_problems" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/graph_coloring" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/n-puzzle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/refs_n_queens_problems" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/refs_sudoku_problem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/raw/simplex_algorithm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/src/com/br/algorithms/CheckQuadrantSquaredMatrix.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/src/com/br/algorithms/problems/nqueen/HillClimbing.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/src/com/br/algorithms/problems/nqueen/NQueensProblem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/Backtracking/src/com/br/algorithms/problems/sudoku/Board.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/MiniMaxPrunning/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/MiniMaxPrunning/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/search/MiniMaxPrunning/src/com/br/algorithm/problems/TicTacToe.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../oo/patterns/ProxyPattern/src/sample/com/br/addbehavior/RemoteAccess.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../oo/patterns/ProxyPattern/src/sample/com/br/addbehavior/RemoteAccessImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tests/ScriptsAndDSLs/src/main/kotlin/br/com/scripts/sample/HelloWorld.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/META-INF/Generics.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Generics/META-INF/Generics.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/BasicCovariantReturn$1.class" beforeDir="false" />
@@ -216,120 +27,75 @@
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/BasicTestInvariance.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/GenericsKt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Inbox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Generics/basic/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Node.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Outbox.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/ProducersAndConsumers$WrapperReference.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/ProducersAndConsumers.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Generics/basic/Tree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/TreeKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Generics/basic/TreeKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/BasicCovariantReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/BasicCovariantReturn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/BasicGenericsContraVariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/BasicGenericsContraVariant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/BasicGenericsInvariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/BasicGenericsInvariant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/BasicTestInvariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/BasicTestInvariance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/Generics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/kotlin/Generics.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/ProducersAndConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/ProducersAndConsumers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/samples/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basic-kotlin/.idea/basic-kotlin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/numbers/theory/InclusionExclusionPrinciple/InclusionExclusionPrinciple.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basic-kotlin/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basic-kotlin/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basic-kotlin/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basic-kotlin/links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WhatsNews/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WhatsNews/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WhatsNews/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/Fp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/BitsOfEntropy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/out/production/Fp/FxKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/out/production/Fp/META-INF/Fp.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/out/production/Fp/Point2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp/src/Fx.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/bitwise/BitsOfEntropy/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/Fp2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/numbers/stats/GamblerRuin/GamblerRuin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/out/production/Fp2/FpMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/out/production/Fp2/META-INF/Fp2.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/out/production/Fp2/MainFunKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/src/FpMain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/src/MainFun.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/Fp2/src/script.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/3.5-rc-2/file-changes/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/buildOutputCleanup/built.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.gradle/buildOutputCleanup/cache.properties.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WhatsNews/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/modules/sample-coroutines.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/modules/sample-coroutines_main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/modules/sample-coroutines_test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../OperatorOverloadingSamples/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/sample-coroutines/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Generics/basic/TreeKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw/covariancia-java-notes" beforeDir="false" afterPath="$PROJECT_DIR$/raw/covariancia-java-notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw/refs" beforeDir="false" afterPath="$PROJECT_DIR$/raw/refs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/contravariant/BasicGenericsContraVariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/contravariant/BasicGenericsContraVariant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/BaseTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/BaseTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/BasicCovariantReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/BasicCovariantReturn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/FastSafeTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/FastSafeTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/FastTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/FastTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/IBaseTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/IBaseTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/IDirectTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/IDirectTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/SafeFastTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/covariance/sample/transaction/SafeFastTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/invariant/BasicGenericsInvariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/invariant/BasicGenericsInvariant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/invariant/BasicTestInvariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/invariant/BasicTestInvariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/java/com/br/sample/pac/ProducersAndConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/java/com/br/sample/pac/ProducersAndConsumers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/kotlin/Generics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/kotlin/Generics.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/kotlin/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/kotlin/Tree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/ad-hoc/SampleIntersectArrays/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/ad-hoc/SampleIntersectArrays/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/SampleMockk/raw/ref" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/SampleMockk/raw/ref" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/SampleMockk/src/test/kotlin/Point2fTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/SampleMockk/src/test/kotlin/Point2fTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>exte</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="5zmliyve" />
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="1jxBAkpwXxG1Zzyahk57zSv2oRt" />
+  <component name="ProjectId" id="1bdszb0xfMxqs9MR8LKYmYF5iM2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveInnerDialog.RECENTS_KEY">
-      <recent name="basic.samples.java" />
+      <recent name="basic.java.com.br.covariance.sample.transaction" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\g\repositories\github\basic-kotlin\Generics\src\basic\ext\mutablelist" />
-      <recent name="D:\g\repositories\github\basic-kotlin\Generics\src\basic" />
-      <recent name="D:\g\repositories\github\basic-kotlin\Generics\src\basic\samples\kotlin" />
+      <recent name="$PROJECT_DIR$/src/basic/kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BasicGenericsVariances">
+  <component name="RunManager" selected="Application.BasicCovariantReturn">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -337,13 +103,13 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="ArraysVariance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="basic.samples.java.ArraysVariance" />
+    <configuration name="BasicCovariantReturn" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.java.com.br.covariance.sample.transaction.BasicCovariantReturn" />
       <module name="Generics" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="basic.samples.java.*" />
+          <option name="PATTERN" value="basic.java.com.br.covariance.sample.transaction.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -351,13 +117,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BasicGenericsVariances" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="basic.samples.java.BasicGenericsVariances" />
+    <configuration name="BasicGenericsInvariant" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.BasicGenericsInvariant" />
       <module name="Generics" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="basic.samples.java.*" />
+          <option name="PATTERN" value="basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicTestInvariance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.BasicTestInvariance" />
+      <module name="Generics" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -392,27 +172,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotherVarianceStudyKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="basic.GenericsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="Generics" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="basic.samples.kotlin.AnotherVarianceStudyKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GenericsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="Generics" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="basic.samples.kotlin.GenericsKt" />
+      <option name="MAIN_CLASS_NAME" value="basic.GenericsKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -437,23 +204,22 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ArraysVariance" />
-      <item itemvalue="Application.BasicGenericsVariances" />
+      <item itemvalue="Application.BasicCovariantReturn" />
+      <item itemvalue="Application.BasicGenericsInvariant" />
+      <item itemvalue="Application.BasicTestInvariance" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Kotlin.AnotherVarianceStudyKt" />
-      <item itemvalue="Kotlin.GenericsKt" />
+      <item itemvalue="Kotlin.basic.GenericsKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BasicGenericsVariances" />
-        <item itemvalue="Application.ArraysVariance" />
-        <item itemvalue="Kotlin.AnotherVarianceStudyKt" />
-        <item itemvalue="Kotlin.GenericsKt" />
+        <item itemvalue="Application.BasicCovariantReturn" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Kotlin.basic.GenericsKt" />
+        <item itemvalue="Application.BasicTestInvariance" />
+        <item itemvalue="Application.BasicGenericsInvariant" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -467,115 +233,51 @@
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="705" y="418" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604034110267">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587574387704">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="705" y="418" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604034110267" />
-    <state x="781" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1604034900294">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1587574387704" />
+    <state x="569" y="357" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587574244948">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="781" y="108" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604034900294" />
-    <state x="848" y="571" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1604033754797">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="569" y="357" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1587574244948" />
+    <state x="534" y="382" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1587579359778">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="848" y="571" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604033754797" />
-    <state x="831" y="451" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604034316744">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="534" y="382" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1587579359778" />
+    <state x="650" y="184" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1587579361260">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="831" y="451" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604034316744" />
-    <state x="105" y="152" width="1634" height="667" key="DiffContextDialog" timestamp="1603598587362">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="650" y="184" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1440.900@0.0.1440.900" timestamp="1587579361260" />
+    <state x="332" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587578729191">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="152" width="1634" height="667" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603598587362" />
-    <state x="702" y="227" key="FileChooserDialogImpl" timestamp="1609107721635">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="332" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1587578729191" />
+    <state x="120" y="120" width="1200" height="660" key="DiffContextDialog" timestamp="1587576504021">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="702" y="227" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609107721635" />
-    <state width="1390" height="206" key="GridCell.Tab.0.bottom" timestamp="1604035423141">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="120" y="120" width="1200" height="660" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587576504021" />
+    <state width="1358" height="217" key="GridCell.Tab.0.bottom" timestamp="1587610423752">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1390" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604035423141" />
-    <state width="1390" height="206" key="GridCell.Tab.0.center" timestamp="1604035423141">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1358" height="217" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587610423752" />
+    <state width="1358" height="217" key="GridCell.Tab.0.center" timestamp="1587610423750">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1390" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604035423141" />
-    <state width="1390" height="206" key="GridCell.Tab.0.left" timestamp="1604035423141">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1358" height="217" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587610423750" />
+    <state width="1358" height="217" key="GridCell.Tab.0.left" timestamp="1587610423749">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1390" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604035423141" />
-    <state width="1390" height="206" key="GridCell.Tab.0.right" timestamp="1604035423141">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1358" height="217" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587610423749" />
+    <state width="1358" height="217" key="GridCell.Tab.0.right" timestamp="1587610423751">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1390" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604035423141" />
-    <state width="1774" height="256" key="GridCell.Tab.1.bottom" timestamp="1603600091227">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1358" height="217" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587610423751" />
+    <state x="97" y="72" key="new project wizard" timestamp="1587590804053">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1774" height="256" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091227" />
-    <state width="1774" height="256" key="GridCell.Tab.1.center" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state width="1774" height="256" key="GridCell.Tab.1.left" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state width="1774" height="256" key="GridCell.Tab.1.right" timestamp="1603600091227">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091227" />
-    <state width="1774" height="256" key="GridCell.Tab.2.bottom" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state width="1774" height="256" key="GridCell.Tab.2.center" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state width="1774" height="256" key="GridCell.Tab.2.left" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state width="1774" height="256" key="GridCell.Tab.2.right" timestamp="1603600091226">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1774" height="256" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603600091226" />
-    <state x="423" y="130" key="SettingsEditor" timestamp="1603598586566">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="423" y="130" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603598586566" />
-    <state x="513" y="87" key="new project wizard" timestamp="1609107742847">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="513" y="87" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1609107742847" />
-    <state x="659" y="192" width="672" height="678" key="search.everywhere.popup" timestamp="1604034852262">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="659" y="192" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604034852262" />
+    <state x="97" y="72" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1587590804053" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -594,14 +296,6 @@
           <url>file://$PROJECT_DIR$/src/basic/Test.java</url>
           <line>14</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/basic/samples/kotlin/Generics.kt</url>
-          <line>101</line>
-          <properties method="main">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

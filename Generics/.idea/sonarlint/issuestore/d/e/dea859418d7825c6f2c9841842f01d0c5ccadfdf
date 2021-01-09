@@ -1,0 +1,20 @@
+
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(£”û∆
+Q	java:S125:"<This block of commented-out lines of code should be removed.(àﬁ”á
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(⁄ì‹›
+g
+java:S3457A"Q%n should be used in place of \n to produce the platform-specific line separator.(£”û∆
+C
+java:S1481K"(Remove this unused "ns2" local variable.(ÑæÖâ˚ˇˇˇˇ
+Q
+java:S1854";Remove this useless assignment to local variable "numbers".(˚ ÛÛ
+Q	java:S125L"<This block of commented-out lines of code should be removed.(§à¥¡
+V	java:S125P"<This block of commented-out lines of code should be removed.(ÕìßÍ˚ˇˇˇˇ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ûü‰¢
+B
+java:S1481",Remove this unused "numbers" local variable.(˚ ÛÛ
+H
+java:S1144"2Remove this unused private "testInvariace" method.(®õﬂ—
+R
+java:S1854K"7Remove this useless assignment to local variable "ns2".(ÑæÖâ˚ˇˇˇˇ
+Q	java:S125S"<This block of commented-out lines of code should be removed.(ÙΩ ≠

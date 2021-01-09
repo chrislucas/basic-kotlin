@@ -1,3 +1,6 @@
 /OperatorOverloadingSamples/.idea/
 /OperatorOverloadingSamples/.gradle/
 /OperatorOverloadingSamples/.build/
+/tests/SampleMockk/.gradle/
+/tests/SampleMockk/.idea/
+/tests/SampleMockk/build/
