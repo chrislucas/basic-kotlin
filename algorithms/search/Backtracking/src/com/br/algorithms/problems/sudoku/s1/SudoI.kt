@@ -1,8 +1,8 @@
 package com.br.algorithms.problems.sudoku.s1
 
-import com.br.algorithms.problems.sudoku.Int2DMat
-import com.br.algorithms.problems.sudoku.IntPair
-import com.br.algorithms.problems.sudoku.print
+import com.br.algorithms.problems.sudoku.ext.Int2DMat
+import com.br.algorithms.problems.sudoku.ext.IntPair
+import com.br.algorithms.problems.sudoku.ext.print
 import java.util.*
 import kotlin.random.Random
 
@@ -115,12 +115,8 @@ fun checkLinesAndColumns(board: Int2DMat, pos: IntPair, value: Int): Boolean {
  * */
 fun checkQuandrant3X3(board: Int2DMat, pos: IntPair, value: Int): Boolean {
     var (p, q) = pos
-
-    while (p % 3 != 0)
-        p -= 1
-    while (q % 3 != 0)
-        q -= 1
-
+    p -= (p % 3)
+    q -= (q % 3)
     for (i in p..p + 2) {
         for (j in q..q + 2) {
             if (board[i][j] == value) {

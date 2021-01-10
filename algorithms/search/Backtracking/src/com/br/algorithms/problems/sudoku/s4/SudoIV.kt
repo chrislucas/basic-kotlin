@@ -1,21 +1,15 @@
-package com.br.algorithms.problems.sudoku.s3
+package com.br.algorithms.problems.sudoku.s4
 
 import com.br.algorithms.problems.sudoku.ext.Board
 import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
 import com.br.algorithms.problems.sudoku.ext.string
-import com.br.algorithms.problems.sudoku.s4.backtracking
 import kotlin.random.Random
 
-fun isFullFill(mat: Array<Array<Int>>): Boolean {
-    for (i in mat.indices) {
-        for (element in mat[i]) {
-            if (element == 0)
-                return false
-        }
-    }
-    return true
-}
+/**
+ * ;; solucao influencia pela implemetnacao do link abaixo
+ *  https://dev.to/christinamcmahon/use-backtracking-algorithm-to-solve-sudoku-270
+ * */
 
 fun canIAddNumber(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
     return when {
@@ -61,43 +55,37 @@ fun add(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
     }
 }
 
-
-/**
- * https://www.geeksforgeeks.org/sudoku-backtracking-7/
- * */
-
-fun isSolvable(board: Array<Array<Int>>) = solver(board, 0, 0)
-
-fun solver(board: Array<Array<Int>>, i: Int, j: Int): Boolean {
-    return when {
-        //  fim da matriz
-        board.size == i -> {
-            true
-        }
-        // fim da ith linha
-        board[i].size == j -> {
-            solver(board, i + 1, 0)
-        }
-
-        else -> {
-            if (board[i][j] != 0) {
-                solver(board, i, j + 1)
-            }
-
-            for (k in 1..9) {
-                if (add(board, i, j, k)) {
-                    println(String.format("add %d, %d\n%s", i, j, board.string()))
-                    if (solver(board, i, j + 1))
-                        return true
-                    else {
-                        board[i][j] = 0
-                        println(String.format("backtrack %d, %d\n%s", i, j, board.string()))
-                    }
-                }
-            }
-            false
+fun isSolved(board: Array<Array<Int>>): Boolean {
+    // verificar se a noma das linhas = 49
+    for (i in 0..board.size) {
+        for (j in 0..board[i].size) {
+            if (board[i][j] == 0)
+                return false
         }
     }
+    // verificar se a noma das colunas = 45
+    // verificar se os numeros em cada submatriz
+    return true
+}
+
+fun backtracking(board: Array<Array<Int>>): Boolean {
+    for (i in board.indices) {
+        for (j in board[i].indices) {
+            if (board[i][j] == 0) {
+                for (k in 1..9) {
+                    if (add(board, i, j, k)) {
+                        println(String.format("add %d, %d\n%s", i, j, board.string()))
+                        if (backtracking(board))
+                            return true
+                        board[i][j] = 0
+                        println(String.format("backtracking %d, %d\n%s", i, j, board.string()))
+                    }
+                }
+                return false
+            }
+        }
+    }
+    return true
 }
 
 fun testRandomicBoard(sizeBoard: Int = 31) = run(generateRandomicBoard(n = sizeBoard))
@@ -106,14 +94,16 @@ fun testStaticBoard(whichBoard: Int = 0) = run(Board[whichBoard])
 
 fun run(board: Array<Array<Int>>) {
     board.print()
-    if (isSolvable(board)) {
+    if (backtracking(board)) {
         println(String.format("Is Solvable\n%s", board.string()))
     } else {
         println("Unsolvable")
     }
 }
 
+/**
+ * https://www.sudoku-solutions.com/
+ * */
 fun main() {
-
-    testRandomicBoard(15)
+    testRandomicBoard(31)
 }

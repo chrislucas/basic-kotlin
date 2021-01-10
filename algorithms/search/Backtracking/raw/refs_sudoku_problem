@@ -1,3 +1,6 @@
+Exenplo de implementacao interessante
+https://dev.to/christinamcmahon/use-backtracking-algorithm-to-solve-sudoku-270
+
 https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
 https://www.101computing.net/backtracking-algorithm-sudoku-solver/
@@ -7,6 +10,10 @@ https://dev.to/christinamcmahon/use-backtracking-algorithm-to-solve-sudoku-270
 https://medium.com/swlh/simple-sudoku-with-backtracking-bb4813ddabb1
 
 https://www.geeksforgeeks.org/sudoku-backtracking-7/
+
+Refs
+https://towardsdatascience.com/building-a-sudoku-solving-application-with-computer-vision-and-backtracking-19668d0a1e2
+https://www.baeldung.com/java-sudoku
 
 
 Check configuration sudoku board
@@ -26,3 +33,16 @@ https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X
 
 Exact cover
 https://en.wikipedia.org/wiki/Exact_cover
+
+Online Solver
+https://www.dcode.fr/sudoku-solver
+
+* API to request sudoku
+https://github.com/berto/sugoku
+http://www.cs.utep.edu/cheon/ws/sudoku/
+
+Javascript Sudoku Puzzle Generator
+https://codepen.io/pavlovsk/pen/XmjPOE
+
+Alguns algoritmos para criar boards randomicamente
+https://www.geeksforgeeks.org/program-sudoku-generator/

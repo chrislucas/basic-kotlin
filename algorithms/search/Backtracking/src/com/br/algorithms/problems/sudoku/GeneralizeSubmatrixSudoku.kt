@@ -1,6 +1,8 @@
 package com.br.algorithms.problems.sudoku
 
 
+import com.br.algorithms.problems.sudoku.ext.Int2DMat
+import com.br.algorithms.problems.sudoku.ext.IntPair
 import kotlin.math.sqrt
 
 /**
@@ -23,15 +25,20 @@ fun gen(s: Int = 9, n: Int = 0): Int2DMat {
  * Dada uma posicao i,j na matriz, encontramos o quadrante que ela pertence
  * e validamos se eh possivel adicionar um numero nesse quadrante
  * */
-fun checkQuandrant(board: Int2DMat, pos: IntPair, value: Int): Boolean {
-    var (p, q) = pos
-    var t = sqrt(board.size * 1.0).toInt()
+
+/**
+ *
     while (p % t != 0)
         p -= 1
     while (q % t != 0)
         q -= 1
+ */
+fun checkQuandrant(board: Int2DMat, pos: IntPair, value: Int): Boolean {
+    var (p, q) = pos
+    var t = sqrt(board.size * 1.0).toInt()
+    p -= (p % t)
+    q -= (q % t)
     t -= 1
-
     for (i in p .. p+t) {
         for (j in q .. q+t) {
             if (board[i][j] == value) {
@@ -43,5 +50,15 @@ fun checkQuandrant(board: Int2DMat, pos: IntPair, value: Int): Boolean {
 }
 
 fun main() {
+    val matrix = gen(9)
 
+    arrayOf( Pair(9, 0 to 6)
+        , Pair(9, 1 to 6)
+        , Pair(3, 5 to 6)
+        , Pair(3, 3 to 5)
+        , Pair(9, 8 to 8)
+        , Pair(9, 4 to 4)
+    ).forEach {
+        println(checkQuandrant(matrix, it.second, it.first))
+    }
 }

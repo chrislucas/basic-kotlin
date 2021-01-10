@@ -6,13 +6,18 @@ typealias Matrix2D<T> = Array<Array<T>>
 typealias Index = Pair<Int, Int>
 typealias Predicate<T> = (T) -> Boolean
 
-fun <T> check(matrix: Matrix2D<T>, index: Index, fn: Predicate<T>) {
-    var (p, q) = index
-    var t = sqrt(matrix.size * 1.0).toInt()
+/**
+ *
     while (p % t != 0)
         p -= 1
     while (q % t != 0)
         q -= 1
+ */
+fun <T> check(matrix: Matrix2D<T>, index: Index, fn: Predicate<T>) {
+    var (p, q) = index
+    var t = sqrt(matrix.size * 1.0).toInt()
+    p -= (p % t)
+    q -= (q % t)
     t -= 1
     val message = StringBuilder()
     println(String.format("%s", index))

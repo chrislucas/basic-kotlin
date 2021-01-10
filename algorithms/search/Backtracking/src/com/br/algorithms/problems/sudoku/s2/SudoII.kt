@@ -1,6 +1,6 @@
 package com.br.algorithms.problems.sudoku.s2
 
-import com.br.algorithms.problems.sudoku.print
+import com.br.algorithms.problems.sudoku.ext.print
 import kotlin.random.Random
 
 /**
@@ -38,11 +38,11 @@ fun solver(board: Int2DMat, p: Int, q: Int): Boolean {
                     board.print()
                     if (solver(board, p, q + 1))
                         return true
-                } else {
-                    board[p][q] = 0
-                    println("backtrack")
-                    board.print()
                 }
+                //else { }
+                board[p][q] = 0
+                println("backtrack")
+                board.print()
             }
             return false
         }
@@ -82,10 +82,8 @@ fun checkLinesAndColumns(board: Int2DMat, lin: Int, col: Int, value: Int): Boole
 
 fun checkQuandrant3X3(board: Int2DMat, p: Int, q: Int, value: Int): Boolean {
     var (lin, col) = (p to q)
-    while (lin % 3 != 0)
-        lin -= 1
-    while (col % 3 != 0)
-        col -= 1
+    lin -= (lin % 3)
+    col -= (col % 3)
     for (i in lin..lin + 2) {
         for (j in col..col + 2) {
             if (board[i][j] == value) {
@@ -123,5 +121,4 @@ fun main() {
         println("")
         board.print()
     }
-
 }
