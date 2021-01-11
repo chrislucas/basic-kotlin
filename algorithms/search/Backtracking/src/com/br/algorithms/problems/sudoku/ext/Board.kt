@@ -1,6 +1,7 @@
 package com.br.algorithms.problems.sudoku.ext
 
-import com.br.algorithms.problems.sudoku.s3.add
+
+import kotlin.math.sqrt
 import kotlin.random.Random
 
 /**
@@ -24,6 +25,53 @@ fun Int2DMat.string(): String {
         message.append("\n")
     }
     return message.toString()
+}
+
+private fun add(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
+    return if (canIAddNumber(board, lin, col, value)) {
+        board[lin][col] = value
+        true
+    } else {
+        false
+    }
+}
+
+private fun canIAddNumber(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
+    return when {
+        lin < 0 || lin > 8 || col < 0 || col > 8 || board[lin][col] != 0 -> {
+            false
+        }
+        else -> {
+            checkLinesAndColumns(board, lin, col, value) && checkQuandrant3X3(board, lin, col, value)
+        }
+    }
+}
+
+
+private fun checkLinesAndColumns(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
+    for (i in 0 until 9) {
+        if (board[lin][i] == value || board[i][col] == value) {
+            return false
+        }
+    }
+    return true
+}
+
+private fun checkQuandrant3X3(board: Array<Array<Int>>, p: Int, q: Int, value: Int): Boolean {
+    var pp = p
+    var qq = q
+    var t = sqrt(board.size * 1.0).toInt()
+    pp -= (pp % t)
+    qq -= (pp % t)
+    t -= 1
+    for (i in pp..pp + t) {
+        for (j in qq..qq + 2) {
+            if (board[i][j] == value) {
+                return false
+            }
+        }
+    }
+    return true
 }
 
 fun generateRandomicBoard(s: Int = 9, n: Int = 0): Array<Array<Int>> {
@@ -62,8 +110,7 @@ object Board {
             arrayOf(0, 6, 0, 0, 0, 0, 2, 8, 0),
             arrayOf(0, 0, 0, 4, 1, 9, 0, 0, 5),
             arrayOf(0, 0, 0, 0, 8, 0, 0, 7, 9)
-        ).toTypedArray()
-        , listOf(
+        ).toTypedArray(), listOf(
             arrayOf(3, 0, 6, 5, 0, 8, 4, 0, 0),
             arrayOf(5, 2, 0, 0, 0, 0, 0, 0, 0),
             arrayOf(0, 8, 7, 0, 0, 0, 0, 3, 1),
@@ -73,17 +120,16 @@ object Board {
             arrayOf(1, 3, 0, 0, 0, 0, 2, 5, 0),
             arrayOf(0, 0, 0, 0, 0, 0, 0, 7, 4),
             arrayOf(0, 0, 5, 2, 0, 6, 3, 0, 0)
-        ).toTypedArray()
-        , listOf(
-            arrayOf(4,0,0,0,0,0,8,0,5),
-            arrayOf(0,3,0,0,0,0,0,0,0),
-            arrayOf(0,0,0,7,0,0,0,0,0),
-            arrayOf(0,2,0,0,0,0,0,6,0),
-            arrayOf(0,0,0,0,8,0,4,0,0),
-            arrayOf(0,0,0,0,1,0,0,0,0),
-            arrayOf(0,0,0,6,0,3,0,7,0),
-            arrayOf(5,0,0,2,0,0,0,0,0),
-            arrayOf(1,0,4,0,0,0,0,0,0)
+        ).toTypedArray(), listOf(
+            arrayOf(4, 0, 0, 0, 0, 0, 8, 0, 5),
+            arrayOf(0, 3, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 7, 0, 0, 0, 0, 0),
+            arrayOf(0, 2, 0, 0, 0, 0, 0, 6, 0),
+            arrayOf(0, 0, 0, 0, 8, 0, 4, 0, 0),
+            arrayOf(0, 0, 0, 0, 1, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 6, 0, 3, 0, 7, 0),
+            arrayOf(5, 0, 0, 2, 0, 0, 0, 0, 0),
+            arrayOf(1, 0, 4, 0, 0, 0, 0, 0, 0)
         ).toTypedArray()
     )
 
@@ -93,6 +139,5 @@ object Board {
             Array(1) { Array(1) { 0 } }
         } else {
             INCOMPLETE_BOARD[i]
-
         }
 }

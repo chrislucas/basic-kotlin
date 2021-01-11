@@ -1,59 +1,35 @@
 package com.br.algorithms.problems.sudoku.s1
 
-import com.br.algorithms.problems.sudoku.ext.Int2DMat
-import com.br.algorithms.problems.sudoku.ext.IntPair
-import com.br.algorithms.problems.sudoku.ext.print
+import com.br.algorithms.problems.sudoku.ext.*
 import java.util.*
 import kotlin.random.Random
 
+val values = fun() = LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
 
-
-
-fun solverWithRandomicPositions(mat: Int2DMat) {
-    while (!isFullFill(mat)) {
-        val p = Random.nextInt(0, 9)
-        val q = Random.nextInt(0, 9)
-        //solver(mat, p to q, 1)
-    }
-}
-
-fun solver(board: Int2DMat) {
-    navigation(board, 0, 0, 1, LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)))
-}
-
-fun navigation(board: Int2DMat, i: Int, j: Int, value: Int, pValues: Queue<Int>) {
-    when {
+fun navigation(board: Int2DMat, i: Int, j: Int, value: Int, pValues: Queue<Int>) : Boolean {
+    return when {
         board.size == i -> {
-            return
-        }
-        isFullFill(board) -> {
-            return
+             true
         }
         j < board[i].size -> {
             if (board[i][j] != 0) {
-                navigation(board, i, j + 1, value, pValues)
+                return navigation(board, i, j + 1, value, pValues)
             }
-            var s = add(board, i to j, value)
-            if (s != 0) {
-                s = if ((s + 1) % 10 == 0) 1 else s + 1
-                println("add")
-                board.print()
-                navigation(board, i, j + 1, s, LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)))
-            } else {
-                pValues.remove(value)
-                if (pValues.isNotEmpty()) {
-                    s = if ((value + 1) % 10 == 0) 1 else value + 1
-                    navigation(board, i, j, s, pValues)
-                } else {
-                    board[i][j-1] = 0
-                    println("backtracking")
-                    board.print()
-                    navigation(board, i, j-1, 1, pValues)
+            while (pValues.isNotEmpty()) {
+                var v = pValues.poll()
+                if (add(board, i to j, v) != 0) {
+                    v = if ((v + 1) % 10 == 0) 1 else v + 1
+                    println(String.format("add:%d p(%d, %d)\n%s", board[i][j], i, j, board.string()))
+                    if (navigation(board, i, j + 1, v, values()))
+                        return true
+                    println(String.format("backtrack:%d p(%d, %d)\n%s", board[i][j], i, j, board.string()))
+                    board[i][j] = 0
                 }
             }
+            return false
         }
         else -> {
-            navigation(board, i + 1, 0, 1, LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+            navigation(board, i + 1, 0, 1, values())
         }
     }
 }
@@ -148,11 +124,20 @@ fun generate(s: Int = 9, n: Int = 0): Int2DMat {
     }
 }
 
+private fun testRandomicBoard(sizeBoard: Int = 31) = run(generateRandomicBoard(n = sizeBoard))
+
+private fun testStaticBoard(whichBoard: Int = 0) = run(Board[whichBoard])
+
+private fun run(board: Array<Array<Int>>) {
+    board.print()
+    val message = if ( navigation(board, 0, 0, 1, values())) {
+        "Is solvable"
+    } else {
+        "Is Unsolvable"
+    }
+    println(String.format("%s\n%s", message, board.string()))
+}
+
 fun main() {
-    val board = generate(n = 10) //
-    board.print()
-    println("")
-    solver(board)
-    println("")
-    board.print()
+    testStaticBoard(1)
 }

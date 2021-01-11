@@ -1,6 +1,9 @@
 package com.br.algorithms.problems.sudoku.s2
 
+import com.br.algorithms.problems.sudoku.ext.Board
+import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
+import com.br.algorithms.problems.sudoku.ext.string
 import kotlin.random.Random
 
 /**
@@ -12,7 +15,6 @@ import kotlin.random.Random
 typealias Int2DMat = Array<Array<Int>>
 
 fun isSolvable(board: Int2DMat) = solver(board, 0, 0)
-
 
 fun solver(board: Int2DMat, p: Int, q: Int): Boolean {
     when {
@@ -30,26 +32,22 @@ fun solver(board: Int2DMat, p: Int, q: Int): Boolean {
             if (board[p][q] != 0) {
                 return solver(board, p, q + 1)
             }
-
-            for (i in 1 .. 9) {
+            for (i in 1..9) {
                 if (canIAddNumber(board, p, q, i)) {
                     board[p][q] = i
-                    println("add")
-                    board.print()
+                    println(String.format("add %d p(%d, %d)\n%s", board[p][q], p, q, board.string()))
                     if (solver(board, p, q + 1))
                         return true
+                    println(String.format("backtrack:%d p(%d, %d)\n%s", board[p][q], p, q, board.string()))
+                    board[p][q] = 0
                 }
-                //else { }
-                board[p][q] = 0
-                println("backtrack")
-                board.print()
             }
             return false
         }
     }
 }
 
-fun add(board: Int2DMat, lin: Int, col: Int, value: Int): Boolean  {
+fun add(board: Int2DMat, lin: Int, col: Int, value: Int): Boolean {
     val r = canIAddNumber(board, lin, col, value)
     if (r)
         board[lin][col] = value
@@ -109,16 +107,26 @@ fun gen(s: Int = 9, n: Int = 0): Int2DMat {
                 val p = Random.nextInt(0, s + 1)
                 val q = Random.nextInt(0, s + 1)
                 val v = Random.nextInt(0, s + 1)
-            } while (add(mat, p , q, v))
+            } while (add(mat, p, q, v))
         }
         mat
     }
 }
-fun main() {
-    val board = gen(n = 31) //
+
+private fun testRandomicBoard(sizeBoard: Int = 31) = run(generateRandomicBoard(n = sizeBoard))
+
+private fun testStaticBoard(whichBoard: Int = 0) = run(Board[whichBoard])
+
+private fun run(board: Array<Array<Int>>) {
     board.print()
-    if (isSolvable(board)) {
-        println("")
-        board.print()
+    val message = if (isSolvable(board)) {
+        "Is solvable"
+    } else {
+        "Is Unsolvable"
     }
+    println(String.format("%s\n%s", message, board.string()))
+}
+
+fun main() {
+    testStaticBoard(0)
 }
