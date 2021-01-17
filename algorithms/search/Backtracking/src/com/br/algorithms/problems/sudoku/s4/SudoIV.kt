@@ -107,7 +107,6 @@ private fun run(board: Array<Array<Int>>) {
 fun main() {
     //testRandomicBoard(31)
 
-
    val s = computeBenchmark {
         testStaticBoard(1)
     }
