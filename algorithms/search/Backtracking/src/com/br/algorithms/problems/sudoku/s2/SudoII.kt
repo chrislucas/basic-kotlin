@@ -1,5 +1,6 @@
 package com.br.algorithms.problems.sudoku.s2
 
+import com.br.algorithms.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.Board
 import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
@@ -128,5 +129,8 @@ private fun run(board: Array<Array<Int>>) {
 }
 
 fun main() {
-    testStaticBoard(0)
+    val s = computeBenchmark {
+        testStaticBoard(1)
+    }
+    println(s)
 }

@@ -1,15 +1,16 @@
 package com.br.algorithms.problems.sudoku.s1
 
+import com.br.algorithms.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.*
 import java.util.*
 import kotlin.random.Random
 
 val values = fun() = LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
 
-fun navigation(board: Int2DMat, i: Int, j: Int, value: Int, pValues: Queue<Int>) : Boolean {
+fun navigation(board: Int2DMat, i: Int, j: Int, value: Int, pValues: Queue<Int>): Boolean {
     return when {
         board.size == i -> {
-             true
+            true
         }
         j < board[i].size -> {
             if (board[i][j] != 0) {
@@ -130,7 +131,7 @@ private fun testStaticBoard(whichBoard: Int = 0) = run(Board[whichBoard])
 
 private fun run(board: Array<Array<Int>>) {
     board.print()
-    val message = if ( navigation(board, 0, 0, 1, values())) {
+    val message = if (navigation(board, 0, 0, 1, values())) {
         "Is solvable"
     } else {
         "Is Unsolvable"
@@ -139,5 +140,9 @@ private fun run(board: Array<Array<Int>>) {
 }
 
 fun main() {
-    testStaticBoard(1)
+    val s = computeBenchmark {
+        testStaticBoard(1)
+    }
+
+    println(s)
 }
