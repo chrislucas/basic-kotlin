@@ -6,8 +6,6 @@ package com.br.algorithms.extfun
  *
  * */
 
-fun <R> (() -> R).call(): R {
-    return this()
-}
+fun <R> (() -> R).call(): R = this()
 
-fun <R, Arg, F: (arg: Arg) -> R> F.call(arg: Arg) : R { return this(arg) }
+fun <R, Arg, F: (arg: Arg) -> R> F.call(arg: Arg) : R =  this(arg)
