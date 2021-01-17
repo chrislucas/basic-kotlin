@@ -1,6 +1,6 @@
 package com.br.algorithms.problems.sudoku.s1
 
-import com.br.algorithms.computeBenchmark
+import com.br.algorithms.extfun.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.*
 import java.util.*
 import kotlin.random.Random

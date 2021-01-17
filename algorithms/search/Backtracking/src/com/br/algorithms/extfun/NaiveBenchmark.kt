@@ -1,8 +1,9 @@
-package com.br.algorithms
+package com.br.algorithms.extfun
 
-fun <F: (args: Array<out Any?>?) -> Any> F.timeSpent(vararg args: Any? = arrayOfNulls(0)) : Double {
+
+fun <R, Arg, F: (arg: Arg) -> R> F.timeSpent(arg: Arg) : Double {
     val s = System.currentTimeMillis()
-    this(args)
+    this(arg)
     return (System.currentTimeMillis() - s) / 1000.0
 }
 

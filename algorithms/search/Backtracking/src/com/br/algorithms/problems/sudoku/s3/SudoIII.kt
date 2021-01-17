@@ -1,11 +1,10 @@
 package com.br.algorithms.problems.sudoku.s3
 
-import com.br.algorithms.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.Board
 import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
 import com.br.algorithms.problems.sudoku.ext.string
-import com.br.algorithms.timeSpent
+import com.br.algorithms.extfun.timeSpent
 
 private fun canIAddNumber(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
     return when {
@@ -103,9 +102,21 @@ private fun run(board: Array<Array<Int>>) {
 
 fun main() {
     //testRandomicBoard(15)
-    val s = computeBenchmark { testStaticBoard(1) }
-    println(s)
+    //val s = computeBenchmark { testStaticBoard(1) }
+    //println(s)
+
+    val f: (Int) -> Unit = { testStaticBoard(it) }
+    println(f.timeSpent(1))
+
+    val s = fun(value: Int) = run { testStaticBoard(value) }
+    println(s.timeSpent(1))
+
+
+
 }
+
+
+
 
 
 

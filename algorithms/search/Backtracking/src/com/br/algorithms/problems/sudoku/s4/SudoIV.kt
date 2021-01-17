@@ -1,10 +1,10 @@
 package com.br.algorithms.problems.sudoku.s4
 
-import com.br.algorithms.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.Board
 import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
 import com.br.algorithms.problems.sudoku.ext.string
+import com.br.algorithms.extfun.timeSpent
 
 /**
  * ;; solucao influencia pela implemetnacao do link abaixo
@@ -107,9 +107,18 @@ private fun run(board: Array<Array<Int>>) {
 fun main() {
     //testRandomicBoard(31)
 
-   val s = computeBenchmark {
-        testStaticBoard(1)
+    //val s = computeBenchmark { testStaticBoard(1) }
+    //println(s)
+
+    val r = fun(args: Array<Any>) {
+        args.takeIf {
+            it.isNotEmpty()
+        }?.let {
+            when (it[0]) {
+                is Int -> testStaticBoard(it[0] as Int)
+            }
+        }
     }
 
-    println(s)
+    println(r.timeSpent(arrayOf(1)))
 }
