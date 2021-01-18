@@ -1,5 +1,6 @@
 package com.br.algorithms.problems.sudoku.s4
 
+import com.br.algorithms.extfun.computeBenchmark
 import com.br.algorithms.problems.sudoku.ext.Board
 import com.br.algorithms.problems.sudoku.ext.generateRandomicBoard
 import com.br.algorithms.problems.sudoku.ext.print
