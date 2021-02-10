@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnotherCoroutinesSample.iml" filepath="$PROJECT_DIR$/AnotherCoroutinesSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eokotlincoroutines/eokotlincoroutines.iml" filepath="$PROJECT_DIR$/eokotlincoroutines/eokotlincoroutines.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,4 +1,5 @@
 package com.br.samples
 
-class LegendresFormula {
+fun main() {
+
 }

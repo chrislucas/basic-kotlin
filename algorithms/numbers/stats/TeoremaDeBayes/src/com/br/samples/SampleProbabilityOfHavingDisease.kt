@@ -6,7 +6,8 @@ package com.br.samples
  *
  * */
 
-const val PROBABILITY_HAS_THE_DISEASES = 0.001
+// Um exemplo para um problema hipotetico
+const val GLOBAL_PROBABILITY_HAVETHE_DISEASE = 0.001
 
 fun main() {
 

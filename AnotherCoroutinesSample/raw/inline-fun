@@ -1,0 +1,21 @@
+"megamorphic" call-sites inside loops
+https://ionutbalosin.com/2019/03/kotlin-explicit-inlining-at-megamorphic-call-sites-pays-off-in-performance/
+https://shipilev.net/jvm/anatomy-quarks/16-megamorphic-virtual-calls/
+
+Inline caching
+https://en.wikipedia.org/wiki/Inline_caching
+
+When using inline function - discussion from stackoverflow
+https://stackoverflow.com/questions/44471284/when-to-use-an-inline-function-in-kotlin
+
+Inline functions — under the hood
+https://medium.com/androiddevelopers/inline-functions-under-the-hood-12ddcc0b3a56
+
+Resumo
+
+-----------------------------------
+
+kotlin continuation
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-continuation/
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-continuation.html
+https://stackoverflow.com/questions/50598519/in-kotlin-whats-the-difference-between-the-terms-coroutine-and-continuation

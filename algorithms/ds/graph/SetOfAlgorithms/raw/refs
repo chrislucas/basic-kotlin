@@ -1,0 +1,29 @@
+
+// Ir na secao de grafos
+https://cp-algorithms.com/
+
+
+Min-cost flow
+https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/
+https://www.hackerearth.com/practice/algorithms/graphs/minimum-cost-maximum-flow/tutorial/
+http://www-di.inf.puc-rio.br/~mmolinaro/AA16-1/07minCost.pdf
+
+Minimum-cost flow - Successive shortest path algorithm
+https://cp-algorithms.com/graph/min_cost_flow.html
+
+Aulas sobre Min Cost Max Flow - Maratona IME USP
+https://www.youtube.com/watch?v=xO93tV1e2fk&list=PLlMaX94qhO1RZf0HA9ye9mPB_BK1tNBN0&index=8
+https://www.youtube.com/watch?v=WVfOzEm5BwQ&list=PLlMaX94qhO1RZf0HA9ye9mPB_BK1tNBN0&index=10
+
+Outra aula interessante sobre Min Cost Max Flow
+https://www.youtube.com/watch?v=xC2tYIZvmgc
+
+
+Metwork flow problem
+https://web.stanford.edu/class/cs97si/08-network-flow-problems.pdf
+https://www.cs.cmu.edu/~avrim/451f11/lectures/lect1027.pdf
+https://en.wikipedia.org/wiki/Minimum-cost_flow_problem
+https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm
+
+Floyd Warshall
+https://www.youtube.com/watch?v=3SmGlcq0qJU&list=PLlMaX94qhO1RZf0HA9ye9mPB_BK1tNBN0&index=11

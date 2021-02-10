@@ -1,4 +1,8 @@
 package com.br.samples.ktutorials
 
-class InlineFunPass {
+inline fun compose(fn: () -> Unit) = fn()
+
+
+fun main() {
+    compose {  }
 }

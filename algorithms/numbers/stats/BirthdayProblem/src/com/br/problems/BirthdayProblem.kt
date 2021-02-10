@@ -121,7 +121,7 @@ fun simulationChooseRandomicNumberNTimes(sample: Int, upperBound: Int): ResultPr
     var s = 0
     val random = Random(System.currentTimeMillis())
     var acc = 0
-    val simulations = 500
+    val simulations = 1000
     while (s <= simulations) {
         val numbers = Array(sample) { random.nextInt(1, upperBound) }.sortedArray()
         for (i in 0 until numbers.size - 1) {
@@ -182,20 +182,27 @@ private fun executeSimulation() {
     table.add(executeSimulation(70, 365, 1000))
     table.add(executeSimulation(75, 365, 1000))
     table.add(executeSimulation(100, 365, 1000))
+    table.add(executeSimulation(200, 365, 1000))
 
+    val simulationBufferResult = StringBuilder()
+    val statsBufferResult = StringBuilder()
     table.forEach { simulations ->
         val mean = simulations.mean()
         val variance = simulations.variance(mean)
         val stddev = stddev(variance)
-        val buffer = StringBuilder()
+
         simulations.forEach {
-            buffer.append(it).append("\n")
+            simulationBufferResult.append(it).append("\n")
         }
-        val result = String.format("Simulation: %s - Mean: %.5f, Variance: %.5f, Stddev: %.5f"
+        val stats = String.format("Simulation: %s - Mean: %.5f, Variance: %.5f, Stddev: %.5f"
                 , simulations[0].qSample, mean, variance, stddev)
-        appendResults(buffer.toString(), result)
-        println(result)
+
+        simulationBufferResult.append("\n${stats}\n")
+        statsBufferResult.append("${stats}\n").append("")
     }
+
+    appendResults(simulationBufferResult.toString())
+    println(statsBufferResult)
 }
 
 
@@ -208,13 +215,12 @@ private fun rewriteResults(simulation: String, statsResults: String) {
             }
 }
 
-private fun appendResults(simulation: String, statsResults: String) {
-    FileOutputStream(File("raw/output/simulation.txt"), true)
+private fun appendResults(simulation: String) {
+    FileOutputStream(File("raw/output/simulation.txt"), false)
             .bufferedWriter()
             .use {
                out ->
                 out.write(simulation)
-                out.write(String.format("\n%s\n", statsResults))
                 out.write("------------------------------------------------------")
                 out.write("\n\n")
             }
@@ -250,7 +256,5 @@ private fun testMeanSimulation() {
 }
 
 fun main() {
-    //sampleBirthdayProblem()
-    //testMeanSimulation()
     executeSimulation()
 }
