@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b4cbbbf4-6f4d-4d5a-aa6f-5a48d3847810" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/src/com/br/samples/ktutorials/InlineFunPass.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Reflection/raw/dyn_proxy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Reflection/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Reflection/src/samples/paramtypes/SampleGetParameterizedType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/ds/trees/WaveletTree/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/numbers/stats/BirthdayProblem/src/com/br/problems/BirthdayProblem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/numbers/stats/TeoremaDeBayes/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/numbers/stats/TeoremaDeBayes/src/com/br/samples/BayesTheoremFormula.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/numbers/stats/TeoremaDeBayes/src/com/br/samples/SampleProbabilityOfHavingDisease.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithms/search/QuickSelect/ref/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/AddDestructuringBehavior.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../from-docs/ClassLoader/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../from-docs/ClassLoader/src/com/br/sample/SampleJavaClassLoader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../from-docs/ClassLoader/src/com/br/sample/SampleLoaderArrayClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Reflection/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Reflection/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Reflection/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Reflection/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Reflection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Reflection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Reflection/out/production/Reflection/BasicReflectionKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Reflection/out/production/Reflection/BasicReflectionKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Reflection/out/production/Reflection/META-INF/Reflection.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../../Reflection/out/production/Reflection/META-INF/Reflection.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/AdapterObject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/META-INF/AdapterObject.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/design/AccessToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/design/AccessTokenFirebase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/design/AccessTokenYoutube.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/design/AdapterAccessToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/out/production/AdapterObject/design/MainKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/raw/links" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/src/design/AccessToken.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/src/design/AccessTokenFirebase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/src/design/AccessTokenYoutube.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/src/design/AdapterAccessToken.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/AdapterObject/src/design/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/Clazz.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/AnonymousFunctionKt$main$modifiedPoint$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/AnonymousFunctionKt$main$p4d$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/AnonymousFunctionKt$main$run$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/AnonymousFunctionKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/BasicInheritanceKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Clazz$Companion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Clazz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Geom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/I$DefaultImpls.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/I.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/InheritanceKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/META-INF/Clazz.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/ObjectExpressionKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/OverridingRulesKt$main$op$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/OverridingRulesKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Point2F.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Point2fKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Point3F.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Point4F.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Polygon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Q.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Run.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Square$Companion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/TextView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/out/production/Clazz/View.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/raw/companionobject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/AnonymousFunction.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/BasicInheritance.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/Inheritance.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/ObjectExpression.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/OverridingRules.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/Clazz/src/Point2f.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/CompositePattern/CompositePattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/sonarlint/issuestore/7/6/760d099d9ee84d0d1928881e10d9a78dcd335851" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/ConstructorsAndInitBlocks.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/ConstructorsAndInitBlocks/raw/refs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/DecoratorPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/META-INF/DecoratorPattern.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/MainAppKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotBase2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotDecoratorBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotDiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotFlameThrower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/out/production/DecoratorPattern/RobotFlying.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/raw/links" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DecoratorPattern/src/MainApp.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/sonarlint/issuestore/8/f/8fd837ccbebde3a7b5d52c046e56e0f75c86f6ab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/sonarlint/issuestore/a/c/acf521cfc253be5d3139a4500dad1d4c9b876a55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/sonarlint/issuestore/d/6/d60fd69eebe648bd63c27217d0b2045a6fc995be" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/DelegatePattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/META-INF/DelegatePattern.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/AsyncRequestUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/Delegate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/DelegateClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/DelegatePatternKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/ExecuteClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/InheritanceTestKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/out/production/DelegatePattern/solution/WindowRequestUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/raw/links" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/src/solution/DelegatePattern.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatePattern/src/solution/InheritanceTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/sonarlint/issuestore/8/3/831e098b3d5e6d6ee3add3ecfc91ae1ff24b123e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/DelegatedProperties.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/raw/refs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/GenericDelegate.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/SimpleDelegate.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/models/Plane.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/models/Point2D.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/sample/LazyFunction.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/sample/Mapping.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/sample/Obervable.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegatedProperties/src/sample/SampleDelegateProperties.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegationPattern/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegationPattern/DelegationPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/DelegationPattern/raw/ref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/OOP.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-reflect-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-reflect.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib-jdk7-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib-jdk7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib-jdk8-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib-jdk8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-stdlib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-test-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/lib/kotlin-test.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/META-INF/OOP.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/AccessToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/AccessTokenFacebookAcount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/AnotherClazzWithoutPConstructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/ClazzWithoutPConstructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/DerivedClassInitOrderKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/ImmutablePoint2F.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/InheritanceKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/InitializerBlockKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/ObjectExpressionKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/OverridingPropertiesKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Point2D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Point2f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Point3f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Point4f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Polygon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Quadrilater.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Test$A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Test$B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/out/production/OOP/oop/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/raw/links" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/DerivedClassInitOrder.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/Inheritance.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/InitializerBlock.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/ObjectExpression.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/OverridingProperties.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/OOP/src/oop/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/SampleTypeErasure.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/raw/refs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/Apply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/Composite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/CompositeBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/CompositeSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/GenCompositeBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/Meme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/TypeErasureProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SampleTypeErasure/src/sample/TypeErasureProcessEdgeCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/sonarlint/issuestore/7/6/760d099d9ee84d0d1928881e10d9a78dcd335851" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/sonarlint/issuestore/8/3/831e098b3d5e6d6ee3add3ecfc91ae1ff24b123e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/sonarlint/issuestore/b/0/b0a65206ee9c67236e9293154117f0b04b29413e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/SealedClass.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/out/production/SealedClass/META-INF/SealedClass.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/out/production/SealedClass/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/out/production/SealedClass/Point3D$Point4D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/out/production/SealedClass/Point3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/raw/refs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/src/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClass/src/Point3D.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/SealedClassConstructorProblem.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/raw/generics" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/raw/refs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/src/BuilderUser.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/src/CustomUserSystem.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/src/UserSystem.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/SealedClassConstructorProblem/src/main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/DecoratorPattern/DecoratorPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/sonarlint/issuestore/6/b/6b02ece620c7f1f57b79ca5336a197d70315a42c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/InterpreterDesignPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/InterpreterDesignPattern/raw/ref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/6/b/6b02ece620c7f1f57b79ca5336a197d70315a42c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/ProxyPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ProxyPattern/raw/ref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/sonarlint/issuestore/6/b/6b02ece620c7f1f57b79ca5336a197d70315a42c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/ReactorPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oo/patterns/ReactorPattern/raw/ref" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1jUFsfQHcAOHwoj02fqdtTxBrEP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager" selected="Application.AddDestructuringBehaviorKt">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddDestructuringBehaviorKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="DestructuringDeclaration.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="AddDestructuringBehaviorKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="DestructuringDeclaration.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AddDestructuringBehaviorKt" />
+        <item itemvalue="Application.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4cbbbf4-6f4d-4d5a-aa6f-5a48d3847810" name="Default Changelist" comment="" />
+      <created>1603850975199</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603850975199</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1577" height="238" key="GridCell.Tab.0.bottom" timestamp="1603856009590">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.0.bottom/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009590" />
+    <state width="1577" height="238" key="GridCell.Tab.0.center" timestamp="1603856009589">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.0.center/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009589" />
+    <state width="1577" height="238" key="GridCell.Tab.0.left" timestamp="1603856009588">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.0.left/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009588" />
+    <state width="1577" height="238" key="GridCell.Tab.0.right" timestamp="1603856009589">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.0.right/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009589" />
+    <state width="1577" height="238" key="GridCell.Tab.1.bottom" timestamp="1603856009591">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.1.bottom/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009591" />
+    <state width="1577" height="238" key="GridCell.Tab.1.center" timestamp="1603856009590">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.1.center/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009590" />
+    <state width="1577" height="238" key="GridCell.Tab.1.left" timestamp="1603856009590">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.1.left/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009590" />
+    <state width="1577" height="238" key="GridCell.Tab.1.right" timestamp="1603856009591">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1577" height="238" key="GridCell.Tab.1.right/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603856009591" />
+    <state x="-1264" y="246" width="670" height="58" key="search.everywhere.popup" timestamp="1603854667008">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1264" y="246" width="670" height="58" key="search.everywhere.popup/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603854667008" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/AddDestructuringBehavior.kt</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
