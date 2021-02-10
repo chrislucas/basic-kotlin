@@ -1,0 +1,24 @@
+http://www.angelikalanger.com/GenericsFAQ/FAQSections/ParameterizedTypes.html#Topic1
+
+
+Covariancia de arrays em  Java
+https://www.logicbig.com/tutorials/core-java-tutorial/java-language/java-subtyping-rules.html
+///////////////////////////////////////////////////////////////////
+
+Uma LP pode suportar as seguintes regras de subtipos:
+
+Covariante: Caracteristica que permtie substituir um subtipo por um supertipo
+Contravariante: Caracteristica que permite substituir um supertipo por um subtipo
+Bivariante: Caracteristica que permite a existencia das regras Covariante e Contravariante
+Invariante: Caracteristica que nao permite nenuma substituicao
+
+
+///////////////////////////////////////////////////////////////////
+https://dzone.com/articles/covariance-and-contravariance
+https://www.freecodecamp.org/news/understanding-java-generic-types-covariance-and-contravariance-88f4c19763d2/
+https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)
+
+http://mail.openjdk.java.net/pipermail/valhalla-spec-experts/2018-October/000775.html
+
+
+https://stackoverflow.com/questions/18666710/why-are-arrays-covariant-but-generics-are-invariant

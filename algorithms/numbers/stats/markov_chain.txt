@@ -1,0 +1,3 @@
+https://en.wikipedia.org/wiki/Markov_chain
+https://www.geeksforgeeks.org/find-the-probability-of-a-state-at-a-given-time-in-a-markov-chain-set-1/
+https://www.geeksforgeeks.org/finding-the-probability-of-a-state-at-a-given-time-in-a-markov-chain-set-2/

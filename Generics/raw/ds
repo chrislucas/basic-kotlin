@@ -1,0 +1,12 @@
+https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
+
+/**
+ * Implementacao de multiset
+ * http://www.programming-algorithms.net/article/41868/Multiset
+ * https://dev.to/fernandoblima/set-and-multiset-data-structure-algorithm-part-iii-1ea8
+ * https://algs4.cs.princeton.edu/13stacks/Bag.java.html
+ * https://algs4.cs.princeton.edu/13stacks/
+ * https://github.com/kevin-wayne/algs4/blob/master/src/main/java/edu/princeton/cs/algs4/Bag.java
+ *
+ * https://stackoverflow.com/questions/6258387/how-is-the-c-multimap-container-implemented
+ * */

@@ -1,3 +1,0 @@
-https://github.com/KotlinBy/awesome-kotlin
-
-https://pspdfkit.com/blog/2017/writing-concise-code-with-kotlin-and-rxjava/
