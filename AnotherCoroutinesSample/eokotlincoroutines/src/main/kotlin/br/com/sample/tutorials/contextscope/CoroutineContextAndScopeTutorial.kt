@@ -1,4 +1,4 @@
-package br.com.sample
+package br.com.sample.tutorials.contextscope
 
 import kotlinx.coroutines.*
 
@@ -12,7 +12,7 @@ import kotlinx.coroutines.*
 /**
  * Run a new coroutine and blocks the current Thread until its completion
  *
- * Coroutines sao immutaveis mas podemos adicionar elementos ao seu contexto atraves
+ * Coroutines sao imutaveis mas podemos adicionar elementos ao seu contexto atraves
  * do operador plus
  * */
 fun sampleRunblocking() = runBlocking<Unit> {
@@ -30,9 +30,11 @@ fun sampleRunblocking() = runBlocking<Unit> {
 
 suspend fun wrapSuspendFunctionLab(fn: suspend () -> Unit) = fn()
 
-fun main() {
+
+fun sample1() {
     runBlocking {
         wrapSuspendFunctionLab {
+
             withContext(Dispatchers.IO) {
                 println("GlobalScope.launch -> CoroutineScope: $this | Binded Context: $coroutineContext")
             }
@@ -58,5 +60,9 @@ fun main() {
             println("GlobalScope.launch -> CoroutineScope: $this | Binded Context: $coroutineContext")
         }
     }
+}
+
+fun main() {
+
 }
 

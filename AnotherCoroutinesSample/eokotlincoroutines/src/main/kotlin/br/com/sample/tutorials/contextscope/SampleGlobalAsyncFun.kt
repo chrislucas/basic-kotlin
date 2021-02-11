@@ -5,7 +5,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 
 
-private suspend fun looper() {
+private suspend fun looper(): Long {
     var started = false
     val time = System.currentTimeMillis()
     while (true) {
@@ -15,8 +15,7 @@ private suspend fun looper() {
                 process()
             }
             if (result.await()) {
-                println(System.currentTimeMillis() - time)
-                break
+                return System.currentTimeMillis() - time
             }
         }
     }
@@ -29,6 +28,6 @@ suspend fun process(): Boolean {
 
 fun main() {
     runBlocking {
-        looper()
+        println("Difference: ${looper()}")
     }
 }

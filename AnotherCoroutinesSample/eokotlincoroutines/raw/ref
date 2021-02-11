@@ -1,3 +1,6 @@
+Coroutines - Ler esse artigo no futuro (ainda está dificil compreender completamente)
+https://elizarov.medium.com/coroutine-context-and-scope-c8b255d59055
+
 contract
 https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/
 
@@ -11,3 +14,10 @@ CoroutineScope
 https://elizarov.medium.com/coroutine-context-and-scope-c8b255d59055
 https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/
 
+Referencias do git do Renato
+https://github.com/rribesa/apresentacaoCoroutines
+
+
+Equality kotlin
+https://kotlinlang.org/docs/reference/equality.html
+https://agrawalsuneet.github.io/blogs/equality-in-kotlin/
