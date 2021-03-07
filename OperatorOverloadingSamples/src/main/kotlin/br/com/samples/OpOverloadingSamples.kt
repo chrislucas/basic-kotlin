@@ -3,9 +3,13 @@ package br.com.samples
 /**
  * https://kotlinlang.org/docs/reference/operator-overloading.html
  *
- * To implement an operator Kotlin provide us a member function or an extension function with a fixed name,
+ * To implement an operator, provide a member function or an extension function with a fixed name,
  * for a corresponding type
+ *
+ *
  *      - LEFT-HAND SIDE TYPE for binary op
+ *          - p += q plusAssign
+ *          - p -= q minusAssign
  *      - ARGUMENT TYPE for unary op
  *
  * FUNCTION THAT OVERLOAD OPERATOR NEED TO BE MARKED WITH THE OPERATOR MODIFIER
@@ -45,18 +49,22 @@ data class Point2Df(val x: Double, val y: Double) {
      *
      * Essas funcoes nao devem mudar o valor do objeto que utilizou o operador
      *
+     * # COMPORTAMENTO DO OPERADOR POSFIXADO
+     *
      * O compilador executa as seguintes operacoes para resolver um operador posfixado (p++)
      *
      *  - Determinaa o tipo da variavel 'a', por exemplo:  seja 'a' do tipo 'T' quqlquer
      *  - Procura na classe que define o tipo 'T' uma funcao inc() sem argumentos
      *  com o modificador 'OPERATOR'
-     *  - Checa se o retorno dessa fucncao eh um subtipo de 'T'
+     *  - Checa se o retorno dessa funcao eh um subtipo de 'T'
      *
      *  Os resultados de computar a operacao posfixiada
      *      - armazena o valor original de 'a'  a uma variavel temporaria a0
      *      - defina o valor de a0.inc() a varriável 'a' (a e atualizado basicamente)
      *      - retorna o valor de a0 como resultado (retorno do valor antigo)
      *
+     *
+     *  # COMPORTAMENTO DO OPERADOR PREFIXADO
      *
      *  Para a operacao de decremento a-- ocorre a mesma coisa
      *
@@ -91,8 +99,13 @@ private fun sampleIncOpOverloading() {
     println("P: $p")
 
     r = Point2Df(1.0, 2.0)
+    // a op inc() e feita antes do print
     println("Print ++r: ${++r}")
     println("R: $r")
+    // a operacao inc() e feita depois do print
+    println("Print r++: ${r++}")
+    println("R: $r")
+
 }
 
 private fun sampleDecOpOverloading() {
@@ -105,7 +118,7 @@ private fun sampleDecOpOverloading() {
     println("Value r: $r, value p--: $p")
 }
 
-private fun test1() {
+private fun testIncOpAfterThatDecOp() {
     sampleIncOpOverloading()
     println("-------------------------------------")
     sampleDecOpOverloading()
@@ -122,5 +135,5 @@ private fun samplePlusAssign() {
 
 
 fun main() {
-    samplePlusAssign()
+    testIncOpAfterThatDecOp()
 }

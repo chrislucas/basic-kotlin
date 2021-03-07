@@ -1,0 +1,7 @@
+
+.gitignore
+.idea/codeStyles/
+.idea/sonarlint/
+.idea/vcs.xml
+.idea/workspace.xml
+out/

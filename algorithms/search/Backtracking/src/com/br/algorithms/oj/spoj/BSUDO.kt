@@ -26,6 +26,7 @@ private fun solver(board: Array<Array<Int>>): Boolean{
 
 val variables = fun() = LinkedList(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
 
+// TLE
 private fun solver(board: Array<Array<Int>>, values: Queue<Int>): Boolean{
     for (i in board.indices) {
         for (j in board[i].indices) {
@@ -44,6 +45,8 @@ private fun solver(board: Array<Array<Int>>, values: Queue<Int>): Boolean{
     }
     return true
 }
+
+// TODO estudar uma solucao mais eficiente
 
 private fun add(board: Array<Array<Int>>, lin: Int, col: Int, value: Int): Boolean {
     return if (check(board, lin, col, value)) {

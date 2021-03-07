@@ -1,4 +1,4 @@
 .gitignore
 .idea
 .gradle
-/build/
+build/
