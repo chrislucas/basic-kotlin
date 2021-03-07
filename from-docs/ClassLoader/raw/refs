@@ -1,0 +1,25 @@
+ClassLoader
+https://www.geeksforgeeks.org/classloader-in-java/
+https://www.javatpoint.com/classloader-in-java
+https://www.baeldung.com/java-classloaders
+https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/ClassLoader.html
+
+Pesquisar por JRE e ClassLoader (o vinculo)
+https://medium.com/@senthalan/java-classloading-f281cd1706f6
+https://docs.oracle.com/javase/tutorial/ext/basics/load.html
+https://www.javacodegeeks.com/2018/04/jvm-architecture-jvm-class-loader-and-runtime-data-areas.html
+https://en.wikipedia.org/wiki/Java_Classloader
+https://jboss-books.gitbooks.io/wildfly/content/classloader/introducao.html
+
+Classes` Binary names in Java:https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html#name
+
+
+Custom ClassLoader, how to use?
+https://stackoverflow.com/questions/45656836/custom-classloader-how-to-use
+
+how to get a array class using classloader in java?
+https://stackoverflow.com/questions/20738207/how-to-get-a-array-class-using-classloader-in-java
+https://stackoverflow.com/questions/30406524/loading-an-array-with-a-classloader
+
+JVM, JDK e JRE
+https://howtodoinjava.com/java/basics/jdk-jre-jvm/

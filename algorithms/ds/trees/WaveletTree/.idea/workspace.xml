@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cd04406e-36cc-421e-8547-250d39e486c4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../Reflection/raw/dyn_proxy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Reflection/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Reflection/src/samples/paramtypes/SampleGetParameterizedType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../numbers/stats/TeoremaDeBayes/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../numbers/stats/TeoremaDeBayes/src/com/br/samples/BayesTheoremFormula.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../numbers/stats/TeoremaDeBayes/src/com/br/samples/SampleProbabilityOfHavingDisease.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../search/QuickSelect/ref/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../from-docs/ClassLoader/raw/refs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../from-docs/ClassLoader/src/com/br/sample/SampleJavaClassLoader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../from-docs/ClassLoader/src/com/br/sample/SampleLoaderArrayClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Reflection/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Reflection/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Reflection/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Reflection/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Reflection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Reflection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Reflection/out/production/Reflection/BasicReflectionKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Reflection/out/production/Reflection/BasicReflectionKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Reflection/out/production/Reflection/META-INF/Reflection.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Reflection/out/production/Reflection/META-INF/Reflection.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../oo/patterns/DecoratorPattern/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../oo/patterns/DecoratorPattern/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../oo/patterns/DecoratorPattern/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../oo/patterns/DecoratorPattern/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../oo/patterns/ProxyPattern/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1iZhiugH60PeI2T8qGzS4NyamI7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd04406e-36cc-421e-8547-250d39e486c4" name="Default Changelist" comment="" />
+      <created>1602121152163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602121152163</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1569" y="142" key="new project wizard" timestamp="1602121891922">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1569" y="142" key="new project wizard/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602121891922" />
+  </component>
+</project>

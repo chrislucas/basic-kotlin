@@ -1,0 +1,41 @@
+Generics
+
+Type Projections
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/generics.html#type-projections-use-site-covariance-and-contravariance
+
+Mesmo quando nao declaramos o tipo parametrizado de uma classe generica de uma forma que ele seja variante <T: Any> por exemplo,
+seja por qualquer motivo, ainda conseguimos usar o tipo parametrizado como variante através de Type Projection'
+
+O termo "projection" refere-se ao fato de que quando usamos esse recursos estamos limitando quais subtipos podemos usar
+para parametrizar a nossa classe. Assim temos uma visao parcial ou uma projecao da classe original
+
+star-projection:
+
+
+
+
+Proxy class Java
+https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Proxy.html
+
+A classe Proxy prove metodos estaticos que permite-nos criar classes Proxies dinamicas e instancias.
+
+Foo f = (Foo) Proxy.newProxyInstance(Foo.class.getClassLoader()
+
+, new Class[] {Foo.class}, new InvocationHandler {...})
+
+public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,
+   InvocationHandler h) throws IllegalArgumentException
+https://www.tutorialspoint.com/javareflect/javareflect_proxy_newproxyinstance.htm
+
+O metodo retorno uma instancia de uma classe Proxy a partir de uma interface especifica
+
+
+Proxy
+https://www.e-publicacoes.uerj.br/ojs/index.php/cadinf/article/viewFile/6574/4704
+
+
+Interface InvocationHandler: https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/InvocationHandler.html
+
+A instancia dessa interface eh invocada quando uma classe Proxy Dinamica e criada atraves da API de reflection Java.
+
+Cada instancia de proxy possui um Handler associado a ela. Quando um metodo

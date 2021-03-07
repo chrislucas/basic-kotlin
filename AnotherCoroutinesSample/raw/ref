@@ -1,0 +1,18 @@
+https://kotlinlang.org/docs/reference/coroutines-overview.html
+
+Deep dive into Coroutines on JVM @ KotlinConf 2017
+https://pt.slideshare.net/elizarov/deep-dive-into-coroutines-on-jvm-kotlinconf-2017?from_action=save
+https://www.youtube.com/watch?v=_hfBv0a09Jc
+
+kotlin coroutines deep dive into bytecode ulmir usmanov
+https://bkug.by/wp-content/uploads/2019/01/Ulmir-Usmanov-Kotlin-Coroutines.pdf
+https://www.youtube.com/watch?v=YrrUCSi72E8
+
+
+Coroutine
+https://en.wikipedia.org/wiki/Coroutine
+
+suspend fun
+What does the suspend function mean in a Kotlin Coroutine?
+https://stackoverflow.com/questions/47871868/what-does-the-suspend-function-mean-in-a-kotlin-coroutine
+

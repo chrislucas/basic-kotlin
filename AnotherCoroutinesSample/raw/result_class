@@ -1,0 +1,5 @@
+
+Result.kt
+https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md#encapsulate-successful-or-failed-function-execution
+https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md#limitations
+https://stackoverflow.com/questions/52631827/why-cant-kotlin-result-be-used-as-a-return-type
