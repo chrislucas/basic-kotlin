@@ -1,7 +1,8 @@
-package com.br.samples.apigithub.utils.http
+package com.br.samples.apis.utils.http
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
 
 
 class WrapperResult<T>(val result: T)
@@ -17,6 +18,9 @@ class WrapperOnSucess<T>(private val _result: T) : WrapperData {
     val wrapSucess: WrapperResult<Result<T>>
         get() = WrapperResult(Result.success(_result))
 }
+
+
+fun <T> WrapperOnSucess<T>.getBodyResponse() = (this.wrapSucess.result.getOrNull() as Response<*>).body()
 
 abstract class TemplateHttpRequestManager {
 

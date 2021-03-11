@@ -1,17 +1,17 @@
-package com.br.samples.apigithub.repositories
+package com.br.samples.apis.apigithub.repositories
 
-import com.br.samples.apigithub.endpoint.GithubRepo
-import com.br.samples.apigithub.models.http.ObserverRemoteRepository
-import com.br.samples.apigithub.repositories.RemoteRepository.doAsyncRequest
-import com.br.samples.apigithub.utils.ProvideRetrofitinstance
-import com.br.samples.apigithub.utils.http.WrapperData
-import com.br.samples.apigithub.utils.http.WrapperOnError
-import com.br.samples.apigithub.utils.http.WrapperOnSucess
+import com.br.samples.apis.apigithub.endpoint.GithubEndpoint
+import com.br.samples.apis.http.ObserverRemoteRepository
+import com.br.samples.apis.utils.http.RemoteRepository.doAsyncRequest
+import com.br.samples.apis.utils.ProvideRetrofitinstance
+import com.br.samples.apis.utils.http.WrapperData
+import com.br.samples.apis.utils.http.WrapperOnError
+import com.br.samples.apis.utils.http.WrapperOnSucess
 import kotlinx.coroutines.*
 import retrofit2.Response
 import kotlin.coroutines.CoroutineContext
 
-class RemoteRepositoryGithub(override var coroutineContext: CoroutineContext) : CoroutineScope,
+class RemoteGithubRepository(override var coroutineContext: CoroutineContext) : CoroutineScope,
     ObserverRemoteRepository {
 
     init {
@@ -20,7 +20,7 @@ class RemoteRepositoryGithub(override var coroutineContext: CoroutineContext) : 
 
     private val endpoint = ProvideRetrofitinstance
         .githubEndpoint
-        .create(GithubRepo::class.java)
+        .create(GithubEndpoint::class.java)
 
     fun getRepositories() {
         doAsyncRequest(endpoint.getRepositories("chrislucas"), this)

@@ -1,8 +1,8 @@
-package com.br.samples.apigithub.repositories
+package com.br.samples.apis.utils.http
 
-import com.br.samples.apigithub.models.http.CallbackRemoteRepository
-import com.br.samples.apigithub.models.http.DefaultBehaviorCallback
-import com.br.samples.apigithub.models.http.ObserverRemoteRepository
+import com.br.samples.apis.http.CallbackRemoteRepository
+import com.br.samples.apis.http.DefaultBehaviorCallback
+import com.br.samples.apis.http.ObserverRemoteRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,12 +17,11 @@ object RemoteRepository {
     fun <T> doAsyncRequest(call: Call<T>, callback: CallbackRemoteRepository<T>) {
         val callbackEnqueue = object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
-                //callback.onSuccess(call, response)
-                callback.onError(call, Throwable("Exception Fake"))
+                callback.onSuccess(call, response)
             }
 
             override fun onFailure(call: Call<T>, exception: Throwable) {
-                callback.onError(call, Exception(exception))
+                callback.onError(call, Throwable(exception))
             }
         }
         call.enqueue(callbackEnqueue)

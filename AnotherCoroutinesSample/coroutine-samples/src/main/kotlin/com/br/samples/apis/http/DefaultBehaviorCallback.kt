@@ -1,7 +1,7 @@
-package com.br.samples.apigithub.models.http
+package com.br.samples.apis.http
 
-import com.br.samples.apigithub.utils.http.DefaultHttpRequestManager
-import com.br.samples.apigithub.utils.http.WrapperData
+import com.br.samples.apis.utils.http.DefaultHttpRequestManager
+import com.br.samples.apis.utils.http.WrapperData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

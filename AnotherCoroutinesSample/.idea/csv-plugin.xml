@@ -52,6 +52,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apis/meli/endpoint/MercadoLibre.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apis/meli/models/ResultSearchProduct.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apis/utils/ProvideRetrofitinstance.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/eokotlincoroutines/src/main/kotlin/br/com/sample/tutorials/blockingthread/SampleFromBlockingIOToSuspending.kt">
           <value>
             <Attribute>

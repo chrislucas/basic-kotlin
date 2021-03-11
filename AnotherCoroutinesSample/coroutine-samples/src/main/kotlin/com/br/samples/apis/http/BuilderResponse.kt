@@ -1,4 +1,4 @@
-package com.br.samples.apigithub.models.http
+package com.br.samples.apis.http
 
 import retrofit2.Call
 import retrofit2.Response
