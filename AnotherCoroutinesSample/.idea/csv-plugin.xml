@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CsvFileAttributes">
+    <option name="attributeMap">
+      <map>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/data/RemoteRepository.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/models/http/DefaultBehaviorCallback.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/repositories/RemoteRepository.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/utils/RequestManager.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/utils/RetrofitInstance.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/utils/http/TemplateHttpRequestManager.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/apigithub/utils/http/TemplateRequestManager.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/eokotlincoroutines/src/main/kotlin/br/com/sample/tutorials/blockingthread/SampleFromBlockingIOToSuspending.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

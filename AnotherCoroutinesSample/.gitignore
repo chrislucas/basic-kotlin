@@ -1,1 +1,5 @@
 /out/
+/coroutine-samples/build/
+/.idea/
+/sampleproduceractor/build/
+/coroutine-and-channels/build/
