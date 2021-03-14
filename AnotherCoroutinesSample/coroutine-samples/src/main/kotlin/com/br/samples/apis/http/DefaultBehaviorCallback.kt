@@ -1,17 +1,16 @@
 package com.br.samples.apis.http
 
 import com.br.samples.apis.utils.http.DefaultHttpRequestManager
-import com.br.samples.apis.utils.http.WrapperData
+import com.br.samples.apis.utils.http.model.AbstractWrapperResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
-import java.lang.Exception
 
 
 interface ObserverRemoteRepository {
-    fun notify(data: WrapperData)
+    fun notify(data: AbstractWrapperResult)
 }
 
 class DefaultBehaviorCallback<T>(private val observer: ObserverRemoteRepository) : CallbackRemoteRepository<T> {

@@ -4,9 +4,8 @@ import com.br.samples.apis.http.ObserverRemoteRepository
 import com.br.samples.apis.meli.endpoint.MercadoLivreEndpoint
 import com.br.samples.apis.utils.ProvideRetrofitinstance
 import com.br.samples.apis.utils.http.RemoteRepository.doAsyncRequest
-import com.br.samples.apis.utils.http.WrapperData
-import com.br.samples.apis.utils.http.WrapperOnSucess
-import com.br.samples.apis.utils.http.getBodyResponse
+import com.br.samples.apis.utils.http.model.AbstractWrapperResult
+import com.br.samples.apis.utils.http.model.getBodyResponse
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteMeliRepository : ObserverRemoteRepository {
@@ -20,9 +19,9 @@ class RemoteMeliRepository : ObserverRemoteRepository {
         doAsyncRequest(endpoint.searchProductsByName(productName), this)
     }
 
-    override fun notify(data: WrapperData) {
+    override fun notify(data: AbstractWrapperResult) {
         when (data) {
-            is WrapperOnSucess<*> -> {
+            is AbstractWrapperResult.Success<*> -> {
                 val rs = data.getBodyResponse()
                 println(rs)
             }
@@ -31,6 +30,4 @@ class RemoteMeliRepository : ObserverRemoteRepository {
             }
         }
     }
-
-
 }

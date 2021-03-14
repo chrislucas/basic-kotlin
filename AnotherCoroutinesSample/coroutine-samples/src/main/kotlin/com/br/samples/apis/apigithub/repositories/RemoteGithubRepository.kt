@@ -2,13 +2,12 @@ package com.br.samples.apis.apigithub.repositories
 
 import com.br.samples.apis.apigithub.endpoint.GithubEndpoint
 import com.br.samples.apis.http.ObserverRemoteRepository
-import com.br.samples.apis.utils.http.RemoteRepository.doAsyncRequest
 import com.br.samples.apis.utils.ProvideRetrofitinstance
-import com.br.samples.apis.utils.http.WrapperData
-import com.br.samples.apis.utils.http.WrapperOnError
-import com.br.samples.apis.utils.http.WrapperOnSucess
-import kotlinx.coroutines.*
-import retrofit2.Response
+import com.br.samples.apis.utils.http.RemoteRepository.doAsyncRequest
+import com.br.samples.apis.utils.http.model.AbstractWrapperResult
+import com.br.samples.apis.utils.http.model.getBodyResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
 class RemoteGithubRepository(override var coroutineContext: CoroutineContext) : CoroutineScope,
@@ -26,14 +25,14 @@ class RemoteGithubRepository(override var coroutineContext: CoroutineContext) : 
         doAsyncRequest(endpoint.getRepositories("chrislucas"), this)
     }
 
-    override fun notify(data: WrapperData) {
+    override fun notify(data: AbstractWrapperResult) {
         when (data) {
-            is WrapperOnSucess<*> -> {
-                val unwrap =  (data.wrapSucess.result.getOrNull() as Response<*>).body()
+            is AbstractWrapperResult.Success<*> -> {
+                val unwrap = data.getBodyResponse()
                 println(unwrap)
             }
-            is WrapperOnError<*> -> {
-                val unwrap = data.wrapError.result
+            is AbstractWrapperResult.Failure -> {
+                val unwrap = data.exception.result.getOrNull()
                 println(unwrap)
             }
 

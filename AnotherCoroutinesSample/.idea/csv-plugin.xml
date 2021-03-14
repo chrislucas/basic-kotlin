@@ -73,6 +73,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/guide/oficialsite/composingsuspendfun/CodingAsyncStyle.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/guide/oficialsite/composingsuspendfun/LazyStartedAsybc.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/coroutine-samples/src/main/kotlin/com/br/samples/guide/oficialsite/composingsuspendfun/SequencialsCalls.kt">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/eokotlincoroutines/src/main/kotlin/br/com/sample/tutorials/blockingthread/SampleFromBlockingIOToSuspending.kt">
           <value>
             <Attribute>
