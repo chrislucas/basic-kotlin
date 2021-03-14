@@ -9,7 +9,6 @@ import kotlin.system.measureTimeMillis
 fun wrapperCoroutineAsync(coroutineContext: CoroutineContext, fn: suspend () -> Int) =
     CoroutineScope(context = coroutineContext).async { fn() }
 
-
 fun main() {
     val time = measureTimeMillis {
         val r1 = wrapperCoroutineAsync(Dispatchers.Default) {
