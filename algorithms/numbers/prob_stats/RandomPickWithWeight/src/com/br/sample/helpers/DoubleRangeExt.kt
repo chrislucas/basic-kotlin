@@ -1,4 +1,4 @@
-package com.br.sample
+package com.br.sample.helpers
 
 /**
  * Dado a probabilidade maxima de um evento acontecer (maxValue)

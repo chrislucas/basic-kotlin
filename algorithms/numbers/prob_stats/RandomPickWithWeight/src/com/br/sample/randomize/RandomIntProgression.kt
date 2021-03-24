@@ -1,7 +1,7 @@
 package com.br.sample.randomize
 
-import com.br.sample.string
-import com.br.sample.toArray
+import com.br.sample.helpers.string
+import com.br.sample.helpers.toArray
 
 
 fun main() {

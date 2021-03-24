@@ -1,8 +1,8 @@
 package com.br.sample.deck
 
-import com.br.sample.shuffle
-import com.br.sample.string
-import com.br.sample.toArray
+import com.br.sample.helpers.shuffle
+import com.br.sample.helpers.string
+import com.br.sample.helpers.toArray
 
 
 // Probabilidade MAXIMA de uma carta e um Naiper serem escolhidas
@@ -11,7 +11,7 @@ const val MAX_PROBABILITY_SUIT = .95
 
 //  distribuicao randomica da probabiliadde da i-esima carta ser escolhida
 // sendo i = 0 Az .. 1 = 12 Rei
-val maxWeightCars: (Array<Int>, Double) -> Array<Pair<Int, Double>> = {
+private val setOfWeightedProbability: (Array<Int>, Double) -> Array<Pair<Int, Double>> = {
     // embaralha as posicacoes de um array
         weights, maxProbability ->
     // Array<Peso, Porbabilidade Proporcional ao peso
@@ -40,9 +40,14 @@ val maxWeightCars: (Array<Int>, Double) -> Array<Pair<Int, Double>> = {
 private val cards = (1..13).toArray().shuffle()
 private val suits = (1..4).toArray().shuffle()
 
+
+private fun fn() {
+
+}
+
 private fun sample() {
-    println(maxWeightCars(cards, MAX_PROBABILITY_CARD).string())
-    println(maxWeightCars(suits, MAX_PROBABILITY_SUIT).string())
+    println(setOfWeightedProbability(cards, MAX_PROBABILITY_CARD).string())
+    println(setOfWeightedProbability(suits, MAX_PROBABILITY_SUIT).string())
 }
 
 fun main() {

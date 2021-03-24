@@ -5,7 +5,7 @@ class Deck {
         val SUITS = arrayOf(Suit.Diamond, Suit.Cups, Suit.Clubs, Suit.Spades)
     }
 
-    val deck: Map<Suit, ArrayList<Card>>
+    private val deck: Map<Suit, ArrayList<Card>>
 
     init {
         val map = mutableMapOf<Suit, ArrayList<Card>>()
@@ -24,13 +24,34 @@ class Deck {
 
 data class Card(private val value: CardValue, private val suit: Suit)
 
-sealed class CardValue(private val value: String) {
-    override fun toString() = value
-    class Ace() : CardValue("1")
-    class Number(number: Int) : CardValue(number.toString())
-    class Jack() : CardValue("jack")
-    class Queen() : CardValue("queen")
-    class King() : CardValue("king")
+sealed class CardValue(private val value: Int) : Comparable<CardValue> {
+
+    override fun compareTo(other: CardValue): Int =
+        this.value - other.value
+
+    companion object {
+        private val map = mapOf(1 to Ace(), 11 to Jack(), 12 to Queen(), 13 to King())
+        operator fun get(value: Int) = map[value] ?: Number(value)
+    }
+
+
+    class Ace() : CardValue(1) {
+        override fun toString(): String = "ACE"
+    }
+
+    class Number(number: Int) : CardValue(number)
+
+    class Jack() : CardValue(11) {
+        override fun toString(): String = "Jack"
+    }
+
+    class Queen() : CardValue(12) {
+        override fun toString(): String = "Queen"
+    }
+
+    class King() : CardValue(13) {
+        override fun toString(): String = "King"
+    }
 }
 
 sealed class Suit(private val name: String) {
@@ -43,21 +64,8 @@ sealed class Suit(private val name: String) {
     object Spades : Suit("\u2660")
 }
 
-private fun provideCardValue(value: Int) =
-    when {
-        value < 11 -> {
-            CardValue.Number(value)
-        }
-        value == 11 -> {
-            CardValue.Jack()
-        }
-        value == 12 -> {
-            CardValue.Queen()
-        }
-        else -> {
-            CardValue.King()
-        }
-    }
+private fun provideCardValue(value: Int) = CardValue[value]
+
 
 fun provideCard(value: Int, suit: Int): Card {
     if (value < 0 || value > 13 || suit < 0 || suit > 3)

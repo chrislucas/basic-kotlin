@@ -1,4 +1,4 @@
-package com.br.sample
+package com.br.sample.helpers
 
 fun IntProgression.toArray(): Array<Int> {
     return this.run {
