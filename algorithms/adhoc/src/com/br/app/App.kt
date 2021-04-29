@@ -3,13 +3,13 @@ package com.br.app
 import com.br.app.models.EvaluableModel
 import com.br.app.models.ItemEvaluableModel
 import com.br.app.models.violation.AbsenceOfDescription
-import com.br.app.models.violation.PullRequestWithoutAssignee
-import com.br.app.models.violation.PullRequestWithoutTestClass
+import com.br.app.models.violation.AbsenceOfAssignee
+import com.br.app.models.violation.AbsenseOfClassTests
 import com.br.app.models.violation.UseProhibitedAnnotation
 
 private fun sampleWithEmptyList() {
     val evaluableModel = EvaluableModel(listOf())
-    println(EvaluableModel.MAX_EVALUATION_VALUE * evaluableModel.calculate())
+    println(evaluableModel.calculate())
 }
 
 private fun sampleWithMixedList() {
@@ -19,17 +19,17 @@ private fun sampleWithMixedList() {
         ItemEvaluableModel(UseProhibitedAnnotation()),
         ItemEvaluableModel(UseProhibitedAnnotation()),
         ItemEvaluableModel(UseProhibitedAnnotation()),
-        ItemEvaluableModel(PullRequestWithoutTestClass()),
-        ItemEvaluableModel(PullRequestWithoutAssignee()),
+        ItemEvaluableModel(AbsenseOfClassTests()),
+        ItemEvaluableModel(AbsenceOfAssignee()),
         ItemEvaluableModel(),
         ItemEvaluableModel(),
         ItemEvaluableModel(),
-        ItemEvaluableModel(PullRequestWithoutTestClass()),
-        ItemEvaluableModel(PullRequestWithoutAssignee()),
+        ItemEvaluableModel(AbsenseOfClassTests()),
+        ItemEvaluableModel(AbsenceOfAssignee()),
         ItemEvaluableModel(UseProhibitedAnnotation()),
     )
     val evaluableModel = EvaluableModel(models)
-    println(EvaluableModel.MAX_EVALUATION_VALUE * evaluableModel.calculate())
+    println(evaluableModel.calculate())
 }
 
 private fun sampleWithoutViolations() {
@@ -41,23 +41,25 @@ private fun sampleWithoutViolations() {
         ItemEvaluableModel(),
     )
     val evaluableModel = EvaluableModel(models)
-    println(EvaluableModel.MAX_EVALUATION_VALUE * evaluableModel.calculate())
+    println(evaluableModel.calculate())
 }
 
 private fun sampleWithJustViolations() {
     val models = listOf(
         ItemEvaluableModel(AbsenceOfDescription()),
         ItemEvaluableModel(UseProhibitedAnnotation()),
-        ItemEvaluableModel(PullRequestWithoutTestClass()),
-        ItemEvaluableModel(PullRequestWithoutAssignee()),
+        ItemEvaluableModel(AbsenseOfClassTests()),
+        ItemEvaluableModel(AbsenceOfAssignee()),
         ItemEvaluableModel(UseProhibitedAnnotation()),
     )
     val evaluableModel = EvaluableModel(models)
-    println(EvaluableModel.MAX_EVALUATION_VALUE * evaluableModel.calculate())
+    println(evaluableModel.calculate())
 }
 
 
 fun main() {
-
+    sampleWithEmptyList()
     sampleWithMixedList()
+    sampleWithoutViolations()
+    sampleWithJustViolations()
 }

@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="240c73ca-e83a-4aaf-b845-a4dc71e1f6e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ByLazyDelegate/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/br/app/App.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/br/app/models/violation/PullRequestWithoutTestClass.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/br/app/models/violation/ViolationLevel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/dp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/upper_lower_bound_possible_problems" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/0/a/0a94c7804a8601d7b69fcd1d495cae82b1232aef" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/0/a/0a94c7804a8601d7b69fcd1d495cae82b1232aef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
@@ -79,6 +73,22 @@
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/rx-samples/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ByLazyDelegate/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../ByLazyDelegate/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/AppKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/AppKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/EvaluableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/EvaluableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/ItemEvaluableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/ItemEvaluableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/violation/PullRequestWithoutAssignee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/violation/PullRequestWithoutTestClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/violation/Violation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathProportionalPunishment/com/br/app/models/violation/Violation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/models/EvaluableModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/models/EvaluableModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/models/ItemEvaluableModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/models/ItemEvaluableModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/models/violation/PullRequestWithoutAssignee.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/models/violation/AbsenceOfAssignee.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/models/violation/PullRequestWithoutTestClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/models/violation/AbsenseOfClassTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/app/models/violation/Violation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/app/models/violation/Violation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/dp" beforeDir="false" afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/dp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/upper_lower_bound_possible_problems" beforeDir="false" afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/raw/upper_lower_bound_possible_problems" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/helpers/ArrayExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/helpers/ArrayExt.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/upperlowerbound/UpperAndLowerBound.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/upperlowerbound/UpperAndLowerBound.kt" afterDir="false" />
     </list>
@@ -200,8 +210,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/com/br/app/models/EvaluableModel.kt</url>
-          <line>52</line>
+          <line>85</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/br/app/App.kt</url>
+          <line>10</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/br/app/App.kt</url>
+          <line>30</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/br/app/App.kt</url>
+          <line>42</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/br/app/App.kt</url>
+          <line>54</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/br/app/models/EvaluableModel.kt</url>
+          <line>74</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
