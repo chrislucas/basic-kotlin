@@ -1,0 +1,124 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 192
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 192
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Vendor1 private constructor() : Vendor {
+        override fun pencil() {
+          trace("Vendor1 pencil")
+        }
+        override fun pen() {
+          trace("Vendor1 pen")
+        }
+        companion object {
+          var factory = object : VendorFactory {
+            override fun create() = Vendor1()
+          }
+        }
+      }
+
+      class Vendor2 private constructor() : Vendor {
+        override fun pencil() {
+          trace("Vendor2 pencil")
+        }
+        override fun pen() {
+          trace("Vendor2 pen")
+        }
+        companion object {
+          var factory = object : VendorFactory {
+            override fun create() = Vendor2()
+          }
+        }
+      }
+
+      fun consumer(factory: VendorFactory) {
+        val vendor = factory.create()
+        vendor.pencil()
+        vendor.pen()
+      }
+  - offset: 216
+    length: 184
+    placeholder_text: |-
+      /*
+      // Implementations are interchangeable:
+        consumer(Vendor1.factory)
+        consumer(Vendor2.factory)
+        trace eq """
+        Vendor1 pencil
+        Vendor1 pen
+        Vendor2 pencil
+        Vendor2 pen
+        """
+      */
+    initial_state:
+      length: 184
+      offset: 216
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      // Implementations are interchangeable:
+        consumer(Vendor1.factory)
+        consumer(Vendor2.factory)
+        trace eq """
+          Vendor1 pencil
+          Vendor1 pen
+          Vendor2 pencil
+          Vendor2 pen
+        """
+  text: |-
+    // CompanionObjects/CompanionEx1.kt
+    package companionObjectsExercise1
+    import atomictest.*
+
+    interface Vendor {
+      fun pencil()
+      fun pen()
+    }
+
+    interface VendorFactory {
+      fun create(): Vendor
+    }
+
+    // TODO
+
+    fun main() {
+      /*
+    // Implementations are interchangeable:
+      consumer(Vendor1.factory)
+      consumer(Vendor2.factory)
+      trace eq """
+      Vendor1 pencil
+      Vendor1 pen
+      Vendor2 pencil
+      Vendor2 pen
+      """
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package companionObjectsExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestCompanionObjectsExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

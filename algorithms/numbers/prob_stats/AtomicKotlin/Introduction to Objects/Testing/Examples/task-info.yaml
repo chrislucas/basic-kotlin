@@ -1,0 +1,111 @@
+type: theory
+files:
+- name: src/TestingExample.kt
+  visible: true
+  text: |-
+    // Testing/TestingExample.kt
+    import atomictest.*
+
+    fun main() {
+      val v1 = 11
+      val v2 = "Ontology"
+
+      // 'eq' means "equals":
+      v1 eq 11
+      v2 eq "Ontology"
+
+      // 'neq' means "not equal"
+      v2 neq "Epistimology"
+
+      // [Error] Epistimology != Ontology
+      // v2 eq "Epistimology"
+    }
+    /* Output:
+    11
+    Ontology
+    Ontology
+    */
+  learner_created: false
+- name: src/Trace1.kt
+  visible: true
+  text: |-
+    // Testing/Trace1.kt
+    import atomictest.*
+
+    fun main() {
+      trace("line 1")
+      trace(47)
+      trace("line 2")
+      trace eq """
+        line 1
+        47
+        line 2
+      """
+    }
+  learner_created: false
+- name: src/TDDFail.kt
+  visible: true
+  text: |-
+    // Testing/TDDFail.kt
+    package testing1
+    import atomictest.eq
+
+    fun main() {
+      calculateBMI(160, 68) eq "Normal weight"
+    //  calculateBMI(100, 68) eq "Underweight"
+    //  calculateBMI(200, 68) eq "Overweight"
+    }
+
+    fun calculateBMI(lbs: Int, height: Int) =
+      "Normal weight"
+  learner_created: false
+- name: src/TDDStillFails.kt
+  visible: true
+  text: |-
+    // Testing/TDDStillFails.kt
+    package testing2
+    import atomictest.eq
+
+    fun main() {
+      // Everything fails:
+      // calculateBMI(160, 68) eq "Normal weight"
+      // calculateBMI(100, 68) eq "Underweight"
+      // calculateBMI(200, 68) eq "Overweight"
+    }
+
+    fun calculateBMI(
+      lbs: Int,
+      height: Int
+    ): String {
+      val bmi = lbs / (height * height) * 703.07
+      return if (bmi < 18.5) "Underweight"
+      else if (bmi < 25) "Normal weight"
+      else "Overweight"
+    }
+  learner_created: false
+- name: src/TDDWorks.kt
+  visible: true
+  text: |-
+    // Testing/TDDWorks.kt
+    package testing3
+    import atomictest.eq
+
+    fun main() {
+      calculateBMI(160.0, 68.0) eq "Normal weight"
+      calculateBMI(100.0, 68.0) eq "Underweight"
+      calculateBMI(200.0, 68.0) eq "Overweight"
+    }
+
+    fun calculateBMI(
+      lbs: Double,
+      height: Double
+    ): String {
+      val bmi = lbs / (height * height) * 703.07
+      return if (bmi < 18.5) "Underweight"
+      else if (bmi < 25) "Normal weight"
+      else "Overweight"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,121 @@
+type: theory
+files:
+- name: src/RigidHolder.kt
+  visible: true
+  text: |-
+    // IntroGenerics/RigidHolder.kt
+    package introgenerics
+    import atomictest.eq
+
+    data class Automobile(val brand: String)
+
+    class RigidHolder(private val a: Automobile) {
+      fun getValue() = a
+    }
+
+    fun main() {
+      val holder = RigidHolder(Automobile("BMW"))
+      holder.getValue() eq
+        "Automobile(brand=BMW)"
+    }
+  learner_created: false
+- name: src/GenericHolder.kt
+  visible: true
+  text: |-
+    // IntroGenerics/GenericHolder.kt
+    package introgenerics
+    import atomictest.eq
+
+    class GenericHolder<T>(               // [1]
+      private val value: T
+    ) {
+      fun getValue(): T = value
+    }
+
+    fun main() {
+      val h1 = GenericHolder(Automobile("Ford"))
+      val a: Automobile = h1.getValue()   // [2]
+      a eq "Automobile(brand=Ford)"
+
+      val h2 = GenericHolder(1)
+      val i: Int = h2.getValue()          // [3]
+      i eq 1
+
+      val h3 = GenericHolder("Chartreuse")
+      val s: String = h3.getValue()       // [4]
+      s eq "Chartreuse"
+    }
+  learner_created: false
+- name: src/AnyInstead.kt
+  visible: true
+  text: |-
+    // IntroGenerics/AnyInstead.kt
+    package introgenerics
+    import atomictest.eq
+
+    class AnyHolder(private val value: Any) {
+      fun getValue(): Any = value
+    }
+
+    class Dog {
+      fun bark() = "Ruff!"
+    }
+
+    fun main() {
+      val holder = AnyHolder(Dog())
+      val any = holder.getValue()
+      // Doesn't compile:
+      // any.bark()
+
+      val genericHolder = GenericHolder(Dog())
+      val dog = genericHolder.getValue()
+      dog.bark() eq "Ruff!"
+    }
+  learner_created: false
+- name: src/GenericFunction.kt
+  visible: true
+  text: |-
+    // IntroGenerics/GenericFunction.kt
+    package introgenerics
+    import atomictest.eq
+
+    fun <T> identity(arg: T): T = arg
+
+    fun main() {
+      identity("Yellow") eq "Yellow"
+      identity(1) eq 1
+      val d: Dog = identity(Dog())
+      d.bark() eq "Ruff!"
+    }
+  learner_created: false
+- name: src/GenericListExtensions.kt
+  visible: true
+  text: |-
+    // IntroGenerics/GenericListExtensions.kt
+    package introgenerics
+    import atomictest.eq
+
+    fun <T> List<T>.first(): T {
+      if (isEmpty())
+        throw NoSuchElementException("Empty List")
+      return this[0]
+    }
+
+    fun <T> List<T>.firstOrNull(): T? =
+      if (isEmpty()) null else this[0]
+
+    fun main() {
+      listOf(1, 2, 3).first() eq 1
+
+      val i: Int? =                     // [1]
+        listOf(1, 2, 3).firstOrNull()
+      i eq 1
+
+      val s: String? =                  // [2]
+        listOf<String>().firstOrNull()
+      s eq null
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 566
+    length: 13
+    placeholder_text: /* private */
+    initial_state:
+      length: 13
+      offset: 566
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: private
+  - offset: 613
+    length: 10
+    placeholder_text: /* TODO */
+    initial_state:
+      length: 10
+      offset: 613
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ', Crocodile by crocodile'
+  - offset: 903
+    length: 22
+    placeholder_text: honestlyDuck.crocodile
+    initial_state:
+      length: 22
+      offset: 903
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: honestlyDuck
+  text: |-
+    // ClassDelegation/Task2.kt
+    package classDelegationExercise2
+    import atomictest.trace
+
+    // Duck Library
+    interface Duck {
+      fun quack()
+      fun swim()
+    }
+
+    class RealDuck : Duck {
+      override fun quack() = trace("quack")
+      override fun swim() = trace("swim")
+    }
+
+    fun interactWithDuck(duck: Duck) {
+      duck.quack()
+      duck.swim()
+    }
+
+    // Our codebase
+    interface Crocodile {
+      fun bite()
+    }
+
+    class RealCrocodile : Crocodile {
+      override fun bite() = trace("Mnom-mnom")
+    }
+
+    fun interactWithCrocodile(crocodile: Crocodile) {
+      trace("Panic!!!")
+      crocodile.bite()
+    }
+
+    class CrocoDuck(
+      /* private */ val crocodile: Crocodile
+    ) : Duck/* TODO */ {
+      override fun quack() = crocodile.bite()
+      override fun swim() = crocodile.bite()
+    }
+
+    fun mimicDuck(crocodile: Crocodile): CrocoDuck =
+      CrocoDuck(crocodile)
+
+    fun main() {
+      val honestlyDuck = mimicDuck(RealCrocodile())
+      interactWithDuck(honestlyDuck)
+      interactWithCrocodile(honestlyDuck.crocodile)
+      trace eq """
+        Mnom-mnom
+        Mnom-mnom
+        Panic!!!
+        Mnom-mnom
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package classDelegationExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestClassDelegationExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

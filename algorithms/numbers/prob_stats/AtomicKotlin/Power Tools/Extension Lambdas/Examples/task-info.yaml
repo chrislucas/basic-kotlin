@@ -1,0 +1,323 @@
+type: theory
+files:
+- name: src/Vanbo.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/Vanbo.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    val va: (String, Int) -> String = { str, n ->
+      str.repeat(n) + str.repeat(n)
+    }
+
+    val vb: String.(Int) -> String = {
+      this.repeat(it) + repeat(it)
+    }
+
+    fun main() {
+      va("Vanbo", 2) eq "VanboVanboVanboVanbo"
+      "Vanbo".vb(2) eq "VanboVanboVanboVanbo"
+      vb("Vanbo", 2) eq "VanboVanboVanboVanbo"
+      // "Vanbo".va(2) // Doesn't compile
+    }
+  learner_created: false
+- name: src/Parameters.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/Parameters.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    val zero: Int.() -> Boolean = {
+      this == 0
+    }
+
+    val one: Int.(Int) -> Boolean = {
+      this % it == 0
+    }
+
+    val two: Int.(Int, Int) -> Boolean = {
+      arg1, arg2 ->
+        this % (arg1 + arg2) == 0
+    }
+
+    val three: Int.(Int, Int, Int) -> Boolean = {
+      arg1, arg2, arg3 ->
+        this % (arg1 + arg2 + arg3) == 0
+    }
+
+    fun main() {
+      0.zero() eq true
+      10.one(10) eq true
+      20.two(10, 10) eq true
+      30.three(10, 10, 10) eq true
+    }
+  learner_created: false
+- name: src/FunctionParameters.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/FunctionParameters.kt
+    package extensionlambdas
+
+    class A {
+      fun af() = 1
+    }
+
+    class B {
+      fun bf() = 2
+    }
+
+    fun f1(lambda: (A, B) -> Int) =
+      lambda(A(), B())
+
+    fun f2(lambda: A.(B) -> Int) =
+      A().lambda(B())
+
+    fun lambdas() {
+      f1 { aa, bb -> aa.af() + bb.bf() }
+      f2 { af() + it.bf() }
+    }
+  learner_created: false
+- name: src/LambdaUnitReturn.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/LambdaUnitReturn.kt
+    package extensionlambdas
+
+    fun unitReturn(lambda: A.() -> Unit) =
+      A().lambda()
+
+    fun nonUnitReturn(lambda: A.() -> String) =
+      A().lambda()
+
+    fun lambdaUnitReturn () {
+      unitReturn {
+        "Unit ignores the return value" +
+        "So it can be anything ..."
+      }
+      unitReturn { 1 } // ... of any type ...
+      unitReturn { }   // ... or nothing
+      nonUnitReturn {
+        "Must return the proper type"
+      }
+      // nonUnitReturn { } // Not an option
+    }
+  learner_created: false
+- name: src/Transform.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/Transform.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    fun String.transform1(
+      n: Int, lambda: (String, Int) -> String
+    ) = lambda(this, n)
+
+    fun String.transform2(
+      n: Int, lambda: String.(Int) -> String
+    ) = lambda(this, n)
+
+    val duplicate: String.(Int) -> String = {
+      repeat(it)
+    }
+
+    val alternate: String.(Int) -> String = {
+      toCharArray()
+        .filterIndexed { i, _ -> i % it == 0 }
+        .joinToString("")
+    }
+
+    fun main() {
+      "hello".transform1(5, duplicate)
+        .transform2(3, alternate) eq "hleolhleo"
+      "hello".transform2(5, duplicate)
+        .transform1(3, alternate) eq "hleolhleo"
+    }
+  learner_created: false
+- name: src/FuncReferences.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/FuncReferences.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    fun Int.d1(f: (Int) -> Int) = f(this) * 10
+
+    fun Int.d2(f: Int.() -> Int) = f() * 10
+
+    fun f1(n: Int) = n + 3
+    fun Int.f2() = this + 3
+
+    fun main() {
+      74.d1(::f1) eq 770
+      74.d2(::f1) eq 770
+      74.d1(Int::f2) eq 770
+      74.d2(Int::f2) eq 770
+    }
+  learner_created: false
+- name: src/ExtensionPolymorphism.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/ExtensionPolymorphism.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    open class Base {
+      open fun f() = 1
+    }
+
+    class Derived : Base() {
+      override fun f() = 99
+    }
+
+    fun Base.g() = f()
+
+    fun Base.h(xl: Base.() -> Int) = xl()
+
+    fun main() {
+      val b: Base = Derived() // Upcast
+      b.g() eq 99
+      b.h { f() } eq 99
+    }
+  learner_created: false
+- name: src/AnonymousFunction.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/AnonymousFunction.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    fun exec(
+      arg1: Int, arg2: Int,
+      f: Int.(Int) -> Boolean
+    ) = arg1.f(arg2)
+
+    fun main() {
+      exec(10, 2, fun Int.(d: Int): Boolean {
+        return this % d == 0
+      }) eq true
+    }
+  learner_created: false
+- name: src/StringCreation.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/StringCreation.kt
+    package extensionlambdas
+    import atomictest.eq
+
+    private fun messy(): String {
+      val built = StringBuilder()      // [1]
+      built.append("ABCs: ")
+      ('a'..'x').forEach { built.append(it) }
+      return built.toString()          // [2]
+    }
+
+    private fun clean() = buildString {
+      append("ABCs: ")
+      ('a'..'x').forEach { append(it) }
+    }
+
+    private fun cleaner() =
+      ('a'..'x').joinToString("", "ABCs: ")
+
+    fun main() {
+      messy() eq "ABCs: abcdefghijklmnopqrstuvwx"
+      messy() eq clean()
+      clean() eq cleaner()
+    }
+  learner_created: false
+- name: src/ListsAndMaps.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/ListsAndMaps.kt
+    @file:OptIn(ExperimentalStdlibApi::class)
+    package extensionlambdas
+    import atomictest.eq
+
+    val characters: List<String> = buildList {
+      add("Chars:")
+      ('a'..'d').forEach { add("$it") }
+    }
+
+    val charmap: Map<Char, Int> = buildMap {
+      ('A'..'F').forEachIndexed { n, ch ->
+        put(ch, n)
+      }
+    }
+
+    fun main() {
+      characters eq "[Chars:, a, b, c, d]"
+      //  characters eq characters2
+      charmap eq "{A=0, B=1, C=2, D=3, E=4, F=5}"
+    }
+  learner_created: false
+- name: src/Sandwich.kt
+  visible: true
+  text: |-
+    // ExtensionLambdas/Sandwich.kt
+    package sandwich
+    import atomictest.eq
+
+    open class Recipe : ArrayList<RecipeUnit>()
+
+    open class RecipeUnit {
+      override fun toString() =
+        "${this::class.simpleName}"
+    }
+
+    open class Operation : RecipeUnit()
+    class Toast : Operation()
+    class Grill : Operation()
+    class Cut : Operation()
+
+    open class Ingredient : RecipeUnit()
+    class Bread : Ingredient()
+    class PeanutButter : Ingredient()
+    class GrapeJelly : Ingredient()
+    class Ham : Ingredient()
+    class Swiss : Ingredient()
+    class Mustard : Ingredient()
+
+    open class Sandwich : Recipe() {
+      fun action(op: Operation): Sandwich {
+        add(op)
+        return this
+      }
+      fun grill() = action(Grill())
+      fun toast() = action(Toast())
+      fun cut() = action(Cut())
+    }
+
+    fun sandwich(
+      fillings: Sandwich.() -> Unit
+    ): Sandwich {
+      val sandwich = Sandwich()
+      sandwich.add(Bread())
+      sandwich.toast()
+      sandwich.fillings()
+      sandwich.cut()
+      return sandwich
+    }
+
+    fun main() {
+      val pbj = sandwich {
+        add(PeanutButter())
+        add(GrapeJelly())
+      }
+      val hamAndSwiss = sandwich {
+        add(Ham())
+        add(Swiss())
+        add(Mustard())
+        grill()
+      }
+      pbj eq "[Bread, Toast, PeanutButter, " +
+        "GrapeJelly, Cut]"
+      hamAndSwiss eq "[Bread, Toast, Ham, " +
+        "Swiss, Mustard, Grill, Cut]"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

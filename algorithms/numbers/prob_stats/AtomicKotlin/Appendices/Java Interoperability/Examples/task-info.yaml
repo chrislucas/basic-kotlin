@@ -1,0 +1,562 @@
+type: theory
+files:
+- name: src/Random.kt
+  visible: true
+  text: |-
+    // interoperability/Random.kt
+    import atomictest.eq
+    import java.util.Random
+
+    fun main() {
+      val rand = Random(47)
+      rand.nextInt(100) eq 58
+    }
+  learner_created: false
+- name: src/interoperability/Chameleon.java
+  visible: true
+  text: |-
+    // interoperability/Chameleon.java
+    package interoperability;
+    import java.io.Serializable;
+
+    public
+    class Chameleon implements Serializable {
+      private int size;
+      private String color;
+      public int getSize() {
+        return size;
+      }
+      public void setSize(int newSize) {
+        size = newSize;
+      }
+      public String getColor() {
+        return color;
+      }
+      public void setColor(String newColor) {
+        color = newColor;
+      }
+    }
+  learner_created: false
+- name: src/UseBeanClass.kt
+  visible: true
+  text: |-
+    // interoperability/UseBeanClass.kt
+    import interoperability.Chameleon
+    import atomictest.eq
+
+    fun main() {
+      val chameleon = Chameleon()
+      chameleon.size = 1
+      chameleon.size eq 1
+      chameleon.color = "green"
+      chameleon.color eq "green"
+      chameleon.color = "turquoise"
+      chameleon.color eq "turquoise"
+    }
+  learner_created: false
+- name: src/ExtensionsToJavaClass.kt
+  visible: true
+  text: |-
+    // interoperability/ExtensionsToJavaClass.kt
+    package interop
+    import interoperability.Chameleon
+    import atomictest.eq
+
+    fun Chameleon.adjustToTemperature(
+      isHot: Boolean
+    ) {
+      color = if (isHot) "grey" else "black"
+    }
+
+    fun main() {
+      val chameleon = Chameleon()
+      chameleon.size = 2
+      chameleon.size eq 2
+      chameleon.adjustToTemperature(isHot = true)
+      chameleon.color eq "grey"
+    }
+  learner_created: false
+- name: src/KotlinClass.kt
+  visible: true
+  text: |-
+    // interoperability/KotlinClass.kt
+    package interop
+
+    class Basic {
+      var property1 = 1
+      fun value() = property1 * 10
+    }
+  learner_created: false
+- name: src/interoperability/UsingKotlinClass.java
+  visible: true
+  text: |-
+    // interoperability/UsingKotlinClass.java
+    package interoperability;
+    import interop.Basic;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class UsingKotlinClass {
+      public static void main(String[] args) {
+        Basic b = new Basic();
+        eq(b.getProperty1(), 1);
+        b.setProperty1(12);
+        eq(b.value(), 120);
+      }
+    }
+  learner_created: false
+- name: src/KotlinDataClass.kt
+  visible: true
+  text: |-
+    // interoperability/KotlinDataClass.kt
+    package interoperability
+
+    data class Staff(
+      var name: String,
+      var role: String
+    )
+  learner_created: false
+- name: src/interoperability/UseDataClass.java
+  visible: true
+  text: |-
+    // interoperability/UseDataClass.java
+    package interoperability;
+    import java.util.HashMap;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class UseDataClass {
+      public static void main(String[] args) {
+        Staff e = new Staff(
+          "Fluffy", "Office Manager");
+        eq(e.getRole(), "Office Manager");
+        e.setName("Uranus");
+        e.setRole("Assistant");
+        eq(e,
+          "Staff(name=Uranus, role=Assistant)");
+
+        // Call copy() from the data class:
+        Staff cf = e.copy("Cornfed", "Sidekick");
+        eq(cf,
+          "Staff(name=Cornfed, role=Sidekick)");
+
+        HashMap<Staff, String> hm =
+          new HashMap<>();
+        // Employees work as hash keys:
+        hm.put(e, "Cheerful");
+        eq(hm.get(e), "Cheerful");
+      }
+    }
+  learner_created: false
+- name: src/TopLevelFunction.kt
+  visible: true
+  text: |-
+    // interoperability/TopLevelFunction.kt
+    package interop
+
+    fun hi() = "Hello!"
+  learner_created: false
+- name: src/interoperability/CallTopLevelFunction.java
+  visible: true
+  text: |-
+    // interoperability/CallTopLevelFunction.java
+    package interoperability;
+    import interop.TopLevelFunctionKt;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class CallTopLevelFunction {
+      public static void main(String[] args) {
+        eq(TopLevelFunctionKt.hi(), "Hello!");
+      }
+    }
+  learner_created: false
+- name: src/interoperability/CallTopLevelFunction2.java
+  visible: true
+  text: |-
+    // interoperability/CallTopLevelFunction2.java
+    package interoperability;
+    import static interop.TopLevelFunctionKt.hi;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class CallTopLevelFunction2 {
+      public static void main(String[] args) {
+        eq(hi(), "Hello!");
+      }
+    }
+  learner_created: false
+- name: src/ChangeName.kt
+  visible: true
+  text: |-
+    // interoperability/ChangeName.kt
+    @file:JvmName("Utils")
+    package interop
+
+    fun salad() = "Lettuce!"
+  learner_created: false
+- name: src/interoperability/MakeSalad.java
+  visible: true
+  text: |-
+    // interoperability/MakeSalad.java
+    package interoperability;
+    import interop.Utils;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class MakeSalad {
+      public static void main(String[] args) {
+        eq(Utils.salad(), "Lettuce!");
+      }
+    }
+  learner_created: false
+- name: src/BigInt.kt
+  visible: true
+  text: |-
+    // interoperability/BigInt.kt
+    package biginteger
+    import java.math.BigInteger
+
+    fun Int.toBigInteger(): BigInteger =
+      BigInteger.valueOf(toLong())
+
+    fun String.toBigInteger(): BigInteger =
+      BigInteger(this)
+
+    operator fun BigInteger.plus(
+      other: BigInteger
+    ): BigInteger = add(other)
+  learner_created: false
+- name: src/BigFibonacci.kt
+  visible: true
+  text: |-
+    // interoperability/BigFibonacci.kt
+    package interop
+    import atomictest.eq
+    import java.math.BigInteger
+    import java.math.BigInteger.ONE
+    import java.math.BigInteger.ZERO
+
+    fun fibonacci(n: Int): BigInteger {
+      tailrec fun fibonacci(
+        n: Int,
+        current: BigInteger,
+        next: BigInteger
+      ): BigInteger {
+        if (n == 0) return current
+        return fibonacci(
+          n - 1, next, current + next)   // [1]
+      }
+      return fibonacci(n, ZERO, ONE)
+    }
+
+    fun main() {
+      (0..7).map { fibonacci(it) } eq
+      "[0, 1, 1, 2, 3, 5, 8, 13]"
+      fibonacci(22) eq 17711.toBigInteger()
+      fibonacci(150) eq
+        "9969216677189303386214405760200"
+          .toBigInteger()
+    }
+  learner_created: false
+- name: src/interoperability/JavaChecked.java
+  visible: true
+  text: |-
+    // interoperability/JavaChecked.java
+    package interoperability;
+    import java.io.*;
+    import java.nio.file.*;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class JavaChecked {
+      // Build path to current source file, based
+      // on directory where Gradle is invoked:
+      static Path thisFile = Paths.get(
+        "DataFiles", "file_wubba.txt");
+      public static void main(String[] args) {
+        BufferedReader source = null;
+        try {
+          source = new BufferedReader(
+            new FileReader(thisFile.toFile()));
+        } catch(FileNotFoundException e) {
+          // Recover from file-open error
+        }
+        try {
+          String first = source.readLine();
+          eq(first, "wubba lubba dub dub");
+        } catch(IOException e) {
+          // Recover from read() error
+        }
+        try {
+          source.close();
+        } catch(IOException e) {
+          // Recover from close() error
+        }
+      }
+    }
+  learner_created: false
+- name: src/KotlinChecked.kt
+  visible: true
+  text: |-
+    // interoperability/KotlinChecked.kt
+    import atomictest.eq
+    import java.io.File
+
+    fun main() {
+      File("DataFiles/file_wubba.txt")
+        .readLines()[0] eq
+        "wubba lubba dub dub"
+    }
+  learner_created: false
+- name: src/AnnotateThrows.kt
+  visible: true
+  text: |-
+    // interoperability/AnnotateThrows.kt
+    package interop
+    import java.io.IOException
+
+    @Throws(IOException::class)
+    fun hasCheckedException() {
+      throw IOException()
+    }
+  learner_created: false
+- name: src/interoperability/CatchChecked.java
+  visible: true
+  text: |-
+    // interoperability/CatchChecked.java
+    package interoperability;
+    import interop.AnnotateThrowsKt;
+    import java.io.IOException;
+    import static atomictest.AtomicTestKt.eq;
+
+    public class CatchChecked {
+      public static void main(String[] args) {
+        try {
+          AnnotateThrowsKt.hasCheckedException();
+        } catch(IOException e) {
+          eq(e, "java.io.IOException");
+        }
+      }
+    }
+  learner_created: false
+- name: src/interoperability/JTool.java
+  visible: true
+  text: |-
+    // interoperability/JTool.java
+    package interoperability;
+
+    public class JTool {
+      public static JTool get(String s) {
+        if(s == null) return null;
+        return new JTool();
+      }
+      public String method() {
+        return "Success";
+      }
+    }
+  learner_created: false
+- name: src/PlatformTypes.kt
+  visible: true
+  text: |-
+    // interoperability/PlatformTypes.kt
+    package interop
+    import interoperability.JTool
+    import atomictest.eq
+
+    object KotlinCode {
+      val a: JTool? = JTool.get("")  // [1]
+      val b: JTool = JTool.get("")   // [2]
+      val c = JTool.get("")          // [3]
+    }
+
+    fun main() {
+      with(KotlinCode) {
+        a?.method() eq "Success"     // [4]
+        b.method() eq "Success"
+        c.method() eq "Success"      // [5]
+        ::a.returnType eq
+          "interoperability.JTool?"
+        ::b.returnType eq
+          "interoperability.JTool"
+        ::c.returnType eq
+          "interoperability.JTool!"  // [6]
+      }
+    }
+  learner_created: false
+- name: src/NPEOnPlatformType.kt
+  visible: true
+  text: |-
+    // interoperability/NPEOnPlatformType.kt
+    import interoperability.JTool
+    import atomictest.*
+
+    fun main() {
+      val xn: JTool? = JTool.get(null)  // [1]
+      xn?.method() eq null
+
+      val yn = JTool.get(null)          // [2]
+      yn?.method() eq null              // [3]
+      capture {
+        yn.method()                     // [4]
+      } contains listOf("NullPointerException")
+
+      capture {
+        val zn: JTool = JTool.get(null) // [5]
+      } eq "NullPointerException: " +
+        "JTool.get(null) must not be null"
+    }
+  learner_created: false
+- name: src/interoperability/AnnotatedJTool.java
+  visible: true
+  text: |-
+    // interoperability/AnnotatedJTool.java
+    package interoperability;
+    import org.jetbrains.annotations.NotNull;
+    import org.jetbrains.annotations.Nullable;
+
+    public class AnnotatedJTool {
+      @Nullable
+      public static JTool
+      getUnsafe(@Nullable String s) {
+        if(s == null) return null;
+        return getSafe(s);
+      }
+      @NotNull
+      public static JTool
+      getSafe(@NotNull String s) {
+        return new JTool();
+      }
+      public String method() {
+        return "Success";
+      }
+    }
+  learner_created: false
+- name: src/AnnotatedJava.kt
+  visible: true
+  text: |-
+    // interoperability/AnnotatedJava.kt
+    package interop
+    import interoperability.AnnotatedJTool
+    import atomictest.eq
+
+    object KotlinCode2 {
+      val a = AnnotatedJTool.getSafe("")
+      // Doesn't compile:
+      // val b = AnnotatedJTool.getSafe(null)
+      val c = AnnotatedJTool.getUnsafe("")
+      val d = AnnotatedJTool.getUnsafe(null)
+    }
+
+    fun main() {
+      with(KotlinCode2) {
+        ::a.returnType eq
+          "interoperability.JTool"
+        ::c.returnType eq
+          "interoperability.JTool?"
+        ::d.returnType eq
+          "interoperability.JTool?"
+      }
+    }
+  learner_created: false
+- name: src/HiddenArrayList.kt
+  visible: true
+  text: |-
+    // interoperability/HiddenArrayList.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = mutableListOf(1, 2, 3)
+      list.javaClass.name eq
+        "java.util.ArrayList"
+    }
+  learner_created: false
+- name: src/ReadOnlyByDefault.kt
+  visible: true
+  text: |-
+    // interoperability/ReadOnlyByDefault.kt
+    package interop
+
+    data class Animal(val name: String)
+
+    interface Zoo {
+      fun viewAnimals(): Collection<Animal>
+    }
+
+    fun visitZoo(zoo: Zoo) {
+      val animals = zoo.viewAnimals()
+      // Compile-time error:
+      // animals.add(Animal("Grumpy Cat"))
+    }
+  learner_created: false
+- name: src/CollectionStructure.kt
+  visible: true
+  text: |-
+    // interoperability/CollectionStructure.kt
+    package collectionstructure
+
+    interface Collection<E>
+    interface List<E>: Collection<E>
+    interface Set<E>: Collection<E>
+    interface Map<K, V>
+    interface MutableCollection<E>
+    interface MutableList<E>:
+      List<E>, MutableCollection<E>
+    interface MutableSet<E>:
+      Set<E>, MutableCollection<E>
+    interface MutableMap<K, V>: Map<K, V>
+  learner_created: false
+- name: src/JavaList.kt
+  visible: true
+  text: |-
+    // interoperability/JavaList.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3)
+      (list is java.util.List<*>) eq true
+    }
+  learner_created: false
+- name: src/ReadOnlyCollections.kt
+  visible: true
+  text: |-
+    // interoperability/ReadOnlyCollections.kt
+    import atomictest.eq
+
+    fun main() {
+      val mutable = mutableListOf(1, 2, 3)
+      // Read-only reference to a mutable list:
+      val list: List<Int> = mutable
+      mutable += 4
+      // list has changed:
+      list eq "[1, 2, 3, 4]"
+    }
+  learner_created: false
+- name: src/interoperability/JavaWrapper.java
+  visible: true
+  text: |-
+    // interoperability/JavaWrapper.java
+    package interoperability;
+    import java.util.*;
+
+    public class JavaWrapper {
+      public static void main(String[] args) {
+        // Primitive type
+        int i = 10;
+        // Wrapper types
+        Integer iOrNull = null;
+        List<Integer> list = new ArrayList<>();
+      }
+    }
+  learner_created: false
+- name: src/KotlinWrapper.kt
+  visible: true
+  text: |-
+    // interoperability/KotlinWrapper.kt
+    package interop
+
+    fun main() {
+      // Generates a primitive int:
+      val i = 10
+      // Generates wrapper types:
+      val iOrNull: Int? = null
+      val list: List<Int> = listOf(1, 2, 3)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

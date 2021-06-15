@@ -1,6 +1,10 @@
 package com.br.sample
 
-
+/**
+ * https://medium.com/@nomanr/backing-field-in-kotlin-explained-9f903f27946c
+ * Uma alternativa ao backing field e o uso de uma backing property. Trata-se basicamente
+ * de uma propriedade publica que retorna o valor de uma propriedade privada
+ * */
 
 class StrangeTable<K, V>(private var pTable: MutableMap<K, V>? = null) {
     /**
@@ -13,6 +17,7 @@ class StrangeTable<K, V>(private var pTable: MutableMap<K, V>? = null) {
             }
             return pTable ?: throw Exception("")
         }
+
 
     operator fun set(k: K, v: V) {
         table[k] = v

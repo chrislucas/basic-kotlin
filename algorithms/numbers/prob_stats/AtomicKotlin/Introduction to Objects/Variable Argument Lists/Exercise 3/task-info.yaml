@@ -1,0 +1,65 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 158
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 158
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return elements.toList().chunked(size)
+  text: |-
+    // Varargs/Task3.kt
+    package variableArgumentListsExercise3
+    import atomictest.eq
+
+    fun listOfChunks(size: Int, vararg elements: String): List<List<String>> {
+      TODO()
+    }
+
+    fun main() {
+      val chunks = listOfChunks(3, "a", "b", "c", "d", "e", "f", "g")
+      chunks eq listOf(listOf("a", "b", "c"), listOf("d", "e", "f"), listOf("g"))
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package variableArgumentListsExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestVariableArgumentListsExercise3 {
+
+      private fun checkListOfChunks(size: Int, vararg elements: String) {
+        Assert.assertEquals("Incorrect result for size = $size, elements = ${elements.toList()}.",
+          elements.toList().chunked(size), listOfChunks(size, *elements))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testSameList() = checkListOfChunks(3, "a", "b", "c")
+
+      @Test(timeout = TIMEOUT)
+      fun testSmallerList() = checkListOfChunks(3, "a")
+
+      @Test(timeout = TIMEOUT)
+      fun testFixedNumberOfElements() = checkListOfChunks(2, "a", "b", "c", "d")
+
+      @Test(timeout = TIMEOUT)
+      fun testExtraElements() = checkListOfChunks(2, "a", "b", "c", "d", "e")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+vararg+Arguments+%2F+Exercise1
+status: Unchecked
+record: -1

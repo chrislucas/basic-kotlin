@@ -1,0 +1,33 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Packages/Task4.kt
+    package packagesExercise4
+
+    fun main() {
+    //  val t = Isosceles
+    }
+  learner_created: false
+- name: src/Triangle.kt
+  visible: true
+  text: |-
+    // Packages/Triangle.kt
+    package pythagorean
+
+    class IsoscelesRightTriangle(
+      val side: Double
+    ) {
+      fun area() = side * side / 2
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package packagesExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Imports+%26+Packages+%2F+Exercise2
+status: Unchecked
+record: -1

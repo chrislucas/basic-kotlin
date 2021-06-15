@@ -1,0 +1,90 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 70
+    length: 19
+    placeholder_text: // add Boring class
+    initial_state:
+      length: 19
+      offset: 70
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Boring {
+        fun a() = 1.618
+        fun b() = "ratio"
+        fun c() = 11
+      }
+  - offset: 106
+    length: 14
+    placeholder_text: // test Boring
+    initial_state:
+      length: 14
+      offset: 106
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val boring = Boring()
+        boring.a() eq 1.618
+        boring.b() eq "ratio"
+        boring.c() eq 11
+  text: |-
+    // Summary2/Task1.kt
+    package summaryIIExercise1
+    import atomictest.eq
+
+    // add Boring class
+
+    fun main() {
+      // test Boring
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIIExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.loadClass
+    import util.loadMemberFunction
+    import util.runAndGetSystemOutput
+    import kotlin.reflect.full.createInstance
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIIExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun test1Functions() {
+        val boringClass = loadClass("summaryIIExercise1", "Boring")
+        val aFunction = loadMemberFunction(boringClass, "a")
+        val bFunction = loadMemberFunction(boringClass, "b")
+        val cFunction = loadMemberFunction(boringClass, "c")
+        val instance = boringClass.createInstance()
+        fun message(fName: String, value: String) = "The '$fName()' function should return $value"
+        Assert.assertEquals(message("a", "1.618"), 1.618, aFunction.call(instance))
+        Assert.assertEquals(message("b", "ratio"), "ratio", bFunction.call(instance))
+        Assert.assertEquals(message("c", "11"), 11, cFunction.call(instance))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2Main() {
+        val output = runAndGetSystemOutput {
+          main()
+        }
+
+        fun message(fName: String) = "The result of '$fName()' function call should be checked in 'main' using 'eq'"
+        Assert.assertTrue(message("a"), "1.618" in output)
+        Assert.assertTrue(message("b"), "ratio" in output)
+        Assert.assertTrue(message("c"), "11" in output)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

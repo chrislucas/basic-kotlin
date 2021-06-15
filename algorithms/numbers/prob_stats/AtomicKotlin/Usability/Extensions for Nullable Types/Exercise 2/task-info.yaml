@@ -1,0 +1,87 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 144
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 144
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (this != null && that != null) this && that else
+      null
+  - offset: 198
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 198
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (this != null && that != null) this || that else
+      null
+  text: |-
+    // NullableExtensions/Task2.kt
+    package extensionsForNullableTypesExercise2
+    import atomictest.eq
+
+    fun Boolean?.and(that: Boolean?): Boolean? =
+      TODO()
+
+    fun Boolean?.or(that: Boolean?): Boolean? =
+      TODO()
+
+    fun main() {
+      val b = true
+      b.and(null) eq null
+      null.or(b) eq null
+      b.or(false) eq true
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package extensionsForNullableTypesExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestExtensionsForNullableTypesExercise2 {
+
+      private fun checkValues(receiver: Boolean?, argument: Boolean?) {
+        Assert.assertEquals("Wrong result for $receiver.and($argument)",
+          receiver.and(argument), expectedAnd(receiver, argument))
+        Assert.assertEquals("Wrong result for $receiver.or($argument)",
+          receiver.or(argument), expectedOr(receiver, argument))
+      }
+
+      private fun expectedAnd(receiver: Boolean?, argument: Boolean?): Boolean? =
+        if (receiver != null && argument != null) receiver && argument else null
+
+      private fun expectedOr(receiver: Boolean?, argument: Boolean?): Boolean? =
+        if (receiver != null && argument != null) receiver || argument else null
+
+      @Test(timeout = TIMEOUT)
+      fun testAll() {
+        val booleans = listOf(true, false)
+        for (first in booleans) {
+          for (second in booleans) {
+            checkValues(first, second)
+          }
+        }
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Usability+%2F+Extensions+for+Nullable+Types+%2F+Exercise2
+status: Unchecked
+record: -1

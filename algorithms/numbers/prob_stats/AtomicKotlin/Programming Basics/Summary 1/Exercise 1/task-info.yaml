@@ -1,0 +1,39 @@
+type: output
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 63
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 63
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var x = 1
+        val y = x
+        val z = y
+        x = 2
+        println(x)
+        println(y)
+        println(z)
+  text: |-
+    // Summary1/Task1.kt
+    package summaryIExercise1
+
+    fun main() {
+      TODO()
+    }
+  learner_created: false
+- name: test/output.txt
+  visible: false
+  text: |-
+    2
+    1
+    1
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 85
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 85
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: s + s
+  text: |-
+    // Functions/Task3.kt
+    package functionsExercise3
+
+    fun duplicate(s: String): String = TODO()
+
+    fun main() {
+      println(duplicate("abc"))  // abcabc
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package functionsExercise3
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.TIMEOUT
+
+    class TestFunctionsExercise3 {
+      private fun checkFunction(s: String) {
+        Assert.assertEquals("""duplicate($s) should return "$s$s"""",
+          duplicate(s), "$s$s")
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1() = checkFunction("abc")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Functions+%2F+Exercise3
+status: Unchecked
+record: -1

@@ -1,0 +1,131 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 99
+    length: 34
+    placeholder_text: // TODO add property and functions
+    initial_state:
+      length: 34
+      offset: 99
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val ops = mutableListOf<String>()
+        fun dilute() {
+          ops += "dilute"
+        }
+        fun apply() {
+          ops += "apply"
+        }
+        fun scrub() {
+          ops += "scrub"
+        }
+  - offset: 185
+    length: 154
+    placeholder_text: |-
+      /*
+        val detergent = Detergent()
+        detergent.dilute()
+        detergent.apply()
+        detergent.scrub()
+        detergent.ops eq
+          listOf("dilute", "apply", "scrub")
+      */
+    initial_state:
+      length: 154
+      offset: 185
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val detergent = Detergent()
+        detergent.dilute()
+        detergent.apply()
+        detergent.scrub()
+        detergent.ops eq
+          listOf("dilute", "apply", "scrub")
+  text: |-
+    // Inheritance/Task1.kt
+    package inheritanceExercise1
+    import atomictest.eq
+
+    open class Cleanser {
+      // TODO add property and functions
+    }
+
+    open class Detergent : Cleanser()
+
+    fun main() {
+    /*
+      val detergent = Detergent()
+      detergent.dilute()
+      detergent.apply()
+      detergent.scrub()
+      detergent.ops eq
+        listOf("dilute", "apply", "scrub")
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package inheritanceExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.assertConstructorNumber
+    import util.assertInheritance
+    import util.loadMemberFunction
+    import util.loadMemberProperty
+    import kotlin.test.assertEquals
+
+    @OptIn(ExperimentalStdlibApi::class)
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestInheritanceExercise1 {
+
+        @Test
+        fun `#01 classes structure`() {
+            val cleanserClass = Cleanser::class
+            cleanserClass.assertConstructorNumber(1)
+            val optProperty = loadMemberProperty(cleanserClass, "ops")
+            assertEquals(
+                    actual = optProperty.returnType.toString(),
+                    expected = "kotlin.collections.MutableList<kotlin.String>",
+                    message = "Property 'ops' should have the type MutableList<String>"
+            )
+            loadMemberFunction(cleanserClass, "dilute")
+            loadMemberFunction(cleanserClass, "apply")
+            loadMemberFunction(cleanserClass, "scrub")
+
+            val detergentClass = Detergent::class
+            detergentClass.assertInheritance(cleanserClass)
+        }
+
+        @Test
+        fun `#02 detergent methods application`() {
+            val detergentClass = Detergent::class
+            val instance = detergentClass.constructors.first().call()
+            loadMemberFunction(detergentClass, "dilute").call(instance)
+            loadMemberFunction(detergentClass, "apply").call(instance)
+            loadMemberFunction(detergentClass, "scrub").call(instance)
+
+            loadMemberProperty(detergentClass, "ops")
+                    .call(instance)
+                    .also { opt ->
+                        assertEquals(
+                                expected = listOf("dilute", "apply", "scrub"),
+                                actual = opt as List<String>,
+                                message = "Member property `opt` of class Detergent should contain list of methods " +
+                                        "names after their invocation"
+                        )
+                    }
+
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

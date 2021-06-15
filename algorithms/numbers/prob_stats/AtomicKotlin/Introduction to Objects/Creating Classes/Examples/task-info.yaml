@@ -1,0 +1,88 @@
+type: theory
+files:
+- name: src/Animals.kt
+  visible: true
+  text: |-
+    // CreatingClasses/Animals.kt
+
+    // Create some classes:
+    class Giraffe
+    class Bear
+    class Hippo
+
+    fun main() {
+      // Create some objects:
+      val g1 = Giraffe()
+      val g2 = Giraffe()
+      val b = Bear()
+      val h = Hippo()
+
+      // Each object() is unique:
+      println(g1)
+      println(g2)
+      println(h)
+      println(b)
+    }
+    /* Sample output:
+    Giraffe@28d93b30
+    Giraffe@1b6d3586
+    Hippo@4554617c
+    Bear@74a14482
+    */
+  learner_created: false
+- name: src/Dog.kt
+  visible: true
+  text: |-
+    // CreatingClasses/Dog.kt
+
+    class Dog {
+      fun bark() = "yip!"
+    }
+
+    fun main() {
+      val dog = Dog()
+    }
+  learner_created: false
+- name: src/Cat.kt
+  visible: true
+  text: |-
+    // CreatingClasses/Cat.kt
+
+    class Cat {
+      fun meow() = "mrrrow!"
+    }
+
+    fun main() {
+      val cat = Cat()
+      // Call 'meow()' for 'cat':
+      val m1 = cat.meow()
+      println(m1)
+    }
+    /* Output:
+    mrrrow!
+    */
+  learner_created: false
+- name: src/Hamster.kt
+  visible: true
+  text: |-
+    // CreatingClasses/Hamster.kt
+
+    class Hamster {
+      fun speak() = "Squeak! "
+      fun exercise() =
+        this.speak() +   // Qualified with 'this'
+          speak() +      // Without 'this'
+          "Running on wheel"
+    }
+
+    fun main() {
+      val hamster = Hamster()
+      println(hamster.exercise())
+    }
+    /* Output:
+    Squeak! Squeak! Running on wheel
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

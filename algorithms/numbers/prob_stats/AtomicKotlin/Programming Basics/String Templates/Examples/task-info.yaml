@@ -1,0 +1,69 @@
+type: theory
+files:
+- name: src/StringTemplates.kt
+  visible: true
+  text: |-
+    // StringTemplates/StringTemplates.kt
+
+    fun main() {
+      val answer = 42
+      println("Found $answer!")     // [1]
+      println("printing a $1")      // [2]
+    }
+    /* Output:
+    Found 42!
+    printing a $1
+    */
+  learner_created: false
+- name: src/StringConcatenation.kt
+  visible: true
+  text: |-
+    // StringTemplates/StringConcatenation.kt
+
+    fun main() {
+      val s = "hi\n" // \n is a newline character
+      val n = 11
+      val d = 3.14
+      println("first: " + s + "second: " +
+        n + ", third: " + d)
+    }
+    /* Output:
+    first: hi
+    second: 11, third: 3.14
+    */
+  learner_created: false
+- name: src/ExpressionInTemplate.kt
+  visible: true
+  text: |-
+    // StringTemplates/ExpressionInTemplate.kt
+
+    fun main() {
+      val condition = true
+      println(
+        "${if (condition) 'a' else 'b'}")  // [1]
+      val x = 11
+      println("$x + 4 = ${x + 4}")
+    }
+    /* Output:
+    a
+    11 + 4 = 15
+    */
+  learner_created: false
+- name: src/TripleQuotes.kt
+  visible: true
+  text: |-
+    // StringTemplates/TripleQuotes.kt
+
+    fun main() {
+      val s = "value"
+      println("s = \"$s\".")
+      println("""s = "$s".""")
+    }
+    /* Output:
+    s = "value".
+    s = "value".
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

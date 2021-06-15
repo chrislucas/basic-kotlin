@@ -1,0 +1,104 @@
+type: edu
+files:
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package secondaryConstructorsExercise3
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.assertConstructorNumber
+    import util.assertMemberProperty
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSecondaryConstructorsExercise3 {
+
+      @Test(timeout = TIMEOUT)
+      fun `class structure`() {
+        GardenItem::class.apply {
+          assertConstructorNumber(1)
+          assertMemberProperty("name", String::class)
+          assertMemberProperty("material", Material::class)
+        }
+      }
+    }
+  learner_created: false
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 195
+    length: 312
+    placeholder_text: |-
+      class GardenItem(
+          val name: String
+      ) {
+        var material: Material = Plastic
+
+        constructor(
+            name: String, material: Material
+        ) : this(name) {
+          this.material = material
+        }
+
+        constructor(
+            material: Material
+        ) : this("Strange Thing", material)
+
+        override fun toString() = "$material $name"
+      }
+    initial_state:
+      length: 312
+      offset: 195
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class GardenItem(
+        val name: String = "Strange Thing",
+        val material: Material = Plastic
+      ) {
+        override fun toString() = "$material $name"
+      }
+  text: |-
+    // SecondaryConstructors/Task3.kt
+    package secondaryConstructorsExercise3
+    import atomictest.eq
+    import secondaryConstructorsExercise3.Material.*
+
+    enum class Material {
+      Ceramic, Metal, Plastic
+    }
+
+    class GardenItem(
+        val name: String
+    ) {
+      var material: Material = Plastic
+
+      constructor(
+          name: String, material: Material
+      ) : this(name) {
+        this.material = material
+      }
+
+      constructor(
+          material: Material
+      ) : this("Strange Thing", material)
+
+      override fun toString() = "$material $name"
+    }
+
+    fun main() {
+      GardenItem("Elf").material eq Plastic
+      GardenItem("Snowman").name eq "Snowman"
+      GardenItem("Gazing Ball", Metal) eq
+        "Metal Gazing Ball"
+      GardenItem(material = Ceramic) eq
+        "Ceramic Strange Thing"
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Object-Oriented+Programming+%2F+Secondary+Constructors+%2F+Exercise1
+status: Unchecked
+record: -1

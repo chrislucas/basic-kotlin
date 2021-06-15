@@ -1,0 +1,117 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 188
+    length: 40
+    placeholder_text: // TODO getValue and setValue extensions
+    initial_state:
+      length: 40
+      offset: 188
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      operator fun getValue(
+          delegator: Holders,
+          property: KProperty<*>
+        ): List<E> = list
+        operator fun setValue(
+          delegator: Holders,
+          property: KProperty<*>,
+          value: List<E>
+        ) {
+          list = value
+        }
+  - offset: 248
+    length: 100
+    placeholder_text: |-
+      /*
+        var strings by Holder<String>()
+        var ints by Holder<Int>()
+        var bools by Holder<Boolean>()
+      */
+    initial_state:
+      length: 100
+      offset: 248
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        var strings by Holder<String>()
+        var ints by Holder<Int>()
+        var bools by Holder<Boolean>()
+  - offset: 365
+    length: 234
+    placeholder_text: |-
+      /*
+        val x = Holders()
+        x.strings = listOf("99", "17")
+        x.strings eq "[99, 17]"
+        x.ints = listOf(12, 23, 34, 45)
+        x.ints eq "[12, 23, 34, 45]"
+        x.bools = listOf(true, true, false, true)
+        x.bools eq "[true, true, false, true]"
+      */
+    initial_state:
+      length: 234
+      offset: 365
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val x = Holders()
+        x.strings = listOf("99", "17")
+        x.strings eq "[99, 17]"
+        x.ints = listOf(12, 23, 34, 45)
+        x.ints eq "[12, 23, 34, 45]"
+        x.bools = listOf(true, true, false, true)
+        x.bools eq "[true, true, false, true]"
+  text: |-
+    // PropertyDelegation/PropDelegationSoln4.kt
+    package propertyDelegationExercise3
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class Holder<E> {
+      private var list = listOf<E>()
+      // TODO getValue and setValue extensions
+    }
+
+    class Holders {
+    /*
+      var strings by Holder<String>()
+      var ints by Holder<Int>()
+      var bools by Holder<Boolean>()
+    */
+    }
+
+    fun main() {
+    /*
+      val x = Holders()
+      x.strings = listOf("99", "17")
+      x.strings eq "[99, 17]"
+      x.ints = listOf(12, 23, 34, 45)
+      x.ints eq "[12, 23, 34, 45]"
+      x.bools = listOf(true, true, false, true)
+      x.bools eq "[true, true, false, true]"
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

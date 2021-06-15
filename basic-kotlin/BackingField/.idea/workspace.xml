@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81d6e6c-2291-470c-ac16-afff43430d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/raw/refs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SingleAbstractMethodConvertion/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/0/a/0a94c7804a8601d7b69fcd1d495cae82b1232aef" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/0/a/0a94c7804a8601d7b69fcd1d495cae82b1232aef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../AnotherCoroutinesSample/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
@@ -81,6 +79,9 @@
       <change beforePath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/raw/upper_lower_bound_possible_problems" beforeDir="false" afterPath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/raw/upper_lower_bound_possible_problems" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/helpers/ArrayExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/helpers/ArrayExt.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/upperlowerbound/UpperAndLowerBound.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../algorithms/numbers/prob_stats/RandomPickWithWeight/src/com/br/sample/upperlowerbound/UpperAndLowerBound.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/sample/SampleBackingField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/sample/SampleBackingField.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/br/sample/SampleBackingProperty.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/br/sample/SampleBackingProperty.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,12 +198,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/com/br/sample/SampleBackingField.kt</url>
-          <line>46</line>
+          <line>68</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/com/br/sample/SampleBackingField.kt</url>
-          <line>42</line>
+          <line>64</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

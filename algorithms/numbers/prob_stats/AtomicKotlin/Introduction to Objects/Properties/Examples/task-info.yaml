@@ -1,0 +1,134 @@
+type: theory
+files:
+- name: src/Cup.kt
+  visible: true
+  text: |-
+    // Properties/Cup.kt
+
+    class Cup {
+      var percentFull = 0
+    }
+
+    fun main() {
+      val c1 = Cup()
+      c1.percentFull = 50
+      val c2 = Cup()
+      c2.percentFull = 100
+
+      println(c1.percentFull)
+      println(c2.percentFull)
+    }
+    /* Output:
+    50
+    100
+    */
+  learner_created: false
+- name: src/Cup2.kt
+  visible: true
+  text: |-
+    // Properties/Cup2.kt
+
+    class Cup2 {
+      var percentFull = 0
+      val max = 100
+      fun add(increase: Int): Int {
+        percentFull += increase
+        if (percentFull > max)
+          percentFull = max
+        return percentFull
+      }
+    }
+
+    fun main() {
+      val cup = Cup2()
+      cup.add(50)
+      println(cup.percentFull)
+      cup.add(70)
+      println(cup.percentFull)
+    }
+    /* Output:
+    50
+    100
+    */
+  learner_created: false
+- name: src/TopLevelProperty.kt
+  visible: true
+  text: |-
+    // Properties/TopLevelProperty.kt
+
+    val constant = 42
+
+    var counter = 0
+
+    fun inc() {
+      counter++
+    }
+  learner_created: false
+- name: src/ChangingAVal.kt
+  visible: true
+  text: |-
+    // Properties/ChangingAVal.kt
+
+    class House {
+      var sofa: String = ""
+    }
+
+    fun main() {
+      val house = House()
+      house.sofa = "Simple sleeper sofa: $89.00"
+      println(house.sofa)
+      house.sofa = "New leather sofa: $3,099.00"
+      println(house.sofa)
+      // Cannot reassign the val to a new House:
+      // house = House()
+    }
+    /* Output:
+    Simple sleeper sofa: $89.00
+    New leather sofa: $3,099.00
+    */
+  learner_created: false
+- name: src/AnUnchangingVar.kt
+  visible: true
+  text: |-
+    // Properties/AnUnchangingVar.kt
+
+    class Sofa {
+      val cover: String = "Loveseat cover"
+    }
+
+    fun main() {
+      var sofa = Sofa()
+      // Not allowed:
+      // sofa.cover = "New cover"
+      // Reassigning a var:
+      sofa = Sofa()
+    }
+  learner_created: false
+- name: src/References.kt
+  visible: true
+  text: |-
+    // Properties/References.kt
+
+    class Kitchen {
+      var table: String = "Round table"
+    }
+
+    fun main() {
+      val kitchen1 = Kitchen()
+      val kitchen2 = kitchen1
+      println("kitchen1: ${kitchen1.table}")
+      println("kitchen2: ${kitchen2.table}")
+      kitchen1.table = "Square table"
+      println("kitchen1: ${kitchen1.table}")
+      println("kitchen2: ${kitchen2.table}")
+    }
+    /* Output:
+    kitchen1: Round table
+    kitchen2: Round table
+    kitchen1: Square table
+    kitchen2: Square table
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

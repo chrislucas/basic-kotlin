@@ -1,0 +1,93 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 275
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 275
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Condition::combine
+  text: |-
+    // FoldingLists/Task4.kt
+    package foldingListsExercise4
+    import atomictest.eq
+
+    class Condition(val check: (Int) -> Boolean)
+
+    fun Condition.combine(other: Condition): Condition =
+      Condition { check(it) && other.check(it) }
+
+    fun List<Condition>.combineAll(): Condition = reduce(TODO())
+
+    fun main() {
+      val isPositive = Condition { it > 0 }
+      val isEven = Condition { it % 2 == 0 }
+      val lessThan10 = Condition { it < 10 }
+
+      val conditions = listOf(isPositive, isEven, lessThan10)
+      val isEvenPositiveAndLessThan10 = conditions.combineAll()
+
+      isEvenPositiveAndLessThan10.check(8) eq true
+      isEvenPositiveAndLessThan10.check(5) eq false
+      isEvenPositiveAndLessThan10.check(12) eq false
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package foldingListsExercise4
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import kotlin.collections.any as anyLibrary
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestFoldingListsExercise4 {
+
+      private fun checkSample(isEvenPositiveAndLessThan10: Condition, result: Boolean, value: Int) {
+        Assert.assertEquals("Wrong result for 'isEvenPositiveAndLessThan10.check($value)'",
+          result, isEvenPositiveAndLessThan10.check(value))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testSample() {
+        val isPositive = Condition { it > 0 }
+        val isEven = Condition { it % 2 == 0 }
+        val lessThan10 = Condition { it < 10 }
+
+        val conditions = listOf(isPositive, isEven, lessThan10)
+        val isEvenPositiveAndLessThan10 = conditions.combineAll()
+
+        checkSample(isEvenPositiveAndLessThan10, true, 8)
+        checkSample(isEvenPositiveAndLessThan10, false, 5)
+        checkSample(isEvenPositiveAndLessThan10, false, 12)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2() {
+        val isPositive = Condition { it > 0 }
+        val isEven = Condition { it % 2 == 0 }
+        val lessThan10 = Condition { it < 10 }
+
+        val conditions = listOf(isPositive, isEven, lessThan10)
+        val isEvenPositiveAndLessThan10 = conditions.combineAll()
+
+        checkSample(isEvenPositiveAndLessThan10, true, 2)
+        checkSample(isEvenPositiveAndLessThan10, false, 7)
+        checkSample(isEvenPositiveAndLessThan10, false, 13)
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Folding+Lists+%2F+Exercise4
+status: Unchecked
+record: -1

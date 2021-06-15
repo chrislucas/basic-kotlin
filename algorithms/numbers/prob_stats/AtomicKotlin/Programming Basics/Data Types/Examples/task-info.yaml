@@ -1,0 +1,62 @@
+type: theory
+files:
+- name: src/StringPlusNumber.kt
+  visible: true
+  text: |-
+    // DataTypes/StringPlusNumber.kt
+
+    fun main() {
+      println("Sally" + 5.9)
+    }
+    /* Output:
+    Sally5.9
+    */
+  learner_created: false
+- name: src/Types.kt
+  visible: true
+  text: |-
+    // DataTypes/Types.kt
+
+    fun main() {
+      val whole: Int = 11              // [1]
+      val fractional: Double = 1.4     // [2]
+      val trueOrFalse: Boolean = true  // [3]
+      val words: String = "A value"    // [4]
+      val character: Char = 'z'        // [5]
+      val lines: String = """Triple quotes let
+    you have many lines
+    in your string"""                  // [6]
+      println(whole)
+      println(fractional)
+      println(trueOrFalse)
+      println(words)
+      println(character)
+      println(lines)
+    }
+    /* Output:
+    11
+    1.4
+    true
+    A value
+    z
+    Triple quotes let
+    you have many lines
+    in your string
+    */
+  learner_created: false
+- name: src/Inference.kt
+  visible: true
+  text: |-
+    // DataTypes/Inference.kt
+
+    fun main() {
+      val n = 1 + 1.2
+      println(n)
+    }
+    /* Output:
+    2.2
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

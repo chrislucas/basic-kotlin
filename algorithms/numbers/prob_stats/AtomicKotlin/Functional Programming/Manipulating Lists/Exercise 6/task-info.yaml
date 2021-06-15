@@ -1,0 +1,61 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 142
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 142
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it
+  text: |-
+    // ManipulatingLists/Task6.kt
+    package manipulatingListsExercise6
+    import atomictest.eq
+
+    fun <T> List<List<T>>.flatten(): List<T> =
+      flatMap { TODO() }
+
+    fun main() {
+      val listOfLists = listOf(listOf(1, 2, 3), listOf(4, 5, 6))
+
+      listOfLists.flatten() eq listOf(1, 2, 3, 4, 5, 6)
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package manipulatingListsExercise6
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import kotlin.collections.flatten as flattenLibrary
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestManipulatingListsExercise6 {
+      private fun <T> checkFlatten(
+        list: List<List<T>>
+      ) {
+        Assert.assertEquals("Wrong 'flatten' implementation",
+          list.flattenLibrary(), list.flatten())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() = checkFlatten(listOf(listOf(1, 2, 3), listOf(4, 5, 6)))
+
+      @Test(timeout = TIMEOUT)
+      fun test5() = checkFlatten(listOf(listOf('a', 'b'), listOf('c', 'd', 'e', 'f')))
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Manipulating+Lists+%2F+Exercise6
+status: Unchecked
+record: -1

@@ -1,0 +1,63 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 105
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 105
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: number.toString().reversed().toInt()
+  text: |-
+    // ObjectsEverywhere/Task4.kt
+    package objectsEverywhereExercise4
+
+    fun reverseDecimal(number: Int): Int = TODO()
+
+    fun main() {
+      println(reverseDecimal(1234))  // 4321
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package objectsEverywhereExercise4
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestObjectsEverywhereExercise4 {
+      private fun checkReverse(number: Int, expected: Int) {
+        Assert.assertEquals("Wrong result for reversing $number:",
+          expected, reverseDecimal(number))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse1() = checkReverse(1234, 4321)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse2() = checkReverse(10, 1)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse3() = checkReverse(123456789, 987654321)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse4() = checkReverse(111, 111)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse5() = checkReverse(0, 0)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Objects+Everywhere+%2F+Exercise4
+status: Unchecked
+record: -1

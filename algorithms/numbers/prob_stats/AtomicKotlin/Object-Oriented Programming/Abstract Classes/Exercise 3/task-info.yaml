@@ -1,0 +1,179 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 122
+    length: 66
+    placeholder_text: |-
+      abstract class Instrument {
+        abstract fun play(n: Note): String
+      }
+    initial_state:
+      length: 66
+      offset: 122
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Instrument(val name: String, val action: String) {
+        fun play(n: Note): String = "$name $action $n"
+      }
+  - offset: 190
+    length: 79
+    placeholder_text: |-
+      class Wind : Instrument() {
+        override fun play(n: Note) =
+          "Wind blow $n"
+      }
+    initial_state:
+      length: 79
+      offset: 190
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Wind : Instrument("Wind", "blow")'
+  - offset: 271
+    length: 93
+    placeholder_text: |-
+      class Percussion : Instrument() {
+        override fun play(n: Note) =
+          "Percussion strike $n"
+      }
+    initial_state:
+      length: 93
+      offset: 271
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Percussion : Instrument("Percussion", "strike")'
+  - offset: 366
+    length: 88
+    placeholder_text: |-
+      class Stringed : Instrument() {
+        override fun play(n: Note) =
+          "Stringed pluck $n"
+      }
+    initial_state:
+      length: 88
+      offset: 366
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Stringed : Instrument("Stringed", "pluck")'
+  text: |-
+    // Abstract/Task3.kt
+    package abstractClassesExercise3
+    import atomictest.trace
+
+    enum class Note {
+      A, B, C, D, E, F, G
+    }
+
+    abstract class Instrument {
+      abstract fun play(n: Note): String
+    }
+
+    class Wind : Instrument() {
+      override fun play(n: Note) =
+        "Wind blow $n"
+    }
+
+    class Percussion : Instrument() {
+      override fun play(n: Note) =
+        "Percussion strike $n"
+    }
+
+    class Stringed : Instrument() {
+      override fun play(n: Note) =
+        "Stringed pluck $n"
+    }
+
+    fun tune(i: Instrument) = i.play(Note.C)
+
+    fun main() {
+      val orchestra = listOf(
+        Wind(),
+        Percussion(),
+        Stringed()
+      )
+      for (instrument in orchestra) {
+        trace(tune(instrument))
+      }
+      trace eq """
+        Wind blow C
+        Percussion strike C
+        Stringed pluck C
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package abstractClassesExercise3
+    import atomictest.trace
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestAbstractClassesExercise3 : TestTrace() {
+
+      private val packageName = "abstractClassesExercise3"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Instrument").apply {
+          assertOpen()
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "name" to String::class,
+              "action" to String::class,
+          )
+          assertDeclaredMemberProperty("name")
+          assertDeclaredMemberProperty("action")
+          assertDeclaredMemberFunction("play")
+        }
+        listOf("Wind", "Percussion", "Stringed").forEach {
+          loadClass(it).apply {
+            assertAbstract(expected = false)
+            assertInheritance("Instrument")
+            assertConstructorNumber(1)
+            assertParametersOfFirstConstructor()
+            assertNoDeclaredMemberFunction()
+            assertNoDeclaredMemberProperty()
+          }
+        }
+        loadToplevelFunction(loadFileFacade(packageName), "tune")
+      }
+
+      @Test
+      fun `#02 sofa operations`() {
+        val orchestra = listOf("Wind", "Percussion", "Stringed").map {
+          loadClass(it).createInstance()
+        }
+        val tune = loadToplevelFunction(loadFileFacade(packageName), "tune")
+        for (instrument in orchestra) {
+          trace(tune.invoke(null, instrument))
+        }
+
+        assertEquals(
+            message = "Incorrect tune of instruments",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "Wind blow C",
+                "Percussion strike C",
+                "Stringed pluck C"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

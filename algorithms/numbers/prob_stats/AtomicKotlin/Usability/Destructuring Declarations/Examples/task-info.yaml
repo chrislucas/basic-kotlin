@@ -1,0 +1,129 @@
+type: theory
+files:
+- name: src/Pairs.kt
+  visible: true
+  text: |-
+    // Destructuring/Pairs.kt
+    package destructuring
+    import atomictest.eq
+
+    fun compute(input: Int): Pair<Int, String> =
+      if (input > 5)
+        Pair(input * 2, "High")
+      else
+        Pair(input * 2, "Low")
+
+    fun main() {
+      compute(7) eq Pair(14, "High")
+      compute(4) eq Pair(8, "Low")
+      val result = compute(5)
+      result.first eq 10
+      result.second eq "Low"
+    }
+  learner_created: false
+- name: src/PairDestructuring.kt
+  visible: true
+  text: |-
+    // Destructuring/PairDestructuring.kt
+    import destructuring.compute
+    import atomictest.eq
+
+    fun main() {
+      val (value, description) = compute(7)
+      value eq 14
+      description eq "High"
+    }
+  learner_created: false
+- name: src/Computation.kt
+  visible: true
+  text: |-
+    // Destructuring/Computation.kt
+    package destructuring
+    import atomictest.eq
+
+    data class Computation(
+      val data: Int,
+      val info: String
+    )
+
+    fun evaluate(input: Int) =
+      if (input > 5)
+        Computation(input * 2, "High")
+      else
+        Computation(input * 2, "Low")
+
+    fun main() {
+      val (value, description) = evaluate(7)
+      value eq 14
+      description eq "High"
+    }
+  learner_created: false
+- name: src/Tuple.kt
+  visible: true
+  text: |-
+    // Destructuring/Tuple.kt
+    package destructuring
+    import atomictest.eq
+
+    data class Tuple(
+      val i: Int,
+      val d: Double,
+      val s: String,
+      val b: Boolean,
+      val l: List<Int>
+    )
+
+    fun main() {
+      val tuple = Tuple(
+        1, 3.14, "Mouse", false, listOf())
+      val (i, d, s, b, l) = tuple
+      i eq 1
+      d eq 3.14
+      s eq "Mouse"
+      b eq false
+      l eq listOf()
+
+      val (_, _, animal) = tuple   // [1]
+      animal eq "Mouse"
+    }
+  learner_created: false
+- name: src/ForLoop.kt
+  visible: true
+  text: |-
+    // Destructuring/ForLoop.kt
+    import atomictest.eq
+
+    fun main() {
+      var result = ""
+      val map = mapOf(1 to "one", 2 to "two")
+      for ((key, value) in map) {
+        result += "$key = $value, "
+      }
+      result eq "1 = one, 2 = two,"
+
+      result = ""
+      val listOfPairs =
+        listOf(Pair(1, "one"), Pair(2, "two"))
+      for ((i, s) in listOfPairs) {
+        result += "($i, $s), "
+      }
+      result eq "(1, one), (2, two),"
+    }
+  learner_created: false
+- name: src/LoopWithIndex.kt
+  visible: true
+  text: |-
+    // Destructuring/LoopWithIndex.kt
+    import atomictest.trace
+
+    fun main() {
+      val list = listOf('a', 'b', 'c')
+      for ((index, value) in list.withIndex()) {
+        trace("$index:$value")
+      }
+      trace eq "0:a 1:b 2:c"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

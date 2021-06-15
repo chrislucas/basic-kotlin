@@ -1,0 +1,91 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 95
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 95
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (b1) b2 else false
+  - offset: 149
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 149
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (b1) true else b2
+  text: |-
+    // Booleans/Task3.kt
+    package booleansExercise3
+
+    fun and(b1: Boolean, b2: Boolean): Boolean =
+      TODO()
+
+    fun or(b1: Boolean, b2: Boolean): Boolean =
+      TODO()
+
+    fun main() {
+      println(and(true, true)) // true
+      println(or(true, false)) // true
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package booleansExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestBooleansExercise3 {
+
+      private fun checkAnd(b1: Boolean, b2: Boolean) {
+        Assert.assertEquals("and($b1, $b2) should be ${b1 && b2}", b1 && b2, and(b1, b2))
+      }
+
+      private fun checkOr(b1: Boolean, b2: Boolean) {
+        Assert.assertEquals("or($b1, $b2) should be ${b1 || b2}", b1 || b2, or(b1, b2))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testAnd1() = checkAnd(true, true)
+
+      @Test(timeout = TIMEOUT)
+      fun testAnd2() = checkAnd(true, false)
+
+      @Test(timeout = TIMEOUT)
+      fun testAnd3() = checkAnd(false, true)
+
+      @Test(timeout = TIMEOUT)
+      fun testAnd4() = checkAnd(false, false)
+
+      @Test(timeout = TIMEOUT)
+      fun testOr1() = checkOr(true, true)
+
+      @Test(timeout = TIMEOUT)
+      fun testOr2() = checkOr(true, false)
+
+      @Test(timeout = TIMEOUT)
+      fun testOr3() = checkOr(false, true)
+
+      @Test(timeout = TIMEOUT)
+      fun testOr4() = checkOr(false, false)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Booleans+%2F+Exercise2
+status: Unchecked
+record: -1

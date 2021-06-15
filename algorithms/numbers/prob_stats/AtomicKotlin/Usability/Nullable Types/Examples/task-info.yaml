@@ -1,0 +1,102 @@
+type: theory
+files:
+- name: src/NullInMaps.kt
+  visible: true
+  text: |-
+    // NullableTypes/NullInMaps.kt
+    import atomictest.eq
+
+    fun main() {
+      val map = mapOf(0 to "yes", 1 to "no")
+      map[2] eq null
+    }
+  learner_created: false
+- name: src/NullableTypes.kt
+  visible: true
+  text: |-
+    // NullableTypes/NullableTypes.kt
+    import atomictest.eq
+
+    fun main() {
+      val s1 = "abc"             // [1]
+
+      // Compile-time error:
+      // val s2: String = null   // [2]
+
+      // Nullable definitions:
+      val s3: String? = null     // [3]
+      val s4: String? = s1       // [4]
+
+      // Compile-time error:
+      // val s5: String = s4     // [5]
+      val s6 = s4                // [6]
+
+      s1 eq "abc"
+      s3 eq null
+      s4 eq "abc"
+      s6 eq "abc"
+    }
+  learner_created: false
+- name: src/NullableInMap.kt
+  visible: true
+  text: |-
+    // NullableTypes/NullableInMap.kt
+    import atomictest.eq
+
+    fun main() {
+      val map = mapOf(0 to "yes", 1 to "no")
+      val first: String? = map[0]
+      val second: String? = map[2]
+      first eq "yes"
+      second eq null
+    }
+  learner_created: false
+- name: src/Dereference.kt
+  visible: true
+  text: |-
+    // NullableTypes/Dereference.kt
+    import atomictest.eq
+
+    fun main() {
+      val s1: String = "abc"
+      val s2: String? = s1
+
+      s1.length eq 3         // [1]
+      // Doesn't compile:
+      // s2.length           // [2]
+    }
+  learner_created: false
+- name: src/ExplicitCheck.kt
+  visible: true
+  text: |-
+    // NullableTypes/ExplicitCheck.kt
+    import atomictest.eq
+
+    fun main() {
+      val s: String? = "abc"
+      if (s != null)
+        s.length eq 3
+    }
+  learner_created: false
+- name: src/Amphibian.kt
+  visible: true
+  text: |-
+    // NullableTypes/Amphibian.kt
+    package nullabletypes
+
+    class Amphibian
+
+    enum class Species {
+      Frog, Toad, Salamander, Caecilian
+    }
+
+    fun main() {
+      val a1: Amphibian = Amphibian()
+      val a2: Amphibian? = null
+      val at1: Species = Species.Toad
+      val at2: Species? = null
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

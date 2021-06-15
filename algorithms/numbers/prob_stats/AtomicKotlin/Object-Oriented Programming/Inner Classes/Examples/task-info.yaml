@@ -1,0 +1,268 @@
+type: theory
+files:
+- name: src/Hotel.kt
+  visible: true
+  text: |-
+    // InnerClasses/Hotel.kt
+    package innerclasses
+    import atomictest.eq
+
+    class Hotel(private val reception: String) {
+      open inner class Room(val id: Int = 0) {
+        // Uses 'reception' from outer class:
+        fun callReception() =
+          "Room $id Calling $reception"
+      }
+      private inner class Closet : Room()
+      fun closet(): Room = Closet()
+    }
+
+    fun main() {
+      val nycHotel = Hotel("311")
+      // You need an outer object to
+      // create an instance of the inner class:
+      val room = nycHotel.Room(319)
+      room.callReception() eq
+        "Room 319 Calling 311"
+      val sfHotel = Hotel("0")
+      val closet = sfHotel.closet()
+      closet.callReception() eq "Room 0 Calling 0"
+    }
+  learner_created: false
+- name: src/QualifiedThis.kt
+  visible: true
+  text: |-
+    // InnerClasses/QualifiedThis.kt
+    package innerclasses
+    import atomictest.eq
+    import typechecking.name
+
+    class Fruit { // Implicit label @Fruit
+      fun changeColor(color: String) =
+        "Fruit $color"
+      fun absorbWater(amount: Int) {}
+      inner class Seed { // Implicit label @Seed
+        fun changeColor(color: String) =
+          "Seed $color"
+        fun germinate() {}
+        fun whichThis() {
+          // Defaults to the current class:
+          this.name eq "Seed"
+          // To clarify, you can redundantly
+          // qualify the default this:
+          this@Seed.name  eq "Seed"
+          // Must explicitly access Fruit:
+          this@Fruit.name  eq "Fruit"
+          // Cannot access a further-inner class:
+          // this@DNA.name
+        }
+        inner class DNA { // Implicit label @DNA
+          fun changeColor(color: String) {
+            // changeColor(color) // Recursive
+            this@Seed.changeColor(color)
+            this@Fruit.changeColor(color)
+          }
+          fun plant() {
+            // Call outer-class functions
+            // Without qualification:
+            germinate()
+            absorbWater(10)
+          }
+          // Extension function:
+          fun Int.grow() { // Implicit label @grow
+            // Default is the Int.grow() receiver:
+            this.name eq "Int"
+            // Redundant qualification:
+            this@grow.name  eq "Int"
+            // You can still access everything:
+            this@DNA.name  eq "DNA"
+            this@Seed.name  eq "Seed"
+            this@Fruit.name  eq "Fruit"
+          }
+          // Extension functions on outer classes:
+          fun Seed.plant() {}
+          fun Fruit.plant() {}
+          fun whichThis() {
+            // Defaults to the current class:
+            this.name eq "DNA"
+            // Redundant qualification:
+            this@DNA.name  eq "DNA"
+            // The others must be explicit:
+            this@Seed.name  eq "Seed"
+            this@Fruit.name  eq "Fruit"
+          }
+        }
+      }
+    }
+
+    // Extension function:
+    fun Fruit.grow(amount: Int) {
+      absorbWater(amount)
+      // Calls Fruit's version of changeColor():
+      changeColor("Red") eq "Fruit Red"
+    }
+
+    // Inner-class extension function:
+    fun Fruit.Seed.grow(n: Int) {
+      germinate()
+      // Calls Seed's version of changeColor():
+      changeColor("Green") eq "Seed Green"
+    }
+
+    // Inner-class extension function:
+    fun Fruit.Seed.DNA.grow(n: Int) = n.grow()
+
+    fun main() {
+      val fruit = Fruit()
+      fruit.grow(4)
+      val seed = fruit.Seed()
+      seed.grow(9)
+      seed.whichThis()
+      val dna = seed.DNA()
+      dna.plant()
+      dna.grow(5)
+      dna.whichThis()
+      dna.changeColor("Purple")
+    }
+  learner_created: false
+- name: src/InnerClassInheritance.kt
+  visible: true
+  text: |-
+    // InnerClasses/InnerClassInheritance.kt
+    package innerclasses
+    import atomictest.*
+
+    open class Egg {
+      private var yolk = Yolk()
+      open inner class Yolk {
+        init { trace("Egg.Yolk()") }
+        open fun f() { trace("Egg.Yolk.f()") }
+      }
+      init { trace("New Egg()") }
+      fun insertYolk(y: Yolk) { yolk = y }
+      fun g() { yolk.f() }
+    }
+
+    class BigEgg : Egg() {
+      inner class Yolk : Egg.Yolk() {
+        init { trace("BigEgg.Yolk()") }
+        override fun f() {
+          trace("BigEgg.Yolk.f()")
+        }
+      }
+      init { insertYolk(Yolk()) }
+    }
+
+    fun main() {
+      BigEgg().g()
+      trace eq """
+        Egg.Yolk()
+        New Egg()
+        Egg.Yolk()
+        BigEgg.Yolk()
+        BigEgg.Yolk.f()
+      """
+    }
+  learner_created: false
+- name: src/LocalInnerClasses.kt
+  visible: true
+  text: |-
+    // InnerClasses/LocalInnerClasses.kt
+    package innerclasses
+    import atomictest.eq
+
+    fun interface Pet {
+      fun speak(): String
+    }
+
+    object CreatePet {
+      fun home() = " home!"
+      fun dog(): Pet {
+        val say = "Bark"
+        // Local inner class:
+        class Dog : Pet {
+          override fun speak() = say + home()
+        }
+        return Dog()
+      }
+      fun cat(): Pet {
+        val emit = "Meow"
+        // Anonymous inner class:
+        return object: Pet {
+          override fun speak() = emit + home()
+        }
+      }
+      fun hamster(): Pet {
+        val squeak = "Squeak"
+        // SAM conversion:
+        return Pet { squeak + home() }
+      }
+    }
+
+    fun main() {
+      CreatePet.dog().speak() eq "Bark home!"
+      CreatePet.cat().speak() eq "Meow home!"
+      CreatePet.hamster().speak() eq "Squeak home!"
+    }
+  learner_created: false
+- name: src/CounterFactory.kt
+  visible: true
+  text: |-
+    // InnerClasses/CounterFactory.kt
+    package innerclasses
+    import atomictest.*
+
+    fun interface Counter {
+      fun next(): Int
+    }
+
+    object CounterFactory {
+      private var count = 0
+      fun new(name: String): Counter {
+        // Local inner class:
+        class Local : Counter {
+          init { trace("Local()") }
+          override fun next(): Int {
+            // Access local identifiers:
+            trace("$name $count")
+            return count++
+          }
+        }
+        return Local()
+      }
+      fun new2(name: String): Counter {
+        // Instance of an anonymous inner class:
+        return object: Counter {
+          init { trace("Counter()") }
+          override fun next(): Int {
+            trace("$name $count")
+            return count++
+          }
+        }
+      }
+      fun new3(name: String): Counter {
+        trace("Counter()")
+        return Counter { // SAM conversion
+          trace("$name $count")
+          count++
+        }
+      }
+    }
+
+    fun main() {
+      fun test(counter: Counter) {
+        (0..3).forEach { counter.next() }
+      }
+      test(CounterFactory.new("Local"))
+      test(CounterFactory.new2("Anon"))
+      test(CounterFactory.new3("SAM"))
+      trace eq """
+        Local() Local 0 Local 1 Local 2 Local 3
+        Counter() Anon 4 Anon 5 Anon 6 Anon 7
+        Counter() SAM 8 SAM 9 SAM 10 SAM 11
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

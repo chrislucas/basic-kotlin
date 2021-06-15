@@ -1,0 +1,79 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 70
+    length: 3
+    placeholder_text: '''?'''
+    initial_state:
+      length: 3
+      offset: 70
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '''b'''
+  - offset: 96
+    length: 3
+    placeholder_text: '''?'''
+    initial_state:
+      length: 3
+      offset: 96
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '''z'''
+  - offset: 121
+    length: 3
+    placeholder_text: '''?'''
+    initial_state:
+      length: 3
+      offset: 121
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '''C'''
+  text: |-
+    // DataTypes/Task3.kt
+    package dataTypesExercise3
+
+    // 'a' + 1
+    val c1 = '?'
+
+    // 'a' + 25
+    val c2 = '?'
+
+    // 'E' - 2
+    val c3 = '?'
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package dataTypesExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestDataTypesExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun testA() {
+        Assert.assertEquals("Wrong result for 'c1'", 'b', c1)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testB() {
+        Assert.assertEquals("Wrong result for 'c2'", 'z', c2)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testC() {
+        Assert.assertEquals("Wrong result for 'c3'", 'C', c3)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

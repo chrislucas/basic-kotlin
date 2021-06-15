@@ -1,0 +1,176 @@
+type: theory
+files:
+- name: src/InferInt.kt
+  visible: true
+  text: |-
+    // NumberTypes/InferInt.kt
+
+    fun main() {
+      val million = 1_000_000  // Infers Int
+      println(million)
+    }
+    /* Output:
+    1000000
+    */
+  learner_created: false
+- name: src/Modulus.kt
+  visible: true
+  text: |-
+    // NumberTypes/Modulus.kt
+
+    fun main() {
+      val numerator: Int = 19
+      val denominator: Int = 10
+      println(numerator % denominator)
+    }
+    /* Output:
+    9
+    */
+  learner_created: false
+- name: src/IntDivisionTruncates.kt
+  visible: true
+  text: |-
+    // NumberTypes/IntDivisionTruncates.kt
+
+    fun main() {
+      val numerator: Int = 19
+      val denominator: Int = 10
+      println(numerator / denominator)
+    }
+    /* Output:
+    1
+    */
+  learner_created: false
+- name: src/OpOrder.kt
+  visible: true
+  text: |-
+    // NumberTypes/OpOrder.kt
+
+    fun main() {
+      println(45 + 5 * 6)
+    }
+    /* Output:
+    75
+    */
+  learner_created: false
+- name: src/OpOrderParens.kt
+  visible: true
+  text: |-
+    // NumberTypes/OpOrderParens.kt
+
+    fun main() {
+      println((45 + 5) * 6)
+    }
+    /* Output:
+    300
+    */
+  learner_created: false
+- name: src/BMIMetric.kt
+  visible: true
+  text: |-
+    // NumberTypes/BMIMetric.kt
+
+    fun bmiMetric(
+      weight: Double,
+      height: Double
+    ): String {
+      val bmi = weight / (height * height)  // [1]
+      return if (bmi < 18.5) "Underweight"
+        else if (bmi < 25) "Normal weight"
+        else "Overweight"
+    }
+
+    fun main() {
+      val weight = 72.57 // 160 lbs
+      val height = 1.727 // 68 inches
+      val status = bmiMetric(weight, height)
+      println(status)
+    }
+    /* Output:
+    Normal weight
+    */
+  learner_created: false
+- name: src/BMIEnglish.kt
+  visible: true
+  text: |-
+    // NumberTypes/BMIEnglish.kt
+
+    fun bmiEnglish(
+      weight: Int,
+      height: Int
+    ): String {
+      val bmi =
+        weight / (height * height) * 703.07 // [1]
+      return if (bmi < 18.5) "Underweight"
+        else if (bmi < 25) "Normal weight"
+        else "Overweight"
+    }
+
+    fun main() {
+      val weight = 160
+      val height = 68
+      val status = bmiEnglish(weight, height)
+      println(status)
+    }
+    /* Output:
+    Underweight
+    */
+  learner_created: false
+- name: src/IntegerOverflow.kt
+  visible: true
+  text: |-
+    // NumberTypes/IntegerOverflow.kt
+
+    fun main() {
+      val i: Int = Int.MAX_VALUE
+      println(i + i)
+    }
+    /* Output:
+    -2
+    */
+  learner_created: false
+- name: src/LongConstants.kt
+  visible: true
+  text: |-
+    // NumberTypes/LongConstants.kt
+
+    fun main() {
+      val i = 0          // Infers Int
+      val l1 = 0L        // L creates Long
+      val l2: Long = 0   // Explicit type
+      println("$l1 $l2")
+    }
+    /* Output:
+    0 0
+    */
+  learner_created: false
+- name: src/UsingLongs.kt
+  visible: true
+  text: |-
+    // NumberTypes/UsingLongs.kt
+
+    fun main() {
+      val i = Int.MAX_VALUE
+      println(0L + i + i)              // [1]
+      println(1_000_000 * 1_000_000L)  // [2]
+    }
+    /* Output:
+    4294967294
+    1000000000000
+    */
+  learner_created: false
+- name: src/BiggestLong.kt
+  visible: true
+  text: |-
+    // NumberTypes/BiggestLong.kt
+
+    fun main() {
+      println(Long.MAX_VALUE)
+    }
+    /* Output:
+    9223372036854775807
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

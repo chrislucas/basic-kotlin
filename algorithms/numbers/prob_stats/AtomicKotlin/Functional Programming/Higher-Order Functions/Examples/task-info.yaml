@@ -1,0 +1,129 @@
+type: theory
+files:
+- name: src/IsPlus.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/IsPlus.kt
+    package higherorderfunctions
+    import atomictest.eq
+
+    val isPlus: (Int) -> Boolean = { it > 0 }
+
+    fun main() {
+      listOf(1, 2, -3).any(isPlus) eq true
+    }
+  learner_created: false
+- name: src/CallingReference.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/CallingReference.kt
+    package higherorderfunctions
+    import atomictest.eq
+
+    val helloWorld: () -> String =
+      { "Hello, world!" }
+
+    val sum: (Int, Int) -> Int =
+      { x, y -> x + y }
+
+    fun main() {
+      helloWorld() eq "Hello, world!"
+      sum(1, 2) eq 3
+    }
+  learner_created: false
+- name: src/Any.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/Any.kt
+    package higherorderfunctions
+    import atomictest.eq
+
+    fun <T> List<T>.any(                    // [1]
+      predicate: (T) -> Boolean             // [2]
+    ): Boolean {
+      for (element in this) {
+        if (predicate(element))             // [3]
+          return true
+      }
+      return false
+    }
+
+    fun main() {
+      val ints = listOf(1, 2, -3)
+      ints.any { it > 0 } eq true           // [4]
+
+      val strings = listOf("abc", " ")
+      strings.any { it.isBlank() } eq true  // [5]
+      strings.any(String::isNotBlank) eq    // [6]
+        true
+    }
+  learner_created: false
+- name: src/RepeatByInt.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/RepeatByInt.kt
+    import atomictest.*
+
+    fun main() {
+      repeat(4) { trace("hi!") }
+      trace eq "hi! hi! hi! hi!"
+    }
+  learner_created: false
+- name: src/Repeat.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/Repeat.kt
+    package higherorderfunctions
+    import atomictest.*
+
+    fun repeat(
+      times: Int,
+      action: (Int) -> Unit           // [1]
+    ) {
+      for (index in 0 until times) {
+        action(index)                 // [2]
+      }
+    }
+
+    fun main() {
+      repeat(3) { trace("#$it") }     // [3]
+      trace eq "#0 #1 #2"
+    }
+  learner_created: false
+- name: src/NullableReturn.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/NullableReturn.kt
+    import atomictest.eq
+
+    fun main() {
+      val transform: (String) -> Int? =
+        { s: String -> s.toIntOrNull() }
+      transform("112") eq 112
+      transform("abc") eq null
+      val x = listOf("112", "abc")
+      x.mapNotNull(transform) eq "[112]"
+      x.mapNotNull { it.toIntOrNull() } eq "[112]"
+    }
+  learner_created: false
+- name: src/NullableFunction.kt
+  visible: true
+  text: |-
+    // HigherOrderFunctions/NullableFunction.kt
+    import atomictest.eq
+
+    fun main() {
+      val returnTypeNullable: (String) -> Int? =
+        { null }
+      val mightBeNull: ((String) -> Int)? = null
+      returnTypeNullable("abc") eq null
+      // Doesn't compile without a null check:
+      // mightBeNull("abc")
+      if (mightBeNull != null) {
+        mightBeNull("abc")
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

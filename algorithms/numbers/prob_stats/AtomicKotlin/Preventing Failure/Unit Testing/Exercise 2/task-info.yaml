@@ -1,0 +1,76 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 174
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 174
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class DesktopTest {
+        val desktop = Desktop()
+        @Test
+        fun prompt() {
+          assertEquals("Hello!", desktop.prompt())
+        }
+        @Test
+        fun calculateAnswer() {
+          assertEquals(11, desktop.calculateAnswer())
+        }
+      }
+
+      class DeepThoughtTest {
+        val deepThought = DeepThought()
+        @Test
+        fun prompt() {
+          assertEquals("Thinking...", deepThought.prompt())
+        }
+        @Test
+        fun calculateAnswer() {
+          assertEquals(42, deepThought.calculateAnswer())
+        }
+      }
+
+      class QuantumTest {
+        val quantum = Quantum()
+        @Test
+        fun prompt() {
+          assertEquals("Probably...", quantum.prompt())
+        }
+        @Test
+        fun calculateAnswer() {
+          assertEquals(-1, quantum.calculateAnswer())
+        }
+      }
+  text: |-
+    // Tests/unittesting/UnitTestingSoln2.kt
+    package unitTestingExercise2
+    import interfaces.Desktop
+    import interfaces.DeepThought
+    import interfaces.Quantum
+    import kotlin.test.*
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package unitTestingExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestUnitTestingExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

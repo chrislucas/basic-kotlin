@@ -1,0 +1,110 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 78
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 78
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (i in 1..n) {
+          repeat(n - i) {
+            print(' ')
+          }
+          repeat(2 * i - 1) {
+            print('#')
+          }
+          println()
+        }
+  text: |-
+    // Summary1/Task9.kt
+    package summaryIExercise9
+
+    fun printTriangle(n: Int) {
+      TODO()
+    }
+
+    fun main() {
+      printTriangle(4)
+    }
+    /* Output:
+       #
+      ###
+     #####
+    #######
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise9
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise9 {
+      private fun checkOutput(n: Int, expected: String) {
+        runAndCheckSystemOutput(
+          "Incorrect output for n = $n:",
+          expected) {
+          printTriangle(n)
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testPyramid1() = checkOutput(1, "#\n")
+
+      @Test(timeout = TIMEOUT)
+      fun testPyramid2() = checkOutput(2,
+        """
+                    | #
+                    |###
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testPyramid3() = checkOutput(3,
+        """
+                    |  #
+                    | ###
+                    |#####
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testPyramid4() = checkOutput(4,
+        """
+                    |   #
+                    |  ###
+                    | #####
+                    |#######
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testPyramid6() = checkOutput(6,
+        """
+                    |     #
+                    |    ###
+                    |   #####
+                    |  #######
+                    | #########
+                    |###########
+                    |
+                """.trimMargin())
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Summary+1+%2F+Exercise3
+status: Unchecked
+record: -1

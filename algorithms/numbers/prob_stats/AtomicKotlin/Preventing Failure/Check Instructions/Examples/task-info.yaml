@@ -1,0 +1,217 @@
+type: theory
+files:
+- name: src/JulianMonth.kt
+  visible: true
+  text: |-
+    // CheckInstructions/JulianMonth.kt
+    package checkinstructions
+    import atomictest.*
+
+    data class Month(val monthNumber: Int) {
+      init {
+        require(monthNumber in 1..12) {
+          "Month out of range: $monthNumber"
+        }
+      }
+    }
+
+    fun main() {
+      Month(1) eq "Month(monthNumber=1)"
+      capture { Month(13) } eq
+        "IllegalArgumentException: " +
+        "Month out of range: 13"
+    }
+  learner_created: false
+- name: src/QuadraticRequire.kt
+  visible: true
+  text: |-
+    // CheckInstructions/QuadraticRequire.kt
+    package checkinstructions
+    import kotlin.math.sqrt
+    import atomictest.*
+
+    class Roots(
+      val root1: Double,
+      val root2: Double
+    )
+
+    fun quadraticZeroes(
+      a: Double,
+      b: Double,
+      c: Double
+    ): Roots {
+      require(a != 0.0) { "a is zero" }
+      val underRadical = b * b - 4 * a * c
+      require(underRadical >= 0) {
+        "Negative underRadical: $underRadical"
+      }
+      val squareRoot = sqrt(underRadical)
+      val root1 = (-b - squareRoot) / 2 * a
+      val root2 = (-b + squareRoot) / 2 * a
+      return Roots(root1, root2)
+    }
+
+    fun main() {
+      capture {
+        quadraticZeroes(0.0, 4.0, 5.0)
+      } eq "IllegalArgumentException: " +
+        "a is zero"
+      capture {
+        quadraticZeroes(3.0, 4.0, 5.0)
+      } eq "IllegalArgumentException: " +
+        "Negative underRadical: -44.0"
+      val roots = quadraticZeroes(3.0, 8.0, 5.0)
+      roots.root1 eq -15.0
+      roots.root2 eq -9.0
+    }
+  learner_created: false
+- name: src/DataFile.kt
+  visible: true
+  text: |-
+    // CheckInstructions/DataFile.kt
+    package checkinstructions
+    import atomictest.eq
+    import java.io.File
+    import java.nio.file.Paths
+
+    val targetDir = File("DataFiles")
+
+    class DataFile(val fileName: String) :
+      File(targetDir, fileName) {
+      init {
+        if (!targetDir.exists())
+          targetDir.mkdir()
+      }
+      fun erase() { if (exists()) delete() }
+      fun reset(): File {
+        erase()
+        createNewFile()
+        return this
+      }
+    }
+
+    fun main() {
+      DataFile("Test.txt").reset() eq
+        Paths.get("DataFiles", "Test.txt")
+          .toString()
+    }
+  learner_created: false
+- name: src/GetTrace.kt
+  visible: true
+  text: |-
+    // CheckInstructions/GetTrace.kt
+    package checkinstructions
+    import atomictest.*
+
+    fun getTrace(fileName: String): List<String> {
+      require(fileName.startsWith("file_")) {
+        "$fileName must start with 'file_'"
+      }
+      val file = DataFile(fileName)
+      require(file.exists()) {
+        "$fileName doesn't exist"
+      }
+      val lines = file.readLines()
+      require(lines.isNotEmpty()) {
+        "$fileName is empty"
+      }
+      return lines
+    }
+
+    fun main() {
+      DataFile("file_empty.txt").writeText("")
+      DataFile("file_wubba.txt").writeText(
+        "wubba lubba dub dub")
+      capture {
+        getTrace("wrong_name.txt")
+      } eq "IllegalArgumentException: " +
+        "wrong_name.txt must start with 'file_'"
+      capture {
+        getTrace("file_nonexistent.txt")
+      } eq "IllegalArgumentException: " +
+        "file_nonexistent.txt doesn't exist"
+      capture {
+        getTrace("file_empty.txt")
+      } eq "IllegalArgumentException: " +
+        "file_empty.txt is empty"
+      getTrace("file_wubba.txt") eq
+        "[wubba lubba dub dub]"
+    }
+  learner_created: false
+- name: src/SingleArgRequire.kt
+  visible: true
+  text: |-
+    // CheckInstructions/SingleArgRequire.kt
+    package checkinstructions
+    import atomictest.*
+
+    fun singleArgRequire(arg: Int): Int {
+      require(arg > 5)
+      return arg
+    }
+
+    fun main() {
+      capture {
+        singleArgRequire(5)
+      } eq "IllegalArgumentException: " +
+        "Failed requirement."
+      singleArgRequire(6) eq 6
+    }
+  learner_created: false
+- name: src/RequireNotNull.kt
+  visible: true
+  text: |-
+    // CheckInstructions/RequireNotNull.kt
+    package checkinstructions
+    import atomictest.*
+
+    fun notNull(n: Int?): Int {
+      requireNotNull(n) {             // [1]
+        "notNull() argument cannot be null"
+      }
+      return n * 9                    // [2]
+    }
+
+    fun main() {
+      val n: Int? = null
+      capture {
+        notNull(n)
+      } eq "IllegalArgumentException: " +
+        "notNull() argument cannot be null"
+      capture {
+        requireNotNull(n)             // [3]
+      } eq "IllegalArgumentException: " +
+        "Required value was null."
+      notNull(11) eq 99
+    }
+  learner_created: false
+- name: src/Postconditions.kt
+  visible: true
+  text: |-
+    // CheckInstructions/Postconditions.kt
+    package checkinstructions
+    import atomictest.*
+
+    val resultFile = DataFile("Results.txt")
+
+    fun createResultFile(create: Boolean) {
+      if (create)
+        resultFile.writeText("Results\n# ok")
+      // ... other execution paths
+      check(resultFile.exists()) {
+        "${resultFile.name} doesn't exist!"
+      }
+    }
+
+    fun main() {
+      resultFile.erase()
+      capture {
+        createResultFile(false)
+      } eq "IllegalStateException: " +
+        "Results.txt doesn't exist!"
+      createResultFile(true)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

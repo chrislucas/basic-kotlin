@@ -1,0 +1,95 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 64
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 64
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Alien(val name: String, val species: String, private var planet: String) {
+        fun movePlanet(newPlanet: String) {
+          planet = newPlanet
+        }
+
+        override fun toString(): String {
+          return "Alien $name, $species: $planet"
+        }
+      }
+  - offset: 88
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 88
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val alien1 = Alien("Arthricia", "Cat Person", "PurgeWorld")
+        println(alien1)
+        alien1.movePlanet("Earth C-137")
+        println(alien1)
+
+        val alien2 = Alien("Dale", "Giant", "Gearworld")
+        println(alien2)
+        alien2.movePlanet("Parblesnops")
+        println(alien2)
+  text: |-
+    // Visibility/Task1.kt
+    package constrainingVisibilityExercise1
+
+    // TODO
+
+    fun main() {
+      // TODO
+    }
+    /* Expected output:
+    Alien Arthricia, Cat Person: PurgePlanet
+    Alien Arthricia, Cat Person: Earth C-137
+    Alien Dale, Giant: Gearworld
+    Alien Dale, Giant: Parblesnops
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package constrainingVisibilityExercise1
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.*
+
+    class TestConstrainingVisibilityExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun test1() {
+        val alienClass = loadClass("constrainingVisibilityExercise1", "Alien")
+            .apply {
+              assertParametersOfFirstConstructor(
+                  "name" to String::class,
+                  "species" to String::class,
+                  "planet" to String::class
+              )
+            }
+
+        val alienInstance = alienClass.constructors.first().call("Arthricia", "Cat Person", "PurgeWorld")
+        Assert.assertEquals("Wrong 'toString' result after 'Alien' creation",
+            "Alien Arthricia, Cat Person: PurgeWorld", alienInstance.toString())
+
+        val movePlanetFunc = loadMemberFunction(alienClass, "movePlanet")
+        checkParametersOfMemberFunction(movePlanetFunc, listOf("" to "kotlin.String"))
+        movePlanetFunc.call(alienInstance, "Earth C-137")
+
+        Assert.assertEquals("Wrong result after moving planet",
+            "Alien Arthricia, Cat Person: Earth C-137", alienInstance.toString())
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

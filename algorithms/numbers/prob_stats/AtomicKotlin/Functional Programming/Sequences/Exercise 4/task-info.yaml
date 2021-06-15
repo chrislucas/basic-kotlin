@@ -1,0 +1,135 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 115
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 115
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      lessons
+          .filter { student in it.students }
+          .groupBy { it.instructor }
+          .maxByOrNull { (_, lessons) -> lessons.size }
+          ?.key
+  text: |-
+    // Sequences/Task4.kt
+    package sequencesExercise4
+
+    fun School.favoriteInstructor(student: Student): Instructor? =
+      TODO()
+  learner_created: false
+- name: src/School.kt
+  visible: true
+  text: |-
+    // Sequences/School4.kt
+    package sequencesExercise4
+
+    data class Instructor(val name: String)
+
+    data class Student(val name: String)
+
+    data class Lesson(
+      val instructor: Instructor,
+      val students: Set<Student>,
+      val rating: Map<Student, Int>
+    )
+
+    data class School(
+      val instructors: Set<Instructor>,
+      val students: Set<Student>,
+      val lessons: Sequence<Lesson>
+    )
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package sequencesExercise4
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    abstract class TestSchool {
+      private val instructors = ('A'..'D')
+        .map { it to Instructor("Instructor-$it") }
+        .toMap()
+
+      protected fun inst(c: Char) = instructors.getValue(c)
+
+      private val students = (1..7)
+        .map { it to Student("Student-$it") }
+        .toMap()
+
+      protected fun st(i: Int) = students.getValue(i)
+
+      protected fun lsn(instructor: Char, vararg students: Int) =
+        Lesson(inst(instructor), students.map { st(it) }.toSet(), mapOf())
+
+      protected fun schl(lessons: List<Lesson>) =
+        School(instructors.values.toSet(), students.values.toSet(),
+          lessons.asSequence())
+    }
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSequencesExercise4 : TestSchool() {
+      private fun checkFavouriteInstructor(
+        student: Student,
+        schoolLessons: List<Lesson>,
+        favInstructor: Instructor?
+      ) {
+        Assert.assertEquals("Wrong result for ${student.name}, " +
+          "$schoolLessons:",
+          favInstructor,
+          schl(schoolLessons).favoriteInstructor(student))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1() {
+        checkFavouriteInstructor(st(1), listOf(lsn('A', 1)), inst('A'))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2() {
+        checkFavouriteInstructor(st(2), listOf(lsn('A', 1)), null)
+      }
+
+
+      @Test(timeout = TIMEOUT)
+      fun test3() {
+        checkFavouriteInstructor(st(1), listOf(lsn('A', 1), lsn('B', 1)), inst('A'))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test4() {
+        checkFavouriteInstructor(st(1), listOf(
+          lsn('A', 1, 2, 3),
+          lsn('B', 1, 2, 3),
+          lsn('A', 1)
+        ), inst('A'))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test5() {
+        checkFavouriteInstructor(st(1), listOf(
+          lsn('A', 1, 2, 3),
+          lsn('C', 1),
+          lsn('B', 2, 3),
+          lsn('A', 4),
+          lsn('C', 1, 3)
+        ), inst('C'))
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Sequences+%2F+Exercise4
+status: Unchecked
+record: -1

@@ -1,0 +1,119 @@
+type: theory
+files:
+- name: src/ForControl.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/ForControl.kt
+    import atomictest.eq
+
+    fun main() {
+      val nums = mutableListOf(0)
+      for (i in 4 until 100 step 4) { // [1]
+        if (i == 8) continue          // [2]
+        if (i == 40) break            // [3]
+        nums.add(i)
+      }                               // [4]
+      nums eq "[0, 4, 12, 16, 20, 24, 28, 32, 36]"
+    }
+  learner_created: false
+- name: src/WhileControl.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/WhileControl.kt
+    import atomictest.eq
+
+    fun main() {
+      val nums = mutableListOf(0)
+      var i = 0
+      while (i < 100) {
+        i += 4
+        if (i == 8) continue
+        if (i == 40) break
+        nums.add(i)
+      }
+      nums eq "[0, 4, 12, 16, 20, 24, 28, 32, 36]"
+    }
+  learner_created: false
+- name: src/DoWhileControl.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/DoWhileControl.kt
+    import atomictest.eq
+
+    fun main() {
+      val nums = mutableListOf(0)
+      var i = 0
+      do {
+        i += 4
+        if (i == 8) continue
+        if (i == 40) break
+        nums.add(i)
+      } while (i < 100)
+      nums eq "[0, 4, 12, 16, 20, 24, 28, 32, 36]"
+    }
+  learner_created: false
+- name: src/ForLabeled.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/ForLabeled.kt
+    import atomictest.eq
+
+    fun main() {
+      val strings = mutableListOf<String>()
+      outer@ for (c in 'a'..'e') {
+        for (i in 1..9) {
+          if (i == 5) continue@outer
+          if ("$c$i" == "c3") break@outer
+          strings.add("$c$i")
+        }
+      }
+      strings eq listOf("a1", "a2", "a3", "a4",
+        "b1", "b2", "b3", "b4", "c1", "c2")
+    }
+  learner_created: false
+- name: src/WhileLabeled.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/WhileLabeled.kt
+    import atomictest.eq
+
+    fun main() {
+      val strings = mutableListOf<String>()
+      var c = 'a' - 1
+      outer@ while (c < 'f') {
+        c += 1
+        var i = 0
+        do {
+          i++
+          if (i == 5) continue@outer
+          if ("$c$i" == "c3") break@outer
+          strings.add("$c$i")
+        } while (i < 10)
+      }
+      strings eq listOf("a1", "a2", "a3", "a4",
+        "b1", "b2", "b3", "b4", "c1", "c2")
+    }
+  learner_created: false
+- name: src/Improved.kt
+  visible: true
+  text: |-
+    // BreakAndContinue/Improved.kt
+    import atomictest.eq
+
+    fun main() {
+      val strings = mutableListOf<String>()
+      for (c in 'a'..'c') {
+        for (i in 1..4) {
+          val value = "$c$i"
+          if (value < "c3") {     // [1]
+            strings.add(value)
+          }
+        }
+      }
+      strings eq listOf("a1", "a2", "a3", "a4",
+        "b1", "b2", "b3", "b4", "c1", "c2")
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

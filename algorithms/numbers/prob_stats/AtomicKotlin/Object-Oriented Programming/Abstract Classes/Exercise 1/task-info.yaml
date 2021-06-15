@@ -1,0 +1,182 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 79
+    length: 20
+    placeholder_text: abstract class Shape
+    initial_state:
+      length: 20
+      offset: 79
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      abstract class Shape {
+        abstract fun draw()
+        abstract fun erase()
+      }
+  - offset: 101
+    length: 12
+    placeholder_text: class Circle
+    initial_state:
+      length: 12
+      offset: 101
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Circle: Shape() {
+        override fun draw() =
+          trace("Draw Circle")
+        override fun erase() =
+          trace("Erase Circle")
+      }
+  - offset: 115
+    length: 12
+    placeholder_text: class Square
+    initial_state:
+      length: 12
+      offset: 115
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Square: Shape() {
+        override fun draw() =
+          trace("Draw Square")
+        override fun erase() =
+          trace("Erase Square")
+      }
+  - offset: 129
+    length: 14
+    placeholder_text: class Triangle
+    initial_state:
+      length: 14
+      offset: 129
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Triangle: Shape() {
+        override fun draw() =
+          trace("Draw Triangle")
+        override fun erase() =
+          trace("Erase Triangle")
+      }
+  - offset: 229
+    length: 68
+    placeholder_text: |-
+      /*
+        shapes.forEach { it.draw() }
+        shapes.forEach { it.erase() }
+      */
+    initial_state:
+      length: 68
+      offset: 229
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        shapes.forEach { it.draw() }
+        shapes.forEach { it.erase() }
+  text: |-
+    // Abstract/Task1.kt
+    package abstractClassesExercise1
+    import atomictest.trace
+
+    abstract class Shape
+
+    class Circle
+
+    class Square
+
+    class Triangle
+
+    fun main() {
+      val shapes = listOf(
+        Circle(),
+        Square(),
+        Triangle(),
+      )
+    /*
+      shapes.forEach { it.draw() }
+      shapes.forEach { it.erase() }
+    */
+      trace eq """
+        Draw Circle
+        Draw Square
+        Draw Triangle
+        Erase Circle
+        Erase Square
+        Erase Triangle
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package abstractClassesExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestAbstractClassesExercise1 : TestTrace() {
+
+      private val packageName = "abstractClassesExercise1"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Shape").apply {
+          assertAbstract()
+          loadMemberFunction(this, "draw").apply {
+            assertAbstract()
+          }
+          loadMemberFunction(this, "erase").apply {
+            assertAbstract()
+          }
+        }
+        listOf("Circle", "Square", "Triangle").forEach {
+          loadClass(it).apply {
+            assertDeclaredMemberFunction("draw")
+            assertDeclaredMemberFunction("erase")
+          }
+        }
+      }
+
+      @Test
+      fun `#02 shape operations`() {
+        val (draw, erase) = loadClass("Shape").let {
+          loadMemberFunction(it, "draw") to loadMemberFunction(it, "erase")
+        }
+        val shapes = listOf("Circle", "Square", "Triangle").map {
+          loadClass(it).createInstance()
+        }
+        shapes.forEach { draw.call(it) }
+        shapes.forEach { erase.call(it) }
+
+        assertEquals(
+            message = "Incorrect result of trace for draw/erase operations",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "Draw Circle",
+                "Draw Square",
+                "Draw Triangle",
+                "Erase Circle",
+                "Erase Square",
+                "Erase Triangle"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

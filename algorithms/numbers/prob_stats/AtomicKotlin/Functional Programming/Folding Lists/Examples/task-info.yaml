@@ -1,0 +1,91 @@
+type: theory
+files:
+- name: src/SumViaFold.kt
+  visible: true
+  text: |-
+    // FoldingLists/SumViaFold.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 10, 100, 1000)
+      list.fold(0) { sum, n ->
+        sum + n
+      } eq 1111
+    }
+  learner_created: false
+- name: src/FoldVsForLoop.kt
+  visible: true
+  text: |-
+    // FoldingLists/FoldVsForLoop.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 10, 100, 1000)
+      var accumulator = 0
+      val operation =
+        { sum: Int, i: Int -> sum + i }
+      for (i in list) {
+        accumulator = operation(accumulator, i)
+      }
+      accumulator eq 1111
+    }
+  learner_created: false
+- name: src/FoldRight.kt
+  visible: true
+  text: |-
+    // FoldingLists/FoldRight.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf('a', 'b', 'c', 'd')
+      list.fold("*") { acc, elem ->
+        "($acc) + $elem"
+      } eq "((((*) + a) + b) + c) + d"
+      list.foldRight("*") { elem, acc ->
+        "$elem + ($acc)"
+      } eq "a + (b + (c + (d + (*))))"
+    }
+  learner_created: false
+- name: src/ReduceAndReduceRight.kt
+  visible: true
+  text: |-
+    // FoldingLists/ReduceAndReduceRight.kt
+    import atomictest.eq
+
+    fun main() {
+      val chars = "A B C D E F G H I".split(" ")
+      chars.fold("X") { a, e -> "$a $e"} eq
+        "X A B C D E F G H I"
+      chars.foldRight("X") { a, e -> "$a $e" } eq
+        "A B C D E F G H I X"
+      chars.reduce { a, e -> "$a $e" } eq
+        "A B C D E F G H I"
+      chars.reduceRight { a, e -> "$a $e" } eq
+        "A B C D E F G H I"
+    }
+  learner_created: false
+- name: src/RunningFold.kt
+  visible: true
+  text: |-
+    // FoldingLists/RunningFold.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(11, 13, 17, 19)
+      list.fold(7) { sum, n ->
+        sum + n
+      } eq 67
+      list.runningFold(7) { sum, n ->
+        sum + n
+      } eq "[7, 18, 31, 48, 67]"
+      list.reduce { sum, n ->
+        sum + n
+      } eq 60
+      list.runningReduce { sum, n ->
+        sum + n
+      } eq "[11, 24, 41, 60]"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

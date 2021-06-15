@@ -1,0 +1,64 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 65
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 65
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var answer = 42
+        // Type mismatch error:
+      //  answer = "unknown"
+        println("Type mismatch")
+  text: |-
+    // DataTypes/Task1.kt
+    package dataTypesExercise1
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package dataTypesExercise1
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.TIMEOUT
+    import util.runAndGetSystemOutput
+
+    class TestDataTypesExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun checkOutput() {
+        val output = runAndGetSystemOutput {
+          main()
+        }
+
+        Assert.assertTrue("The first line of the error the compiler produces is expected",
+          output.trim().isNotEmpty())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun checkTypeMismatch() {
+        val output = runAndGetSystemOutput {
+          main()
+        }.toLowerCase()
+
+        Assert.assertTrue("The first line of the error the compiler produces is expected: Type mismatch",
+          output.contains("type")
+            && output.contains("mismatch"))
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Data+Types+%2F+Exercise1
+status: Unchecked
+record: -1

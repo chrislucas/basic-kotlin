@@ -1,0 +1,100 @@
+type: theory
+files:
+- name: src/BasicLogging.kt
+  visible: true
+  text: |-
+    // Logging/BasicLogging.kt
+    package logging
+    import mu.KLogging
+
+    private val log = KLogging().logger
+
+    fun main() {
+      val msg = "Hello, Kotlin Logging!"
+      log.trace(msg)
+      log.debug(msg)
+      log.info(msg)
+      log.warn(msg)
+      log.error(msg)
+    }
+  learner_created: false
+- name: src/SimpleLoggingStrategy.kt
+  visible: true
+  text: |-
+    // Logging/SimpleLoggingStrategy.kt
+    package logging
+    import checkinstructions.DataFile
+
+    val logFile = // Reset ensures an empty file:
+      DataFile("simpleLogFile.txt").reset()
+
+    fun debug(msg: String) =
+      System.err.println("Debug: $msg")
+    // To disable:
+    // fun debug(msg: String) = Unit
+
+    fun trace(msg: String) =
+      logFile.appendText("Trace: $msg\n")
+
+    fun main() {
+      debug("Simple Logging Strategy")
+      trace("Line 1")
+      trace("Line 2")
+      println(logFile.readText())
+    }
+    /* Sample Output:
+    Debug: Simple Logging Strategy
+    Trace: Line 1
+    Trace: Line 2
+    */
+  learner_created: false
+- name: src/AtomicLog.kt
+  visible: true
+  text: |-
+    // Logging/AtomicLog.kt
+    package atomiclog
+    import checkinstructions.DataFile
+
+    class Logger(fileName: String) {
+      val logFile = DataFile(fileName).reset()
+      private fun log(type: String, msg: String) =
+        logFile.appendText("$type: $msg\n")
+      fun trace(msg: String) = log("Trace", msg)
+      fun debug(msg: String) = log("Debug", msg)
+      fun info(msg: String) = log("Info", msg)
+      fun warn(msg: String) = log("Warn", msg)
+      fun error(msg: String) = log("Error", msg)
+      // For basic testing:
+      fun report(msg: String) {
+        trace(msg)
+        debug(msg)
+        info(msg)
+        warn(msg)
+        error(msg)
+      }
+    }
+  learner_created: false
+- name: src/UseAtomicLog.kt
+  visible: true
+  text: |-
+    // Logging/UseAtomicLog.kt
+    package useatomiclog
+    import atomiclog.Logger
+    import atomictest.eq
+
+    private val logger = Logger("AtomicLog.txt")
+
+    fun main() {
+      logger.report("Hello, Atomic Log!")
+      logger.logFile.readText() eq """
+      Trace: Hello, Atomic Log!
+      Debug: Hello, Atomic Log!
+      Info: Hello, Atomic Log!
+      Warn: Hello, Atomic Log!
+      Error: Hello, Atomic Log!
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

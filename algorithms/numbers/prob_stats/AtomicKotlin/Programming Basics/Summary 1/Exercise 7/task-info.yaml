@@ -1,0 +1,77 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 167
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 167
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (worker % 10 == digit) {
+            occurrences++
+          }
+          worker /= 10
+  text: |-
+    // Summary1/Task7.kt
+    package summaryIExercise7
+
+    fun countDigits(number: Int, digit: Int): Int {
+      var worker = number
+      var occurrences = 0
+      while (worker > 0) {
+        TODO()
+      }
+      return occurrences
+    }
+
+    fun main() {
+      println(countDigits(764241, 4)) // 2
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise7
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise7 {
+      private fun checkCountDigits(number: Int, digit: Int, expected: Int) {
+        Assert.assertEquals("Wrong number of `$digit` digits in the `$number` number",
+          expected, countDigits(number, digit))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testCount1() = checkCountDigits(121341, 1, 3)
+
+      @Test(timeout = TIMEOUT)
+      fun testCount2() = checkCountDigits(111111, 1, 6)
+
+      @Test(timeout = TIMEOUT)
+      fun testCount3() = checkCountDigits(123456789, 1, 1)
+
+      @Test(timeout = TIMEOUT)
+      fun testCount4() = checkCountDigits(123456789, 0, 0)
+
+      @Test(timeout = TIMEOUT)
+      fun testCount5() = checkCountDigits(111222111, 2, 3)
+
+      @Test(timeout = TIMEOUT)
+      fun testCount6() = checkCountDigits(0, 5, 0)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Summary+1+%2F+Exercise1
+status: Unchecked
+record: -1

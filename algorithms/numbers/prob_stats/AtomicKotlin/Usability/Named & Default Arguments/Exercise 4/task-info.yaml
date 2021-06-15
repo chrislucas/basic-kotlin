@@ -1,0 +1,30 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/Task4.kt
+    package namedAndDefaultArgumentsExercise4
+    import atomictest.eq
+
+    fun foo(i: Int, s: String) = "(i = $i, s = $s)"
+
+    fun bar(i: Int, s: String) = "(i = $i, s = $s)"
+
+    fun main() {
+      foo(i = 1, s = "abc") eq "(i = 1, s = abc)"
+      foo(2, "def") eq "(i = 2, s = def)"
+
+      bar(i = 1, s = "abc") eq "(i = 1, s = abc)"
+      bar(2, "def") eq "(i = 2, s = def)"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package namedAndDefaultArgumentsExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Usability+%2F+Named+%26+Default+Arguments+%2F+Exercise3
+status: Unchecked
+record: -1

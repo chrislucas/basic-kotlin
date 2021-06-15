@@ -1,0 +1,195 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 216
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 216
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      const val size = 10
+          private val r = Random(47)
+          private val source =
+            ('a'..'z') + ('A'..'Z') + ('0'..'9')
+  - offset: 262
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 262
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      (1..size).map { source.random(r) }
+            .joinToString("")
+  - offset: 647
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 647
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: id = verifiedID
+  - offset: 697
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 697
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'private var i: Long = 1000'
+  - offset: 751
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 751
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: i++
+  - offset: 789
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 789
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: number = nextAccountNumber()
+  - offset: 892
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 892
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: applied.add(Account(name))
+  - offset: 921
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 921
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      applied
+          .first { it.name == id.name }.addID(id)
+  - offset: 972
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 972
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val account =
+            applied.first { it.id == verifiedID }
+          account.finish()
+          accounts.add(account)
+          applied.remove(account)
+  text: |-
+    // CompanionObjects/CompanionEx3.kt
+    package companionObjectsExercise3
+    import kotlin.random.Random
+    import atomictest.*
+
+    data class ID(
+      val name: String,
+      val id: String = idGenerator()
+    ) {
+      companion object {
+        // TODO
+        private fun idGenerator() =
+          "TODO"
+        fun test(n: Int) = List(n) {
+          ID(('a' + it).toString())
+        }.joinToString(",\n")
+      }
+    }
+
+    class Bank(val name: String) {
+      private val applied =
+        mutableListOf<Account>()
+      private val accounts =
+        mutableListOf<Account>()
+      private class Account(val name: String) {
+        var id: ID? = null
+        private var number: Long? = null
+        fun addID(verifiedID: ID) {
+          TODO()
+        }
+        companion object Numbers {
+          // TODO
+          private fun nextAccountNumber(): Long = TODO()
+        }
+        fun finish() {
+          TODO()
+        }
+        override fun toString() = "$id $number"
+      }
+      fun applyForAccount(name: String) =
+        "TODO"
+      fun addID(id: ID) = "TODO"
+      fun completeAccount(verifiedID: ID) {
+        TODO()
+      }
+      override fun toString() =
+        accounts.joinToString("\n")
+    }
+
+    fun main() {
+      ID.test(4) eq """
+      ID(name=a, id=weazblk9UF),
+      ID(name=b, id=LCcPJtUGh5),
+      ID(name=c, id=Acs5BzSj6m),
+      ID(name=d, id=gHrshDvhwc)
+      """
+      val bank = Bank("Jerry's Savings & Loan")
+      listOf(ID("Morty Smith"), ID("Beth Smith"),
+        ID("Summer Smith")).forEach {
+        bank.applyForAccount(it.name)
+        bank.addID(it)
+        bank.completeAccount(it)
+      }
+      bank eq """
+      ID(name=Morty Smith, id=ePkc0HjTAU) 1000
+      ID(name=Beth Smith, id=jjePlEO93w) 1001
+      ID(name=Summer Smith, id=C8yaeFEgv6) 1002
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package companionObjectsExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestCompanionObjectsExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

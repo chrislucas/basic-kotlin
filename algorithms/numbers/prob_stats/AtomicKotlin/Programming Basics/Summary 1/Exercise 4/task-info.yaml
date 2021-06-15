@@ -1,0 +1,100 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 67
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 67
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: println(Long.MAX_VALUE + 1)
+  - offset: 98
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 98
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: println(Double.MAX_VALUE + 1)
+  - offset: 130
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 130
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: println(Double.MAX_VALUE + 1 == Double.MAX_VALUE)
+  text: |-
+    // Summary1/Task4.kt
+    package summaryIExercise4
+
+    fun testLong() {
+      TODO()
+    }
+
+    fun testDouble() {
+      TODO()
+    }
+
+    fun testDouble2() {
+      TODO()
+    }
+
+    fun main() {
+      testLong()
+      testDouble()
+      testDouble2()
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise4
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise4 {
+      @Test(timeout = TIMEOUT)
+      fun test1Long() {
+        runAndCheckSystemOutput(
+          "Wrong output for 'testLong()'",
+          "-9223372036854775808") {
+          testLong()
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2Double() {
+        runAndCheckSystemOutput(
+          "Wrong output for 'testDouble()'",
+          "1.7976931348623157E308") {
+          testDouble()
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3Double2() {
+        runAndCheckSystemOutput(
+          "Wrong output for 'testDouble2()'",
+          "true") {
+          testDouble2()
+        }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

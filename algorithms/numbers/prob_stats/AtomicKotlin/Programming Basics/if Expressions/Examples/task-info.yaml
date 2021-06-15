@@ -1,0 +1,142 @@
+type: theory
+files:
+- name: src/If1.kt
+  visible: true
+  text: |-
+    // IfExpressions/If1.kt
+
+    fun main() {
+      if (1 > 0)
+        println("It's true!")
+      if (10 < 11) {
+        println("10 < 11")
+        println("ten is less than eleven")
+      }
+    }
+    /* Output:
+    It's true!
+    10 < 11
+    ten is less than eleven
+    */
+  learner_created: false
+- name: src/If2.kt
+  visible: true
+  text: |-
+    // IfExpressions/If2.kt
+
+    fun main() {
+      val x: Boolean = 1 >= 1
+      if (x)
+        println("It's true!")
+    }
+    /* Output:
+    It's true!
+    */
+  learner_created: false
+- name: src/If3.kt
+  visible: true
+  text: |-
+    // IfExpressions/If3.kt
+
+    fun main() {
+      val n: Int = -11
+      if (n > 0)
+        println("It's positive")
+      else
+        println("It's negative or zero")
+    }
+    /* Output:
+    It's negative or zero
+    */
+  learner_created: false
+- name: src/If4.kt
+  visible: true
+  text: |-
+    // IfExpressions/If4.kt
+
+    fun main() {
+      val n: Int = -11
+      if (n > 0)
+        println("It's positive")
+      else if (n == 0)
+        println("It's zero")
+      else
+        println("It's negative")
+    }
+    /* Output:
+    It's negative
+    */
+  learner_created: false
+- name: src/If5.kt
+  visible: true
+  text: |-
+    // IfExpressions/If5.kt
+
+    fun main() {
+      val y: Boolean = false
+      if (!y)
+        println("!y is true")
+    }
+    /* Output:
+    !y is true
+    */
+  learner_created: false
+- name: src/If6.kt
+  visible: true
+  text: |-
+    // IfExpressions/If6.kt
+
+    fun main() {
+      val num = 10
+      val result = if (num > 100) 4 else 42
+      println(result)
+    }
+    /* Output:
+    42
+    */
+  learner_created: false
+- name: src/TrueOrFalse.kt
+  visible: true
+  text: |-
+    // IfExpressions/TrueOrFalse.kt
+
+    fun trueOrFalse(exp: Boolean): String {
+      if (exp)
+        return "It's true!"          // [1]
+      return "It's false"            // [2]
+    }
+
+    fun main() {
+      val b = 1
+      println(trueOrFalse(b < 3))
+      println(trueOrFalse(b >= 3))
+    }
+    /* Output:
+    It's true!
+    It's false
+    */
+  learner_created: false
+- name: src/OneOrTheOther.kt
+  visible: true
+  text: |-
+    // IfExpressions/OneOrTheOther.kt
+
+    fun oneOrTheOther(exp: Boolean): String =
+      if (exp)
+        "True!" // No 'return' necessary
+      else
+        "False"
+
+    fun main() {
+      val x = 1
+      println(oneOrTheOther(x == 1))
+      println(oneOrTheOther(x == 2))
+    }
+    /* Output:
+    True!
+    False
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

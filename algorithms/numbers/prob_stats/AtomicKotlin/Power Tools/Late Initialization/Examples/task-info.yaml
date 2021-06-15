@@ -1,0 +1,107 @@
+type: theory
+files:
+- name: src/Bag.kt
+  visible: true
+  text: |-
+    // LateInitialization/Bag.kt
+    package lateinitialization
+
+    interface Bag {
+      fun setUp()
+    }
+  learner_created: false
+- name: src/Suitcase.kt
+  visible: true
+  text: |-
+    // LateInitialization/Suitcase.kt
+    package lateinitialization
+    import atomictest.eq
+
+    class Suitcase : Bag {
+      private var items: String? = null
+      override fun setUp() {
+        items = "socks, jacket, laptop"
+      }
+      fun checkSocks(): Boolean =
+        items?.contains("socks") ?: false
+    }
+
+    fun main() {
+      val suitcase = Suitcase()
+      suitcase.setUp()
+      suitcase.checkSocks() eq true
+    }
+  learner_created: false
+- name: src/BetterSuitcase.kt
+  visible: true
+  text: |-
+    // LateInitialization/BetterSuitcase.kt
+    package lateinitialization
+    import atomictest.eq
+
+    class BetterSuitcase : Bag {
+      lateinit var items: String
+      override fun setUp() {
+        items = "socks, jacket, laptop"
+      }
+      fun checkSocks() = "socks" in items
+    }
+
+    fun main() {
+      val suitcase = BetterSuitcase()
+      suitcase.setUp()
+      suitcase.checkSocks() eq true
+    }
+  learner_created: false
+- name: src/FaultySuitcase.kt
+  visible: true
+  text: |-
+    // LateInitialization/FaultySuitcase.kt
+    package lateinitialization
+    import atomictest.*
+
+    class FaultySuitcase : Bag {
+      lateinit var items: String
+      override fun setUp() {}
+      fun checkSocks() = "socks" in items
+    }
+
+    fun main() {
+      val suitcase = FaultySuitcase()
+      suitcase.setUp()
+      capture {
+        suitcase.checkSocks()
+      } eq
+        "UninitializedPropertyAccessException" +
+        ": lateinit property items " +
+        "has not been initialized"
+    }
+  learner_created: false
+- name: src/IsInitialized.kt
+  visible: true
+  text: |-
+    // LateInitialization/IsInitialized.kt
+    package lateinitialization
+    import atomictest.*
+
+    class WithLate {
+      lateinit var x: String
+      fun status() = "${::x.isInitialized}"
+    }
+
+    lateinit var y: String
+
+    fun main() {
+      trace("${::y.isInitialized}")
+      y = "Ready"
+      trace("${::y.isInitialized}")
+      val withlate = WithLate()
+      trace(withlate.status())
+      withlate.x = "Set"
+      trace(withlate.status())
+      trace eq "false true false true"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

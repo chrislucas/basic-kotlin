@@ -1,0 +1,116 @@
+type: theory
+files:
+- name: src/House1.kt
+  visible: true
+  text: |-
+    // Composition/House1.kt
+    package composition1
+
+    interface Building
+    interface Kitchen
+
+    interface House: Building {
+      val kitchen: Kitchen
+    }
+  learner_created: false
+- name: src/House2.kt
+  visible: true
+  text: |-
+    // Composition/House2.kt
+    package composition2
+
+    interface Building
+    interface Kitchen
+
+    interface House: Building {
+      val kitchen1: Kitchen
+      val kitchen2: Kitchen
+    }
+  learner_created: false
+- name: src/House3.kt
+  visible: true
+  text: |-
+    // Composition/House3.kt
+    package composition3
+
+    interface Building
+    interface Kitchen
+
+    interface House: Building {
+      val kitchens: List<Kitchen>
+    }
+  learner_created: false
+- name: src/Embedding.kt
+  visible: true
+  text: |-
+    // Composition/Embedding.kt
+    package composition
+
+    class Features {
+      fun f1() = "feature1"
+      fun f2() = "feature2"
+    }
+
+    class Form {
+      private val features = Features()
+      fun operation1() =
+        features.f2() + features.f1()
+      fun operation2() =
+        features.f1() + features.f2()
+    }
+  learner_created: false
+- name: src/Car.kt
+  visible: true
+  text: |-
+    // Composition/Car.kt
+    package composition
+    import atomictest.*
+
+    class Engine {
+      fun start() = trace("Engine start")
+      fun stop() = trace("Engine stop")
+    }
+
+    class Wheel {
+      fun inflate(psi: Int) =
+        trace("Wheel inflate($psi)")
+    }
+
+    class Window(val side: String) {
+      fun rollUp() =
+        trace("$side Window roll up")
+      fun rollDown() =
+        trace("$side Window roll down")
+    }
+
+    class Door(val side: String) {
+      val window = Window(side)
+      fun open() = trace("$side Door open")
+      fun close() = trace("$side Door close")
+    }
+
+    class Car {
+      val engine = Engine()
+      val wheel = List(4) { Wheel() }
+      // Two door:
+      val leftDoor = Door("left")
+      val rightDoor = Door("right")
+    }
+
+    fun main() {
+      val car = Car()
+      car.leftDoor.open()
+      car.rightDoor.window.rollUp()
+      car.wheel[0].inflate(72)
+      car.engine.start()
+      trace eq """
+        left Door open
+        right Window roll up
+        Wheel inflate(72)
+        Engine start
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

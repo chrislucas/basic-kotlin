@@ -1,0 +1,29 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Exceptions/Task4.kt
+    package exceptionsExercise4
+
+    fun foo() {
+      throw IllegalStateException("something is wrong")
+    }
+
+    fun bar() {
+      foo()
+    }
+
+    fun main() {
+      // bar() // Uncomment this to see exception
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package exceptionsExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Exceptions+%2F+Exercise2
+status: Unchecked
+record: -1

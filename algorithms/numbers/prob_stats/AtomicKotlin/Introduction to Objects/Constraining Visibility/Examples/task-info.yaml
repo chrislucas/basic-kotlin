@@ -1,0 +1,122 @@
+type: theory
+files:
+- name: src/RecordAnimals.kt
+  visible: true
+  text: |-
+    // Visibility/RecordAnimals.kt
+
+    private var index = 0                  // [1]
+
+    private class Animal(val name: String) // [2]
+
+    private fun recordAnimal(              // [3]
+      animal: Animal
+    ) {
+      println("Animal #$index: ${animal.name}")
+      index++
+    }
+
+    fun recordAnimals() {
+      recordAnimal(Animal("Tiger"))
+      recordAnimal(Animal("Antelope"))
+    }
+
+    fun recordAnimalsCount() {
+      println("$index animals are here!")
+    }
+  learner_created: false
+- name: src/ObserveAnimals.kt
+  visible: true
+  text: |-
+    // Visibility/ObserveAnimals.kt
+
+    fun main() {
+      // Can't access private members
+      // declared in another file.
+      // Class is private:
+      // val rabbit = Animal("Rabbit")
+      // Function is private:
+      // recordAnimal(rabbit)
+      // Property is private:
+      // index++
+
+      recordAnimals()
+      recordAnimalsCount()
+    }
+    /* Output:
+    Animal #0: Tiger
+    Animal #1: Antelope
+    2 animals are here!
+    */
+  learner_created: false
+- name: src/Cookie.kt
+  visible: true
+  text: |-
+    // Visibility/Cookie.kt
+
+    class Cookie(
+      private var isReady: Boolean  // [1]
+    ) {
+      private fun crumble() =       // [2]
+        println("crumble")
+
+      public fun bite() =           // [3]
+        println("bite")
+
+      fun eat() {                   // [4]
+        isReady = true              // [5]
+        crumble()
+        bite()
+      }
+    }
+
+    fun main() {
+      val x = Cookie(false)
+      x.bite()
+      // Can't access private members:
+      // x.isReady
+      // x.crumble()
+      x.eat()
+    }
+    /* Output:
+    bite
+    crumble
+    bite
+    */
+  learner_created: false
+- name: src/MultipleRef.kt
+  visible: true
+  text: |-
+    // Visibility/MultipleRef.kt
+
+    class Counter(var start: Int) {
+      fun increment() {
+        start += 1
+      }
+      override fun toString() = start.toString()
+    }
+
+    class CounterHolder(counter: Counter) {
+      private val ctr = counter
+      override fun toString() =
+        "CounterHolder: " + ctr
+    }
+
+    fun main() {
+      val c = Counter(11)                 // [1]
+      val ch = CounterHolder(c)           // [2]
+      println(ch)
+      c.increment()                       // [3]
+      println(ch)
+      val ch2 = CounterHolder(Counter(9)) // [4]
+      println(ch2)
+    }
+    /* Output:
+    CounterHolder: 11
+    CounterHolder: 12
+    CounterHolder: 9
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

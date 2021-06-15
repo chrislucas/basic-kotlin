@@ -1,0 +1,66 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 71
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 71
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      object Outer {
+        object Nested {
+          val a = "Outer.Nested.a"
+          object Nested {
+            val a = "Outer.Nested.Nested.a"
+          }
+        }
+      }
+
+      class HasObject {
+        object Nested {
+          val a = "HasObject.Nested.a"
+          object Nested {
+            val a = "HasObject.Nested.Nested.a"
+          }
+        }
+      }
+
+      fun main() {
+        Outer.Nested.a eq
+          "Outer.Nested.a"
+        HasObject.Nested.a eq
+          "HasObject.Nested.a"
+        Outer.Nested.Nested.a eq
+          "Outer.Nested.Nested.a"
+        HasObject.Nested.Nested.a eq
+          "HasObject.Nested.Nested.a"
+      }
+  text: |-
+    // Objects/ObjectEx2.kt
+    package objectsExercise2
+    import atomictest.eq
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package objectsExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestObjectsExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

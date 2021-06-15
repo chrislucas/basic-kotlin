@@ -1,0 +1,251 @@
+type: theory
+files:
+- name: src/Airport.kt
+  visible: true
+  text: |-
+    // NestedClasses/Airport.kt
+    package nestedclasses
+    import atomictest.eq
+    import nestedclasses.Airport.Plane
+
+    class Airport(private val code: String) {
+      open class Plane {
+        // Can access private properties:
+        fun contact(airport: Airport) =
+          "Contacting ${airport.code}"
+      }
+      private class PrivatePlane : Plane()
+      fun privatePlane(): Plane = PrivatePlane()
+    }
+
+    fun main() {
+      val denver = Airport("DEN")
+      var plane = Plane()                   // [1]
+      plane.contact(denver) eq "Contacting DEN"
+      // Can't do this:
+      // val privatePlane = Airport.PrivatePlane()
+      val frankfurt = Airport("FRA")
+      plane = frankfurt.privatePlane()
+      // Can't do this:
+      // val p = plane as PrivatePlane      // [2]
+      plane.contact(frankfurt) eq "Contacting FRA"
+    }
+  learner_created: false
+- name: src/NestedHouse.kt
+  visible: true
+  text: |-
+    // NestedClasses/NestedHouse.kt
+    package nestedclasses
+    import atomictest.*
+
+    abstract class Cleanable(val id: String) {
+      open val parts: List<Cleanable> = listOf()
+      fun clean(): String {
+        val text = "$id clean"
+        if (parts.isEmpty()) return text
+        return "${parts.joinToString(
+          " ", "(", ")",
+          transform = Cleanable::clean)} $text\n"
+      }
+    }
+
+    class House : Cleanable("House") {
+      override val parts = listOf(
+        Bedroom("Master Bedroom"),
+        Bedroom("Guest Bedroom")
+      )
+      class Bedroom(id: String) : Cleanable(id) {
+        override val parts =
+          listOf(Closet(), Bathroom())
+        class Closet : Cleanable("Closet") {
+          override val parts =
+            listOf(Shelf(), Shelf())
+          class Shelf : Cleanable("Shelf")
+        }
+        class Bathroom : Cleanable("Bathroom") {
+          override val parts =
+            listOf(Toilet(), Sink())
+          class Toilet : Cleanable("Toilet")
+          class Sink : Cleanable("Sink")
+        }
+      }
+    }
+
+    fun main() {
+      House().clean() eq """
+      (((Shelf clean Shelf clean) Closet clean
+       (Toilet clean Sink clean) Bathroom clean
+      ) Master Bedroom clean
+       ((Shelf clean Shelf clean) Closet clean
+       (Toilet clean Sink clean) Bathroom clean
+      ) Guest Bedroom clean
+      ) House clean
+      """
+    }
+  learner_created: false
+- name: src/LocalClasses.kt
+  visible: true
+  text: |-
+    // NestedClasses/LocalClasses.kt
+    package nestedclasses
+
+    fun localClasses() {
+      open class Amphibian
+      class Frog : Amphibian()
+      val amphibian: Amphibian = Frog()
+    }
+  learner_created: false
+- name: src/ReturnLocal.kt
+  visible: true
+  text: |-
+    // NestedClasses/ReturnLocal.kt
+    package nestedclasses
+
+    interface Amphibian
+
+    fun createAmphibian(): Amphibian {
+      class Frog : Amphibian
+      return Frog()
+    }
+
+    fun main() {
+      val amphibian = createAmphibian()
+      // amphibian as Frog
+    }
+  learner_created: false
+- name: src/WithinInterface.kt
+  visible: true
+  text: |-
+    // NestedClasses/WithinInterface.kt
+    package nestedclasses
+    import atomictest.eq
+
+    interface Item {
+      val type: Type
+      data class Type(val type: String)
+    }
+
+    class Bolt(type: String) : Item {
+      override val type = Item.Type(type)
+    }
+
+    fun main() {
+      val items = listOf(
+        Bolt("Slotted"), Bolt("Hex")
+      )
+      items.map(Item::type) eq
+        "[Type(type=Slotted), Type(type=Hex)]"
+    }
+  learner_created: false
+- name: src/Ticket.kt
+  visible: true
+  text: |-
+    // NestedClasses/Ticket.kt
+    package nestedclasses
+    import atomictest.eq
+    import nestedclasses.Ticket.Seat.*
+
+    class Ticket(
+      val name: String,
+      val seat: Seat = Coach
+    ) {
+      enum class Seat {
+        Coach,
+        Premium,
+        Business,
+        First
+      }
+      fun upgrade(): Ticket {
+        val newSeat = values()[
+          (seat.ordinal + 1)
+          .coerceAtMost(First.ordinal)
+        ]
+        return Ticket(name, newSeat)
+      }
+      fun meal() = when(seat) {
+        Coach -> "Bag Meal"
+        Premium -> "Bag Meal with Cookie"
+        Business -> "Hot Meal"
+        First -> "Private Chef"
+      }
+      override fun toString() = "$seat"
+    }
+
+    fun main() {
+      val tickets = listOf(
+        Ticket("Jerry"),
+        Ticket("Summer", Premium),
+        Ticket("Squanchy", Business),
+        Ticket("Beth", First)
+      )
+      tickets.map(Ticket::meal) eq
+        "[Bag Meal, Bag Meal with Cookie, " +
+        "Hot Meal, Private Chef]"
+      tickets.map(Ticket::upgrade) eq
+        "[Premium, Business, First, First]"
+      tickets eq
+        "[Coach, Premium, Business, First]"
+      tickets.map(Ticket::meal) eq
+        "[Bag Meal, Bag Meal with Cookie, " +
+        "Hot Meal, Private Chef]"
+    }
+  learner_created: false
+- name: src/FillIt.kt
+  visible: true
+  text: |-
+    // NestedClasses/FillIt.kt
+    package nestedclasses
+    import nestedclasses.Game.State.*
+    import nestedclasses.Game.Mark.*
+    import kotlin.random.Random
+    import atomictest.*
+
+    interface Game {
+      enum class State { Playing, Finished }
+      enum class Mark { Blank, X ,O }
+    }
+
+    class FillIt(
+      val side: Int = 3, randomSeed: Int = 0
+    ): Game {
+      val rand = Random(randomSeed)
+      private var state = Playing
+      private val grid =
+        MutableList(side * side) { Blank }
+      private var player = X
+      fun turn() {
+        val blanks = grid.withIndex()
+          .filter { it.value == Blank }
+        if(blanks.isEmpty()) {
+          state = Finished
+        } else {
+          grid[blanks.random(rand).index] = player
+          player = if (player == X) O else X
+        }
+      }
+      fun play() {
+        while(state != Finished)
+          turn()
+      }
+      override fun toString() =
+        grid.chunked(side).joinToString("\n")
+    }
+
+    fun main() {
+      val game = FillIt(8, 17)
+      game.play()
+      game eq """
+      [O, X, O, X, O, X, X, X]
+      [X, O, O, O, O, O, X, X]
+      [O, O, X, O, O, O, X, X]
+      [X, O, O, O, O, O, X, O]
+      [X, X, O, O, X, X, X, O]
+      [X, X, O, O, X, X, O, X]
+      [O, X, X, O, O, O, X, O]
+      [X, O, X, X, X, O, X, X]
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

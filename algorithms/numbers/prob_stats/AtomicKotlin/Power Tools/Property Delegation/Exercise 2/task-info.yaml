@@ -1,0 +1,71 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 220
+    length: 43
+    placeholder_text: = mutableListOf() // replace with 'by list'
+    initial_state:
+      length: 43
+      offset: 220
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: by list
+  - offset: 266
+    length: 40
+    placeholder_text: // TODO getValue and setValue extensions
+    initial_state:
+      length: 40
+      offset: 266
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      operator fun List<String>.getValue(
+          r: Delegator,
+          property: KProperty<*>
+        ): List<String> = r.list
+        operator fun List<String>.setValue(
+          w: Delegator,
+          property: KProperty<*>,
+          list: List<String>
+        ) {
+          w.list = list
+        }
+  text: |-
+    // PropertyDelegation/PropDelegationSoln3.kt
+    package propertyDelegationExercise2
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class Delegator {
+      private var list = List(8) { "$it" }
+      var strings: List<String> = mutableListOf() // replace with 'by list'
+      // TODO getValue and setValue extensions
+    }
+
+    fun main() {
+      val x = Delegator()
+      x.strings eq "[0, 1, 2, 3, 4, 5, 6, 7]"
+      x.strings = listOf("99", "17")
+      x.strings eq "[99, 17]"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

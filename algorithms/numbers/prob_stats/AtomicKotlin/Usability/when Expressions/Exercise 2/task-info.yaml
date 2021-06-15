@@ -1,0 +1,68 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 129
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 129
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      when {
+          temperature >= 25 -> "Hot"
+          temperature in 15..24 -> "Warm"
+          temperature in 5..14 -> "Cool"
+          temperature in -5..4 -> "Cold"
+          else -> "Freezing"
+        }
+  text: |-
+    // WhenExpressions/Task2.kt
+    package whenExpressionsExercise2
+    import atomictest.eq
+
+    fun temperature(temperature: Int): String =
+      TODO()
+
+    fun main() {
+      temperature(30) eq "Hot"
+      temperature(10) eq "Cool"
+      temperature(-30) eq "Freezing"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package whenExpressionsExercise2
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.TIMEOUT
+
+    class TestWhenExpressionsExercise2 {
+      private fun expected(temperature: Int): String =
+        when {
+          temperature >= 25 -> "Hot"
+          temperature in 15..24 -> "Warm"
+          temperature in 5..14 -> "Cool"
+          temperature in -5..4 -> "Cold"
+          else -> "Freezing"
+        }
+
+      @Test(timeout = TIMEOUT)
+      fun test() {
+        for (temperature in -100..110) {
+          Assert.assertEquals("Wrong value for temperature=$temperature",
+            expected(temperature), temperature(temperature))
+        }
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Usability+%2F+when+Expressions+%2F+Exercise2
+status: Unchecked
+record: -1

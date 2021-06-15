@@ -1,0 +1,328 @@
+type: theory
+files:
+- name: src/Heater.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/Heater.kt
+    package inheritanceextensions
+    import atomictest.eq
+
+    open class Heater {
+      fun heat(temperature: Int) =
+        "heating to $temperature"
+    }
+
+    fun warm(heater: Heater) {
+      heater.heat(70) eq "heating to 70"
+    }
+  learner_created: false
+- name: src/InheritAdd.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/InheritAdd.kt
+    package inheritanceextensions
+    import atomictest.eq
+
+    class HVAC : Heater() {
+      fun cool(temperature: Int) =
+        "cooling to $temperature"
+    }
+
+    fun warmAndCool(hvac: HVAC) {
+      hvac.heat(70) eq "heating to 70"
+      hvac.cool(60) eq "cooling to 60"
+    }
+
+    fun main() {
+      val heater = Heater()
+      val hvac = HVAC()
+      warm(heater)
+      warm(hvac)
+      warmAndCool(hvac)
+    }
+  learner_created: false
+- name: src/ExtensionFuncs.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/ExtensionFuncs.kt
+    package inheritanceextensions2
+    import inheritanceextensions.Heater
+    import atomictest.eq
+
+    fun Heater.cool(temperature: Int) =
+      "cooling to $temperature"
+
+    fun warmAndCool(heater: Heater) {
+      heater.heat(70) eq "heating to 70"
+      heater.cool(60) eq "cooling to 60"
+    }
+
+    fun main() {
+      val heater = Heater()
+      warmAndCool(heater)
+    }
+  learner_created: false
+- name: src/TemperatureDelta.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/TemperatureDelta.kt
+    package inheritanceextensions
+    import atomictest.*
+
+    class TemperatureDelta(
+      val current: Double,
+      val target: Double
+    )
+
+    fun TemperatureDelta.heat() {
+      if (current < target)
+        trace("heating to $target")
+    }
+
+    fun TemperatureDelta.cool() {
+      if (current > target)
+        trace("cooling to $target")
+    }
+
+    fun adjust(deltaT: TemperatureDelta) {
+      deltaT.heat()
+      deltaT.cool()
+    }
+
+    fun main() {
+      adjust(TemperatureDelta(60.0, 70.0))
+      adjust(TemperatureDelta(80.0, 60.0))
+      trace eq """
+        heating to 70.0
+        cooling to 60.0
+      """
+    }
+  learner_created: false
+- name: src/Convention.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/Convention.kt
+    package inheritanceextensions
+
+    class X
+
+    fun X.f() {}
+
+    class Y
+
+    fun Y.f() {}
+
+    fun callF(x: X) = x.f()
+
+    fun callF(y: Y) = y.f()
+
+    fun main() {
+      val x = X()
+      val y = Y()
+      x.f()
+      y.f()
+      callF(x)
+      callF(y)
+    }
+  learner_created: false
+- name: src/UsefulLibrary.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/UsefulLibrary.kt
+    package usefullibrary
+
+    interface LibType {
+      fun f1()
+      fun f2()
+    }
+
+    fun utility1(lt: LibType) {
+      lt.f1()
+      lt.f2()
+    }
+
+    fun utility2(lt: LibType) {
+      lt.f2()
+      lt.f1()
+    }
+  learner_created: false
+- name: src/Adapter.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/Adapter.kt
+    package inheritanceextensions
+    import usefullibrary.*
+    import atomictest.*
+
+    open class MyClass {
+      fun g() = trace("g()")
+      fun h() = trace("h()")
+    }
+
+    fun useMyClass(mc: MyClass) {
+      mc.g()
+      mc.h()
+    }
+
+    class MyClassAdaptedForLib :
+      MyClass(), LibType {
+      override fun f1() = h()
+      override fun f2() = g()
+    }
+
+    fun main() {
+      val mc = MyClassAdaptedForLib()
+      utility1(mc)
+      utility2(mc)
+      useMyClass(mc)
+      trace eq "h() g() g() h() g() h()"
+    }
+  learner_created: false
+- name: src/ComposeAdapter.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/ComposeAdapter.kt
+    package inheritanceextensions2
+    import usefullibrary.*
+    import atomictest.*
+
+    class MyClass { // Not open
+      fun g() = trace("g()")
+      fun h() = trace("h()")
+    }
+
+    fun useMyClass(mc: MyClass) {
+      mc.g()
+      mc.h()
+    }
+
+    class MyClassAdaptedForLib : LibType {
+      val field = MyClass()
+      override fun f1() = field.h()
+      override fun f2() = field.g()
+    }
+
+    fun main() {
+      val mc = MyClassAdaptedForLib()
+      utility1(mc)
+      utility2(mc)
+      useMyClass(mc.field)
+      trace eq "h() g() g() h() g() h()"
+    }
+  learner_created: false
+- name: src/PrivateAccess.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/PrivateAccess.kt
+    package inheritanceextensions
+    import atomictest.eq
+
+    class Z(var i: Int = 0) {
+      private var j = 0
+      fun increment() {
+        i++
+        j++
+      }
+    }
+
+    fun Z.decrement() {
+      i--
+      // j -- // Cannot access
+    }
+  learner_created: false
+- name: src/NoExtOverride.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/NoExtOverride.kt
+    package inheritanceextensions
+    import atomictest.*
+
+    open class Base {
+      open fun f() = "Base.f()"
+    }
+
+    class Derived : Base() {
+      override fun f() = "Derived.f()"
+    }
+
+    fun Base.g() = "Base.g()"
+    fun Derived.g() = "Derived.g()"
+
+    fun useBase(b: Base) {
+      trace("Received ${b::class.simpleName}")
+      trace(b.f())
+      trace(b.g())
+    }
+
+    fun main() {
+      useBase(Base())
+      useBase(Derived())
+      trace eq """
+        Received Base
+        Base.f()
+        Base.g()
+        Received Derived
+        Derived.f()
+        Base.g()
+      """
+    }
+  learner_created: false
+- name: src/DeviceMembers.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/DeviceMembers.kt
+    package inheritanceextensions1
+    import atomictest.eq
+
+    interface Device {
+      val model: String
+      val productionYear: Int
+      fun overpriced() = model.startsWith("i")
+      fun outdated() = productionYear < 2050
+    }
+
+    class MyDevice(
+      override val model: String,
+      override val productionYear: Int
+    ): Device
+
+    fun main() {
+      val gadget: Device =
+        MyDevice("my first phone", 2000)
+      gadget.outdated() eq true
+      gadget.overpriced() eq false
+    }
+  learner_created: false
+- name: src/DeviceExtensions.kt
+  visible: true
+  text: |-
+    // InheritanceExtensions/DeviceExtensions.kt
+    package inheritanceextensions2
+    import atomictest.eq
+
+    interface Device {
+      val model: String
+      val productionYear: Int
+    }
+
+    fun Device.overpriced() =
+      model.startsWith("i")
+
+    fun Device.outdated() =
+      productionYear < 2050
+
+    class MyDevice(
+      override val model: String,
+      override val productionYear: Int
+    ): Device
+
+    fun main() {
+      val gadget: Device =
+        MyDevice("my first phone", 2000)
+      gadget.outdated() eq true
+      gadget.overpriced() eq false
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

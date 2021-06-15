@@ -1,0 +1,97 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 88
+    length: 13
+    placeholder_text: class Failure
+    initial_state:
+      length: 13
+      offset: 88
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Failure(msg: String) : Exception(msg)'
+  - offset: 138
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 138
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      trace(msg)
+        throw Failure(msg)
+  - offset: 179
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 179
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (!test) fail("require() failed")
+  - offset: 218
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 218
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (!test) fail("check() failed")
+  text: |-
+    // NothingType/NothingTypeSoln1.kt
+    package theNothingTypeExercise1
+    import atomictest.*
+
+    class Failure
+
+    fun fail(msg: String): Nothing {
+      TODO()
+    }
+
+    fun require(test: Boolean) {
+      TODO()
+    }
+
+    fun check(test: Boolean) {
+      TODO()
+    }
+
+    fun main() {
+      require(true)
+      check(true)
+      capture {
+        require(false)
+      } eq "Failure: require() failed"
+      capture {
+        check(false)
+      } eq "Failure: check() failed"
+      trace eq """
+        require() failed
+        check() failed
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package theNothingTypeExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestTheNothingTypeExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

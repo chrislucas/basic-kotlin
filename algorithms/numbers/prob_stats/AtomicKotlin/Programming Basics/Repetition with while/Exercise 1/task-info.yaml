@@ -1,0 +1,73 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 70
+    length: 23
+    placeholder_text: fun displayContent() {}
+    initial_state:
+      length: 23
+      offset: 70
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun displayContent(s: String) {
+        var i = 0
+        while (i < s.length) {
+          println(s[i])
+          i++
+        }
+      }
+  text: |-
+    // RepetitionWithWhile/Task1.kt
+    package repetitionWithWhileExercise1
+
+    fun displayContent() {}
+
+    fun main() {
+    //  displayContent("abc")
+    }
+    /* Expected output:
+    a
+    b
+    c
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package repetitionWithWhileExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.checkParametersOfTopLevelFunction
+    import util.checkSystemOutput
+    import util.runAndGetSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestRepetitionWithWhileExercise1 {
+      private fun testInput(s: String) {
+        val displayContentFunc = ::displayContent
+        checkParametersOfTopLevelFunction(displayContentFunc, listOf("" to "kotlin.String"))
+        val output = runAndGetSystemOutput {
+          displayContentFunc.call(s)
+        }
+        val expected = s.toList().joinToString("\n")
+        checkSystemOutput("""Wrong output for 'displayContent("$s")'""",
+          expected, output)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testDisplayContent() {
+        testInput("abc")
+        testInput("Kotlin")
+        testInput("Hi! I'm a String")
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

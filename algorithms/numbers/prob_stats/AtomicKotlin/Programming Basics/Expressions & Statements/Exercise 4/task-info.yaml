@@ -1,0 +1,22 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // ExpressionsStatements/Task4.kt
+    package expressionsAndStatementsExercise4
+
+    fun main() {
+      var x = 1
+      x = 2
+      println(x)
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: package expressionsAndStatementsExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Expressions+%26+Statements+%2F+Exercise2
+status: Unchecked
+record: -1

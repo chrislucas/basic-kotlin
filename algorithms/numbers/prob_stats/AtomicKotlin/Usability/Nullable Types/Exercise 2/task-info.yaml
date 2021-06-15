@@ -1,0 +1,32 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // NullableTypes/Task2.kt
+    package nullableTypesExercise2
+
+    fun zilch(): String? = null
+    fun zilch2(): String? = zilch()
+
+    fun main() {
+      var x: String? = zilch()
+      var y: String? = zilch2()
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package nullableTypesExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestNullableTypesExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

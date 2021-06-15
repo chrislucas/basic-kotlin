@@ -1,0 +1,40 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 68
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 68
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class A(open val s: String)
+      open class B(override val s: String) : A(s)
+      class C(override val s: String) : B(s)
+  text: |-
+    // BaseClassInit/Task1.kt
+    package baseClassInitializationExercise1
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package baseClassInitializationExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestBaseClassInitializationExercise1 {
+      @Test fun testSolution() {
+        unimplementedTest()
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

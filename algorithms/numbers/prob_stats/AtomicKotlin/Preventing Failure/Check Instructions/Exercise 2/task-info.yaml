@@ -1,0 +1,106 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 134
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 134
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      requireNotNull(s)
+        require(s.isNotEmpty()) {
+          "s must not be empty, is [$s]"
+        }
+        require(s.isNotBlank()) {
+          "s must not be blank, is [$s]"
+        }
+        val parts = s.split('-')
+        require(parts.size == 3 &&
+          parts.all { it.isNotEmpty() }) {
+          "s must contain 3 parts " +
+          "separated by '-', is [$s]"
+        }
+        return s
+  - offset: 175
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 175
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      requireNotNull(d)
+        require(0 < d && d <= 10.0)
+        return d
+  text: |-
+    // CheckInstructions/CheckInstructionsSoln2.kt
+    package checkInstructionsExercise2
+    import atomictest.*
+
+    fun fn(s: String?): String {
+      TODO()
+    }
+
+    fun gn(d: Double?): Double {
+      TODO()
+    }
+
+    fun main() {
+      capture { fn(null) } eq
+        "IllegalArgumentException: " +
+        "Required value was null."
+      capture { fn("") } eq
+        "IllegalArgumentException: " +
+        "s must not be empty, is []"
+      capture { fn("   ") } eq
+        "IllegalArgumentException: " +
+        "s must not be blank, is [   ]"
+      capture { fn("abcdef") } eq
+        "IllegalArgumentException: " +
+        "s must contain 3 parts " +
+        "separated by '-', is [abcdef]"
+      capture { fn("-abcdef-") } eq
+        "IllegalArgumentException: " +
+        "s must contain 3 parts " +
+        "separated by '-', is [-abcdef-]"
+      capture { fn("-abc-def-") } eq
+        "IllegalArgumentException: " +
+        "s must contain 3 parts " +
+        "separated by '-', is [-abc-def-]"
+      fn("ab-cd-ef") eq "ab-cd-ef"
+      capture { gn(null) } eq
+        "IllegalArgumentException: " +
+        "Required value was null."
+      capture { gn(-0.1) } eq
+        "IllegalArgumentException: " +
+        "Failed requirement."
+      capture { gn(11.0) } eq
+        "IllegalArgumentException: " +
+        "Failed requirement."
+      gn(5.5) eq 5.5
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package checkInstructionsExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestCheckInstructionsExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

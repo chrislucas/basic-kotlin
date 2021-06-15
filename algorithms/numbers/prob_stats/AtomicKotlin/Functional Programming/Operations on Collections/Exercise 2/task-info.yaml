@@ -1,0 +1,66 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 129
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 129
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      x in setOf(1, 5, 32)
+        // Other options:
+        // x % 5 == 0
+        // x.toString().contains('5')
+  text: |-
+    // OperationsOnCollections/Task2.kt
+    package operationsOnCollectionsExercise2
+    import atomictest.eq
+
+    val operation = { x: Int ->
+      TODO()
+    }
+
+    fun main() {
+      val first = listOf(1, 5, 32, 45, 70, 511)
+      first.any(operation) eq true
+      first.all(operation) eq false
+      first.none(operation) eq false
+      first.count(operation) eq 3
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package operationsOnCollectionsExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestOperationsOnCollectionsExercise2 {
+      @Test(timeout = TIMEOUT)
+      fun testSample() {
+        fun message(functionName: String) = "Wrong result for '$functionName':"
+
+        val first = listOf(1, 5, 32, 45, 70, 511)
+
+        Assert.assertEquals(message("any"), first.any(operation), true)
+        Assert.assertEquals(message("all"), first.all(operation), false)
+        Assert.assertEquals(message("none"), first.none(operation), false)
+        Assert.assertEquals(message("count"), first.count(operation), 3)
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Operations+on+Collections+%2F+Exercise2
+status: Unchecked
+record: -1

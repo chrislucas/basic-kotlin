@@ -1,0 +1,212 @@
+type: theory
+files:
+- name: src/LocalFunctions.kt
+  visible: true
+  text: |-
+    // LocalFunctions/LocalFunctions.kt
+    import atomictest.eq
+
+    fun main() {
+      val logMsg = StringBuilder()
+      fun log(message: String) =
+        logMsg.appendLine(message)
+      log("Starting computation")
+      val x = 42  // Imitate computation
+      log("Computation result: $x")
+      logMsg.toString() eq """
+        Starting computation
+        Computation result: 42
+      """
+    }
+  learner_created: false
+- name: src/LocalExtensions.kt
+  visible: true
+  text: |-
+    // LocalFunctions/LocalExtensions.kt
+    import atomictest.eq
+
+    fun main() {
+      fun String.exclaim() = "$this!"
+      "Hello".exclaim() eq "Hello!"
+      "Hallo".exclaim() eq "Hallo!"
+      "Bonjour".exclaim() eq "Bonjour!"
+      "Ciao".exclaim() eq "Ciao!"
+    }
+  learner_created: false
+- name: src/Session.kt
+  visible: true
+  text: |-
+    // LocalFunctions/Session.kt
+    package localfunctions
+
+    class Session(
+      val title: String,
+      val speaker: String
+    )
+
+    val sessions = listOf(Session(
+      "Kotlin Coroutines", "Roman Elizarov"))
+
+    val favoriteSpeakers = setOf("Roman Elizarov")
+  learner_created: false
+- name: src/LocalFunctionReference.kt
+  visible: true
+  text: |-
+    // LocalFunctions/LocalFunctionReference.kt
+    import localfunctions.*
+    import atomictest.eq
+
+    fun main() {
+      fun interesting(session: Session): Boolean {
+        if (session.title.contains("Kotlin") &&
+          session.speaker in favoriteSpeakers) {
+          return true
+        }
+        // ... more checks
+        return false
+      }
+      sessions.any(::interesting) eq true
+    }
+  learner_created: false
+- name: src/InterestingSessions.kt
+  visible: true
+  text: |-
+    // LocalFunctions/InterestingSessions.kt
+    import localfunctions.*
+    import atomictest.eq
+
+    fun main() {
+      sessions.any(
+        fun(session: Session): Boolean {    // [1]
+          if (session.title.contains("Kotlin") &&
+            session.speaker in favoriteSpeakers) {
+            return true
+          }
+          // ... more checks
+          return false
+        }) eq true
+    }
+  learner_created: false
+- name: src/ReturnFromFun.kt
+  visible: true
+  text: |-
+    // LocalFunctions/ReturnFromFun.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4, 5)
+      val value = 3
+      var result = ""
+      list.forEach {
+        result += "$it"
+        if (it == value) {
+          result eq "123"
+          return                   // [1]
+        }
+      }
+      result eq "Never gets here"  // [2]
+    }
+  learner_created: false
+- name: src/LabeledReturn.kt
+  visible: true
+  text: |-
+    // LocalFunctions/LabeledReturn.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4, 5)
+      val value = 3
+      var result = ""
+      list.forEach {
+        result += "$it"
+        if (it == value) return@forEach
+      }
+      result eq "12345"
+    }
+  learner_created: false
+- name: src/CustomLabel.kt
+  visible: true
+  text: |-
+    // LocalFunctions/CustomLabel.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4, 5)
+      val value = 3
+      var result = ""
+      list.forEach tag@{             // [1]
+        result += "$it"
+        if (it == value) return@tag  // [2]
+      }
+      result eq "12345"
+    }
+  learner_created: false
+- name: src/ReturnInsideLambda.kt
+  visible: true
+  text: |-
+    // LocalFunctions/ReturnInsideLambda.kt
+    import localfunctions.*
+    import atomictest.eq
+
+    fun main() {
+      sessions.any { session ->
+        if (session.title.contains("Kotlin") &&
+          session.speaker in favoriteSpeakers) {
+          return@any true
+        }
+        // ... more checks
+        false
+      } eq true
+    }
+  learner_created: false
+- name: src/ReturningFunc.kt
+  visible: true
+  text: |-
+    // LocalFunctions/ReturningFunc.kt
+    package localfunctions
+    import atomictest.eq
+
+    fun first(): (Int) -> Int {
+      val func = fun(i: Int) = i + 1
+      func(1) eq 2
+      return func
+    }
+
+    fun second(): (String) -> String {
+      val func2 = { s: String -> "$s!" }
+      func2("abc") eq "abc!"
+      return func2
+    }
+
+    fun third(): () -> String {
+      fun greet() = "Hi!"
+      return ::greet
+    }
+
+    fun fourth() = fun() = "Hi!"
+
+    fun fifth() = { "Hi!" }
+
+    fun main() {
+      val funRef1: (Int) -> Int = first()
+      val funRef2: (String) -> String = second()
+      val funRef3: () -> String = third()
+      val funRef4: () -> String = fourth()
+      val funRef5: () -> String = fifth()
+
+      funRef1(42) eq 43
+      funRef2("xyz") eq "xyz!"
+      funRef3() eq "Hi!"
+      funRef4() eq "Hi!"
+      funRef5() eq "Hi!"
+
+      first()(42) eq 43
+      second()("xyz") eq "xyz!"
+      third()() eq "Hi!"
+      fourth()() eq "Hi!"
+      fifth()() eq "Hi!"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

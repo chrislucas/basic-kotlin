@@ -1,0 +1,51 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 172
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 172
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class SealedClassesTest {
+        @Test
+        fun `train travel`() {
+          assertEquals("Train S1", travel(Train("S1")))
+        }
+        @Test
+        fun `bus travel`() {
+          assertEquals("Bus 11: size 90", travel(Bus("11", 90)))
+        }
+      }
+  text: |-
+    // Tests/unittesting/UnitTestingSoln1.kt
+    package unitTestingExercise1
+    import sealedclasses.Bus
+    import sealedclasses.Train
+    import sealedclasses.travel
+    import kotlin.test.*
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package unitTestingExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestUnitTestingExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

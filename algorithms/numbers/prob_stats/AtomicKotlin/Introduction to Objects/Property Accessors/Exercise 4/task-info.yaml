@@ -1,0 +1,102 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 109
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 109
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  private var _accesses = 0'
+  - offset: 143
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 143
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ++_accesses
+  text: |-
+    // PropertyAccessors/Task4.kt
+    package propertyAccessorsExercise4
+    import atomictest.eq
+
+    class AccessCounter {
+
+
+      val accesses: Int
+        get() = TODO()
+    }
+
+    fun main() {
+      val counter = AccessCounter()
+      counter.accesses eq 1
+      counter.accesses eq 2
+      counter.accesses eq 3
+
+      val counter2 = AccessCounter()
+      repeat(10) {
+        counter2.accesses
+      }
+      counter2.accesses eq 11
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyAccessorsExercise4
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestPropertyAccessorsExercise4 {
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() {
+        val strange = AccessCounter()
+        Assert.assertEquals("'strange.accesses' should increment the value on each access",
+          listOf(1, 2, 3),
+          listOf(strange.accesses, strange.accesses, strange.accesses))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2More() {
+        val strange = AccessCounter()
+        Assert.assertEquals("'strange.accesses' should increment the value on each access",
+          listOf(1, 2, 3, 4, 5, 6),
+          listOf(strange.accesses, strange.accesses, strange.accesses,
+            strange.accesses, strange.accesses, strange.accesses))
+      }
+
+      private fun checkRepeat(n: Int) {
+        val strange = AccessCounter()
+        repeat(n) {
+          strange.accesses
+        }
+        Assert.assertEquals("Incorrect result after repeating 'strange.accesses' for $n times;" +
+          "Should be ${n + 1} on the next access: ",
+          n + 1,
+          strange.accesses)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3Repeat() = checkRepeat(10)
+
+      @Test(timeout = TIMEOUT)
+      fun test4Repeat() = checkRepeat(100)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Property+Accessors+%2F+Exercise2
+status: Unchecked
+record: -1
