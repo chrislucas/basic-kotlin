@@ -1,0 +1,86 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 124
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 124
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      trace("Simulation: $group Reality: $level")
+        if (level > 0) simulation(group, level - 1)
+  text: |-
+    // Recursion/Task1.kt
+    package recursionExercise1
+    import atomictest.*
+
+    tailrec fun simulation(group: String, level: Int) {
+      TODO()
+    }
+
+    fun main() {
+      simulation("FOO", 10)
+      trace eq """
+        Simulation: FOO Reality: 10
+        Simulation: FOO Reality: 9
+        Simulation: FOO Reality: 8
+        Simulation: FOO Reality: 7
+        Simulation: FOO Reality: 6
+        Simulation: FOO Reality: 5
+        Simulation: FOO Reality: 4
+        Simulation: FOO Reality: 3
+        Simulation: FOO Reality: 2
+        Simulation: FOO Reality: 1
+        Simulation: FOO Reality: 0
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package recursionExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.TestTrace
+    import util.checkParametersOfTopLevelFunction
+    import util.runAndCheckTraceOutput
+
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestRecursionExercise1 : TestTrace() {
+      @OptIn(ExperimentalStdlibApi::class)
+      private fun expectedOutput(group: String, n: Int) = buildList {
+        (n downTo 0).forEach {
+          add("Simulation: $group Reality: $it")
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test() {
+        testSimulation("FOO", 8)
+        testSimulation("bar", 13)
+        testSimulation("bar", 0)
+      }
+
+      private fun testSimulation(group: String, level: Int) {
+        val simulationFunction = ::simulation
+        checkParametersOfTopLevelFunction(simulationFunction, listOf("group" to "kotlin.String", "level" to "kotlin.Int"))
+
+        runAndCheckTraceOutput("Wrong result for 'simulation(\"$group\", $level)'",
+          expectedOutput(group, level)) {
+          simulationFunction.invoke(group, level)
+        }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

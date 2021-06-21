@@ -1,0 +1,108 @@
+type: theory
+files:
+- name: src/Level.kt
+  visible: true
+  text: |-
+    // Enumerations/Level.kt
+    package enumerations
+    import atomictest.eq
+
+    enum class Level {
+      Overflow, High, Medium, Low, Empty
+    }
+
+    fun main() {
+      Level.Medium eq "Medium"
+    }
+  learner_created: false
+- name: src/EnumImport.kt
+  visible: true
+  text: |-
+    // Enumerations/EnumImport.kt
+    import atomictest.eq
+    import enumerations.Level.*   // [1]
+
+    fun main() {
+      Overflow eq "Overflow"
+      High eq "High"
+    }
+  learner_created: false
+- name: src/RecursiveEnumImport.kt
+  visible: true
+  text: |-
+    // Enumerations/RecursiveEnumImport.kt
+    package enumerations
+    import atomictest.eq
+    import enumerations.Size.*            // [1]
+
+    enum class Size {
+      Tiny, Small, Medium, Large, Huge, Gigantic
+    }
+
+    fun main() {
+      Gigantic eq "Gigantic"              // [2]
+      Size.values().toList() eq           // [3]
+        listOf(Tiny, Small, Medium,
+          Large, Huge, Gigantic)
+      Tiny.ordinal eq 0                   // [4]
+      Huge.ordinal eq 4
+    }
+  learner_created: false
+- name: src/CheckingOptions.kt
+  visible: true
+  text: |-
+    // Enumerations/CheckingOptions.kt
+    package checkingoptions
+    import atomictest.*
+    import enumerations.Level
+    import enumerations.Level.*
+
+    fun checkLevel(level: Level) {
+      when (level) {
+        Overflow -> trace(">>> Overflow!")
+        Empty -> trace("Alert: Empty")
+        else -> trace("Level $level OK")
+      }
+    }
+
+    fun main() {
+      checkLevel(Empty)
+      checkLevel(Low)
+      checkLevel(Overflow)
+      trace eq """
+        Alert: Empty
+        Level Low OK
+        >>> Overflow!
+      """
+    }
+  learner_created: false
+- name: src/Direction.kt
+  visible: true
+  text: |-
+    // Enumerations/Direction.kt
+    package enumerations
+    import atomictest.eq
+    import enumerations.Direction.*
+
+    enum class Direction(val notation: String) {
+      North("N"), South("S"),
+      East("E"), West("W");  // Semicolon required
+      val opposite: Direction
+        get() = when (this) {
+          North -> South
+          South -> North
+          West -> East
+          East -> West
+        }
+    }
+
+    fun main() {
+      North.notation eq "N"
+      North.opposite eq South
+      West.opposite.opposite eq West
+      North.opposite.notation eq "S"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

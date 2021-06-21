@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 396
+    length: 31
+    placeholder_text: /* add 'empty' property here */
+    initial_state:
+      length: 31
+      offset: 396
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val empty: Boolean
+          get() = hamsters.isEmpty()
+  text: |-
+    // PropertyAccessors/Task1.kt
+    package propertyAccessorsExercise1
+
+    class Hamster(val name: String) {
+      override fun toString(): String {
+        return "Hamster('$name')"
+      }
+    }
+
+    class Cage(private val maxCapacity: Int) {
+      private val hamsters =
+        mutableListOf<Hamster>()
+
+      val capacity: Int
+        get() = maxCapacity - hamsters.size
+
+      val full: Boolean
+        get() = hamsters.size == maxCapacity
+
+      /* add 'empty' property here */
+
+      fun put(hamster: Hamster): Boolean =
+        if (full)
+          false
+        else {
+          hamsters += hamster
+          true
+        }
+
+      fun takeHamster(): Hamster =
+        hamsters.removeAt(0)
+    }
+
+    fun main() {
+      val cage = Cage(2)
+      // cage.empty eq true
+      cage.put(Hamster("Alice"))
+      // cage.empty eq false
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyAccessorsExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.loadMemberProperty
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestPropertyAccessorsExercise1 {
+      private fun Cage.accessEmptyProperty(): Any? {
+        val emptyProperty = loadMemberProperty(Cage::class, "empty")
+        return emptyProperty.getter.call(this)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testSample() {
+        val cage = Cage(2)
+        Assert.assertEquals("'cage.empty' should return 'true' for an empty cage", true, cage.accessEmptyProperty())
+        cage.put(Hamster("Alice"))
+        Assert.assertEquals("'cage.empty' should return 'false' for a non-empty cage", false, cage.accessEmptyProperty())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testTwoHamsters() {
+        val cage = Cage(3)
+        Assert.assertEquals("'cage.empty' should return 'true' for an empty cage", true, cage.accessEmptyProperty())
+        cage.put(Hamster("Alice"))
+        cage.put(Hamster("Bob"))
+        Assert.assertEquals("'cage.empty' should return 'false' for a non-empty cage", false, cage.accessEmptyProperty())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testRemoval() {
+        val cage = Cage(3)
+        Assert.assertEquals("'cage.empty' should return 'true' for an empty cage", true, cage.accessEmptyProperty())
+        cage.put(Hamster("Alice"))
+        cage.takeHamster()
+        Assert.assertEquals("'cage.empty' should return 'true' for an empty cage", true, cage.accessEmptyProperty())
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Property+Accessors+%2F+Exercise1
+status: Unchecked
+record: -1

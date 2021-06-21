@@ -1,0 +1,157 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 116
+    length: 17
+    placeholder_text: class GrannySmith
+    initial_state:
+      length: 17
+      offset: 116
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class GrannySmith : Apple {
+        override fun consume() = "chomp GrannySmith"
+      }
+  - offset: 135
+    length: 10
+    placeholder_text: class Gala
+    initial_state:
+      length: 10
+      offset: 135
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Gala : Apple {
+        override fun consume() = "bite Gala"
+      }
+  - offset: 147
+    length: 10
+    placeholder_text: class Fuji
+    initial_state:
+      length: 10
+      offset: 147
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Fuji : Apple {
+        override fun consume() = "press Fuji"
+      }
+  - offset: 159
+    length: 14
+    placeholder_text: class Braeburn
+    initial_state:
+      length: 14
+      offset: 159
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Braeburn : Apple {
+        override fun consume() = "peel Braeburn"
+      }
+  - offset: 288
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 288
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it.consume()
+  text: |-
+    // Upcasting/Task2.kt
+    package upcastingExercise2
+    import atomictest.eq
+
+    interface Apple {
+      fun consume(): String
+    }
+
+    class GrannySmith
+
+    class Gala
+
+    class Fuji
+
+    class Braeburn
+
+    fun main() {
+      val apples = listOf(
+        GrannySmith(),
+        Gala(),
+        Fuji(),
+        Braeburn()
+      )
+      apples.map { TODO() } eq
+        "[chomp GrannySmith, " +
+        "bite Gala, press Fuji, peel Braeburn]"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package upcastingExercise2
+    import atomictest.trace
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestUpcastingExercise2 : TestTrace() {
+
+      private val packageName = "upcastingExercise2"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Apple").apply {
+          assertInterface()
+          assertDeclaredMemberFunction("consume")
+        }
+
+        listOf("GrannySmith", "Gala", "Fuji", "Braeburn").forEach {
+          loadClass(it).apply {
+            assertAbstract(expected = false)
+            assertInheritance("Apple")
+            assertDeclaredMemberFunction("consume")
+          }
+        }
+      }
+
+      @Test
+      fun `#02 consume apples`() {
+        listOf("GrannySmith", "Gala", "Fuji", "Braeburn").forEach {
+          loadClass("Apple").apply {
+            val consume = assertDeclaredMemberFunction("consume")
+            val apple = loadClass(it).createInstance()
+            trace(consume.call(apple) as String)
+          }
+        }
+
+        assertEquals(
+            message = "Incorrect sequence of actions applied to the apples",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "chomp GrannySmith",
+                "bite Gala",
+                "press Fuji",
+                "peel Braeburn"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

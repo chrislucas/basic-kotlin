@@ -1,0 +1,90 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 134
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 134
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var counter = 0
+
+        fun inc() {
+          counter++
+        }
+
+        fun value(): Int {
+          return counter
+        }
+
+        return Pair(::inc, ::value)
+  text: |-
+    // LocalFunctions/Task2.kt
+    package localFunctionsExercise2
+    import atomictest.eq
+
+    fun createCounter(): Pair<() -> Unit, () -> Int> {
+      TODO()
+    }
+
+    fun main() {
+      val (inc, value) = createCounter()
+      repeat(10) {
+        inc()
+      }
+      value() eq 10
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package localFunctionsExercise2
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.loadFileFacade
+    import util.loadToplevelFunction
+    import kotlin.reflect.KClassifier
+    import kotlin.reflect.KTypeProjection
+    import kotlin.reflect.full.createType
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestLocalFunctionsExercise2 {
+        @Test
+        fun `#01 function signature`() {
+            val method = loadToplevelFunction(loadFileFacade("localFunctionsExercise2"), "createCounter")
+            assertEquals(
+                    actual = method.genericReturnType.typeName,
+                    expected = "kotlin.Pair<kotlin.jvm.functions.Function0<kotlin.Unit>, kotlin.jvm.functions.Function0<java.lang.Integer>>",
+                    message = "Invalid return type of the method"
+            )
+        }
+
+        @Test
+        fun `#02 counter methods`() {
+            val (inc, value) = createCounter()
+            assertEquals(0, value(), "Initial value should be 0")
+            inc()
+            assertEquals(1, value(), "Increased value should be 1")
+        }
+
+        @Test
+        fun `#03 counter usage from main`() {
+            val (inc, value) = createCounter()
+            repeat(10) {
+                inc()
+            }
+            assertEquals(10, value(), "Counter increased 10 times should be equal to 10")
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

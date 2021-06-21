@@ -1,0 +1,58 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 60
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 60
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '// fun foo(vararg i: Int, vararg s: String) {}'
+  - offset: 84
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 84
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: println("Multiple vararg-parameters are prohibited")
+  text: |-
+    // Varargs/Task1.kt
+    package variableArgumentListsExercise1
+
+    // TODO
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package variableArgumentListsExercise1
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.TIMEOUT
+    import util.runAndGetSystemOutput
+
+    class TestVariableArgumentListsExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun testMessageInOutput() {
+        val output = runAndGetSystemOutput {
+          main()
+        }
+        val message = "Multiple vararg-parameters are prohibited"
+        Assert.assertTrue("The output should contain '$message'.\nWas: $output", message in output)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

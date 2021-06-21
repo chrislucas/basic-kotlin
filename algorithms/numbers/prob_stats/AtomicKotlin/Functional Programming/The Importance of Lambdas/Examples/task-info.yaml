@@ -1,0 +1,135 @@
+type: theory
+files:
+- name: src/FilterEven.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/FilterEven.kt
+    package importanceoflambdas
+    import atomictest.eq
+
+    fun filterEven(nums: List<Int>): List<Int> {
+      val result = mutableListOf<Int>()
+      for (i in nums) {
+        if (i % 2 == 0) {    // [1]
+          result += i
+        }
+      }
+      return result
+    }
+
+    fun main() {
+      filterEven(listOf(1, 2, 3, 4)) eq
+        listOf(2, 4)
+    }
+  learner_created: false
+- name: src/GreaterThan2.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/GreaterThan2.kt
+    package importanceoflambdas
+    import atomictest.eq
+
+    fun greaterThan2(nums: List<Int>): List<Int> {
+      val result = mutableListOf<Int>()
+      for (i in nums) {
+        if (i > 2) {         // [1]
+          result += i
+        }
+      }
+      return result
+    }
+
+    fun main() {
+      greaterThan2(listOf(1, 2, 3, 4)) eq
+        listOf(3, 4)
+    }
+  learner_created: false
+- name: src/Filter.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/Filter.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+      val even = list.filter { it % 2 == 0 }
+      val greaterThan2 = list.filter { it > 2 }
+      even eq listOf(2, 4)
+      greaterThan2 eq listOf(3, 4)
+    }
+  learner_created: false
+- name: src/StoringLambda.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/StoringLambda.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+      val isEven = { e: Int -> e % 2 == 0 }
+      list.filter(isEven) eq listOf(2, 4)
+      list.any(isEven) eq true
+    }
+  learner_created: false
+- name: src/Closures.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/Closures.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 5, 7, 10)
+      val divider = 5
+      list.filter { it % divider == 0 } eq
+        listOf(5, 10)
+    }
+  learner_created: false
+- name: src/Closures2.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/Closures2.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 5, 7, 10)
+      var sum = 0
+      val divider = 5
+      list.filter { it % divider == 0 }
+        .forEach { sum += it }
+      sum eq 15
+    }
+  learner_created: false
+- name: src/Sum.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/Sum.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 5, 7, 10)
+      val divider = 5
+      list.filter { it % divider == 0 }
+        .sum() eq 15
+    }
+  learner_created: false
+- name: src/FunctionClosure.kt
+  visible: true
+  text: |-
+    // ImportanceOfLambdas/FunctionClosure.kt
+    package importanceoflambdas
+    import atomictest.eq
+
+    var x = 100
+
+    fun useX() {
+      x++
+    }
+
+    fun main() {
+      useX()
+      x eq 101
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

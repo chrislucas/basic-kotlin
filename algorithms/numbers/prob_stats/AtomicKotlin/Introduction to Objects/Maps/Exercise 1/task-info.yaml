@@ -1,0 +1,81 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 281
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 281
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val map = mutableMapOf<String, Contact>()
+        for (contact in contactList) {
+          map[contact.number] = contact
+        }
+        return map
+  text: |-
+    // Maps/Task1.kt
+    package mapsExercise1
+    import atomictest.eq
+
+    class Contact(val name: String, val number: String) {
+      override fun toString(): String {
+        return "Contact('$name', '$number')"
+      }
+    }
+
+    fun buildNumberToContactMap(contactList: List<Contact>): Map<String, Contact> {
+      TODO()
+    }
+
+    fun main() {
+      val contactList = listOf(
+        Contact("Miffy", "1-234-567890"),
+        Contact("Cleo", "098-765-4321"),
+      )
+      val contactsByNumber = buildNumberToContactMap(contactList)
+      contactsByNumber eq "{1-234-567890=Contact('Miffy', '1-234-567890'), " +
+        "098-765-4321=Contact('Cleo', '098-765-4321')}"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package mapsExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestMapsExercise1 {
+      private fun checkBuildingMap(contactList: List<Contact>) {
+        Assert.assertEquals("Incorrect result for $contactList:", contactList.associateBy { it.number }, buildNumberToContactMap(contactList))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testSample() = checkBuildingMap(listOf(Contact("Miffy", "1-234-567890"), Contact("Cleo", "098-765-4321")))
+
+      @Test(timeout = TIMEOUT)
+      fun testOneElement() = checkBuildingMap(listOf(Contact("A", "1")))
+
+      @Test(timeout = TIMEOUT)
+      fun testSameElements() = checkBuildingMap(listOf(Contact("A", "1"), Contact("B", "1")))
+
+      @Test(timeout = TIMEOUT)
+      fun testManyElements() = checkBuildingMap(listOf(
+        Contact("A", "1"), Contact("B", "2"), Contact("C", "3"), Contact("D", "4"),
+        Contact("E", "5"), Contact("F", "6"), Contact("G", "7"), Contact("H", "8")))
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Maps+%2F+Exercise1
+status: Unchecked
+record: -1

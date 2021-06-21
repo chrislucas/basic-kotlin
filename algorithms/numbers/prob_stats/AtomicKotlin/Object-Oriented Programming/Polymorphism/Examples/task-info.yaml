@@ -1,0 +1,81 @@
+type: theory
+files:
+- name: src/Pet.kt
+  visible: true
+  text: |-
+    // Polymorphism/Pet.kt
+    package polymorphism
+    import atomictest.eq
+
+    open class Pet {
+      open fun speak() = "Pet"
+    }
+
+    class Dog : Pet() {
+      override fun speak() = "Bark!"
+    }
+
+    class Cat : Pet() {
+      override fun speak() = "Meow"
+    }
+
+    fun talk(pet: Pet) = pet.speak()
+
+    fun main() {
+      talk(Dog()) eq "Bark!"     // [1]
+      talk(Cat()) eq "Meow"      // [2]
+    }
+  learner_created: false
+- name: src/FantasyGame.kt
+  visible: true
+  text: |-
+    // Polymorphism/FantasyGame.kt
+    package polymorphism
+    import atomictest.*
+
+    abstract class Character(val name: String) {
+      abstract fun play(): String
+    }
+
+    interface Fighter {
+      fun fight() = "Fight!"
+    }
+
+    interface Magician {
+      fun doMagic() = "Magic!"
+    }
+
+    class Warrior :
+      Character("Warrior"), Fighter {
+      override fun play() = fight()
+    }
+
+    open class Elf(name: String = "Elf") :
+      Character(name), Magician {
+      override fun play() = doMagic()
+    }
+
+    class FightingElf :
+      Elf("FightingElf"), Fighter {
+      override fun play() =
+        super.play() + fight()
+    }
+
+    fun Character.playTurn() =             // [1]
+      trace(name + ": " + play())          // [2]
+
+    fun main() {
+      val characters: List<Character> = listOf(
+        Warrior(), Elf(), FightingElf()
+      )
+      characters.forEach { it.playTurn() } // [3]
+      trace eq """
+        Warrior: Fight!
+        Elf: Magic!
+        FightingElf: Magic!Fight!
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,119 @@
+type: theory
+files:
+- name: src/BasicInheritance.kt
+  visible: true
+  text: |-
+    // Inheritance/BasicInheritance.kt
+    package inheritance
+
+    open class Base
+
+    class Derived : Base()
+  learner_created: false
+- name: src/OpenAndFinalClasses.kt
+  visible: true
+  text: |-
+    // Inheritance/OpenAndFinalClasses.kt
+    package inheritance
+
+    // This class can be inherited:
+    open class Parent
+
+    class Child : Parent()
+
+    // Child is not open, so this fails:
+    // class GrandChild : Child()
+
+    // This class can't be inherited:
+    final class Single
+
+    // The same as using 'final':
+    class AnotherSingle
+  learner_created: false
+- name: src/GreatApe.kt
+  visible: true
+  text: |-
+    // Inheritance/GreatApe.kt
+    package inheritance.ape1
+    import atomictest.eq
+
+    open class GreatApe {
+      val weight = 100.0
+      val age = 12
+    }
+
+    open class Bonobo : GreatApe()
+    class Chimpanzee : GreatApe()
+    class BonoboB : Bonobo()
+
+    fun GreatApe.info() = "wt: $weight age: $age"
+
+    fun main() {
+      GreatApe().info() eq "wt: 100.0 age: 12"
+      Bonobo().info() eq "wt: 100.0 age: 12"
+      Chimpanzee().info() eq "wt: 100.0 age: 12"
+      BonoboB().info() eq "wt: 100.0 age: 12"
+    }
+  learner_created: false
+- name: src/GreatApe2.kt
+  visible: true
+  text: |-
+    // Inheritance/GreatApe2.kt
+    package inheritance.ape2
+    import atomictest.eq
+
+    open class GreatApe {
+      protected var energy = 0
+      open fun call() = "Hoo!"
+      open fun eat() {
+        energy += 10
+      }
+      fun climb(x: Int) {
+        energy -= x
+      }
+      fun energyLevel() = "Energy: $energy"
+    }
+
+    class Bonobo : GreatApe() {
+      override fun call() = "Eep!"
+      override fun eat() {
+        // Modify the base-class var:
+        energy += 10
+        // Call the base-class version:
+        super.eat()
+      }
+      // Add a function:
+      fun run() = "Bonobo run"
+    }
+
+    class Chimpanzee : GreatApe() {
+      // New property:
+      val additionalEnergy = 20
+      override fun call() = "Yawp!"
+      override fun eat() {
+        energy += additionalEnergy
+        super.eat()
+      }
+      // Add a function:
+      fun jump() = "Chimp jump"
+    }
+
+    fun talk(ape: GreatApe): String {
+      // ape.run()  // Not an ape function
+      // ape.jump() // Nor this
+      ape.eat()
+      ape.climb(10)
+      return "${ape.call()} ${ape.energyLevel()}"
+    }
+
+    fun main() {
+      // Cannot access 'energy':
+      // GreatApe().energy
+      talk(GreatApe()) eq "Hoo! Energy: 0"
+      talk(Bonobo()) eq "Eep! Energy: 10"
+      talk(Chimpanzee()) eq "Yawp! Energy: 20"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

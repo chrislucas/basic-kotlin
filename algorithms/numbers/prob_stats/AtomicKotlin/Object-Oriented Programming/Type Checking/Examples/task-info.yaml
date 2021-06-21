@@ -1,0 +1,352 @@
+type: theory
+files:
+- name: src/Insects.kt
+  visible: true
+  text: |-
+    // TypeChecking/Insects.kt
+    package typechecking
+    import atomictest.eq
+
+    interface Insect {
+      fun walk() = "$name: walk"
+      fun fly() = "$name: fly"
+    }
+
+    class HouseFly : Insect
+
+    class Flea : Insect {
+      override fun fly() =
+        throw Exception("Flea cannot fly")
+      fun crawl() = "Flea: crawl"
+    }
+
+    fun Insect.basic() =
+      walk() + " " +
+      if (this is Flea)
+        crawl()
+      else
+        fly()
+
+    interface SwimmingInsect: Insect {
+      fun swim() = "$name: swim"
+    }
+
+    interface WaterWalker: Insect {
+      fun walkWater() =
+        "$name: walk on water"
+    }
+
+    class WaterBeetle : SwimmingInsect
+    class WaterStrider : WaterWalker
+    class WhirligigBeetle :
+      SwimmingInsect, WaterWalker
+
+    fun Insect.water() =
+      when(this) {
+        is SwimmingInsect -> swim()
+        is WaterWalker -> walkWater()
+        else -> "$name: drown"
+      }
+
+    fun main() {
+      val insects = listOf(
+        HouseFly(), Flea(), WaterStrider(),
+        WaterBeetle(), WhirligigBeetle()
+      )
+      insects.map { it.basic() } eq
+        "[HouseFly: walk HouseFly: fly, " +
+        "Flea: walk Flea: crawl, " +
+        "WaterStrider: walk WaterStrider: fly, " +
+        "WaterBeetle: walk WaterBeetle: fly, " +
+        "WhirligigBeetle: walk " +
+        "WhirligigBeetle: fly]"
+      insects.map { it.water() } eq
+        "[HouseFly: drown, Flea: drown, " +
+        "WaterStrider: walk on water, " +
+        "WaterBeetle: swim, " +
+        "WhirligigBeetle: swim]"
+    }
+  learner_created: false
+- name: src/AnyName.kt
+  visible: true
+  text: |-
+    // TypeChecking/AnyName.kt
+    package typechecking
+
+    val Any.name
+      get() = this::class.simpleName
+  learner_created: false
+- name: src/TypeCheck1.kt
+  visible: true
+  text: |-
+    // TypeChecking/TypeCheck1.kt
+    package typechecking
+    import atomictest.eq
+
+    interface Shape {
+      fun draw(): String
+    }
+
+    class Circle : Shape {
+      override fun draw() = "Circle: Draw"
+    }
+
+    class Square : Shape {
+      override fun draw() = "Square: Draw"
+      fun rotate() = "Square: Rotate"
+    }
+
+    fun turn(s: Shape) = when(s) {
+      is Square -> s.rotate()
+      else -> ""
+    }
+
+    fun main() {
+      val shapes = listOf(Circle(), Square())
+      shapes.map { it.draw() } eq
+        "[Circle: Draw, Square: Draw]"
+      shapes.map { turn(it) } eq
+        "[, Square: Rotate]"
+    }
+  learner_created: false
+- name: src/TypeCheck2.kt
+  visible: true
+  text: |-
+    // TypeChecking/TypeCheck2.kt
+    package typechecking
+    import atomictest.eq
+
+    class Triangle : Shape {
+      override fun draw() = "Triangle: Draw"
+      fun rotate() = "Triangle: Rotate"
+    }
+
+    fun turn2(s: Shape) = when(s) {
+      is Square -> s.rotate()
+      is Triangle -> s.rotate()
+      else -> ""
+    }
+
+    fun main() {
+      val shapes =
+        listOf(Circle(), Square(), Triangle())
+      shapes.map { it.draw() } eq
+        "[Circle: Draw, Square: Draw, " +
+        "Triangle: Draw]"
+      shapes.map { turn(it) } eq
+        "[, Square: Rotate, ]"
+      shapes.map { turn2(it) } eq
+        "[, Square: Rotate, Triangle: Rotate]"
+    }
+  learner_created: false
+- name: src/BeverageContainer.kt
+  visible: true
+  text: |-
+    // TypeChecking/BeverageContainer.kt
+    package typechecking
+    import atomictest.eq
+
+    interface BeverageContainer {
+      fun open(): String
+      fun pour(): String
+    }
+
+    class Can : BeverageContainer {
+      override fun open() = "Pop Top"
+      override fun pour() = "Can: Pour"
+    }
+
+    open class Bottle : BeverageContainer {
+      override fun open() = "Remove Cap"
+      override fun pour() = "Bottle: Pour"
+    }
+
+    class GlassBottle : Bottle()
+    class PlasticBottle : Bottle()
+
+    fun BeverageContainer.recycle() =
+      when(this) {
+        is Can -> "Recycle Can"
+        is GlassBottle -> "Recycle Glass"
+        else -> "Landfill"
+      }
+
+    fun main() {
+      val refrigerator = listOf(
+        Can(), GlassBottle(), PlasticBottle()
+      )
+      refrigerator.map { it.open() } eq
+        "[Pop Top, Remove Cap, Remove Cap]"
+      refrigerator.map { it.recycle() } eq
+        "[Recycle Can, Recycle Glass, " +
+        "Landfill]"
+    }
+  learner_created: false
+- name: src/TypeCheck3.kt
+  visible: true
+  text: |-
+    // TypeChecking/TypeCheck3.kt
+    package typechecking3
+    import atomictest.eq
+    import typechecking.name
+
+    sealed class Shape {
+      fun draw() = "$name: Draw"
+    }
+
+    class Circle : Shape()
+
+    class Square : Shape() {
+      fun rotate() = "Square: Rotate"
+    }
+
+    class Triangle : Shape() {
+      fun rotate() = "Triangle: Rotate"
+    }
+
+    fun turn(s: Shape) = when(s) {
+      is Circle -> ""
+      is Square -> s.rotate()
+      is Triangle -> s.rotate()
+    }
+
+    fun main() {
+      val shapes = listOf(Circle(), Square())
+      shapes.map { it.draw() } eq
+        "[Circle: Draw, Square: Draw]"
+      shapes.map { turn(it) } eq
+        "[, Square: Rotate]"
+    }
+  learner_created: false
+- name: src/BeverageContainer2.kt
+  visible: true
+  text: |-
+    // TypeChecking/BeverageContainer2.kt
+    package typechecking2
+    import atomictest.eq
+
+    sealed class BeverageContainer {
+      abstract fun open(): String
+      abstract fun pour(): String
+    }
+
+    sealed class Can : BeverageContainer() {
+      override fun open() = "Pop Top"
+      override fun pour() = "Can: Pour"
+    }
+
+    class SteelCan : Can()
+    class AluminumCan : Can()
+
+    sealed class Bottle : BeverageContainer() {
+      override fun open() = "Remove Cap"
+      override fun pour() = "Bottle: Pour"
+    }
+
+    class GlassBottle : Bottle()
+    sealed class PlasticBottle : Bottle()
+    class PETBottle : PlasticBottle()
+    class HDPEBottle : PlasticBottle()
+
+    fun BeverageContainer.recycle() =
+      when(this) {
+        is Can -> "Recycle Can"
+        is Bottle -> "Recycle Bottle"
+      }
+
+    fun BeverageContainer.recycle2() =
+      when(this) {
+        is Can -> when(this) {
+          is SteelCan -> "Recycle Steel"
+          is AluminumCan -> "Recycle Aluminum"
+        }
+        is Bottle -> when(this) {
+          is GlassBottle -> "Recycle Glass"
+          is PlasticBottle -> when(this) {
+            is PETBottle -> "Recycle PET"
+            is HDPEBottle -> "Recycle HDPE"
+          }
+        }
+      }
+
+    fun main() {
+      val refrigerator = listOf(
+        SteelCan(), AluminumCan(),
+        GlassBottle(),
+        PETBottle(), HDPEBottle()
+      )
+      refrigerator.map { it.open() } eq
+        "[Pop Top, Pop Top, Remove Cap, " +
+        "Remove Cap, Remove Cap]"
+      refrigerator.map { it.recycle() } eq
+        "[Recycle Can, Recycle Can, " +
+        "Recycle Bottle, Recycle Bottle, " +
+        "Recycle Bottle]"
+      refrigerator.map { it.recycle2() } eq
+        "[Recycle Steel, Recycle Aluminum, " +
+        "Recycle Glass, " +
+        "Recycle PET, Recycle HDPE]"
+    }
+  learner_created: false
+- name: src/BeverageContainer3.kt
+  visible: true
+  text: |-
+    // TypeChecking/BeverageContainer3.kt
+    package typechecking3
+    import atomictest.eq
+    import typechecking.name
+
+    interface BeverageContainer {
+      fun open(): String
+      fun pour() = "$name: Pour"
+      fun recycle(): String
+    }
+
+    abstract class Can : BeverageContainer {
+      override fun open() = "Pop Top"
+    }
+
+    class SteelCan : Can() {
+      override fun recycle() = "Recycle Steel"
+    }
+
+    class AluminumCan : Can() {
+      override fun recycle() = "Recycle Aluminum"
+    }
+
+    abstract class Bottle : BeverageContainer {
+      override fun open() = "Remove Cap"
+    }
+
+    class GlassBottle : Bottle() {
+      override fun recycle() = "Recycle Glass"
+    }
+
+    abstract class PlasticBottle : Bottle()
+
+    class PETBottle : PlasticBottle() {
+      override fun recycle() = "Recycle PET"
+    }
+
+    class HDPEBottle : PlasticBottle() {
+      override fun recycle() = "Recycle HDPE"
+    }
+
+    fun main() {
+      val refrigerator = listOf(
+        SteelCan(), AluminumCan(),
+        GlassBottle(),
+        PETBottle(), HDPEBottle()
+      )
+      refrigerator.map { it.open() } eq
+        "[Pop Top, Pop Top, Remove Cap, " +
+        "Remove Cap, Remove Cap]"
+      refrigerator.map { it.recycle() } eq
+        "[Recycle Steel, Recycle Aluminum, " +
+        "Recycle Glass, " +
+        "Recycle PET, Recycle HDPE]"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,87 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 99
+    length: 23
+    placeholder_text: 'fun abort(s: String) {}'
+    initial_state:
+      length: 23
+      offset: 99
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun abort(s: String) {
+        throw Exception(s)
+      }
+  - offset: 139
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 139
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      capture {
+          abort("Stop!")
+        } eq "Exception: Stop!"
+  text: |-
+    // Exceptions/Task2.kt
+    package exceptionsExercise2
+    import atomictest.capture
+    import atomictest.eq
+
+    fun abort(s: String) {}
+
+    fun main() {
+      TODO()
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package exceptionsExercise2
+
+    import org.junit.FixMethodOrder
+    import org.junit.Rule
+    import org.junit.Test
+    import org.junit.rules.ExpectedException
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestExceptionsExercise2 {
+      @Rule
+      @JvmField
+      val thrown: ExpectedException = ExpectedException.none()
+
+      @Test(timeout = TIMEOUT)
+      fun test1() {
+        thrown.expect(Exception::class.java)
+        abort("My message")
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2() {
+        thrown.expectMessage("My message")
+        abort("My message")
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3() {
+        runAndCheckSystemOutput(
+          "Wrong output after running 'main'",
+          "Exception: Stop!"
+        ) {
+          main()
+        }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

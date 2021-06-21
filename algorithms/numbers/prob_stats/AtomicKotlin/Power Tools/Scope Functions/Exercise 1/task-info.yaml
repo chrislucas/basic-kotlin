@@ -1,0 +1,71 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 214
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 214
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val np1: NumPair = NumPair(10, 20).apply {
+          x += 5
+          y += 6
+        }
+        np1 eq NumPair(15, 26)
+        val np2: NumPair = NumPair(30, 40).also {
+          it.x += 7
+          it.y += 8
+        }
+        np2 eq NumPair(37, 48)
+        val result1: Int = np1.run {
+          add() + subtract() + multiply()
+        }
+        result1 eq 420
+        val result2: Int = np1.let {
+          it.add() + it.subtract() + it.multiply()
+        }
+        result2 eq 420
+        val result3: Int = with(np1) {
+          add() + subtract() + multiply()
+        }
+        result3 eq 420
+  text: |-
+    // ScopeFunctions/Task1.kt
+    package scopeFunctionsExercise1
+    import atomictest.eq
+
+    data class NumPair(var x: Int, var y: Int) {
+      fun add() = x + y
+      fun subtract() = x - y
+      fun multiply() = x * y
+    }
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package scopeFunctionsExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestScopeFunctionsExercise1 {
+      @Test
+      fun testSolution() {
+        unimplementedTest()
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Library+Helpers+%2F+Exercise1
+status: Unchecked
+record: -1

@@ -22,10 +22,27 @@ private fun sampleUpperBound() {
 
 private fun sampleUpperAndLower() {
     val intervals = arrayOf(
+        arrayOf(5, 5, 5),
+        arrayOf(4, 5, 6),
+        arrayOf(5, 5, 5),
+        arrayOf(4, 4, 4),
+        arrayOf(1, 2, 4, 5, 5, 6),
+        arrayOf(1, 2, 4, 5, 5, 6, 6, 6, 6, 7),
         arrayOf(0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5),
+        arrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8),
         arrayOf(0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5),
         arrayOf(1, 2, 4, 5, 5, 6)
     )
+    var query = 4
+    var r = intervals[0].upperBound(query)
+    println("Int: ${intervals[0].string()} upper bound query $query rs = $r")
+    query = 5
+    r = intervals[1].upperBound(query)
+    println("Int: ${intervals[1].string()} upper bound query $query rs = $r")
+    r = intervals[0].upperBound(query)
+    println("Int: ${intervals[0].string()} upper bound query $query rs = $r")
+    println("\n")
+
 
     for (interval in intervals) {
         println("Intervalo: ${interval.string()}")

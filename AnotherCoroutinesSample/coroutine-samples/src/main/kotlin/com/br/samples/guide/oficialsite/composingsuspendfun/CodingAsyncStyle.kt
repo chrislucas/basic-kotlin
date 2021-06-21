@@ -6,6 +6,10 @@ import kotlin.system.measureTimeMillis
 
 // https://kotlinlang.org/docs/composing-suspending-functions.html#async-style-functions
 
+/**
+ * ESTUDAR MAIS ESSE TOPICO
+ * */
+
 fun wrapperCoroutineAsync(coroutineContext: CoroutineContext, fn: suspend () -> Int) =
     CoroutineScope(context = coroutineContext).async { fn() }
 

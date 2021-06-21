@@ -1,0 +1,123 @@
+type: theory
+files:
+- name: src/InfiniteLoop.kt
+  visible: true
+  text: |-
+    // NothingType/InfiniteLoop.kt
+    package nothingtype
+
+    fun infinite(): Nothing {
+      while (true) {}
+    }
+  learner_created: false
+- name: src/Todo.kt
+  visible: true
+  text: |-
+    // NothingType/Todo.kt
+    package nothingtype
+    import atomictest.*
+
+    fun later(s: String): String = TODO("later()")
+
+    fun later2(s: String): Int = TODO()
+
+    fun main() {
+      capture {
+        later("Hello")
+      } eq "NotImplementedError: " +
+        "An operation is not implemented: later()"
+      capture {
+        later2("Hello!")
+      } eq "NotImplementedError: " +
+        "An operation is not implemented."
+    }
+  learner_created: false
+- name: src/Fail.kt
+  visible: true
+  text: |-
+    // NothingType/Fail.kt
+    package nothingtype
+    import atomictest.*
+
+    fun fail(i: Int): Nothing =
+      throw Exception("fail($i)")
+
+    fun main() {
+      capture {
+        fail(1)
+      } eq "Exception: fail(1)"
+      capture {
+        fail(2)
+      } eq "Exception: fail(2)"
+    }
+  learner_created: false
+- name: src/CheckObject.kt
+  visible: true
+  text: |-
+    // NothingType/CheckObject.kt
+    package nothingtype
+    import atomictest.*
+
+    class BadData(m: String) : Exception(m)
+
+    fun checkObject(obj: Any?): String =
+      if (obj is String)
+        obj
+      else
+        throw BadData("Needs String, got $obj")
+
+    fun test(checkObj: (obj: Any?) -> String) {
+      checkObj("abc") eq "abc"
+      capture {
+        checkObj(null)
+      } eq "BadData: Needs String, got null"
+      capture {
+        checkObj(123)
+      } eq "BadData: Needs String, got 123"
+    }
+
+    fun main() {
+      test(::checkObject)
+    }
+  learner_created: false
+- name: src/CheckObject2.kt
+  visible: true
+  text: |-
+    // NothingType/CheckObject2.kt
+    package nothingtype
+
+    fun failWithBadData(obj: Any?): Nothing =
+      throw BadData("Needs String, got $obj")
+
+    fun checkObject2(obj: Any?): String =
+      (obj as? String) ?: failWithBadData(obj)
+
+    fun main() {
+      test(::checkObject2)
+    }
+  learner_created: false
+- name: src/ListOfNothing.kt
+  visible: true
+  text: |-
+    // NothingType/ListOfNothing.kt
+    import atomictest.eq
+
+    fun main() {
+      val none: Nothing? = null
+
+      var nullableString: String? = null    // [1]
+      nullableString = "abc"
+      nullableString = none                 // [2]
+      nullableString eq null
+
+      val nullableInt: Int? = none          // [3]
+      nullableInt eq null
+
+      val listNone: List<Nothing?> = listOf(null)
+      val ints: List<Int?> = listOf(null)   // [4]
+      ints eq listNone
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,162 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 592
+    length: 12
+    placeholder_text: class Dragon
+    initial_state:
+      length: 12
+      offset: 592
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Dragon:
+        Character("Dragon"), Flyer {
+        override fun play() = fly()
+      }
+  - offset: 606
+    length: 12
+    placeholder_text: class Wizard
+    initial_state:
+      length: 12
+      offset: 606
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Wizard:
+        Character("Magician"), Magician, Flyer {
+        override fun play() = doMagic() + fly()
+      }
+  - offset: 774
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 774
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it.playTurn()
+  text: |-
+    // Polymorphism/Task1.kt
+    package polymorphismExercise1
+    import atomictest.*
+
+    abstract class Character(val name: String) {
+      abstract fun play(): String
+    }
+
+    interface Fighter {
+      fun fight() = "Fight!"
+    }
+
+    interface Magician {
+      fun doMagic() = "Magic!"
+    }
+
+    interface Flyer {
+      fun fly() = "Fly!"
+    }
+
+    class Warrior :
+      Character("Warrior"), Fighter {
+      override fun play() = fight()
+    }
+
+    open class Elf(name: String = "Elf") :
+      Character(name), Magician {
+      override fun play() = doMagic()
+    }
+
+    class FightingElf :
+      Elf("FightingElf"), Fighter {
+      override fun play() =
+        super.play() + fight()
+    }
+
+    class Dragon
+
+    class Wizard
+
+    fun Character.playTurn() = name + ": " + play()
+
+    fun main() {
+      listOf(
+        Warrior(),
+        Elf(),
+        FightingElf(),
+        Dragon(),
+        Wizard()
+      ).map { TODO() } eq
+        "[Warrior: Fight!, Elf: Magic!, " +
+        "FightingElf: Magic!Fight!, " +
+        "Dragon: Fly!, Magician: Magic!Fly!]"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package polymorphismExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestPolymorphismExercise1 {
+
+      private val packageName = "polymorphismExercise1"
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass(packageName, "Warrior").apply {
+          assertConstructorNumber(1)
+          assertInheritance("Character", "Fighter")
+        }
+        loadClass(packageName, "Elf").apply {
+          assertConstructorNumber(1)
+          assertInheritance("Character", "Magician")
+        }
+        loadClass(packageName, "FightingElf").apply {
+          assertConstructorNumber(1)
+          assertInheritance("Elf", "Fighter")
+        }
+        loadClass(packageName, "Wizard").apply {
+          assertConstructorNumber(1)
+          assertInheritance("Character", "Magician", "Flyer")
+        }
+        loadClass(packageName, "Dragon").apply {
+          assertConstructorNumber(1)
+          assertInheritance("Character", "Flyer")
+        }
+      }
+
+      @Test
+      fun `#02 what do the characters`() {
+        val result = listOf("Warrior", "Elf", "FightingElf", "Dragon", "Wizard")
+          .map { loadClass(packageName, it).createInstance() as Character }
+          .map { c -> c.playTurn() }
+
+        assertEquals(
+          message = "Incorrect result of playTurn() for all characters",
+          actual = result,
+          expected = listOf(
+            "Warrior: Fight!",
+            "Elf: Magic!",
+            "FightingElf: Magic!Fight!",
+            "Dragon: Fly!",
+            "Magician: Magic!Fly!"
+          )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

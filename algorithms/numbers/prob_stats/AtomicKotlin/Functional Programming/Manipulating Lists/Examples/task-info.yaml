@@ -1,0 +1,180 @@
+type: theory
+files:
+- name: src/Zipper.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/Zipper.kt
+    import atomictest.eq
+
+    fun main() {
+      val left = listOf("a", "b", "c", "d")
+      val right = listOf("q", "r", "s", "t")
+
+      left.zip(right) eq                 // [1]
+        "[(a, q), (b, r), (c, s), (d, t)]"
+
+      left.zip(0..4) eq                  // [2]
+        "[(a, 0), (b, 1), (c, 2), (d, 3)]"
+
+      (10..100).zip(right) eq            // [3]
+        "[(10, q), (11, r), (12, s), (13, t)]"
+    }
+  learner_created: false
+- name: src/ZipAndTransform.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/ZipAndTransform.kt
+    package manipulatinglists
+    import atomictest.eq
+
+    data class Person(
+      val name: String,
+      val id: Int
+    )
+
+    fun main() {
+      val names = listOf("Bob", "Jill", "Jim")
+      val ids = listOf(1731, 9274, 8378)
+      names.zip(ids) { name, id ->
+        Person(name, id)
+      } eq "[Person(name=Bob, id=1731), " +
+        "Person(name=Jill, id=9274), " +
+        "Person(name=Jim, id=8378)]"
+    }
+  learner_created: false
+- name: src/ZippingWithNext.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/ZippingWithNext.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf('a', 'b', 'c', 'd')
+
+      list.zipWithNext() eq listOf(
+        Pair('a', 'b'),
+        Pair('b', 'c'),
+        Pair('c', 'd'))
+
+      list.zipWithNext { a, b -> "$a$b" } eq
+        "[ab, bc, cd]"
+    }
+  learner_created: false
+- name: src/Flatten.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/Flatten.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(
+        listOf(1, 2),
+        listOf(4, 5),
+        listOf(7, 8),
+      )
+      list.flatten() eq "[1, 2, 4, 5, 7, 8]"
+    }
+  learner_created: false
+- name: src/FlattenAndFlatMap.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/FlattenAndFlatMap.kt
+    import atomictest.eq
+
+    fun main() {
+      val intRange = 1..3
+
+      intRange.map { a ->          // [1]
+        intRange.map { b -> a to b }
+      } eq "[" +
+        "[(1, 1), (1, 2), (1, 3)], " +
+        "[(2, 1), (2, 2), (2, 3)], " +
+        "[(3, 1), (3, 2), (3, 3)]" +
+        "]"
+
+      intRange.map { a ->          // [2]
+        intRange.map { b -> a to b }
+      }.flatten() eq "[" +
+        "(1, 1), (1, 2), (1, 3), " +
+        "(2, 1), (2, 2), (2, 3), " +
+        "(3, 1), (3, 2), (3, 3)" +
+        "]"
+
+      intRange.flatMap { a ->      // [3]
+        intRange.map { b -> a to b }
+      } eq "[" +
+        "(1, 1), (1, 2), (1, 3), " +
+        "(2, 1), (2, 2), (2, 3), " +
+        "(3, 1), (3, 2), (3, 3)" +
+        "]"
+    }
+  learner_created: false
+- name: src/WhyFlatMap.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/WhyFlatMap.kt
+    package manipulatinglists
+    import atomictest.eq
+
+    class Book(
+      val title: String,
+      val authors: List<String>
+    )
+
+    fun main() {
+      val books = listOf(
+        Book("1984", listOf("George Orwell")),
+        Book("Ulysses", listOf("James Joyce"))
+      )
+      books.map { it.authors }.flatten() eq
+        listOf("George Orwell", "James Joyce")
+      books.flatMap { it.authors } eq
+        listOf("George Orwell", "James Joyce")
+    }
+  learner_created: false
+- name: src/PlayingCards.kt
+  visible: true
+  text: |-
+    // ManipulatingLists/PlayingCards.kt
+    package manipulatinglists
+    import kotlin.random.Random
+    import atomictest.*
+
+    enum class Suit {
+      Spade, Club, Heart, Diamond
+    }
+
+    enum class Rank(val faceValue: Int) {
+      Ace(1), Two(2), Three(3), Four(4), Five(5),
+      Six(6), Seven(7), Eight(8), Nine(9),
+      Ten(10), Jack(10), Queen(10), King(10)
+    }
+
+    class Card(val rank: Rank, val suit: Suit) {
+      override fun toString() =
+        "$rank of ${suit}s"
+    }
+
+    val deck: List<Card> =
+      Suit.values().flatMap { suit ->
+        Rank.values().map { rank ->
+          Card(rank, suit)
+        }
+      }
+
+    fun main() {
+      val rand = Random(26)
+      repeat(7) {
+        trace("'${deck.random(rand)}'")
+      }
+      trace eq """
+        'Jack of Hearts' 'Four of Hearts'
+        'Five of Clubs' 'Seven of Clubs'
+        'Jack of Diamonds' 'Ten of Spades'
+        'Seven of Spades'
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

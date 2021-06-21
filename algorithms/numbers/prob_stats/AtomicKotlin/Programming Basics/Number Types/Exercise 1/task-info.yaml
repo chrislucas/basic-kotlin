@@ -1,0 +1,99 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 72
+    length: 1
+    placeholder_text: 0
+    initial_state:
+      length: 1
+      offset: 72
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 3
+  - offset: 93
+    length: 1
+    placeholder_text: 0
+    initial_state:
+      length: 1
+      offset: 93
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 2
+  - offset: 117
+    length: 1
+    placeholder_text: 0
+    initial_state:
+      length: 1
+      offset: 117
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 11
+  - offset: 139
+    length: 3
+    placeholder_text: 0.0
+    initial_state:
+      length: 3
+      offset: 139
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 1.2
+  text: |-
+    // NumberTypes/Task1.kt
+    package numberTypesExercise1
+
+    // 11 / 3
+    val a = 0
+
+    // 11 % 3
+    val b = 0
+
+    // a * 3 + b
+    val c = 0
+
+    // 6 / 5.0
+    val d = 0.0
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package numberTypesExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestNumberTypesExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun testA() {
+        Assert.assertEquals("Wrong result for 'a'", 3, a)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testB() {
+        Assert.assertEquals("Wrong result for 'b'", 2, b)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testC() {
+        Assert.assertEquals("Wrong result for 'c'", 11, c)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testD() {
+        Assert.assertEquals("Wrong result for 'd'", 1.2, d.toDouble(), 0.0001)
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Number+Types+%2F+Exercise1
+status: Unchecked
+record: -1

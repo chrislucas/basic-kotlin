@@ -1,0 +1,300 @@
+type: theory
+files:
+- name: src/CompanionObject.kt
+  visible: true
+  text: |-
+    // CompanionObjects/CompanionObject.kt
+    package companionobjects
+    import atomictest.eq
+
+    class WithCompanion {
+      companion object {
+        val i = 3
+        fun f() = i * 3
+      }
+      fun g() = i + f()
+    }
+
+    fun WithCompanion.Companion.h() = f() * i
+
+    fun main() {
+      val wc = WithCompanion()
+      wc.g() eq 12
+      WithCompanion.i eq 3
+      WithCompanion.f() eq 9
+      WithCompanion.h() eq 27
+    }
+  learner_created: false
+- name: src/NamingCompanionObjects.kt
+  visible: true
+  text: |-
+    // CompanionObjects/NamingCompanionObjects.kt
+    package companionobjects
+    import atomictest.eq
+
+    class WithNamed {
+      companion object Named {
+        fun s() = "from Named"
+      }
+    }
+
+    class WithDefault {
+      companion object {
+        fun s() = "from Default"
+      }
+    }
+
+    fun main() {
+      WithNamed.s() eq "from Named"
+      WithNamed.Named.s() eq "from Named"
+      WithDefault.s() eq "from Default"
+      // The default name is "Companion":
+      WithDefault.Companion.s() eq "from Default"
+    }
+  learner_created: false
+- name: src/ObjectProperty.kt
+  visible: true
+  text: |-
+    // CompanionObjects/ObjectProperty.kt
+    package companionobjects
+    import atomictest.eq
+
+    class WithObjectProperty {
+      companion object {
+        private var n: Int = 0 // Only one
+      }
+      fun increment() = ++n
+    }
+
+    fun main() {
+      val a = WithObjectProperty()
+      val b = WithObjectProperty()
+      a.increment() eq 1
+      b.increment() eq 2
+      a.increment() eq 3
+    }
+  learner_created: false
+- name: src/ObjectFunctions.kt
+  visible: true
+  text: |-
+    // CompanionObjects/ObjectFunctions.kt
+    package companionobjects
+    import atomictest.eq
+
+    class CompanionObjectFunction {
+      companion object {
+        private var n: Int = 0
+        fun increment() = ++n
+      }
+    }
+
+    fun main() {
+      CompanionObjectFunction.increment() eq 1
+      CompanionObjectFunction.increment() eq 2
+    }
+  learner_created: false
+- name: src/ObjectCounter.kt
+  visible: true
+  text: |-
+    // CompanionObjects/ObjectCounter.kt
+    package companionobjects
+    import atomictest.eq
+
+    class Counted {
+      companion object {
+        private var count = 0
+      }
+      private val id = count++
+      override fun toString() = "#$id"
+    }
+
+    fun main() {
+      List(4) { Counted() } eq "[#0, #1, #2, #3]"
+    }
+  learner_created: false
+- name: src/CompanionInstance.kt
+  visible: true
+  text: |-
+    // CompanionObjects/CompanionInstance.kt
+    package companionobjects
+    import atomictest.*
+
+    interface ZI {
+      fun f(): String
+      fun g(): String
+    }
+
+    open class ZIOpen : ZI {
+      override fun f() = "ZIOpen.f()"
+      override fun g() = "ZIOpen.g()"
+    }
+
+    class ZICompanion {
+      companion object: ZIOpen()
+      fun u() = trace("${f()} ${g()}")
+    }
+
+    class ZICompanionInheritance {
+      companion object: ZIOpen() {
+        override fun g() =
+          "ZICompanionInheritance.g()"
+        fun h() = "ZICompanionInheritance.h()"
+      }
+      fun u() = trace("${f()} ${g()} ${h()}")
+    }
+
+    class ZIClass {
+      companion object: ZI {
+        override fun f() = "ZIClass.f()"
+        override fun g() = "ZIClass.g()"
+      }
+      fun u() = trace("${f()} ${g()}")
+    }
+
+    fun main() {
+      ZIClass.f()
+      ZIClass.g()
+      ZIClass().u()
+      ZICompanion.f()
+      ZICompanion.g()
+      ZICompanion().u()
+      ZICompanionInheritance.f()
+      ZICompanionInheritance.g()
+      ZICompanionInheritance().u()
+      trace eq """
+        ZIClass.f() ZIClass.g()
+        ZIOpen.f() ZIOpen.g()
+        ZIOpen.f()
+        ZICompanionInheritance.g()
+        ZICompanionInheritance.h()
+      """
+    }
+  learner_created: false
+- name: src/CompanionDelegation.kt
+  visible: true
+  text: |-
+    // CompanionObjects/CompanionDelegation.kt
+    package companionobjects
+    import atomictest.*
+
+    class ZIClosed : ZI {
+      override fun f() = "ZIClosed.f()"
+      override fun g() = "ZIClosed.g()"
+    }
+
+    class ZIDelegation {
+      companion object: ZI by ZIClosed()
+      fun u() = trace("${f()} ${g()}")
+    }
+
+    class ZIDelegationInheritance {
+      companion object: ZI by ZIClosed() {
+        override fun g() =
+          "ZIDelegationInheritance.g()"
+        fun h() =
+          "ZIDelegationInheritance.h()"
+      }
+      fun u() = trace("${f()} ${g()} ${h()}")
+    }
+
+    fun main() {
+      ZIDelegation.f()
+      ZIDelegation.g()
+      ZIDelegation().u()
+      ZIDelegationInheritance.f()
+      ZIDelegationInheritance.g()
+      ZIDelegationInheritance().u()
+      trace eq """
+        ZIClosed.f() ZIClosed.g()
+        ZIClosed.f()
+        ZIDelegationInheritance.g()
+        ZIDelegationInheritance.h()
+      """
+    }
+  learner_created: false
+- name: src/DelegateAndExtend.kt
+  visible: true
+  text: |-
+    // CompanionObjects/DelegateAndExtend.kt
+    package companionobjects
+    import atomictest.eq
+
+    interface Extended: ZI {
+      fun u(): String
+    }
+
+    class Extend : ZI by Companion, Extended {
+      companion object: ZI {
+        override fun f() = "Extend.f()"
+        override fun g() = "Extend.g()"
+      }
+      override fun u() = "${f()} ${g()}"
+    }
+
+    private fun test(e: Extended): String {
+      e.f()
+      e.g()
+      return e.u()
+    }
+
+    fun main() {
+      test(Extend()) eq "Extend.f() Extend.g()"
+    }
+  learner_created: false
+- name: src/CompanionFactory.kt
+  visible: true
+  text: |-
+    // CompanionObjects/CompanionFactory.kt
+    package companionobjects
+    import atomictest.eq
+
+    class Numbered2
+    private constructor(private val id: Int) {
+      override fun toString(): String = "#$id"
+      companion object Factory {
+        fun create(size: Int) =
+          List(size) { Numbered2(it) }
+      }
+    }
+
+    fun main() {
+      Numbered2.create(0) eq "[]"
+      Numbered2.create(5) eq
+        "[#0, #1, #2, #3, #4]"
+    }
+  learner_created: false
+- name: src/Initialization.kt
+  visible: true
+  text: |-
+    // CompanionObjects/Initialization.kt
+    package companionobjects
+    import atomictest.*
+
+    class CompanionInit {
+      companion object {
+        init {
+          trace("Companion Constructor")
+        }
+      }
+    }
+
+    fun main() {
+      trace("Before")
+      CompanionInit()
+      trace("After 1")
+      CompanionInit()
+      trace("After 2")
+      CompanionInit()
+      trace("After 3")
+      trace eq """
+        Before
+        Companion Constructor
+        After 1
+        After 2
+        After 3
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 93
+    length: 25
+    placeholder_text: // private val arrayDeque
+    initial_state:
+      length: 25
+      offset: 93
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: private val arrayDeque = ArrayDeque<E>()
+  - offset: 137
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 137
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: arrayDeque.addLast(e)
+  - offset: 162
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 162
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: arrayDeque.removeFirst()
+  text: |-
+    // Composition/Task3.kt
+    package compositionExercise3
+    import atomictest.*
+
+    class Queue<E> {
+      // private val arrayDeque
+      fun put(e: E) = "TODO"
+      fun poll(): E = TODO()
+    }
+
+    fun main() {
+      val queue = Queue<String>()
+      queue.put("a")
+      queue.put("b")
+      queue.put("c")
+      queue.put("d")
+      queue.poll() eq "a"
+      queue.poll() eq "b"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package compositionExercise3
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestCompositionExercise3 {
+
+        private val packageName = "compositionExercise3"
+
+        @Test
+        fun `#01 queue structure`() {
+            loadClass(packageName, "Queue").apply {
+                assertConstructorNumber(1)
+                assertParametersOfFirstConstructor()
+                assertMemberFunction("put")
+                assertMemberFunction("poll")
+                assertNoMemberFunction("get")
+            }
+        }
+
+        @Test
+        fun `#02 queue functioning`() {
+            val queueClass = loadClass(packageName, "Queue")
+            val queue = queueClass.createInstance()
+            val add = loadMemberFunction(queueClass, "put")
+            val poll = loadMemberFunction(queueClass, "poll")
+            add.call(queue, "a")
+            add.call(queue, "b")
+            add.call(queue, "c")
+            add.call(queue, "d")
+            assertEquals(
+                message = "First call of poll() in {'a','b','c','d'} queue should return 'a'",
+                expected = "a",
+                actual = poll.call(queue))
+            assertEquals(
+                message = "Second call of poll() in {'a','b','c','d'} queue should return 'b'",
+                expected = "b",
+                actual = poll.call(queue)
+            )
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

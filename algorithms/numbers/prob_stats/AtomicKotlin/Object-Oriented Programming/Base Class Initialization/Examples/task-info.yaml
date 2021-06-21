@@ -1,0 +1,126 @@
+type: theory
+files:
+- name: src/GreatApe3.kt
+  visible: true
+  text: |-
+    // BaseClassInit/GreatApe3.kt
+    package baseclassinit
+    import atomictest.eq
+
+    open class GreatApe(
+      val weight: Double,
+      val age: Int
+    )
+
+    open class Bonobo(weight: Double, age: Int) :
+      GreatApe(weight, age)
+
+    class Chimpanzee(weight: Double, age: Int) :
+      GreatApe(weight, age)
+
+    class BonoboB(weight: Double, age: Int) :
+      Bonobo(weight, age)
+
+    fun GreatApe.info() = "wt: $weight age: $age"
+
+    fun main() {
+      GreatApe(100.0, 12).info() eq
+        "wt: 100.0 age: 12"
+      Bonobo(110.0, 13).info() eq
+        "wt: 110.0 age: 13"
+      Chimpanzee(120.0, 14).info() eq
+        "wt: 120.0 age: 14"
+      BonoboB(130.0, 15).info() eq
+        "wt: 130.0 age: 15"
+    }
+  learner_created: false
+- name: src/NoArgConstructor.kt
+  visible: true
+  text: |-
+    // BaseClassInit/NoArgConstructor.kt
+    package baseclassinit
+
+    open class SuperClass1(val i: Int)
+    class SubClass1(i: Int) : SuperClass1(i)
+
+    open class SuperClass2
+    class SubClass2 : SuperClass2()
+  learner_created: false
+- name: src/House.kt
+  visible: true
+  text: |-
+    // BaseClassInit/House.kt
+    package baseclassinit
+    import atomictest.eq
+
+    open class House(
+      val address: String,
+      val state: String,
+      val zip: String
+    ) {
+      constructor(fullAddress: String) :
+        this(fullAddress.substringBefore(", "),
+          fullAddress.substringAfter(", ")
+            .substringBefore(" "),
+          fullAddress.substringAfterLast(" "))
+      val fullAddress: String
+        get() = "$address, $state $zip"
+    }
+
+    class VacationHouse(
+      address: String,
+      state: String,
+      zip: String,
+      val startMonth: String,
+      val endMonth: String
+    ) : House(address, state, zip) {
+      override fun toString() =
+        "Vacation house at $fullAddress " +
+        "from $startMonth to $endMonth"
+    }
+
+    class TreeHouse(
+      val name: String
+    ) : House("Tree Street, TR 00000") {
+      override fun toString() =
+        "$name tree house at $fullAddress"
+    }
+
+    fun main() {
+      val vacationHouse = VacationHouse(
+        address = "8 Target St.",
+        state = "KS",
+        zip = "66632",
+        startMonth = "May",
+        endMonth = "September")
+      vacationHouse eq
+        "Vacation house at 8 Target St., " +
+        "KS 66632 from May to September"
+      TreeHouse("Oak") eq
+        "Oak tree house at Tree Street, TR 00000"
+    }
+  learner_created: false
+- name: src/OtherConstructors.kt
+  visible: true
+  text: |-
+    // BaseClassInit/OtherConstructors.kt
+    package baseclassinit
+    import atomictest.eq
+
+    open class Base(val i: Int)
+
+    class Derived : Base {
+      constructor(i: Int) : super(i)
+      constructor() : this(9)
+    }
+
+    fun main() {
+      val d1 = Derived(11)
+      d1.i eq 11
+      val d2 = Derived()
+      d2.i eq 9
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

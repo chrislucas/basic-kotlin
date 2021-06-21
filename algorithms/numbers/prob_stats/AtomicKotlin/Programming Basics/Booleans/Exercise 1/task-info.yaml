@@ -1,0 +1,81 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 100
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 100
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "false"
+  - offset: 143
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 143
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "true"
+  - offset: 215
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 215
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "true"
+  text: |-
+    // Booleans/Task1.kt
+    package booleansExercise1
+
+    // (178 + 131 > 209 + 99) && false
+    val a: Boolean = TODO()
+
+    // 1 > 2 || 1 < 2
+    val b: Boolean = TODO()
+
+    // (111 - 101 >= 10) && (11.0 > 10.99) && true
+    val c: Boolean = TODO()
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package booleansExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestBooleansExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun testA() {
+        Assert.assertFalse(a)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testB() {
+        Assert.assertTrue(b)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testC() {
+        Assert.assertTrue(c)
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Booleans+%2F+Exercise1
+status: Unchecked
+record: -1

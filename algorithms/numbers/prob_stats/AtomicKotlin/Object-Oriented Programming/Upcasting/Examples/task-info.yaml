@@ -1,0 +1,94 @@
+type: theory
+files:
+- name: src/Shapes.kt
+  visible: true
+  text: |-
+    // Upcasting/Shapes.kt
+    package upcasting
+
+    interface Shape {
+      fun draw(): String
+      fun erase(): String
+    }
+
+    class Circle : Shape {
+      override fun draw() = "Circle.draw"
+      override fun erase() = "Circle.erase"
+    }
+
+    class Square : Shape {
+      override fun draw() = "Square.draw"
+      override fun erase() = "Square.erase"
+      fun color() = "Square.color"
+    }
+
+    class Triangle : Shape {
+      override fun draw() = "Triangle.draw"
+      override fun erase() = "Triangle.erase"
+      fun rotate() = "Triangle.rotate"
+    }
+  learner_created: false
+- name: src/Drawing.kt
+  visible: true
+  text: |-
+    // Upcasting/Drawing.kt
+    package upcasting
+    import atomictest.*
+
+    fun show(shape: Shape) {
+      trace("Show: ${shape.draw()}")
+    }
+
+    fun main() {
+      listOf(Circle(), Square(), Triangle())
+        .forEach(::show)
+      trace eq """
+        Show: Circle.draw
+        Show: Square.draw
+        Show: Triangle.draw
+      """
+    }
+  learner_created: false
+- name: src/TrimmedMembers.kt
+  visible: true
+  text: |-
+    // Upcasting/TrimmedMembers.kt
+    package upcasting
+    import atomictest.*
+
+    fun trim(shape: Shape) {
+      trace(shape.draw())
+      trace(shape.erase())
+      // Doesn't compile:
+      // shape.color()    // [1]
+      // shape.rotate()   // [2]
+    }
+
+    fun main() {
+      trim(Square())
+      trim(Triangle())
+      trace eq """
+        Square.draw
+        Square.erase
+        Triangle.draw
+        Triangle.erase
+      """
+    }
+  learner_created: false
+- name: src/Assignment.kt
+  visible: true
+  text: |-
+    // Upcasting/Assignment.kt
+    import upcasting.*
+
+    fun main() {
+      val shape1: Shape = Square()
+      val shape2: Shape = Triangle()
+      // Doesn't compile:
+      // shape1.color()
+      // shape2.rotate()
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

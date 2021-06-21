@@ -1,0 +1,160 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 173
+    length: 6
+    placeholder_text: ' /*?*/'
+    initial_state:
+      length: 6
+      offset: 173
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' '
+  - offset: 186
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 186
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it == 0
+  - offset: 224
+    length: 6
+    placeholder_text: ' /*?*/'
+    initial_state:
+      length: 6
+      offset: 224
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' !'
+  - offset: 236
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 236
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it == 0
+  - offset: 315
+    length: 6
+    placeholder_text: ' /*?*/'
+    initial_state:
+      length: 6
+      offset: 315
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' !'
+  - offset: 328
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 328
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it == 0
+  - offset: 363
+    length: 6
+    placeholder_text: ' /*?*/'
+    initial_state:
+      length: 6
+      offset: 363
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' '
+  - offset: 375
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 375
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: it == 0
+  text: |-
+    // OperationsOnCollections/Task4.kt
+    package operationsOnCollectionsExercise4
+    import atomictest.eq
+
+    fun List<Int>.allNonZero() = all { it != 0 }
+    fun List<Int>.allNonZero1() = /*?*/none { TODO() }
+    fun List<Int>.allNonZero2() = /*?*/any { TODO() }
+
+    fun List<Int>.hasZero() = !all { it != 0 }
+    fun List<Int>.hasZero1() = /*?*/none { TODO() }
+    fun List<Int>.hasZero2() = /*?*/any { TODO() }
+
+    fun main() {
+      val list1 = listOf(1, 2, 3)
+      list1.allNonZero() eq true
+      list1.allNonZero1() eq true
+      list1.allNonZero2() eq true
+
+      list1.hasZero() eq false
+      list1.hasZero1() eq false
+      list1.hasZero2() eq false
+
+      val list2 = listOf(0, 1, 2)
+      list2.allNonZero() eq false
+      list2.allNonZero1() eq false
+      list2.allNonZero2() eq false
+
+      list2.hasZero() eq true
+      list2.hasZero1() eq true
+      list2.hasZero2() eq true
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package operationsOnCollectionsExercise4
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestOperationsOnCollectionsExercise4 {
+      private fun check(list: List<Int>) {
+        val nonZero = list.all { it != 0 }
+        Assert.assertEquals("Wrong result for 'allNonZero($list)'", nonZero, list.allNonZero())
+        Assert.assertEquals("Wrong result for 'allNonZero1($list)'", nonZero, list.allNonZero1())
+        Assert.assertEquals("Wrong result for 'allNonZero2($list)'", nonZero, list.allNonZero2())
+
+        val hasZero = list.any { it == 0 }
+        Assert.assertEquals("Wrong result for 'hasZero($list)'", hasZero, list.hasZero())
+        Assert.assertEquals("Wrong result for 'hasZero1($list)'", hasZero, list.hasZero1())
+        Assert.assertEquals("Wrong result for 'hasZero2($list)'", hasZero, list.hasZero2())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() = check(listOf(1, 2, 3))
+
+      @Test(timeout = TIMEOUT)
+      fun test2Sample() = check(listOf(0, 1, 2))
+
+      @Test(timeout = TIMEOUT)
+      fun test3() = check(listOf(0, 0, 0))
+
+      @Test(timeout = TIMEOUT)
+      fun test4() = check(listOf(0, 1, 2, 0, 3, 4))
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Operations+on+Collections+%2F+Exercise4
+status: Unchecked
+record: -1

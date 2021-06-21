@@ -1,0 +1,45 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 102
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 102
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun main() {
+        group.filterIsInstance<Dog>()
+          .map(Dog::bark) eq "[Yip!, Yip!]"
+        group.filterIsInstance(Dog::class.java)
+          .map(Dog::bark) eq "[Yip!, Yip!]"
+      }
+  text: |-
+    // DownCasting/DownCastEx2.kt
+    package downcastingExercise2
+    import downcasting.*
+    import atomictest.eq
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package downcastingExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestDowncastingExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

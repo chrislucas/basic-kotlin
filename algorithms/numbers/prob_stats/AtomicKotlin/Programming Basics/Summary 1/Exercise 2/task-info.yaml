@@ -1,0 +1,72 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 81
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 81
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var index = 0
+        var result = ""
+        for (c in s) {
+          if (index % 2 == 0) {
+            result += c
+          }
+          index++
+        }
+        return result
+  text: |-
+    // Summary1/Task2.kt
+    package summaryIExercise2
+
+    fun other(s: String): String {
+      TODO()
+    }
+
+    fun main() {
+      println(other("cement"))
+    }
+    /* Output:
+    cmn
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise2 {
+      private fun testString(s: String) {
+        Assert.assertEquals("Wrong result for '$s'",
+          s.filterIndexed { index, _ -> index % 2 == 0 }, other(s))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1() = testString("cement")
+
+      @Test(timeout = TIMEOUT)
+      fun test2() = testString("abcdef")
+
+      @Test(timeout = TIMEOUT)
+      fun test3() = testString("1234567890")
+
+      @Test(timeout = TIMEOUT)
+      fun test4() = testString(('A'..'Z').joinToString(""))
+    }
+  learner_created: false
+status: Unchecked
+record: -1

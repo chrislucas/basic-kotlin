@@ -1,0 +1,100 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 445
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 445
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      """
+          Frog: jump
+          Animal: jump
+          Frog: talk
+          Animal: talk
+        """
+  text: |-
+    // Polymorphism/Task2.kt
+    package polymorphismExercise2
+    import atomictest.*
+
+    open class Animal {
+      open fun talk() {
+        trace("Animal: talk")
+      }
+      open fun jump() {
+        trace("Animal: jump")
+        talk()
+      }
+    }
+
+    class Frog : Animal() {
+      override fun talk() {
+        trace("Frog: talk")
+        super.talk()
+      }
+      override fun jump() {
+        trace("Frog: jump")
+        super.jump()
+      }
+    }
+
+    fun main() {
+      val animal: Animal = Frog()
+      animal.jump()
+      trace eq TODO()
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package polymorphismExercise2
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestPolymorphismExercise2 : TestTrace() {
+
+        private val packageName = "polymorphismExercise2"
+
+        @Test
+        fun `#01 classes structure`() {
+            loadClass(packageName, "Animal").apply {
+                assertConstructorNumber(1)
+            }
+            loadClass(packageName, "Frog").apply {
+                assertConstructorNumber(1)
+                assertInheritance("Animal")
+            }
+        }
+
+        @Test
+        fun `#02 how does the frog jump`() {
+            (loadClass(packageName, "Frog").createInstance() as Animal).jump()
+
+            assertEquals(
+                    message = "Incorrect result of frog jump()",
+                    actual = loadTraceContent(),
+                    expected = listOf(
+                            "Frog: jump",
+                            "Animal: jump",
+                            "Frog: talk",
+                            "Animal: talk"
+                    )
+            )
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

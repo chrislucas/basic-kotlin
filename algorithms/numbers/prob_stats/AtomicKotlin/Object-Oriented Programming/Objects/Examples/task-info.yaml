@@ -1,0 +1,119 @@
+type: theory
+files:
+- name: src/ObjectKeyword.kt
+  visible: true
+  text: |-
+    // Objects/ObjectKeyword.kt
+    package objects
+    import atomictest.eq
+
+    object JustOne {
+      val n = 2
+      fun f() = n * 10
+      fun g() = this.n * 20   // [1]
+    }
+
+    fun main() {
+      // val x = JustOne() // Error
+      JustOne.n eq 2
+      JustOne.f() eq 20
+      JustOne.g() eq 40
+    }
+  learner_created: false
+- name: src/ObjectInheritance.kt
+  visible: true
+  text: |-
+    // Objects/ObjectInheritance.kt
+    package objects
+    import atomictest.eq
+
+    open class Paint(val color: String) {
+      open fun apply() = "Applying $color"
+    }
+
+    object Acrylic: Paint("Blue") {
+      override fun apply() =
+        "Acrylic, ${super.apply()}"
+    }
+
+    interface PaintPreparation {
+      fun prepare(): String
+    }
+
+    object Prepare: PaintPreparation {
+      override fun prepare() = "Scrape"
+    }
+
+    fun main() {
+      Prepare.prepare() eq "Scrape"
+      Paint("Green").apply() eq "Applying Green"
+      Acrylic.apply() eq "Acrylic, Applying Blue"
+    }
+  learner_created: false
+- name: src/GlobalSharing.kt
+  visible: true
+  text: |-
+    // Objects/GlobalSharing.kt
+    package objectsharing
+
+    object Shared {
+      var i: Int = 0
+    }
+  learner_created: false
+- name: src/Share1.kt
+  visible: true
+  text: |-
+    // Objects/Share1.kt
+    package objectshare1
+    import objectsharing.Shared
+
+    fun f() {
+      Shared.i += 5
+    }
+  learner_created: false
+- name: src/Share2.kt
+  visible: true
+  text: |-
+    // Objects/Share2.kt
+    package objectshare2
+    import objectsharing.Shared
+    import objectshare1.f
+    import atomictest.eq
+
+    fun g() {
+      Shared.i += 7
+    }
+
+    fun main() {
+      f()
+      g()
+      Shared.i eq 12
+    }
+  learner_created: false
+- name: src/ObjectNesting.kt
+  visible: true
+  text: |-
+    // Objects/ObjectNesting.kt
+    package objects
+    import atomictest.eq
+
+    object Outer {
+      object Nested {
+        val a = "Outer.Nested.a"
+      }
+    }
+
+    class HasObject {
+      object Nested {
+        val a = "HasObject.Nested.a"
+      }
+    }
+
+    fun main() {
+      Outer.Nested.a eq "Outer.Nested.a"
+      HasObject.Nested.a eq "HasObject.Nested.a"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

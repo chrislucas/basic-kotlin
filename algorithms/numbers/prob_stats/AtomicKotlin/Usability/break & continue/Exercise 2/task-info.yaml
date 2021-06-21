@@ -1,0 +1,134 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 215
+    length: 12
+    placeholder_text: // add label
+    initial_state:
+      length: 12
+      offset: 215
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '@inner'
+  - offset: 417
+    length: 12
+    placeholder_text: // add label
+    initial_state:
+      length: 12
+      offset: 417
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '@outer'
+  text: |-
+    // BreakAndContinue/Task2.kt
+    package breakAndContinueExercise2
+
+    fun analyzeStrings1(strings: List<List<String>>) {
+      outer@ for (list in strings) {
+        inner@ for (string in list) {
+          if (string == "stop") break// add label
+          println(string)
+        }
+      }
+    }
+
+    fun analyzeStrings2(strings: List<List<String>>) {
+      outer@ for (list in strings) {
+        inner@ for (string in list) {
+          if (string == "stop") continue// add label
+          println(string)
+        }
+      }
+    }
+
+    fun main() {
+      val strings = listOf(
+        listOf("a", "b", "stop", "z", "e"),
+        listOf("first", "second", "stop", "ieuwg")
+      )
+      println("analyzeStrings1:")
+      analyzeStrings1(strings)
+      println("analyzeStrings2:")
+      analyzeStrings2(strings)
+    }
+    /* Output:
+    analyzeStrings1:
+    a
+    b
+    first
+    second
+    analyzeStrings2:
+    a
+    b
+    first
+    second
+     */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package breakAndContinueExercise2
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestBreakAndContinueExercise2 {
+      private fun checkOutputForAnalyzeCall(func: String, strings: List<List<String>>, action: () -> Unit) {
+        runAndCheckSystemOutput("Wrong output after calling '$func' on $strings", expectedOutput(strings), action)
+      }
+
+      private fun expectedOutput(strings: List<List<String>>): String = buildString {
+        for (list in strings) {
+          for (string in list) {
+            if (string == "stop") break
+            appendLine(string)
+          }
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Main() {
+        runAndCheckSystemOutput("Wrong output after calling 'main'", """
+          analyzeStrings1:
+          a
+          b
+          first
+          second
+          analyzeStrings2:
+          a
+          b
+          first
+          second
+        """.trimIndent(), ::main)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1AnalyzeStrings() {
+        val list = listOf(
+          listOf("1", "stop", "2")
+        )
+        checkOutputForAnalyzeCall("analyzeStrings1", list) { analyzeStrings1(list) }
+        checkOutputForAnalyzeCall("analyzeStrings2", list) { analyzeStrings2(list) }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2AnalyzeStrings() {
+        val list = listOf(
+          listOf("stop", "i", "e", "we", "by", "no"),
+          listOf("a", "b", "c", "c", "stop", "e", "f")
+        )
+        checkOutputForAnalyzeCall("analyzeStrings1", list) { analyzeStrings1(list) }
+        checkOutputForAnalyzeCall("analyzeStrings2", list) { analyzeStrings2(list) }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

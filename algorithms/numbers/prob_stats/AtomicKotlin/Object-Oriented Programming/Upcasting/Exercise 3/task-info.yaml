@@ -1,0 +1,215 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 284
+    length: 10
+    placeholder_text: class Hero
+    initial_state:
+      length: 10
+      offset: 284
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Hero : ActionCharacter(), Fighter, Swimmer, Flyer {
+        override fun swim() = "Hero swim"
+        override fun fly() = "Hero fly"
+      }
+  - offset: 325
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 325
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace(x.fight())
+  - offset: 363
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 363
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace(x.swim())
+  - offset: 398
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 398
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace(x.fly())
+  - offset: 445
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 445
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace(x.fight())
+  - offset: 468
+    length: 175
+    placeholder_text: |-
+      /*
+        val h = Hero()
+        tryFight(h) // Treat it as a Fight
+        trySwim(h) // Treat it as a Swim
+        tryFly(h) // Treat it as a Fly
+        doAction(h) // Treat it as an ActionCharacter
+      */
+    initial_state:
+      length: 175
+      offset: 468
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val h = Hero()
+        tryFight(h) // Treat it as a Fight
+        trySwim(h) // Treat it as a Swim
+        tryFly(h) // Treat it as a Fly
+        doAction(h) // Treat it as an ActionCharacter
+  text: |-
+    // Upcasting/Task3.kt
+    package upcastingExercise3
+    import atomictest.trace
+
+    interface Fighter {
+      fun fight(): String
+    }
+
+    interface Swimmer {
+      fun swim(): String
+    }
+
+    interface Flyer {
+      fun fly(): String
+    }
+
+    open class ActionCharacter {
+      fun fight(): String = "ActionCharacter fight"
+    }
+
+    class Hero
+
+    fun tryFight(x: Fighter) {
+      TODO()
+    }
+
+    fun trySwim(x: Swimmer) {
+      TODO()
+    }
+
+    fun tryFly(x: Flyer) {
+      TODO()
+    }
+
+    fun doAction(x: ActionCharacter) {
+      TODO()
+    }
+
+    fun main() {
+    /*
+      val h = Hero()
+      tryFight(h) // Treat it as a Fight
+      trySwim(h) // Treat it as a Swim
+      tryFly(h) // Treat it as a Fly
+      doAction(h) // Treat it as an ActionCharacter
+    */
+      trace eq """
+        ActionCharacter fight
+        Hero swim
+        Hero fly
+        ActionCharacter fight
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package upcastingExercise3
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestUpcastingExercise3 : TestTrace() {
+
+      private val packageName = "upcastingExercise3"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Fighter").apply {
+          assertInterface()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("fight")
+        }
+        loadClass("Swimmer").apply {
+          assertInterface()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("swim")
+        }
+        loadClass("Flyer").apply {
+          assertInterface()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("fly")
+        }
+        loadClass("ActionCharacter").apply {
+          assertOpen()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("fight")
+        }
+
+        loadClass("Hero").apply {
+          assertInheritance("ActionCharacter", "Fighter", "Swimmer", "Flyer")
+          assertDeclaredMemberFunction("swim")
+          assertDeclaredMemberFunction("fly")
+        }
+
+        val fileFacade = loadFileFacade(packageName)
+        listOf("tryFight", "trySwim", "tryFly", "doAction").forEach {
+          loadToplevelFunction(fileFacade, it)
+        }
+      }
+
+      @Test
+      fun `#02 hero actions`() {
+        val fileFacade = loadFileFacade(packageName)
+        val hero = loadClass("Hero").createInstance()
+        listOf("tryFight", "trySwim", "tryFly", "doAction").map {
+          val action = loadToplevelFunction(fileFacade, it)
+          action.invoke(null, hero)
+        }
+
+        assertEquals(
+            message = "Incorrect sequence of actions applied to the apples",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "ActionCharacter fight",
+                "Hero swim",
+                "Hero fly",
+                "ActionCharacter fight"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

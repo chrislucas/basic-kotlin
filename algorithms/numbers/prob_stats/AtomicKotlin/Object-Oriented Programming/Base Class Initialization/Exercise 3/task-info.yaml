@@ -1,0 +1,139 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 92
+    length: 49
+    placeholder_text: '/* TODO: Implement Animal, Cat and Dog classes */'
+    initial_state:
+      length: 49
+      offset: 92
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Animal(val sound: String = "???")
+
+      class Cat(sound: String = "meow") : Animal(sound)
+
+      class Dog(sound: String = "woof") : Animal(sound)
+  - offset: 156
+    length: 125
+    placeholder_text: |-
+      /*
+        val animal = Animal()
+        trace(animal.sound)
+        val cat = Cat()
+        trace(cat.sound)
+        val dog = Dog()
+        trace(dog.sound)
+      */
+    initial_state:
+      length: 125
+      offset: 156
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val animal = Animal()
+        trace(animal.sound)
+        val cat = Cat()
+        trace(cat.sound)
+        val dog = Dog()
+        trace(dog.sound)
+  text: |-
+    // BaseClassInit/Task3.kt
+    package baseClassInitializationExercise3
+    import atomictest.trace
+
+    /* TODO: Implement Animal, Cat and Dog classes */
+
+    fun main() {
+    /*
+      val animal = Animal()
+      trace(animal.sound)
+      val cat = Cat()
+      trace(cat.sound)
+      val dog = Dog()
+      trace(dog.sound)
+    */
+      trace eq "??? meow woof"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package baseClassInitializationExercise3
+    import atomictest.trace
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestBaseClassInitializationExercise3 : TestTrace() {
+
+      private val packageName = "baseClassInitializationExercise3"
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass(packageName, "Animal").apply {
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "sound" to String::class
+          )
+          assertMemberProperty("sound", String::class)
+        }
+        loadClass(packageName, "Cat").apply {
+          assertInheritance("Animal")
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "sound" to String::class
+          )
+          assertNoDeclaredMemberProperty("sound")
+        }
+        loadClass(packageName, "Dog").apply {
+          assertInheritance("Animal")
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "sound" to String::class
+          )
+          assertNoDeclaredMemberProperty("sound")
+        }
+      }
+
+      @Test
+      fun `#02 animal sounds`() {
+        loadClass(packageName, "Animal").apply {
+          val animal = createInstance()
+          val sound = loadMemberProperty(this, "sound").call(animal) as String
+          trace(sound)
+        }
+        loadClass(packageName, "Cat").apply {
+          val cat = createInstance()
+          val sound = loadMemberProperty(this, "sound").call(cat) as String
+          trace(sound)
+        }
+        loadClass(packageName, "Dog").apply {
+          val dog = createInstance()
+          val sound = loadMemberProperty(this, "sound").call(dog) as String
+          trace(sound)
+        }
+
+        assertEquals(
+            message = "Incorrect animal sounds",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "???",
+                "meow",
+                "woof"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

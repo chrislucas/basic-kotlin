@@ -1,0 +1,194 @@
+type: theory
+files:
+- name: src/NewAngle.kt
+  visible: true
+  text: |-
+    // UsingOperators/NewAngle.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = MutableList(10) { 'a' + it }
+      list[7] eq 'h' // operator get()
+      list.get(8) eq 'i' // Explicit call
+      list[9] = 'x' // operator set()
+      list.set(9, 'x') // Explicit call
+      list[9] eq 'x'
+      ('d' in list) eq true // operator contains()
+      list.contains('e') eq true // Explicit call
+    }
+  learner_created: false
+- name: src/OperatorPlus.kt
+  visible: true
+  text: |-
+    // UsingOperators/OperatorPlus.kt
+    import atomictest.eq
+
+    fun main() {
+      val mutableList = mutableListOf(1, 2, 3)
+      mutableList += 4  // operator plusAssign()
+      mutableList.plusAssign(5) // Explicit
+      mutableList eq "[1, 2, 3, 4, 5]"
+      mutableList + 99 eq "[1, 2, 3, 4, 5, 99]"
+      mutableList eq "[1, 2, 3, 4, 5]"
+      val list = listOf(1)  // Read-only
+      val newList = list + 2  // operator plus()
+      list eq "[1]"
+      newList eq "[1, 2]"
+      val another = list.plus(3)  // Explicit
+      another eq "[1, 3]"
+    }
+  learner_created: false
+- name: src/Unexpected.kt
+  visible: true
+  text: |-
+    // UsingOperators/Unexpected.kt
+    import atomictest.eq
+
+    fun main() {
+      var list = listOf(1, 2)
+      list += 3  // Probably unexpected
+      list eq "[1, 2, 3]"
+    }
+  learner_created: false
+- name: src/ReadOnlyAndPlus.kt
+  visible: true
+  text: |-
+    // UsingOperators/ReadOnlyAndPlus.kt
+    import atomictest.eq
+
+    fun main() {
+      var list = listOf(1, 2)
+      val initial = list
+      list += 3
+      list eq "[1, 2, 3]"
+      list = list.plus(4)
+      list eq "[1, 2, 3, 4]"
+      initial eq "[1, 2]"
+    }
+  learner_created: false
+- name: src/CompareTo.kt
+  visible: true
+  text: |-
+    // UsingOperators/CompareTo.kt
+    package usingoperators
+    import atomictest.eq
+
+    data class Contact(
+      val name: String,
+      val mobile: String
+    ): Comparable<Contact> {
+      override fun compareTo(
+        other: Contact
+      ): Int = name.compareTo(other.name)
+    }
+
+    fun main() {
+      val alice = Contact("Alice", "0123456789")
+      val bob = Contact("Bob", "9876543210")
+      val carl = Contact("Carl", "5678901234")
+      (alice < bob) eq true
+      (alice <= bob) eq true
+      (alice > bob) eq false
+      (alice >= bob) eq false
+      val contacts = listOf(bob, carl, alice)
+      contacts.sorted() eq
+        listOf(alice, bob, carl)
+      contacts.sortedDescending() eq
+        listOf(carl, bob, alice)
+    }
+  learner_created: false
+- name: src/ComparableRange.kt
+  visible: true
+  text: |-
+    // UsingOperators/ComparableRange.kt
+    package usingoperators
+    import atomictest.eq
+
+    class F(val i: Int): Comparable<F> {
+      override fun compareTo(other: F) =
+        i.compareTo(other.i)
+    }
+
+    fun main() {
+      val range = F(1)..F(7)
+      (F(3) in range) eq true
+      (F(9) in range) eq false
+    }
+  learner_created: false
+- name: src/DestructuringDuo.kt
+  visible: true
+  text: |-
+    // UsingOperators/DestructuringDuo.kt
+    package usingoperators
+    import atomictest.*
+
+    class Duo(val x: Int, val y: Int) {
+      operator fun component1(): Int {
+        trace("component1()")
+        return x
+      }
+      operator fun component2(): Int {
+        trace("component2()")
+        return y
+      }
+    }
+
+    fun main() {
+      val (a, b) = Duo(1, 2)
+      a eq 1
+      b eq 2
+      trace eq "component1() component2()"
+    }
+  learner_created: false
+- name: src/DestructuringMap.kt
+  visible: true
+  text: |-
+    // UsingOperators/DestructuringMap.kt
+    import atomictest.eq
+
+    fun main() {
+      val map = mapOf("a" to 1)
+      for ((key, value) in map) {
+        key eq "a"
+        value eq 1
+      }
+      // The Destructuring assignment becomes:
+      for (entry in map) {
+        val key = entry.component1()
+        val value = entry.component2()
+        key eq "a"
+        value eq 1
+      }
+    }
+  learner_created: false
+- name: src/DestructuringData.kt
+  visible: true
+  text: |-
+    // UsingOperators/DestructuringData.kt
+    package usingoperators
+    import atomictest.eq
+
+    data class Person(
+      val name: String,
+      val age: Int
+    ) {
+      // Compiler generates:
+      // fun component1() = name
+      // fun component2() = age
+    }
+
+    fun main() {
+      val person = Person("Alice", 29)
+      val (name, age) = person
+      // The Destructuring assignment becomes:
+      val name_ = person.component1()
+      val age_ = person.component2()
+      name eq "Alice"
+      age eq 29
+      name_ eq "Alice"
+      age_ eq 29
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

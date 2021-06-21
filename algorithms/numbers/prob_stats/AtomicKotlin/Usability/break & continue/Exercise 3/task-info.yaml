@@ -1,0 +1,187 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 120
+    length: 71
+    placeholder_text: |-
+      for (i in list) {
+          if (i == 0) break
+          println("analyzing $i")
+        }
+    initial_state:
+      length: 71
+      offset: 120
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: analyzeList(list)
+  - offset: 251
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 251
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (i in list) {
+          if (i == 0) return
+          println("analyzing $i")
+        }
+  - offset: 343
+    length: 48
+    placeholder_text: |-
+      if (i == 0) continue
+          println("analyzing $i")
+    initial_state:
+      length: 48
+      offset: 343
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: analyzeElement(i)
+  - offset: 449
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 449
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (i == 0) return
+        println("analyzing $i")
+  text: |-
+    // BreakAndContinue/Task3.kt
+    package breakAndContinueExercise3
+
+    fun usingBreak(list: List<Int>) {
+      println("before")
+      for (i in list) {
+        if (i == 0) break
+        println("analyzing $i")
+      }
+      println("after")
+    }
+
+    fun analyzeList(list: List<Int>) {
+      // TODO
+    }
+
+    fun usingContinue(list: List<Int>) {
+      println("before")
+      for (i in list) {
+        if (i == 0) continue
+        println("analyzing $i")
+      }
+      println("after")
+    }
+
+    fun analyzeElement(i: Int) {
+      // TODO
+    }
+
+    fun main() {
+      val list = listOf(1, 2, 0, 3, 4)
+      println("Using break")
+      usingBreak(list)
+      println()
+      println("Using continue")
+      usingContinue(list)
+    }
+    /* Output:
+    Using break
+    before
+    analyzing 1
+    analyzing 2
+    after
+
+    Using continue
+    before
+    analyzing 1
+    analyzing 2
+    analyzing 3
+    analyzing 4
+    after
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package breakAndContinueExercise3
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestBreakAndContinueExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun test1Main() {
+        runAndCheckSystemOutput("Wrong output when calling 'main'", """
+                Using break
+                before
+                analyzing 1
+                analyzing 2
+                after
+
+                Using continue
+                before
+                analyzing 1
+                analyzing 2
+                analyzing 3
+                analyzing 4
+                after
+            """.trimIndent(), ::main)
+      }
+
+      private fun checkOutput(funcName: String, input: Any, expectedOutput: String, action: () -> Unit) {
+        runAndCheckSystemOutput("Wrong output after calling '$funcName' on $input", expectedOutput, action)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2UsingBreak() {
+        val input = listOf(1, 0, 3)
+        checkOutput("usingBreak", input, """
+                before
+                analyzing 1
+                after
+            """.trimIndent()) { usingBreak(input) }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3UsingContinue() {
+        val input = listOf(1, 0, 3)
+        checkOutput("usingContinue", input, """
+                before
+                analyzing 1
+                analyzing 3
+                after
+            """.trimIndent()) { usingContinue(input) }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test4AnalyzeList() {
+        val input = listOf(1, 0, 3)
+        checkOutput("analyzeList", input, """
+                analyzing 1
+            """.trimIndent()) { analyzeList(input) }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test5AnalyzeElement() {
+        val value = 17
+        checkOutput("analyzeElement", value, """
+                analyzing 17
+            """.trimIndent()) { analyzeElement(value) }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

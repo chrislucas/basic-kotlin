@@ -1,0 +1,81 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 62
+    length: 13
+    placeholder_text: fun show() {}
+    initial_state:
+      length: 13
+      offset: 62
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun show(i: Int, s: String, c: Char, d: Double) {
+        println("i: $i")
+        println("""s: "$s"""")
+        println("c: '$c'")
+        println("d: $d")
+      }
+  text: |-
+    // StringTemplates/Task3.kt
+    package stringTemplatesExercise3
+
+    fun show() {}
+
+    fun main() {
+    //  show(1, "abc", 'd', 2.0)
+    }
+    /* Expected output:
+    i: 1
+    s: "abc"
+    c: 'd'
+    d: 2.0
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package stringTemplatesExercise3
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.checkParametersOfTopLevelFunction
+    import util.runAndCheckSystemOutput
+    import kotlin.reflect.KFunction
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestStringTemplatesExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun testShow() {
+        val showFunc = ::show
+        checkParametersOfTopLevelFunction(showFunc, listOf(
+          "i" to "kotlin.Int",
+          "s" to "kotlin.String",
+          "c" to "kotlin.Char",
+          "d" to "kotlin.Double"
+        ))
+        testArguments(showFunc, 1, "abc", 'd', 2.0)
+        testArguments(showFunc, 193, "string", '&', -7.51)
+      }
+
+      private fun testArguments(showMethod: KFunction<*>, i: Int, s: String, c: Char, d: Double) {
+        val message = "Incorrect output for 'show' function call"
+        val expectedOutput = """
+            i: $i
+            s: "$s"
+            c: '$c'
+            d: $d
+          """.trimIndent()
+        runAndCheckSystemOutput(message, expectedOutput) {
+          showMethod.call(i, s, c, d)
+        }
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

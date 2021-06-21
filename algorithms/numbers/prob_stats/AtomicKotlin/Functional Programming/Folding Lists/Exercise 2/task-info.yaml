@@ -1,0 +1,60 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 135
+    length: 25
+    placeholder_text: TODO("fold(???) { ??? }")
+    initial_state:
+      length: 25
+      offset: 135
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fold(0) { count, element ->
+          if (predicate(element)) count + 1 else count
+        }
+  text: |-
+    // FoldingLists/Task2.kt
+    package foldingListsExercise2
+    import atomictest.eq
+
+    fun <T> List<T>.count(predicate: (T) -> Boolean): Int =
+      TODO("fold(???) { ??? }")
+
+    fun main() {
+      val list = listOf(1, -2, 3)
+      list.count { it > 0 } eq 2
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package foldingListsExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import kotlin.collections.count as countLibrary
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestFoldingListsExercise2 {
+      private fun <T> checkCount(list: List<T>, predicateString: String, predicate: (T) -> Boolean) {
+        Assert.assertEquals("Wrong implementation for 'count'. Wrong result for counting $predicateString in $list", list.countLibrary(predicate), list.count(predicate))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() = checkCount(listOf(1, -2, 3), "{ it > 0 }") { it > 0 }
+
+      @Test(timeout = TIMEOUT)
+      fun test2() = checkCount(listOf("abc", "cd", "eea"), "{ it.contains('a') }") { it.contains('a') }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Folding+Lists+%2F+Exercise2
+status: Unchecked
+record: -1

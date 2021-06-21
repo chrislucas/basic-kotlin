@@ -1,0 +1,59 @@
+type: theory
+files:
+- name: src/Vars.kt
+  visible: true
+  text: |-
+    // VarAndVal/Vars.kt
+
+    fun main() {
+      var whole = 11              // [1]
+      var fractional = 1.4        // [2]
+      var words = "Twas Brillig"  // [3]
+      println(whole)
+      println(fractional)
+      println(words)
+    }
+    /* Output:
+    11
+    1.4
+    Twas Brillig
+    */
+  learner_created: false
+- name: src/AVarIsMutable.kt
+  visible: true
+  text: |-
+    // VarAndVal/AVarIsMutable.kt
+
+    fun main() {
+      var sum = 1
+      sum = sum + 2
+      sum += 3
+      println(sum)
+    }
+    /* Output:
+    6
+    */
+  learner_created: false
+- name: src/Vals.kt
+  visible: true
+  text: |-
+    // VarAndVal/Vals.kt
+
+    fun main() {
+      val whole = 11
+      // whole = 15 // Error   // [1]
+      val fractional = 1.4
+      val words = "Twas Brillig"
+      println(whole)
+      println(fractional)
+      println(words)
+    }
+    /* Output:
+    11
+    1.4
+    Twas Brillig
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

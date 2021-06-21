@@ -1,0 +1,98 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 114
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 114
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      sealed class Insect {
+        open fun walk() = "$name: walk"
+        open fun fly() = "$name: fly"
+      }
+
+      class HouseFly : Insect()
+
+      class Flea : Insect() {
+        override fun fly() =
+          throw Exception("Flea cannot fly")
+        fun crawl() = "Flea: crawl"
+      }
+
+      fun Insect.basic() =
+        walk() + " " +
+          when(this) {
+            is Flea -> crawl()
+            else -> fly()
+          }
+
+      interface SwimmingInsect {
+        fun swim() = "$name: swim"
+      }
+
+      interface WaterWalker {
+        fun walkWater() =
+          "$name: walk on water"
+      }
+
+      class WaterBeetle : Insect(), SwimmingInsect
+      class WaterStrider : Insect(), WaterWalker
+      class WhirligigBeetle : Insect(),
+        SwimmingInsect, WaterWalker
+
+      fun Insect.water() =
+        when(this) {
+          is SwimmingInsect -> swim()
+          is WaterWalker -> walkWater()
+          else -> "$name: drown"
+        }
+
+      fun main() {
+        val insects = listOf(
+          HouseFly(), Flea(), WaterStrider(),
+          WaterBeetle(), WhirligigBeetle()
+        )
+        insects.map { it.basic() } eq
+          "[HouseFly: walk HouseFly: fly, " +
+          "Flea: walk Flea: crawl, " +
+          "WaterStrider: walk WaterStrider: fly, " +
+          "WaterBeetle: walk WaterBeetle: fly, " +
+          "WhirligigBeetle: walk " +
+          "WhirligigBeetle: fly]"
+        insects.map { it.water() } eq
+          "[HouseFly: drown, Flea: drown, " +
+          "WaterStrider: walk on water, " +
+          "WaterBeetle: swim, " +
+          "WhirligigBeetle: swim]"
+      }
+  text: |-
+    // TypeChecking/TypeCheckingSoln3.kt
+    package typeCheckingExercise3
+    import atomictest.eq
+    import typechecking.name
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package typeCheckingExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestTypeCheckingExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

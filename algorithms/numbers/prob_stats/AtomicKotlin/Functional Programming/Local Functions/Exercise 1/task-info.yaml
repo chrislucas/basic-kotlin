@@ -1,0 +1,55 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 98
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 98
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun g(): Int {
+          fun h() = 47
+          return h()
+        }
+        return g()
+  text: |-
+    // LocalFunctions/Task1.kt
+    package localFunctionsExercise1
+    import atomictest.eq
+
+    fun f(): Int {
+      TODO()
+    }
+
+    fun main() {
+      f() eq 47
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package localFunctionsExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.loadFileFacade
+    import util.loadToplevelFunction
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestLocalFunctionsExercise1 {
+        @Test
+        fun `#01 nested calls of local functions`() {
+            assertEquals(47, f(), "Wrong result")
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

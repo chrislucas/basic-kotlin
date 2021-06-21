@@ -1,0 +1,114 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 93
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 93
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val width = (rows * columns).toString().length + 1
+        for (i in 0 until rows) {
+          for (j in 0 until columns) {
+            val value = if (i % 2 == 0) {
+              i * columns + j
+            } else {
+              i * columns + (columns - 1 - j)
+            }
+            print("%${width}d".format(value))
+          }
+          println()
+        }
+  text: |-
+    // Summary1/Task10.kt
+    package summaryIExercise10
+
+    fun showSnake(rows: Int, columns: Int) {
+      TODO()
+    }
+
+    fun main() {
+      showSnake(4, 5)
+    }
+    /* Output:
+      0  1  2  3  4
+      9  8  7  6  5
+     10 11 12 13 14
+     19 18 17 16 15
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise10
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndCheckSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise10 {
+      private fun checkOutput(rows: Int, columns: Int, expected: String) {
+        runAndCheckSystemOutput(
+          "Incorrect output for rows = $rows, columns = $columns:",
+          expected) {
+          showSnake(rows, columns)
+        }
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testSnake2() = checkOutput(2, 2,
+        """
+                    | 0 1
+                    | 3 2
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testSnake3() = checkOutput(3, 3,
+        """
+                    | 0 1 2
+                    | 5 4 3
+                    | 6 7 8
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testSnake4() = checkOutput(4, 5,
+        """
+                    |  0  1  2  3  4
+                    |  9  8  7  6  5
+                    | 10 11 12 13 14
+                    | 19 18 17 16 15
+                    |
+                """.trimMargin())
+
+      @Test(timeout = TIMEOUT)
+      fun testSnake5() = checkOutput(10, 11,
+        """
+                    |   0   1   2   3   4   5   6   7   8   9  10
+                    |  21  20  19  18  17  16  15  14  13  12  11
+                    |  22  23  24  25  26  27  28  29  30  31  32
+                    |  43  42  41  40  39  38  37  36  35  34  33
+                    |  44  45  46  47  48  49  50  51  52  53  54
+                    |  65  64  63  62  61  60  59  58  57  56  55
+                    |  66  67  68  69  70  71  72  73  74  75  76
+                    |  87  86  85  84  83  82  81  80  79  78  77
+                    |  88  89  90  91  92  93  94  95  96  97  98
+                    | 109 108 107 106 105 104 103 102 101 100  99
+                    |
+                """.trimMargin())
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Summary+1+%2F+Exercise4
+status: Unchecked
+record: -1

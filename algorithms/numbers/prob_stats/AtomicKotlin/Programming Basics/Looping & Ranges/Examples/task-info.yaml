@@ -1,0 +1,177 @@
+type: theory
+files:
+- name: src/RepeatThreeTimes.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/RepeatThreeTimes.kt
+
+    fun main() {
+      for (i in 1..3) {
+        println("Hey $i!")
+      }
+    }
+    /* Output:
+    Hey 1!
+    Hey 2!
+    Hey 3!
+    */
+  learner_created: false
+- name: src/DefiningRanges.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/DefiningRanges.kt
+
+    fun main() {
+      val range1 = 1..10         // [1]
+      val range2 = 0 until 10    // [2]
+      println(range1)
+      println(range2)
+    }
+    /* Output:
+    1..10
+    0..9
+    */
+  learner_created: false
+- name: src/SumUsingRange.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/SumUsingRange.kt
+
+    fun main() {
+      var sum = 0
+      for (n in 10..100) {
+        sum += n
+      }
+      println("sum = $sum")
+    }
+    /* Output:
+    sum = 5005
+    */
+  learner_created: false
+- name: src/ForWithRanges.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/ForWithRanges.kt
+
+    fun showRange(r: IntProgression) {
+      for (i in r) {
+        print("$i ")
+      }
+      print("    // $r")
+      println()
+    }
+
+    fun main() {
+      showRange(1..5)
+      showRange(0 until 5)
+      showRange(5 downTo 1)          // [1]
+      showRange(0..9 step 2)         // [2]
+      showRange(0 until 10 step 3)   // [3]
+      showRange(9 downTo 2 step 3)
+    }
+    /* Output:
+    1 2 3 4 5     // 1..5
+    0 1 2 3 4     // 0..4
+    5 4 3 2 1     // 5 downTo 1 step 1
+    0 2 4 6 8     // 0..8 step 2
+    0 3 6 9     // 0..9 step 3
+    9 6 3     // 9 downTo 3 step 3
+    */
+  learner_created: false
+- name: src/ForWithCharRange.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/ForWithCharRange.kt
+
+    fun main() {
+      for (c in 'a'..'z') {
+        print(c)
+      }
+    }
+    /* Output:
+    abcdefghijklmnopqrstuvwxyz
+    */
+  learner_created: false
+- name: src/IndexIntoString.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/IndexIntoString.kt
+
+    fun main() {
+      val s = "abc"
+      for (i in 0..s.lastIndex) {
+        print(s[i] + 1)
+      }
+    }
+    /* Output:
+    bcd
+    */
+  learner_created: false
+- name: src/AddingIntToChar.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/AddingIntToChar.kt
+
+    fun main() {
+      val ch: Char = 'a'
+      println(ch + 25)
+      println(ch < 'z')
+    }
+    /* Output:
+    z
+    true
+    */
+  learner_created: false
+- name: src/IterateOverString.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/IterateOverString.kt
+
+    fun main() {
+      for (ch in "Jnskhm ") {
+        print(ch + 1)
+      }
+    }
+    /* Output:
+    Kotlin!
+    */
+  learner_created: false
+- name: src/HasChar.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/HasChar.kt
+
+    fun hasChar(s: String, ch: Char): Boolean {
+      for (c in s) {
+        if (c == ch) return true
+      }
+      return false
+    }
+
+    fun main() {
+      println(hasChar("kotlin", 't'))
+      println(hasChar("kotlin", 'a'))
+    }
+    /* Output:
+    true
+    false
+    */
+  learner_created: false
+- name: src/RepeatHi.kt
+  visible: true
+  text: |-
+    // LoopingAndRanges/RepeatHi.kt
+
+    fun main() {
+      repeat(2) {
+        println("hi!")
+      }
+    }
+    /* Output:
+    hi!
+    hi!
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

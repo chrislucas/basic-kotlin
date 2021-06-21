@@ -1,0 +1,43 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 133
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 133
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 2
+  text: |-
+    // ExpressionsStatements/Task3.kt
+    package expressionsAndStatementsExercise3
+
+    /*
+    var i = 1
+    println(i-- - --i)
+    */
+    val yourGuess: Int = TODO()
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package expressionsAndStatementsExercise3
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.TIMEOUT
+
+    class TestExpressionsAndStatementsExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun test() {
+        Assert.assertEquals("Your guess is incorrect", 2, yourGuess)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

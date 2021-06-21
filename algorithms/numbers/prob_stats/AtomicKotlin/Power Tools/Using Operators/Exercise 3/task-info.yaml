@@ -1,0 +1,104 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 126
+    length: 24
+    placeholder_text: 'data class N(var n: Int)'
+    initial_state:
+      length: 24
+      offset: 126
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      data class N(var n: Int) : Comparable<N> {
+        override fun compareTo(other: N) =
+          n.compareTo(other.n)
+        override fun toString() = "N($n)"
+      }
+  - offset: 165
+    length: 341
+    placeholder_text: |-
+      /*
+      val rnd = Random(47) // For repeatability
+        val key = N(11)
+        val map = mutableMapOf(key to 47)
+        println(map[key])
+        key.n++
+        println(map[key])
+        val list = List(5) { N(it) }.shuffled(rnd)
+        println("list: $list")
+        val set = list.toSortedSet()
+        println("sorted set (1): $set")
+        set.min()!!.n += 2
+        println("sorted set (2): $set")
+      */
+    initial_state:
+      length: 341
+      offset: 165
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val rnd = Random(47) // For repeatability
+        val key = N(11)
+        val map = mutableMapOf(key to 47)
+        trace(map[key])
+        key.n++
+        trace(map[key])
+        val list = List(5) { N(it) }.shuffled(rnd)
+        trace("list: $list")
+        val set = list.toSortedSet()
+        trace("sorted set (1): $set")
+        set.minOrNull()!!.n += 2
+        trace("sorted set (2): $set")
+        trace eq """
+          47
+          null
+          list: [N(4), N(0), N(2), N(3), N(1)]
+          sorted set (1): [N(0), N(1), N(2), N(3), N(4)]
+          sorted set (2): [N(2), N(1), N(2), N(3), N(4)]
+        """
+  text: |-
+    // UsingOperators/UsingOperatorsSoln3.kt
+    package usingOperatorsExercise3
+    import atomictest.trace
+    import kotlin.random.Random
+
+    data class N(var n: Int)
+
+    fun main() {
+    /*
+    val rnd = Random(47) // For repeatability
+      val key = N(11)
+      val map = mutableMapOf(key to 47)
+      println(map[key])
+      key.n++
+      println(map[key])
+      val list = List(5) { N(it) }.shuffled(rnd)
+      println("list: $list")
+      val set = list.toSortedSet()
+      println("sorted set (1): $set")
+      set.min()!!.n += 2
+      println("sorted set (2): $set")
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package usingOperatorsExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestUsingOperatorsExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

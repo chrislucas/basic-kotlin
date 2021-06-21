@@ -1,0 +1,121 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 88
+    length: 17
+    placeholder_text: class CountingSet
+    initial_state:
+      length: 17
+      offset: 88
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class CountingSet<E> {
+        private val map = mutableMapOf<E, Int>()
+
+        fun add(element: E) {
+          map[element] = (map[element] ?: 0) + 1
+        }
+
+        fun count(element: E): Int {
+          return map[element] ?: 0
+        }
+
+        fun toSet(): Set<E> = map.keys
+      }
+  - offset: 120
+    length: 155
+    placeholder_text: |-
+      /*
+        val cs = CountingSet<String>()
+        cs.add("abc")
+        cs.add("abc")
+        cs.add("def")
+        cs.count("abc") eq 2
+        cs.count("def") eq 1
+        cs.count("xyz") eq 0
+      */
+    initial_state:
+      length: 155
+      offset: 120
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val cs = CountingSet<String>()
+        cs.add("abc")
+        cs.add("abc")
+        cs.add("def")
+        cs.count("abc") eq 2
+        cs.count("def") eq 1
+        cs.count("xyz") eq 0
+  text: |-
+    // IntroGenerics/Task3.kt
+    package introductionToGenericsExercise3
+    import atomictest.eq
+
+    class CountingSet
+
+    fun main() {
+    /*
+      val cs = CountingSet<String>()
+      cs.add("abc")
+      cs.add("abc")
+      cs.add("def")
+      cs.count("abc") eq 2
+      cs.count("def") eq 1
+      cs.count("xyz") eq 0
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package introductionToGenericsExercise3
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.loadClass
+    import util.loadMemberFunction
+    import kotlin.reflect.full.createInstance
+
+    class TestIntroductionToGenericsExercise3 {
+        private fun <T> testCountingSet(list: List<T>, notPresent: List<T>) {
+            val countingSetClass = loadClass("introductionToGenericsExercise3", "CountingSet")
+            val addFunc = loadMemberFunction(countingSetClass, "add")
+            val countFunc = loadMemberFunction(countingSetClass, "count")
+            val toSetFunc = loadMemberFunction(countingSetClass, "toSet")
+
+            val cs = countingSetClass.createInstance()
+            for (element in list) {
+                addFunc.call(cs, element)
+            }
+            for (element in list) {
+                val counter = countFunc.call(cs, element)
+                Assert.assertEquals("Wrong 'count' result for '$element' in $list",
+                  list.count { element == it }, counter)
+            }
+            for (notElement in notPresent) {
+                val counter = countFunc.call(cs, notElement)
+                Assert.assertEquals("Wrong 'count' result for '$notElement' in $list",
+                  0, counter)
+            }
+            Assert.assertEquals("Wrong result for 'toSet' for $list",
+              list.toSet(), toSetFunc.call(cs))
+        }
+
+        @Test
+        fun test1() = testCountingSet(listOf("abc", "abc", "def"), listOf("xyz"))
+
+        @Test
+        fun test2() = testCountingSet(listOf(1, 1, 4, 2, 7, 7, 7), listOf(5, 6, 8))
+
+        @Test
+        fun test3() = testCountingSet(listOf('a', 'b', 'c', 'b', 'a'), listOf('d', 'e'))
+    }
+  learner_created: false
+status: Unchecked
+record: -1

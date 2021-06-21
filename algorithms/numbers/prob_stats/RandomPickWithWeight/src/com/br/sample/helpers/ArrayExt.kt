@@ -57,16 +57,16 @@ fun <T : Comparable<T>> Array<T>.upperBoundBinSearch(vTarget: T) = upperBoundBin
 // funcao deve devolver o indice do primeiro elemento maior que o valor value
 // dentro do intervalo  [startIndex:endIndex), senao deve retornar endIndex
 fun <T : Comparable<T>> Array<T>.upperBound(startIndex: Int, endIndex: Int, vTarget: T): Int {
-    var s = endIndex
-    var dist = abs(startIndex - (endIndex - 1))
-    while (dist > 0) {
+    var s = startIndex
+    var dist = abs(startIndex - (endIndex))
+    while (dist != 0) {
         val mid = dist / 2
         // se o value for menor que o mid-esimo elemento, verificar os valores a esquerda de mid
-        dist = if (vTarget < this[mid]) {
-            s = dist - (mid + 1)
-            s
-        } else {
+        dist = if (vTarget < this[s + mid]) {
             mid
+        } else {
+            s += 1
+            dist - (mid + 1)
         }
     }
     return s
@@ -100,14 +100,13 @@ fun <T : Comparable<T>> Array<T>.lowerBoundBinSearch(vTarget: T) = lowerBoundBin
 
 // algoritmo baseado na possivel implementacao do cpp: https://en.cppreference.com/w/cpp/algorithm/lower_bound
 fun <T : Comparable<T>> Array<T>.lowerBound(startIndex: Int, endIndex: Int, vTarget: T): Int {
-    var s = endIndex
-    var dist = abs(startIndex - (endIndex - 1))
-    while (dist > 0) {
+    var s = startIndex
+    var dist = abs(startIndex - (endIndex))
+    while (dist != 0) {
         val mid = dist / 2
-        //
-        dist = if (vTarget > this[mid]) {
-            s = dist - (mid + 1)
-            s
+        dist = if (vTarget > this[s + mid]) {
+            s += 1
+            dist - (mid + 1)
         } else {
             mid
         }

@@ -1,0 +1,103 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 86
+    length: 12
+    placeholder_text: class Rocket
+    initial_state:
+      length: 12
+      offset: 86
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Rocket {
+        fun ignition() = "Liftoff!"
+      }
+  - offset: 100
+    length: 15
+    placeholder_text: fun launch() {}
+    initial_state:
+      length: 15
+      offset: 100
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'fun launch(rocket: Rocket?) = rocket!!.ignition()'
+  - offset: 130
+    length: 119
+    placeholder_text: |-
+      /*
+        val rocket = Rocket()
+        launch(rocket) eq "Liftoff!"
+        capture {
+          launch(null)
+        } eq "NullPointerException"
+      */
+    initial_state:
+      length: 119
+      offset: 130
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val rocket = Rocket()
+        launch(rocket) eq "Liftoff!"
+        capture {
+          launch(null)
+        } eq "NullPointerException"
+  text: |-
+    // NonNullAssertions/Task1.kt
+    package nonNullAssertionsExercise1
+    import atomictest.*
+
+    class Rocket
+
+    fun launch() {}
+
+    fun main() {
+    /*
+      val rocket = Rocket()
+      launch(rocket) eq "Liftoff!"
+      capture {
+        launch(null)
+      } eq "NullPointerException"
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package nonNullAssertionsExercise1
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.*
+    import java.lang.reflect.InvocationTargetException
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    class TestNonNullAssertionsExercise1 {
+        @Test fun testRocket() {
+            val rocketClass = Rocket::class
+            val rocketInstance = rocketClass.createInstance()
+            val ignitionFunc = loadMemberFunction(rocketClass, "ignition")
+            checkParametersOfMemberFunction(ignitionFunc, listOf())
+            assertEquals("Liftoff!", ignitionFunc.call(rocketInstance), "Wrong result after calling 'rocket.ignition()'")
+            val launchFunc = ::launch
+            checkParametersOfTopLevelFunction(launchFunc, listOf("rocket" to "nonNullAssertionsExercise1.Rocket?"))
+            assertEquals("Liftoff!", launchFunc.call(rocketInstance), "Wrong result after calling 'launch(rocket)'")
+            try {
+                launchFunc.call(null)
+                throw AssertionError("Wrong result after calling 'launch(null)', expected NullPointerException")
+            } catch (e: InvocationTargetException) {
+                Assert.assertEquals("Wrong result after calling 'launch(null)', expected NullPointerException",
+                  e.targetException::class.simpleName, "NullPointerException")
+            }
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,62 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 130
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 130
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '"$index [$status] $message\n"'
+  text: |-
+    // StringTemplates/Task2.kt
+    package stringTemplatesExercise2
+
+    fun record(index: Int, status: String, message: String): String =
+      TODO()
+
+    fun main() {
+      print(record(1, "OK", "Everything is fine."))
+      print(record(2, "Fail", "Something has broken."))
+    }
+
+    /* Output:
+    1 [OK] Everything is fine.
+    2 [Fail] Something has broken.
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package stringTemplatesExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestStringTemplatesExercise2 {
+      private fun checkRecord(index: Int, status: String, message: String) {
+        val record = "$index [$status] $message\n"
+        Assert.assertEquals("""record($index, "$status", "$message") should return $record""",
+          record, record(index, status, message))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testRecord1() = checkRecord(1, "OK", "Everything is fine.")
+
+      @Test(timeout = TIMEOUT)
+      fun testRecord2() = checkRecord(2, "Fail", "Something has broken.")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+String+Templates+%2F+Exercise2
+status: Unchecked
+record: -1

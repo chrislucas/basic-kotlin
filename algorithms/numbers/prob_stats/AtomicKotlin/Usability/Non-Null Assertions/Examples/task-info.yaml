@@ -1,0 +1,50 @@
+type: theory
+files:
+- name: src/NonNullAssert.kt
+  visible: true
+  text: |-
+    // NonNullAssertions/NonNullAssert.kt
+    import atomictest.*
+
+    fun main() {
+      var x: String? = "abc"
+      x!! eq "abc"
+      x = null
+      capture {
+        val s: String = x!!
+      } eq "NullPointerException"
+    }
+  learner_created: false
+- name: src/NonNullAssertCall.kt
+  visible: true
+  text: |-
+    // NonNullAssertions/NonNullAssertCall.kt
+    import atomictest.eq
+
+    fun main() {
+      val s: String? = "abc"
+      s!!.length eq 3
+    }
+  learner_created: false
+- name: src/ValueFromMap.kt
+  visible: true
+  text: |-
+    // NonNullAssertions/ValueFromMap.kt
+    import atomictest.*
+
+    fun main() {
+      val map = mapOf(1 to "one")
+      map[1]!!.toUpperCase() eq "ONE"
+      map.getValue(1).toUpperCase() eq "ONE"
+      capture {
+        map[2]!!.toUpperCase()
+      } eq "NullPointerException"
+      capture {
+        map.getValue(2).toUpperCase()
+      } eq "NoSuchElementException: " +
+        "Key 2 is missing in the map."
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

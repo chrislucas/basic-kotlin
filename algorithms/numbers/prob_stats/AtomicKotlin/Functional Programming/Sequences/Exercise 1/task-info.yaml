@@ -1,0 +1,124 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 145
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 145
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      return lessons.filter {
+          instructor == it.instructor && student in it.students
+        }
+  text: |-
+    // Sequences/Task1.kt
+    package sequencesExercise1
+
+    fun School.commonLessons(
+      instructor: Instructor,
+      student: Student
+    ): Sequence<Lesson> {
+      TODO()
+    }
+  learner_created: false
+- name: src/School.kt
+  visible: true
+  text: |-
+    // Sequences/School1.kt
+    package sequencesExercise1
+
+    data class Instructor(val name: String)
+
+    data class Student(val name: String)
+
+    data class Lesson(
+      val instructor: Instructor,
+      val students: Set<Student>,
+      val rating: Map<Student, Int>
+    )
+
+    data class School(
+      val instructors: Set<Instructor>,
+      val students: Set<Student>,
+      val lessons: Sequence<Lesson>
+    )
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package sequencesExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    abstract class TestSchool {
+      private val instructors = ('A'..'D')
+        .map { it to Instructor("Instructor-$it") }
+        .toMap()
+
+      protected fun inst(c: Char) = instructors.getValue(c)
+
+      private val students = (1..7)
+        .map { it to Student("Student-$it") }
+        .toMap()
+
+      protected fun st(i: Int) = students.getValue(i)
+
+      protected fun lsn(instructor: Char, vararg students: Int) =
+        Lesson(inst(instructor), students.map { st(it) }.toSet(), mapOf())
+
+      protected fun schl(lessons: List<Lesson>) =
+        School(instructors.values.toSet(), students.values.toSet(),
+          lessons.asSequence())
+    }
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSequencesExercise1 : TestSchool() {
+      private fun check(
+        instructor: Instructor,
+        student: Student,
+        schoolLessons: List<Lesson>,
+        result: List<Int>) {
+        Assert.assertEquals("Wrong result for ${instructor.name}, " +
+          "${student.name}, $schoolLessons:",
+          schoolLessons.filterIndexed { index, _ -> index in result },
+          schl(schoolLessons).commonLessons(instructor, student).toList())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1() {
+        check(inst('A'), st(1), listOf(lsn('A', 1)), listOf(0))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2() {
+        check(inst('A'), st(1), listOf(
+          lsn('A', 1, 2, 3),
+          lsn('B', 1, 2, 3),
+          lsn('A', 1)
+        ), listOf(0, 2))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3() {
+        check(inst('A'), st(1), listOf(
+          lsn('A', 2, 3),
+          lsn('B', 1, 2, 3),
+          lsn('A', 4)
+        ), listOf())
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Sequences+%2F+Exercise1
+status: Unchecked
+record: -1

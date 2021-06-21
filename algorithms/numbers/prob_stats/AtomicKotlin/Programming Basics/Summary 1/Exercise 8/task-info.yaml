@@ -1,0 +1,76 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 89
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 89
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var worker = number
+        var result = 0
+
+        while (worker > 0) {
+          result += worker % 10
+          worker /= 10
+          if (worker != 0) {
+            result *= 10
+          }
+        }
+        return result
+  text: |-
+    // Summary1/Task8.kt
+    package summaryIExercise8
+
+    fun reverseDecimal(number: Int): Int {
+      TODO()
+    }
+
+    fun main() {
+      println(reverseDecimal(1234))  // 4321
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIExercise8
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIExercise8 {
+      private fun checkReverse(number: Int, expected: Int) {
+        Assert.assertEquals("Wrong reversed $number number",
+          expected, reverseDecimal(number))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse1() = checkReverse(1234, 4321)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse2() = checkReverse(10, 1)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse3() = checkReverse(123456789, 987654321)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse4() = checkReverse(111, 111)
+
+      @Test(timeout = TIMEOUT)
+      fun testReverse5() = checkReverse(0, 0)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Summary+1+%2F+Exercise2
+status: Unchecked
+record: -1

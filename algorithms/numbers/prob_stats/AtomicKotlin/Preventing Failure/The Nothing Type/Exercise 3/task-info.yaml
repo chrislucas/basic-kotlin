@@ -1,0 +1,95 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 118
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 118
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "true"
+  - offset: 126
+    length: 13
+    placeholder_text: class Failure
+    initial_state:
+      length: 13
+      offset: 126
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Failure(msg: String) : Exception(msg)'
+  - offset: 176
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 176
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: throw Failure(msg)
+  - offset: 213
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 213
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      trace("debug($test) with _debug[$_debug]")
+        if (_debug && !test) fail("debug() failed")
+  text: |-
+    // NothingType/NothingTypeSoln3.kt
+    package theNothingTypeExercise3
+    import atomictest.*
+
+    private var _debug: Boolean = TODO()
+
+    class Failure
+
+    fun fail(msg: String): Nothing =
+      TODO()
+
+    fun debug(test: Boolean) {
+      TODO()
+    }
+
+    fun main() {
+      debug(true)
+      capture {
+        debug(false)
+      } eq "Failure: debug() failed"
+      _debug = false
+      debug(true)
+      debug(false)
+      trace eq """
+        debug(true) with _debug[true]
+        debug(false) with _debug[true]
+        debug(true) with _debug[false]
+        debug(false) with _debug[false]
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package theNothingTypeExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestTheNothingTypeExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

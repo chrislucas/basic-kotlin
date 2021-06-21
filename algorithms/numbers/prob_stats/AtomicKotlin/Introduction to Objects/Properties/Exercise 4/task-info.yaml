@@ -1,0 +1,30 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Properties/Task4.kt
+    package propertiesExercise4
+
+    class Counter {
+      var value = 0
+
+      fun inc() {
+        value += 10
+      }
+
+      fun dec() {
+        value -= 10
+      }
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |+
+    package propertiesExercise4
+
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Properties+%2F+Exercise3
+status: Unchecked
+record: -1

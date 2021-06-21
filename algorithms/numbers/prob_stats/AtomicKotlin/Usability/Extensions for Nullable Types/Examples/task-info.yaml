@@ -1,0 +1,54 @@
+type: theory
+files:
+- name: src/StringIsNullOr.kt
+  visible: true
+  text: |-
+    // NullableExtensions/StringIsNullOr.kt
+    import atomictest.eq
+
+    fun main() {
+      val s1: String? = null
+      s1.isNullOrEmpty() eq true
+      s1.isNullOrBlank() eq true
+
+      val s2 = ""
+      s2.isNullOrEmpty() eq true
+      s2.isNullOrBlank() eq true
+
+      val s3: String = " \t\n"
+      s3.isNullOrEmpty() eq false
+      s3.isNullOrBlank() eq true
+    }
+  learner_created: false
+- name: src/NullableParameter.kt
+  visible: true
+  text: |-
+    // NullableExtensions/NullableParameter.kt
+    package nullableextensions
+    import atomictest.eq
+
+    fun isNullOrEmpty(s: String?): Boolean =
+      s == null || s.isEmpty()
+
+    fun main() {
+      isNullOrEmpty(null) eq true
+      isNullOrEmpty("") eq true
+    }
+  learner_created: false
+- name: src/NullableExtension.kt
+  visible: true
+  text: |-
+    // NullableExtensions/NullableExtension.kt
+    package nullableextensions
+    import atomictest.eq
+
+    fun String?.isNullOrEmpty(): Boolean =
+      this == null || isEmpty()
+
+    fun main() {
+      "".isNullOrEmpty() eq true
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

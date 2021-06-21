@@ -1,0 +1,83 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 97
+    length: 7
+    placeholder_text: class A
+    initial_state:
+      length: 7
+      offset: 97
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class A {
+        lateinit var s: String
+        fun initialize(): A {
+          s = "Initialized"
+          return this
+        }
+      }
+  - offset: 106
+    length: 7
+    placeholder_text: class B
+    initial_state:
+      length: 7
+      offset: 106
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class B {
+        val a by lazy { A().initialize() }
+      }
+  - offset: 128
+    length: 44
+    placeholder_text: |-
+      /*
+        val b = B()
+        b.a.s eq "Initialized"
+      */
+    initial_state:
+      length: 44
+      offset: 128
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val b = B()
+        b.a.s eq "Initialized"
+  text: |-
+    // LateInitialization/LateInitSoln2.kt
+    package lateInitializationExercise2
+    import atomictest.eq
+
+    class A
+
+    class B
+
+    fun main() {
+    /*
+      val b = B()
+      b.a.s eq "Initialized"
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package lateInitializationExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestLateInitializationExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

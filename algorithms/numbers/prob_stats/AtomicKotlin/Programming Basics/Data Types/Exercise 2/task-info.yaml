@@ -1,0 +1,94 @@
+type: output
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 223
+    length: 29
+    placeholder_text: TODO() // write some examples
+    initial_state:
+      length: 29
+      offset: 223
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      // String can be combined with every other type:
+        val si: String = string + int
+        val sd: String = string + double
+        val sb: String = string + boolean
+        val sc: String = string + character
+
+        val d1: Double = int + double
+        val d2: Double = double + int
+        val s1: String = character + string
+        val c1: Char = character + int
+  - offset: 350
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 350
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: String
+  - offset: 383
+    length: 29
+    placeholder_text: TODO() // write some examples
+    initial_state:
+      length: 29
+      offset: 383
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      // val bb = boolean + boolean
+        // val ic = int + character
+        // val ds = double + string
+  - offset: 502
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 502
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Boolean
+  text: |-
+    // DataTypes/Task2.kt
+    package dataTypesExercise2
+
+    fun main() {
+      val int: Int = 10
+      val double: Double = 1.1
+      val boolean: Boolean = false
+      val string: String = "abc"
+      val character: Char = 'a'
+
+      // Can be combined:
+      TODO() // write some examples
+
+      println("The type that can be combined " +
+        "with every other type using '+':")
+      println("???")
+
+      // Can't be combined:
+      TODO() // write some examples
+
+      println("The type that can't be combined " +
+        "with itself using '+':")
+      println("???")
+    }
+  learner_created: false
+- name: test/output.txt
+  visible: false
+  text: |-
+    The type that can be combined with every other type using '+':
+    String
+    The type that can't be combined with itself using '+':
+    Boolean
+  learner_created: false
+status: Unchecked
+record: -1

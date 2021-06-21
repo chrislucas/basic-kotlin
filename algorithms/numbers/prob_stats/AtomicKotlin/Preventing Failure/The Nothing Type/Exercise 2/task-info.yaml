@@ -1,0 +1,133 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 103
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 103
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      private val messages =
+          mutableListOf<String>()
+  - offset: 136
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 136
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: messages.add(msg)
+  - offset: 174
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 174
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: messages.toList()
+  - offset: 184
+    length: 13
+    placeholder_text: class Failure
+    initial_state:
+      length: 13
+      offset: 184
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'class Failure(msg: String) : Exception(msg)'
+  - offset: 234
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 234
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      Log.add(msg)
+        throw Failure(msg)
+  - offset: 275
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 275
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (!test) fail("require failed")
+  - offset: 314
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 314
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: if (!test) fail("check failed")
+  text: |-
+    // NothingType/NothingTypeSoln2.kt
+    package theNothingTypeExercise2
+    import atomictest.*
+
+    object Log {
+      // TODO
+      fun add(msg: String) = "TODO"
+      fun report(): List<String> = TODO()
+    }
+
+    class Failure
+
+    fun fail(msg: String): Nothing {
+      TODO()
+    }
+
+    fun require(test: Boolean) {
+      TODO()
+    }
+
+    fun check(test: Boolean) {
+      TODO()
+    }
+
+    fun main() {
+      require(true)
+      check(true)
+      capture {
+        require(false)
+      } eq "Failure: require failed"
+      capture {
+        check(false)
+      } eq "Failure: check failed"
+      Log.report() eq
+        "[require failed, check failed]"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package theNothingTypeExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestTheNothingTypeExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,129 @@
+buildscript {
+    ext.kotlin_version = '1.4.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+def printOutput(def output) {
+    return tasks.create("printOutput") {
+        for (line in output.toString().readLines()) {
+            println "#educational_plugin" + line
+        }
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        compile "org.jetbrains.kotlin:kotlin-reflect"
+        implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.3")
+
+        // kotlin.test
+        compile "org.jetbrains.kotlin:kotlin-test"
+        compile "org.jetbrains.kotlin:kotlin-test-junit"
+        compile "junit:junit:4.12"
+
+        // Logging support for samples:
+        compile 'io.github.microutils:kotlin-logging:1.6.24'
+        compile 'org.slf4j:slf4j-simple:1.8.0-beta4'
+    }
+    compileKotlin.destinationDir = compileJava.destinationDir
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = '1.8'
+            freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            jvmTarget = '1.8'
+            freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+        }
+    }
+}
+apply plugin: 'application'
+sourceCompatibility = 8
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+
+    compile project(':util').sourceSets.main.output
+    testCompile project(':util').sourceSets.test.output
+}
+def srcList = []
+def testList = []
+rootProject.projectDir.eachDirRecurse {
+    if (!isTaskDir(it) || it.path.contains(".idea") || "util".equals(it.path)) {
+        return
+    }
+    def srcDir = new File(it, "src")
+    if (it.path.contains("Unit Testing")) {
+        testList.add(srcDir)
+    } else {
+        srcList.add(srcDir)
+    }
+    def testDir = new File(it, "test")
+    testList.add(testDir)
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = srcList
+        }
+        kotlin {
+            srcDirs = srcList
+        }
+    }
+    test {
+        java {
+            srcDirs = testList
+        }
+        kotlin {
+            srcDirs = testList
+        }
+    }
+}
+
+static def isTaskDir(File dir) {
+    return new File(dir, "src").exists()
+}
+
+mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : ""
+test {
+    outputs.upToDateWhen { false }
+    afterTest { TestDescriptor test, TestResult result ->
+        if (result.resultType == TestResult.ResultType.FAILURE) {
+            def message = result.exception?.message ?: "Wrong answer"
+            def lines = message.readLines()
+            println "#educational_plugin FAILED + " + lines[0]
+            if (lines.size() > 1) {
+                lines[1..-1].forEach { line ->
+                    println "#educational_plugin" + line
+                }
+            }
+            // we need this to separate output of different tests
+            println ""
+        }
+    }
+}
+def runOutput = new ByteArrayOutputStream()
+tasks.run.setStandardOutput(runOutput)
+tasks.run.doLast { printOutput(runOutput) }
+project(':util') {
+    dependencies {
+        compile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+if (new File('gradle/tests.gradle').exists()) {
+    apply from: 'gradle/tests.gradle'
+}

@@ -1,0 +1,125 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 164
+    length: 8
+    placeholder_text: class AA
+    initial_state:
+      length: 8
+      offset: 164
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class AA : A {
+        override fun foo() = trace("AA.foo()")
+        override fun bar() = trace("AA.bar()")
+      }
+  - offset: 174
+    length: 8
+    placeholder_text: class BB
+    initial_state:
+      length: 8
+      offset: 174
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class BB : B {
+        override fun foo() = trace("BB.foo()")
+        override fun baz() = trace("BB.baz()")
+      }
+  - offset: 184
+    length: 16
+    placeholder_text: class Delegation
+    initial_state:
+      length: 16
+      offset: 184
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Delegation(val a: A, val b: B) :
+        A by a, B by b {
+        override fun foo() {
+          a.foo()
+          b.foo()
+          trace("Delegation.foo()")
+        }
+      }
+  - offset: 215
+    length: 68
+    placeholder_text: |-
+      /*
+        val d = Delegation(AA(), BB())
+        d.foo()
+        d.bar()
+        d.baz()
+      */
+    initial_state:
+      length: 68
+      offset: 215
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val d = Delegation(AA(), BB())
+        d.foo()
+        d.bar()
+        d.baz()
+  text: |-
+    // ClassDelegation/Task3.kt
+    package classDelegationExercise3
+    import atomictest.*
+
+    interface A {
+      fun foo()
+      fun bar()
+    }
+
+    interface B {
+      fun foo()
+      fun baz()
+    }
+
+    class AA
+
+    class BB
+
+    class Delegation
+
+    fun main() {
+    /*
+      val d = Delegation(AA(), BB())
+      d.foo()
+      d.bar()
+      d.baz()
+    */
+      trace eq
+        """
+          AA.foo()
+          BB.foo()
+          Delegation.foo()
+          AA.bar()
+          BB.baz()
+        """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package classDelegationExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestClassDelegationExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

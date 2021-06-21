@@ -1,0 +1,69 @@
+type: theory
+files:
+- name: src/AutoCloseable.kt
+  visible: true
+  text: |-
+    // ResourceCleanup/AutoCloseable.kt
+    import atomictest.eq
+    import checkinstructions.DataFile
+
+    fun main() {
+      DataFile("Results.txt")
+        .bufferedReader()
+        .use { it.readLines().first() } eq
+        "Results"
+    }
+  learner_created: false
+- name: src/UseLines.kt
+  visible: true
+  text: |-
+    // ResourceCleanup/UseLines.kt
+    import atomictest.eq
+    import checkinstructions.DataFile
+
+    fun main() {
+      DataFile("Results.txt").useLines {
+        it.filter { "#" in it }.first()    // [1]
+      } eq "# ok"
+      DataFile("Results.txt").useLines { lines ->
+        lines.filter { line ->             // [2]
+          "#" in line
+        }.first()
+      } eq "# ok"
+    }
+  learner_created: false
+- name: src/ForEachLine.kt
+  visible: true
+  text: |-
+    // ResourceCleanup/ForEachLine.kt
+    import checkinstructions.DataFile
+    import atomictest.*
+
+    fun main() {
+      DataFile("Results.txt").forEachLine {
+        if (it.startsWith("#"))
+          trace("$it")
+      }
+      trace eq "# ok"
+    }
+  learner_created: false
+- name: src/Usable.kt
+  visible: true
+  text: |-
+    // ResourceCleanup/Usable.kt
+    package resourcecleanup
+    import atomictest.*
+
+    class Usable() : AutoCloseable {
+      fun func() = trace("func()")
+      override fun close() = trace("close()")
+    }
+
+    fun main() {
+      Usable().use { it.func() }
+      trace eq "func() close()"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,55 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 83
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 83
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var s = ""
+        for (c in 'a'..'z') {
+          s += c
+        }
+        return s
+  text: |-
+    // InKeyword/Task1.kt
+    package theInKeywordExercise1
+
+    fun getAlphabet(): String {
+      TODO()
+    }
+
+    fun main() {
+      println(getAlphabet())  // abcdefghijklmnopqrstuvwxyz
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package theInKeywordExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestTheInKeywordExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun test1() {
+        Assert.assertEquals("abcdefghijklmnopqrstuvwxyz", getAlphabet())
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+The+in+Keyword+%2F+Exercise1
+status: Unchecked
+record: -1
