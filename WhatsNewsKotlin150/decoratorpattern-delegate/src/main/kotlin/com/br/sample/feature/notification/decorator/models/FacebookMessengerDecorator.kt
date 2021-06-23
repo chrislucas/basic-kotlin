@@ -8,7 +8,6 @@ class FacebookMessengerDecorator(wrapper: BaseNotifier, list: List<Client>) : Ba
             println("Class: ${this.javaClass.name} - Client: $client\nMessage: $message")
         }
         println("*****************************************************************")
-
     }
 }
 
