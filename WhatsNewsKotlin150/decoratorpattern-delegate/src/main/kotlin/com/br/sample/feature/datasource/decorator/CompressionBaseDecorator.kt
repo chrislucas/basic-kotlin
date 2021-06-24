@@ -1,11 +1,12 @@
 package com.br.sample.feature.datasource.decorator
 
 import com.br.sample.feature.datasource.decorator.models.DataSourceComponent
+import com.br.sample.feature.datasource.decorator.models.log
 
 class CompressionBaseDecorator(private val wrapper: DataSourceComponent): DataSourceComponentBaseDecorator(wrapper) {
 
     override fun writeData(data: ByteArray) {
-        println("Write Data Decorator: ${javaClass.name}")
+        println("Write Data Decorator: ${javaClass.name} - ${data.log()}")
         wrapper.writeData(data)
     }
 

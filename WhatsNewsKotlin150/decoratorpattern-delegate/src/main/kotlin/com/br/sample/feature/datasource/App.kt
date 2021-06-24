@@ -4,6 +4,7 @@ import com.br.sample.feature.datasource.decorator.CompressionBaseDecorator
 import com.br.sample.feature.datasource.decorator.EncryptionBaseDecorator
 import com.br.sample.feature.datasource.decorator.models.DataSourceComponent
 import com.br.sample.feature.datasource.decorator.models.FileDataSourceComponent
+import com.br.sample.feature.datasource.decorator.models.fromFileToByteArray
 
 fun main() {
 
@@ -11,7 +12,7 @@ fun main() {
     dataSourceComponent = EncryptionBaseDecorator(dataSourceComponent)
     dataSourceComponent = CompressionBaseDecorator(dataSourceComponent)
 
-    dataSourceComponent.writeData(byteArrayOf(Byte.MIN_VALUE))
+    dataSourceComponent.writeData(fromFileToByteArray("raw/_compression_algorithms.txt"))
     dataSourceComponent.readData()
 
 }

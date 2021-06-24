@@ -5,7 +5,8 @@ package com.br.sample.feature.datasource;
 /*
  * Estrurura do design pattern decorator
  *
- * 1) Defini-se uma interface Component que define um ou mais metodos/comportamentos.
+ * 1) Defini-se uma interface Component com 1 ou mais metodos/comportamentos. Essa eh uma interface comum ao Decorator
+ * e ao atributo Wrapper que compõe todos os Decorator
  *
  * Essa interface será envolvida pela classe Decorator Base, que servira
  * de modelo para outros decorators que irão da mesma forma envolver o
@@ -27,7 +28,10 @@ package com.br.sample.feature.datasource;
  * delega ao ComponentWrapped todas as operacoes
  *
  * 4) A classes filhas de DecoratorBase definem os comportamentos adicionais ao sobreescreverem
- * os metodos da sua super classe e ainda receberem em seus construtores implementacoes
- * de componentes q
+ * os metodos da sua super classe. Isso possibilita adicionar comportamentos aos metodos da super classe
+ * antes e depois da sua execução
+ *
+ * 5) baseDecorator eh um Component composto por um outro Component passado via construtor. Essa estrutura
+ * permite a combinacao de comportamentos de varios componentes
  *
  **/
