@@ -1,6 +1,5 @@
 package com.br.sample.properties.delegated
 
-import com.br.sample.checkNullableList
 import kotlin.reflect.KProperty
 
 // https://kotlinlang.org/docs/delegated-properties.html
@@ -20,24 +19,13 @@ class DelegateCreateString {
     }
 }
 
-
-class SampleGenericDelegate<T>(val build: (T?) -> T) {
-
-    operator fun getValue(ref: T?, property: KProperty<*>): T {
-        val value = build(ref)
-        println("Reference '$ref' delegates the propertyName '${property.name}' to '${javaClass.name}'")
-        return value
-    }
-
-    operator fun setValue(ref: T?, property: KProperty<*>, value: T) {
-        println("'${property.name}' = '$value' and it reference '$ref'")
-    }
-}
-
-private fun sample() {
+private fun sampleDelegateString() {
     var strValue: String by DelegateCreateString()
+    // get
     println(strValue)
+    // set
     strValue = "ola, mundo"
+    // get
     println(strValue)
 
     /**
@@ -47,24 +35,8 @@ private fun sample() {
     // var value1: Int by DelegateCreateString()
 }
 
-
-fun sample1() {
-    var value: Int by SampleGenericDelegate { value ->
-        value ?: 1
-    }
-    println(value)
-    value = 10
-    println(value)
-}
-
-
-fun sample2() {
-    //var value: Int by Delegate
-}
-
 fun main() {
-    //sample()
-    //sample1()
+    sampleDelegateString()
 }
 
 
