@@ -1,13 +1,10 @@
-package com.br.sample.properties.delegated
+package com.br.sample.properties.delegated.function
 
-import kotlin.reflect.KProperty
+import com.br.sample.properties.delegated.getValue
 
-private fun initInt(init: () -> Int) {
-    val value: Int by init
-    println(value)
-}
 
-private fun <T> initGeneric(init: () -> T) {
+
+private fun <T> show(init: () -> T) {
     val value: T by init
     println(value)
 }
@@ -28,12 +25,6 @@ private fun <A, R> initGenericWithNullableArgAndNullableReturn(transform: (A?) -
     println(value)
 }
 
-
-operator fun <A, R> ((A?) -> R).getValue(arg: A?, property: KProperty<*>): R = this(arg)
-
-operator fun <R> (() -> R).getValue(r: R?, property: KProperty<*>): R = this()
-
-
 private fun sample() {
     val isOdd: (Int?) -> Boolean = { value ->
         value?.let { it and 1 == 1 } ?: false
@@ -48,14 +39,10 @@ private fun sample() {
 }
 
 
-
 fun main() {
-    initGeneric { 12 }
-    initGeneric { "String Initialized" }
-    initGeneric { 12.32 }
-    initInt { 12 }
-
-
+    show { 12 }
+    show { "String Initialized" }
+    show { 12.32 }
     sample()
 }
 
