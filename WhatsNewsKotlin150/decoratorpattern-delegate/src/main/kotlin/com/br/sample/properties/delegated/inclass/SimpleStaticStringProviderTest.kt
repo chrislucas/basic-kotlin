@@ -9,7 +9,7 @@ import kotlin.reflect.KProperty
  * */
 
 
-class DelegateCreateString {
+class StaticStringProvider {
     operator fun getValue(ref: Any?, property: KProperty<*>): String {
         return "Reference '$ref' delegates the propertyName '${property.name}' to '${javaClass.name}'"
     }
@@ -19,8 +19,8 @@ class DelegateCreateString {
     }
 }
 
-private fun sampleDelegateString() {
-    var strValue: String by DelegateCreateString()
+private fun sampleStaticDelegateString() {
+    var strValue: String by StaticStringProvider()
     // get
     println(strValue)
     // set
@@ -35,8 +35,9 @@ private fun sampleDelegateString() {
     // var value1: Int by DelegateCreateString()
 }
 
+
 fun main() {
-    sampleDelegateString()
+    sampleStaticDelegateString()
 }
 
 

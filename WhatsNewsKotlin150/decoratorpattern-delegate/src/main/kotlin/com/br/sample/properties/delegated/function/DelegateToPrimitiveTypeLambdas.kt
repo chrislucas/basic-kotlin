@@ -1,8 +1,8 @@
 package com.br.sample.properties.delegated.function
 
-import com.br.sample.join
+import com.br.sample.general.join
 import com.br.sample.properties.delegated.getValue
-import com.br.sample.string
+import com.br.sample.general.string
 
 private fun showInt(init: () -> Int) {
     val value: Int by init

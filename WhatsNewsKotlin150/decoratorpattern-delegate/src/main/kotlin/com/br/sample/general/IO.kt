@@ -1,6 +1,10 @@
-package com.br.sample
+package com.br.sample.general
 
 import java.lang.StringBuilder
+
+
+val <T> List<T>.string: String
+    get() = this.joinTo(StringBuilder()).toString()
 
 val <T> Array<T>.string: String
     get() = this.joinTo(StringBuilder()).toString()
