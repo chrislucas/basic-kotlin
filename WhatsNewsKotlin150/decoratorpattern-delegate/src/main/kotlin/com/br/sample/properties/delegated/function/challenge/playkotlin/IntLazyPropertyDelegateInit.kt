@@ -1,4 +1,4 @@
-package com.br.sample.properties.delegated.function
+package com.br.sample.properties.delegated.function.challenge.playkotlin
 
 import kotlin.reflect.KProperty
 
@@ -7,6 +7,11 @@ import kotlin.reflect.KProperty
 class IntLazyProperty(val initializer: () -> Int) {
     val lazyProperty: Int by initializer()
 }
+
+/*
+private operator fun <T> Comparable<T>.getValue(intLazyProperty: IntLazyProperty, property: KProperty<*>): Int =
+     intLazyProperty.initializer()
+ */
 
 private operator fun Int.getValue(intLazyProperty: IntLazyProperty, property: KProperty<*>): Int {
     println("LazyValue: $intLazyProperty\nProperty: $property")
@@ -25,10 +30,7 @@ private fun sampleCreateInstanceAndPassALocalLambdaFunction() {
 }
 
 
-//private operator fun Int.getValue(value: Int, property: KProperty<*>): Int = value
-
-
 fun main() {
-    sampleCreateInstanceAndPassALocalLambdaFunction()
+    sampleCreateInstanceUsingLambdaFunction()
     sampleCreateInstanceAndPassALocalLambdaFunction()
 }

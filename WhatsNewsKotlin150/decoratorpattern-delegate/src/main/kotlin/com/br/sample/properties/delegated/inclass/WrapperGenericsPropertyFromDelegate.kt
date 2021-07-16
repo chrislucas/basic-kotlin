@@ -1,4 +1,4 @@
-package com.br.sample.properties.delegated
+package com.br.sample.properties.delegated.inclass
 
 import kotlin.reflect.KProperty
 

@@ -1,6 +1,8 @@
 package com.br.sample.properties.delegated.function
 
+import com.br.sample.join
 import com.br.sample.properties.delegated.getValue
+import com.br.sample.string
 
 private fun showInt(init: () -> Int) {
     val value: Int by init
@@ -20,6 +22,17 @@ private fun showChar(init: () -> Char) {
 private fun showLong(init: () -> Long) {
     val value: Long by init
     println(value)
+}
+
+private fun showDouble(init: () -> Double) {
+    val value: Double by init
+    println(value)
+}
+
+private fun showDoubles(init: () -> Array<Double>) {
+    val values: Array<Double> by init
+    println(values.join())
+    println(values.string)
 }
 
 private fun showCharConstants() {
@@ -52,6 +65,15 @@ private fun showLongConstants() {
     showInt { Long.SIZE_BYTES }
 }
 
+private fun showDoubleConstants() {
+    showDouble { Double.MAX_VALUE }
+    showDouble { Double.MIN_VALUE }
+    showInt { Double.SIZE_BITS }
+    showInt { Double.SIZE_BYTES }
+}
+
 fun main() {
-    showCharConstants()
+   // showCharConstants()
+
+    showDoubles { arrayOf(0.0, 1.0, -2.0) }
 }
