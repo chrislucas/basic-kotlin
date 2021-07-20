@@ -1,4 +1,4 @@
-package com.br.sample.properties.delegated.function
+package com.br.sample.properties.delegated.function.localdelegated
 
 import com.br.sample.properties.delegated.getValue
 

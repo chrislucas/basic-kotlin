@@ -1,6 +1,7 @@
 package com.br.sample.general
 
 import java.lang.StringBuilder
+import kotlin.reflect.KProperty
 
 
 val <T> List<T>.string: String
@@ -19,3 +20,6 @@ fun <T> Array<T>.join(delimiter: String = ","): String =
         }
         init
     }.toString()
+
+
+fun KProperty<*>.log() = println(this.string)

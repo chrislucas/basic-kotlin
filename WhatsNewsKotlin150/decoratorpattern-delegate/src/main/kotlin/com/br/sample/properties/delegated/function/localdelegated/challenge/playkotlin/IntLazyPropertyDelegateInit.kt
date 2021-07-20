@@ -1,4 +1,4 @@
-package com.br.sample.properties.delegated.function.challenge.playkotlin
+package com.br.sample.properties.delegated.function.localdelegated.challenge.playkotlin
 
 import kotlin.reflect.KProperty
 

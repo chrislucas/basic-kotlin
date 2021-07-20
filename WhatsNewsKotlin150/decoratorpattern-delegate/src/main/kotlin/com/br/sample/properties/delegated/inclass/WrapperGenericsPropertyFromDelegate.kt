@@ -1,7 +1,6 @@
 package com.br.sample.properties.delegated.inclass
 
 import com.br.sample.general.string
-import java.lang.StringBuilder
 import kotlin.reflect.KProperty
 
 class GenericTypeProvider<T>(val provider: (T?, KProperty<*>) -> T) {
@@ -13,19 +12,6 @@ class GenericTypeProvider<T>(val provider: (T?, KProperty<*>) -> T) {
     }
 }
 
-val KProperty<*>.string: String
-    get() {
-        return this.run {
-            val buffer = StringBuilder()
-            buffer.append("Name: ${this.name}\n")
-            buffer.append("ClassName: '${this.javaClass.name}\n")
-            buffer.append("Parameter: '${this.parameters.string}\n")
-            buffer.append("Type Parameter: '${this.typeParameters.string}\n")
-            buffer.append("Return Type: '${this.returnType}\n")
-            buffer.append("Annotations: '${this.annotations}")
-            buffer.toString()
-        }
-    }
 
 private fun sampleGenericDelegateWithIntType() {
     var value: Int by GenericTypeProvider { ref: Int?, property: KProperty<*> ->
