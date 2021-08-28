@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WhatsNews.iml" filepath="$PROJECT_DIR$/WhatsNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/funwithkotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/funwithkotlin.iml" />
     </modules>
   </component>
 </project>

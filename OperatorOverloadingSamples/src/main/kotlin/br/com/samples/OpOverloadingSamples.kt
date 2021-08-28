@@ -10,6 +10,9 @@ package br.com.samples
  *      - LEFT-HAND SIDE TYPE for binary op
  *          - p += q plusAssign
  *          - p -= q minusAssign
+ *          // LEFT-HAND op RIGHT-HAND
+ *          - p + q plus 0
+ *          - p - q minus
  *      - ARGUMENT TYPE for unary op
  *
  * FUNCTION THAT OVERLOAD OPERATOR NEED TO BE MARKED WITH THE OPERATOR MODIFIER
@@ -133,7 +136,11 @@ private fun samplePlusAssign() {
     println(p)
 }
 
-
+/**
+ * Alem desse projeto de exemplo, tem um segundo projeto chamado StudyOperatorOverloading de exemplo
+ * dentro do projeto de estudos do curso kotlin for java developers do coursera. Lá tem mais anotacoes
+ * sobre sobrecarga de operadores e algumas outras coisas interessantes
+ * */
 fun main() {
     testIncOpAfterThatDecOp()
 }
