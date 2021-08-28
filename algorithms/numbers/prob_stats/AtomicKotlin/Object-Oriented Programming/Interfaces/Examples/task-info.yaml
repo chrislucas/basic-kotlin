@@ -1,0 +1,186 @@
+type: theory
+files:
+- name: src/Computer.kt
+  visible: true
+  text: |-
+    // Interfaces/Computer.kt
+    package interfaces
+    import atomictest.*
+
+    interface Computer {
+      fun prompt(): String
+      fun calculateAnswer(): Int
+    }
+
+    class Desktop : Computer {
+      override fun prompt() = "Hello!"
+      override fun calculateAnswer() = 11
+    }
+
+    class DeepThought : Computer {
+      override fun prompt() = "Thinking..."
+      override fun calculateAnswer() = 42
+    }
+
+    class Quantum : Computer {
+      override fun prompt() = "Probably..."
+      override fun calculateAnswer() = -1
+    }
+
+    fun main() {
+      val computers = listOf(
+        Desktop(), DeepThought(), Quantum()
+      )
+      computers.map { it.calculateAnswer() } eq
+        "[11, 42, -1]"
+      computers.map { it.prompt() } eq
+        "[Hello!, Thinking..., Probably...]"
+    }
+  learner_created: false
+- name: src/PlayerInterface.kt
+  visible: true
+  text: |-
+    // Interfaces/PlayerInterface.kt
+    package interfaces
+    import atomictest.eq
+
+    interface Player {
+      val symbol: Char
+    }
+
+    class Food : Player {
+      override val symbol = '.'
+    }
+
+    class Robot : Player {
+      override val symbol get() = 'R'
+    }
+
+    class Wall(override val symbol: Char) : Player
+
+    fun main() {
+      listOf(Food(), Robot(), Wall('|')).map {
+        it.symbol
+      } eq "[., R, |]"
+    }
+  learner_created: false
+- name: src/Hotness.kt
+  visible: true
+  text: |-
+    // Interfaces/Hotness.kt
+    package interfaces
+    import atomictest.*
+
+    interface Hotness {
+      fun feedback(): String
+    }
+
+    enum class SpiceLevel : Hotness {
+      Mild {
+        override fun feedback() =
+          "It adds flavor!"
+      },
+      Medium {
+        override fun feedback() =
+          "Is it warm in here?"
+      },
+      Hot {
+        override fun feedback() =
+          "I'm suddenly sweating a lot."
+      },
+      Flaming {
+        override fun feedback() =
+          "I'm in pain. I am suffering."
+      }
+    }
+
+    fun main() {
+      SpiceLevel.values().map { it.feedback() } eq
+        "[It adds flavor!, " +
+        "Is it warm in here?, " +
+        "I'm suddenly sweating a lot., " +
+        "I'm in pain. I am suffering.]"
+    }
+  learner_created: false
+- name: src/SAM.kt
+  visible: true
+  text: |-
+    // Interfaces/SAM.kt
+    package interfaces
+
+    fun interface ZeroArg {
+      fun f(): Int
+    }
+
+    fun interface OneArg {
+      fun g(n: Int): Int
+    }
+
+    fun interface TwoArg {
+      fun h(i: Int, j: Int): Int
+    }
+  learner_created: false
+- name: src/SAMImplementation.kt
+  visible: true
+  text: |-
+    // Interfaces/SAMImplementation.kt
+    package interfaces
+    import atomictest.eq
+
+    class VerboseZero : ZeroArg {
+      override fun f() = 11
+    }
+
+    val verboseZero = VerboseZero()
+
+    val samZero = ZeroArg { 11 }
+
+    class VerboseOne : OneArg {
+      override fun g(n: Int) = n + 47
+    }
+
+    val verboseOne = VerboseOne()
+
+    val samOne = OneArg { it + 47 }
+
+    class VerboseTwo : TwoArg {
+      override fun h(i: Int, j: Int) = i + j
+    }
+
+    val verboseTwo = VerboseTwo()
+
+    val samTwo =  TwoArg { i, j -> i + j }
+
+    fun main() {
+      verboseZero.f() eq 11
+      samZero.f() eq 11
+      verboseOne.g(92) eq 139
+      samOne.g(92) eq 139
+      verboseTwo.h(11, 47) eq 58
+      samTwo.h(11, 47) eq 58
+    }
+  learner_created: false
+- name: src/SAMConversion.kt
+  visible: true
+  text: |-
+    // Interfaces/SAMConversion.kt
+    package interfaces
+    import atomictest.trace
+
+    fun interface Action {
+      fun act()
+    }
+
+    fun delayAction(action: Action) {
+      trace("Delaying...")
+      action.act()
+    }
+
+    fun main() {
+      delayAction { trace("Hey!") }
+      trace eq "Delaying... Hey!"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

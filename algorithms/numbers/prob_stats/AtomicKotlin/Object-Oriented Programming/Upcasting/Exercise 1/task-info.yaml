@@ -1,0 +1,131 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 429
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 429
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      trace(rodent.eat())
+        trace(rodent.speak())
+        //  rodent.jump() // Won't compile
+  text: |-
+    // Upcasting/UpcastExercise1.kt
+    package upcastingExercise1
+    import atomictest.trace
+
+    interface Rodent {
+      fun eat(): String
+      fun speak(): String
+    }
+
+    class Mouse: Rodent {
+      override fun eat() = "Mouse.eat"
+      override fun speak() = "Mouse.speak"
+    }
+
+    class KangarooRat: Rodent {
+      override fun eat() = "KangarooRat.eat"
+      override fun speak() = "KangarooRat.speak"
+      fun jump() = "KangarooRat.jump"
+    }
+
+    fun upcast(rodent: Rodent) {
+      TODO()
+    }
+
+    fun main() {
+      val mouse = Mouse()
+      val kangarooRat = KangarooRat()
+      trace(kangarooRat.jump())
+      upcast(mouse)
+      upcast(kangarooRat)
+      trace eq """
+        KangarooRat.jump
+        Mouse.eat
+        Mouse.speak
+        KangarooRat.eat
+        KangarooRat.speak
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package upcastingExercise1
+    import atomictest.trace
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestUpcastingExercise1 : TestTrace() {
+
+      private val packageName = "upcastingExercise1"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Rodent").apply {
+          assertInterface()
+          assertDeclaredMemberFunction("eat")
+          assertDeclaredMemberFunction("speak")
+        }
+
+        loadClass("Mouse").apply {
+          assertAbstract(expected = false)
+          assertInheritance("Rodent")
+          assertDeclaredMemberFunction("eat")
+          assertDeclaredMemberFunction("speak")
+        }
+
+        loadClass("KangarooRat").apply {
+          assertAbstract(expected = false)
+          assertInheritance("Rodent")
+          assertDeclaredMemberFunction("eat")
+          assertDeclaredMemberFunction("speak")
+          assertDeclaredMemberFunction("jump")
+        }
+
+        loadToplevelFunction(loadFileFacade(packageName), "upcast")
+      }
+
+      @Test
+      fun `#02 rodents actions`() {
+        val mouse = loadClass("Mouse").createInstance()
+        val kangarooRat = loadClass("KangarooRat").createInstance()
+        val upcast = loadToplevelFunction(loadFileFacade(packageName), "upcast")
+        val jump = loadClass("KangarooRat").assertDeclaredMemberFunction("jump")
+
+        trace(jump.call(kangarooRat))
+        upcast(null, mouse)
+        upcast(null, kangarooRat)
+
+        assertEquals(
+            message = "Incorrect sequence of actions of rodents",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "KangarooRat.jump",
+                "Mouse.eat",
+                "Mouse.speak",
+                "KangarooRat.eat",
+                "KangarooRat.speak"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,74 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 166
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 166
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (list.isEmpty()) return false
+        return list.maxOrNull()!!.absoluteValue ==
+          list.minOrNull()!!.absoluteValue
+  text: |-
+    // NonNullAssertions/Task3.kt
+    package nonNullAssertionsExercise3
+    import atomictest.eq
+    import kotlin.math.absoluteValue
+
+    fun absMinIsMax(list: List<Int>): Boolean {
+      TODO()
+    }
+
+    fun main() {
+      absMinIsMax(listOf(-10, 1, 10)) eq true
+      absMinIsMax(listOf(10, 10)) eq true
+      absMinIsMax(listOf(-10, 1)) eq false
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package nonNullAssertionsExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestNonNullAssertionsExercise3 {
+      private fun testResult(list: List<Int>, expected: Boolean) {
+        Assert.assertEquals("Wrong result for $list:", expected, absMinIsMax(list))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() = testResult(listOf(-10, 1, 10), true)
+
+      @Test(timeout = TIMEOUT)
+      fun test2Sample() = testResult(listOf(10, 10), true)
+
+      @Test(timeout = TIMEOUT)
+      fun test3Sample() = testResult(listOf(-10, 1), false)
+
+      @Test(timeout = TIMEOUT)
+      fun test4() = testResult(listOf(-100, 100, 100), true)
+
+      @Test(timeout = TIMEOUT)
+      fun test5() = testResult(listOf(-10, -5, 5, -1, 1), false)
+
+      @Test(timeout = TIMEOUT)
+      fun test6() = testResult(listOf(-5, 5, -1, 1, 6), false)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Usability+%2F+Non-null+Assertions+%2F+Exercise2
+status: Unchecked
+record: -1

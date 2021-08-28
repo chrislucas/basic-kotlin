@@ -1,0 +1,27 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Booleans/Task4.kt
+    package booleansExercise4
+
+    fun main() {
+      println(foo())
+    }
+  learner_created: false
+- name: src/Foo.kt
+  visible: true
+  text: |-
+    package booleansExercise4
+
+    fun foo(): Boolean = true
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: package booleansExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+Booleans+%2F+Exercise3
+status: Unchecked
+record: -1

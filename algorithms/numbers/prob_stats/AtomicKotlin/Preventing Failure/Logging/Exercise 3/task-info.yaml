@@ -1,0 +1,165 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 161
+    length: 19
+    placeholder_text: '// TODO: add values'
+    initial_state:
+      length: 19
+      offset: 161
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Trace, Debug, Info, Warn, Error
+  - offset: 208
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 208
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Error
+  - offset: 294
+    length: 84
+    placeholder_text: |-
+      private fun log(type: String, msg: String) =
+          logFile.appendText("$type: $msg\n")
+    initial_state:
+      length: 84
+      offset: 294
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      private fun log(thisLevel: Level, msg: String) {
+          if(thisLevel >= debugLevel)
+            logFile.appendText("${thisLevel.name}: $msg\n")
+        }
+  - offset: 406
+    length: 17
+    placeholder_text: log("Trace", msg)
+    initial_state:
+      length: 17
+      offset: 406
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: log(Trace, msg)
+  - offset: 451
+    length: 17
+    placeholder_text: log("Debug", msg)
+    initial_state:
+      length: 17
+      offset: 451
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: log(Debug, msg)
+  - offset: 495
+    length: 16
+    placeholder_text: log("Info", msg)
+    initial_state:
+      length: 16
+      offset: 495
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: log(Info, msg)
+  - offset: 538
+    length: 16
+    placeholder_text: log("Warn", msg)
+    initial_state:
+      length: 16
+      offset: 538
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: log(Warn, msg)
+  - offset: 582
+    length: 17
+    placeholder_text: log("Error", msg)
+    initial_state:
+      length: 17
+      offset: 582
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: log(Error, msg)
+  text: |-
+    // Logging/LoggingSoln3.kt
+    package loggingExercise3
+    import atomictest.eq
+    import checkinstructions.DataFile
+    import loggingExercise3.Level.*
+
+    enum class Level {
+      // TODO: add values
+    }
+
+    var debugLevel: Level = TODO()
+
+    class Logger(fileName: String) {
+      val logFile = DataFile(fileName).reset()
+      private fun log(type: String, msg: String) =
+        logFile.appendText("$type: $msg\n")
+      fun trace(msg: String) = log("Trace", msg)
+      fun debug(msg: String) = log("Debug", msg)
+      fun info(msg: String) = log("Info", msg)
+      fun warn(msg: String) = log("Warn", msg)
+      fun error(msg: String) = log("Error", msg)
+      fun report(msg: String) {
+        trace(msg)
+        debug(msg)
+        info(msg)
+        warn(msg)
+        error(msg)
+      }
+    }
+
+    private val logger = Logger("LoggingSoln3.txt")
+
+    fun main() {
+      Level.values().toList().forEach {
+        debugLevel = it
+        logger.report("debugLevel($debugLevel)")
+      }
+      logger.logFile.readText() eq
+      """
+      Trace: debugLevel(Trace)
+      Debug: debugLevel(Trace)
+      Info: debugLevel(Trace)
+      Warn: debugLevel(Trace)
+      Error: debugLevel(Trace)
+      Debug: debugLevel(Debug)
+      Info: debugLevel(Debug)
+      Warn: debugLevel(Debug)
+      Error: debugLevel(Debug)
+      Info: debugLevel(Info)
+      Warn: debugLevel(Info)
+      Error: debugLevel(Info)
+      Warn: debugLevel(Warn)
+      Error: debugLevel(Warn)
+      Error: debugLevel(Error)
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package loggingExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestLoggingExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

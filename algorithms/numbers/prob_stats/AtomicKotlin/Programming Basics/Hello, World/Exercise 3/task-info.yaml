@@ -1,0 +1,35 @@
+type: output
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 67
+    length: 38
+    placeholder_text: |-
+      println("Hello,")
+        println("Kotlin!")
+    initial_state:
+      length: 38
+      offset: 67
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //println("Hello,")
+        println("Kotlin!")
+  text: |-
+    // HelloWorld/Task3.kt
+    package helloWorldExercise3
+
+    fun main() {
+      println("Hello,")
+      println("Kotlin!")
+    }
+  learner_created: false
+- name: test/output.txt
+  visible: false
+  text: |
+    Kotlin!
+  learner_created: false
+status: Unchecked
+record: -1

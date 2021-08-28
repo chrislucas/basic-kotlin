@@ -1,0 +1,5 @@
+https://www.researchgate.net/publication/2403539_Structures_of_String_Matching_and_Data_Compression
+https://en.wikipedia.org/wiki/Data_compression
+https://leetcode.com/problems/string-compression/
+https://www.codeproject.com/Articles/223610/A-Simple-String-Compression-Algorithm
+https://www.hackerrank.com/challenges/string-compression/problem

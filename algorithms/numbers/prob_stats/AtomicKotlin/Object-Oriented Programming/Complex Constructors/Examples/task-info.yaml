@@ -1,0 +1,44 @@
+type: theory
+files:
+- name: src/SimpleConstructor.kt
+  visible: true
+  text: |-
+    // ComplexConstructors/SimpleConstructor.kt
+    package complexconstructors
+    import atomictest.eq
+
+    class Alien(val name: String)
+
+    fun main() {
+      val alien = Alien("Pencilvester")
+      alien.name eq "Pencilvester"
+    }
+  learner_created: false
+- name: src/InitSection.kt
+  visible: true
+  text: |-
+    // ComplexConstructors/InitSection.kt
+    package complexconstructors
+    import atomictest.eq
+
+    private var counter = 0
+
+    class Message(text: String) {
+      private val content: String
+      init {
+        counter += 10
+        content = "[$counter] $text"
+      }
+      override fun toString() = content
+    }
+
+    fun main() {
+      val m1 = Message("Big ba-da boom!")
+      m1 eq "[10] Big ba-da boom!"
+      val m2 = Message("Bzzzzt!")
+      m2 eq "[20] Bzzzzt!"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

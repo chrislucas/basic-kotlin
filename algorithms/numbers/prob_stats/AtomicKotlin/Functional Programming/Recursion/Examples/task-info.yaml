@@ -1,0 +1,161 @@
+type: theory
+files:
+- name: src/Factorial.kt
+  visible: true
+  text: |-
+    // Recursion/Factorial.kt
+    package recursion
+    import atomictest.eq
+
+    fun factorial(n: Long): Long {
+      if (n <= 1) return 1
+      return n * factorial(n - 1)
+    }
+
+    fun main() {
+      factorial(5) eq 120
+      factorial(17) eq 355687428096000
+    }
+  learner_created: false
+- name: src/CallStack.kt
+  visible: true
+  text: |-
+    // Recursion/CallStack.kt
+    package recursion
+
+    fun illegalState() {
+      // throw IllegalStateException()
+    }
+
+    fun fail() = illegalState()
+
+    fun main() {
+      fail()
+    }
+  learner_created: false
+- name: src/InfiniteRecursion.kt
+  visible: true
+  text: |-
+    // Recursion/InfiniteRecursion.kt
+    package recursion
+
+    fun recurse(i: Int): Int = recurse(i + 1)
+
+    fun main() {
+      // println(recurse(1))
+    }
+  learner_created: false
+- name: src/RecursionLimits.kt
+  visible: true
+  text: |-
+    // Recursion/RecursionLimits.kt
+    package recursion
+    import atomictest.eq
+
+    fun sum(n: Long): Long {
+      if (n == 0L) return 0
+      return n + sum(n - 1)
+    }
+
+    fun main() {
+      sum(2) eq 3
+      sum(1000) eq 500500
+      // sum(100_000) eq 500050000       // [1]
+      (1..100_000L).sum() eq 5000050000  // [2]
+    }
+  learner_created: false
+- name: src/Iteration.kt
+  visible: true
+  text: |-
+    // Recursion/Iteration.kt
+    package iteration
+    import atomictest.eq
+
+    fun sum(n: Long): Long {
+      var accumulator = 0L
+      for (i in 1..n) {
+        accumulator += i
+      }
+      return accumulator
+    }
+
+    fun main() {
+      sum(10000) eq 50005000
+      sum(100000) eq 5000050000
+    }
+  learner_created: false
+- name: src/TailRecursiveSum.kt
+  visible: true
+  text: |-
+    // Recursion/TailRecursiveSum.kt
+    package tailrecursion
+    import atomictest.eq
+
+    private tailrec fun sum(
+      n: Long,
+      accumulator: Long
+    ): Long =
+      if (n == 0L) accumulator
+      else sum(n - 1, accumulator + n)
+
+    fun sum(n: Long) = sum(n, 0)
+
+    fun main() {
+      sum(2) eq 3
+      sum(10000) eq 50005000
+      sum(100000) eq 5000050000
+    }
+  learner_created: false
+- name: src/VerySlowFibonacci.kt
+  visible: true
+  text: |-
+    // Recursion/VerySlowFibonacci.kt
+    package slowfibonacci
+    import atomictest.eq
+
+    fun fibonacci(n: Long): Long {
+      return when (n) {
+        0L -> 0
+        1L -> 1
+        else ->
+          fibonacci(n - 1) + fibonacci(n - 2)
+      }
+    }
+
+    fun main() {
+      fibonacci(0) eq 0
+      fibonacci(22) eq 17711
+      // Very time-consuming:
+      // fibonacci(50) eq 12586269025
+    }
+  learner_created: false
+- name: src/Fibonacci.kt
+  visible: true
+  text: |-
+    // Recursion/Fibonacci.kt
+    package recursion
+    import atomictest.eq
+
+    fun fibonacci(n: Int): Long {
+      tailrec fun fibonacci(
+        n: Int,
+        current: Long,
+        next: Long
+      ): Long {
+        if (n == 0) return current
+        return fibonacci(
+          n - 1, next, current + next)
+      }
+      return fibonacci(n, 0L, 1L)
+    }
+
+    fun main() {
+      (0..8).map { fibonacci(it) } eq
+        "[0, 1, 1, 2, 3, 5, 8, 13, 21]"
+      fibonacci(22) eq 17711
+      fibonacci(50) eq 12586269025
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

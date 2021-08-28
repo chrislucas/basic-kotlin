@@ -1,0 +1,117 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 115
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 115
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      mapOf(
+        1000 to "M",
+        900 to "CM",
+        500 to "D",
+        400 to "CD",
+        100 to "C",
+        90 to "XC",
+        50 to "L",
+        40 to "XL",
+        10 to "X",
+        9 to "IX",
+        5 to "V",
+        4 to "IV",
+        1 to "I")
+  - offset: 167
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 167
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var result = ""
+        var remainder = number
+        for ((int, roman) in intToRomanNumeralMap) {
+          val times = remainder / int
+          result += roman.repeat(times)
+          remainder %= int
+        }
+        return result
+  text: |-
+    // Summary2/Task7.kt
+    package summaryIIExercise7
+    import atomictest.eq
+
+    val intToRomanNumeralMap: Map<Int, String> = TODO()
+
+    fun convertToRoman(number: Int): String {
+      TODO()
+    }
+
+    fun main() {
+      convertToRoman(23) eq "XXIII"
+      convertToRoman(44) eq "XLIV"
+      convertToRoman(100) eq "C"
+      convertToRoman(2018) eq "MMXVIII"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIIExercise7
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIIExercise7 {
+      private fun checkNumber(number: Int, roman: String) {
+        Assert.assertEquals("Wrong result for $number:", roman, convertToRoman(number))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test01Sample1() = checkNumber(23, "XXIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test02Sample2() = checkNumber(44, "XLIV")
+
+      @Test(timeout = TIMEOUT)
+      fun test0Sample3() = checkNumber(100, "C")
+
+      @Test(timeout = TIMEOUT)
+      fun test04Sample4() = checkNumber(2018, "MMXVIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test05VII() = checkNumber(7, "VII")
+
+      @Test(timeout = TIMEOUT)
+      fun test06XXXIX() = checkNumber(39, "XXXIX")
+
+      @Test(timeout = TIMEOUT)
+      fun test07DCLXXXIII() = checkNumber(683, "DCLXXXIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test08MCMXCIX() = checkNumber(1999, "MCMXCIX")
+
+      @Test(timeout = TIMEOUT)
+      fun test09CDXCIV() = checkNumber(494, "CDXCIV")
+
+      @Test(timeout = TIMEOUT)
+      fun test10MDLV() = checkNumber(1555, "MDLV")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Summary+2+%2F+Exercise1
+status: Unchecked
+record: -1

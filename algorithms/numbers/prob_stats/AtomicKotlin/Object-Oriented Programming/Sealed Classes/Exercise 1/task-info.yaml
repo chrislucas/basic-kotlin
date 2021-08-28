@@ -1,0 +1,150 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 82
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 82
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      sealed class Transport {
+        abstract val capacity: Int
+      }
+
+      data class Train(
+        val line: String,
+        override val capacity: Int
+      ) : Transport()
+
+      data class Bus(
+        val number: String,
+        override val capacity: Int
+      ) : Transport()
+
+      data class Tram(
+        val route: String,
+        override val capacity: Int
+      ) : Transport()
+
+      data class Plane(
+        val flightNumber: String,
+        override val capacity: Int
+      ) : Transport()
+
+      fun travel(transport: Transport) {
+        when (transport) {
+          is Train ->
+            trace("Train ${transport.line}")
+          is Bus ->
+            trace("Bus ${transport.number}")
+          is Tram ->
+            trace("Tram ${transport.route}")
+          is Plane ->
+            trace("Plane ${transport.flightNumber}")
+        }
+        trace("size ${transport.capacity}")
+      }
+
+      fun main() {
+        listOf(
+          Train("S1", 200),
+          Bus("11", 45),
+          Tram("22A Express", 60),
+          Plane("1103", 190)
+        ).forEach(::travel)
+        trace eq """
+          Train S1
+          size 200
+          Bus 11
+          size 45
+          Tram 22A Express
+          size 60
+          Plane 1103
+          size 190
+        """
+      }
+  text: |-
+    // SealedClasses/SealedEx1.kt
+    package sealedClassesExercise1
+    import atomictest.*
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package sealedClassesExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSealedClassesExercise1 : TestTrace() {
+
+        private val packageName = "sealedClassesExercise1"
+
+        @Test
+        fun `#01 classes structure`() {
+            listOf(
+                    "Train" to "line",
+                    "Bus" to "number",
+                    "Tram" to "route",
+                    "Plane" to "flightNumber"
+            ).forEach {
+                assertDerivedTransport(transportName = it.first, mainParameterName = it.second)
+            }
+        }
+
+        private fun assertDerivedTransport(transportName: String, mainParameterName: String) {
+            loadClass(packageName, transportName).apply {
+                assertConstructorNumber(1)
+                assertParametersOfFirstConstructor(
+                    mainParameterName to String::class,
+                    "capacity" to Int::class
+                )
+                assertInheritance("Transport")
+            }
+        }
+
+        @Test
+        fun `#02 travel by chain of transports`() {
+            val travel = loadToplevelFunction(loadFileFacade(packageName), "travel")
+            listOf(
+                    listOf("Train", "S1", "200"),
+                    listOf("Bus", "11", "45"),
+                    listOf("Tram", "22A Express", "60"),
+                    listOf("Plane", "1103", "190")
+            ).forEach { params ->
+                loadClass(packageName, params[0])
+                        .createInstance(params[1], params[2].toInt())
+                        .also { transport -> travel.invoke(null, transport) }
+            }
+
+            assertEquals(
+                    message = "Incorrect result of travel() invocation",
+                    actual = loadTraceContent(),
+                    expected = listOf(
+                            "Train S1",
+                            "size 200",
+                            "Bus 11",
+                            "size 45",
+                            "Tram 22A Express",
+                            "size 60",
+                            "Plane 1103",
+                            "size 190"
+                    )
+            )
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

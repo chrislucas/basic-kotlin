@@ -1,0 +1,39 @@
+type: output
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 197
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 197
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      println("The maximum of $first and $second is " +
+          "${findMax(first, second)}.")
+  text: |-
+    // StringTemplates/Task1.kt
+    package stringTemplatesExercise1
+
+    fun findMax(first: Int, second: Int): Int =
+      if (first > second) first else second
+
+    fun main() {
+      val first = 17
+      val second = 31
+      TODO()
+    }
+  learner_created: false
+- name: test/output.txt
+  visible: false
+  text: |
+    The maximum of 17 and 31 is 31.
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Programming+Basics+%2F+String+Templates+%2F+Exercise1
+status: Unchecked
+record: -1

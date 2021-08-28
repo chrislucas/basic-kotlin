@@ -1,0 +1,106 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 136
+    length: 23
+    placeholder_text: // TODO add constructor
+    initial_state:
+      length: 23
+      offset: 136
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'constructor(): this("Daisy")'
+  - offset: 182
+    length: 16
+    placeholder_text: 'val type: String'
+    initial_state:
+      length: 16
+      offset: 182
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'val type: String = "Daisy"'
+  - offset: 214
+    length: 63
+    placeholder_text: |-
+      //    Flower1().type eq "Daisy"
+      //    Flower2().type eq "Daisy"
+    initial_state:
+      length: 63
+      offset: 214
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        Flower1().type eq "Daisy"
+        Flower2().type eq "Daisy"
+  text: |-
+    // SecondaryConstructors/Task1.kt
+    package secondaryConstructorsExercise1
+    import atomictest.eq
+
+    data class Flower1(val type: String) {
+      // TODO add constructor
+    }
+
+    data class Flower2(val type: String)
+
+    fun main() {
+    //    Flower1().type eq "Daisy"
+    //    Flower2().type eq "Daisy"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package secondaryConstructorsExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.assertConstructorNumber
+    import util.loadMemberProperty
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSecondaryConstructorsExercise1 {
+
+        @Test
+        fun `#01 flower1 constructing`() {
+            val flowerClass = Flower1::class
+            val typeProp = loadMemberProperty(flowerClass, "type")
+            flowerClass.assertConstructorNumber(2)
+            val constructor = flowerClass.constructors.find { it.parameters.isEmpty() }
+                    ?: throw AssertionError("Can't find constructor without parameters in the class 'Flower1'")
+            val flowerInstance = constructor.call()
+            val typeValue = typeProp.getter.call(flowerInstance)
+
+            assertEquals(
+                    expected = "Daisy",
+                    actual = typeValue,
+                    message = "After calling a constructor without parameters the value of 'type' should be 'Daisy'"
+            )
+        }
+
+        @Test
+        fun `#02 flower2 constructing`() {
+            val flowerClass = Flower2::class
+            val typeProp = loadMemberProperty(flowerClass, "type")
+            flowerClass.assertConstructorNumber(1)
+            val constructor = flowerClass.constructors.first()
+            val flowerInstance = constructor.callBy(mapOf())
+            val typeValue = typeProp.getter.call(flowerInstance)
+
+            assertEquals(
+                    expected = "Daisy",
+                    actual = typeValue,
+                    message = "After calling a constructor without parameters the value of 'type' should be 'Daisy'"
+            )
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

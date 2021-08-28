@@ -1,0 +1,113 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 139
+    length: 56
+    placeholder_text: // TODO Implement 'empty' and 'full' extension functions
+    initial_state:
+      length: 56
+      offset: 139
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun Container?.empty() = this == null || contents == null
+
+      fun Container?.full() = !empty()
+  - offset: 210
+    length: 199
+    placeholder_text: |-
+      /*
+        val container = Container(42)
+        container.empty() eq false
+        container.full() eq true
+
+        val emptyContainer = Container(null)
+        emptyContainer.empty() eq true
+        emptyContainer.full() eq false
+      */
+    initial_state:
+      length: 199
+      offset: 210
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val container = Container(42)
+        container.empty() eq false
+        container.full() eq true
+
+        val emptyContainer = Container(null)
+        emptyContainer.empty() eq true
+        emptyContainer.full() eq false
+  text: |-
+    // NullableExtensions/Task3.kt
+    package extensionsForNullableTypesExercise3
+    import atomictest.eq
+
+    data class Container(val contents: Any?)
+
+    // TODO Implement 'empty' and 'full' extension functions
+
+    fun main() {
+    /*
+      val container = Container(42)
+      container.empty() eq false
+      container.full() eq true
+
+      val emptyContainer = Container(null)
+      emptyContainer.empty() eq true
+      emptyContainer.full() eq false
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package extensionsForNullableTypesExercise3
+
+    import org.junit.Assert
+    import org.junit.Test
+    import util.*
+
+    class TestExtensionsForNullableTypesExercise3 {
+        private fun testContainer(contents: Any?, contentsString: String) {
+            val containerClass = Container::class
+            val containerInstance = Container(contents)
+
+            val fileFacade = loadFileFacade("extensionsForNullableTypesExercise3")
+
+            val emptyFunc = loadToplevelFunction(fileFacade, "empty")
+            checkFunctionIsExtension(emptyFunc, containerClass)
+            val actualEmpty = emptyFunc.invoke(Object(), containerInstance)
+            Assert.assertEquals("Wrong result for calling 'Container($contentsString).empty()'",
+              contents == null, actualEmpty)
+            val nullEmpty = emptyFunc.invoke(Object(), null)
+            Assert.assertEquals("Wrong result for calling 'container.empty()' if container reference is 'null'",
+              true, nullEmpty)
+
+            val fullFunc = loadToplevelFunction(fileFacade, "full")
+            checkFunctionIsExtension(fullFunc, containerClass)
+            val actualFull = fullFunc.invoke(Object(), containerInstance)
+            Assert.assertEquals("Wrong result for calling 'Container($contentsString).full()'",
+              contents != null, actualFull)
+
+            val nullFull = emptyFunc.invoke(Object(), null)
+            Assert.assertEquals("Wrong result for calling 'container.full()' if container reference is 'null'",
+              true, nullFull)
+        }
+
+        @Test
+        fun test1() = testContainer(null, "null")
+
+        @Test
+        fun test2() = testContainer(123, "123")
+
+        @Test
+        fun test3() = testContainer("abc", "\"abc\"")
+    }
+  learner_created: false
+status: Unchecked
+record: -1

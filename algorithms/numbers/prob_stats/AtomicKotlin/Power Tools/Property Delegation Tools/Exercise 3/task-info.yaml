@@ -1,0 +1,82 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 178
+    length: 16
+    placeholder_text: fun observe() {}
+    initial_state:
+      length: 16
+      offset: 178
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun <T> observe(
+        prop: KProperty<*>, old: T, new: T
+      ) {
+        trace("${prop.name} $old to $new")
+      }
+  - offset: 257
+    length: 36
+    placeholder_text: = "" // by observable(nm, ::observe)
+    initial_state:
+      length: 36
+      offset: 257
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: by observable(nm, ::observe)
+  - offset: 306
+    length: 35
+    placeholder_text: = 0 // by observable(id, ::observe)
+    initial_state:
+      length: 35
+      offset: 306
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: by observable(id, ::observe)
+  text: |-
+    // DelegationTools/DelegToolsSoln2.kt
+    package propertyDelegationToolsExercise3
+    import kotlin.properties.Delegates.observable
+    import kotlin.reflect.KProperty
+    import atomictest.*
+
+    fun observe() {}
+
+    class Product(nm: String = "<0>", id: Int = -1) {
+      var name = "" // by observable(nm, ::observe)
+      var ident = 0 // by observable(id, ::observe)
+      override fun toString() = "$name $ident"
+    }
+
+    fun main() {
+      val product = Product()
+      product.name = "Plumbus"
+      product.ident = 1193
+      product eq "Plumbus 1193"
+      trace eq """
+        name <0> to Plumbus
+        ident -1 to 1193
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationToolsExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationToolsExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,155 @@
+type: theory
+files:
+- name: src/NamedArguments.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/NamedArguments.kt
+    package color1
+    import atomictest.eq
+
+    fun color(red: Int, green: Int, blue: Int) =
+      "($red, $green, $blue)"
+
+    fun main() {
+      color(1, 2, 3) eq "(1, 2, 3)"   // [1]
+      color(
+        red = 76,                     // [2]
+        green = 89,
+        blue = 0
+      ) eq "(76, 89, 0)"
+      color(52, 34, blue = 0) eq      // [3]
+        "(52, 34, 0)"
+    }
+  learner_created: false
+- name: src/ArgumentOrder.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/ArgumentOrder.kt
+    import color1.color
+    import atomictest.eq
+
+    fun main() {
+      color(blue = 0, red = 99, green = 52) eq
+        "(99, 52, 0)"
+      color(red = 255, 255, 0) eq
+        "(255, 255, 0)"
+    }
+  learner_created: false
+- name: src/Color2.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/Color2.kt
+    package color2
+    import atomictest.eq
+
+    fun color(
+      red: Int = 0,
+      green: Int = 0,
+      blue: Int = 0,
+    ) = "($red, $green, $blue)"
+
+    fun main() {
+      color(139) eq "(139, 0, 0)"
+      color(blue = 139) eq "(0, 0, 139)"
+      color(255, 165) eq "(255, 165, 0)"
+      color(red = 128, blue = 128) eq
+        "(128, 0, 128)"
+    }
+  learner_created: false
+- name: src/Color3.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/Color3.kt
+    package color3
+    import atomictest.eq
+
+    class Color(
+      val red: Int = 0,
+      val green: Int = 0,
+      val blue: Int = 0,
+    ) {
+      override fun toString() =
+        "($red, $green, $blue)"
+    }
+
+    fun main() {
+      Color(red = 77).toString() eq "(77, 0, 0)"
+    }
+  learner_created: false
+- name: src/CreateString.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/CreateString.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3,)
+      list.toString() eq "[1, 2, 3]"
+      list.joinToString() eq "1, 2, 3"
+      list.joinToString(prefix = "(",
+        postfix = ")") eq "(1, 2, 3)"
+      list.joinToString(separator = ":") eq
+        "1:2:3"
+    }
+  learner_created: false
+- name: src/Evaluation.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/Evaluation.kt
+    package namedanddefault
+
+    class DefaultArg
+
+    fun h(d: DefaultArg = DefaultArg()) =
+      println(d)
+
+    fun main() {
+      h()
+      h()
+    }
+    /* Sample output:
+    DefaultArg@28d93b30
+    DefaultArg@1b6d3586
+    */
+  learner_created: false
+- name: src/CreateString2.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/CreateString2.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3)
+      list.joinToString(". ", "", "!") eq
+        "1. 2. 3!"
+      list.joinToString(separator = ". ",
+        postfix = "!") eq "1. 2. 3!"
+    }
+  learner_created: false
+- name: src/TrimMargin.kt
+  visible: true
+  text: |-
+    // NamedAndDefaultArgs/TrimMargin.kt
+    import atomictest.eq
+
+    fun main() {
+      val poem = """
+        |->Last night I saw upon the stair
+            |->A little man who wasn't there
+              |->He wasn't there again today
+    |->Oh, how I wish he'd go away."""
+      poem.trimMargin() eq
+    """->Last night I saw upon the stair
+    ->A little man who wasn't there
+    ->He wasn't there again today
+    ->Oh, how I wish he'd go away."""
+      poem.trimMargin(marginPrefix = "|->") eq
+    """Last night I saw upon the stair
+    A little man who wasn't there
+    He wasn't there again today
+    Oh, how I wish he'd go away."""
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

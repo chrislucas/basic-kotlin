@@ -1,0 +1,120 @@
+type: theory
+files:
+- name: src/DereferenceNull.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/DereferenceNull.kt
+
+    fun main() {
+      val s: String? = null
+      // Doesn't compile:
+      // s.length        // [1]
+    }
+  learner_created: false
+- name: src/SafeOperation.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/SafeOperation.kt
+    package safecalls
+    import atomictest.*
+
+    fun String.echo() {
+      trace(toUpperCase())
+      trace(this)
+      trace(toLowerCase())
+    }
+
+    fun main() {
+      val s1: String? = "Howdy!"
+      s1?.echo()                  // [1]
+      val s2: String? = null
+      s2?.echo()                  // [2]
+      trace eq """
+        HOWDY!
+        Howdy!
+        howdy!
+      """
+    }
+  learner_created: false
+- name: src/SafeCall.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/SafeCall.kt
+    package safecalls
+    import atomictest.eq
+
+    fun checkLength(s: String?, expected: Int?) {
+      val length1 =
+        if (s != null) s.length else null  // [1]
+      val length2 = s?.length              // [2]
+      length1 eq expected
+      length2 eq expected
+    }
+
+    fun main() {
+      checkLength("abc", 3)
+      checkLength(null, null)
+    }
+  learner_created: false
+- name: src/ElvisOperator.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/ElvisOperator.kt
+    import atomictest.eq
+
+    fun main() {
+      val s1: String? = "abc"
+      (s1 ?: "---") eq "abc"
+
+      val s2: String? = null
+      (s2 ?: "---") eq "---"
+    }
+  learner_created: false
+- name: src/ElvisCall.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/ElvisCall.kt
+    package safecalls
+    import atomictest.eq
+
+    fun checkLength(s: String?, expected: Int) {
+      val length1 =
+        if (s != null) s.length else 0    // [1]
+      val length2 = s?.length ?: 0        // [2]
+      length1 eq expected
+      length2 eq expected
+    }
+
+    fun main() {
+      checkLength("abc", 3)
+      checkLength(null, 0)
+    }
+  learner_created: false
+- name: src/ChainedCalls.kt
+  visible: true
+  text: |-
+    // SafeCallsAndElvis/ChainedCalls.kt
+    package safecalls
+    import atomictest.eq
+
+    class Person(
+      val name: String,
+      var friend: Person? = null
+    )
+
+    fun main() {
+      val alice = Person("Alice")
+      alice.friend?.friend?.name eq null   // [1]
+
+      val bob = Person("Bob")
+      val charlie = Person("Charlie", bob)
+      bob.friend = charlie
+      bob.friend?.friend?.name eq "Bob"    // [2]
+
+      (alice.friend?.friend?.name
+        ?: "Unknown") eq "Unknown"         // [3]
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

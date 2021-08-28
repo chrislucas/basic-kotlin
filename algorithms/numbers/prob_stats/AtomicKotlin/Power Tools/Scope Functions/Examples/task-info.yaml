@@ -1,0 +1,304 @@
+type: theory
+files:
+- name: src/Differences.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/Differences.kt
+    package scopefunctions
+    import atomictest.eq
+
+    data class Tag(var n: Int = 0) {
+      var s: String = ""
+      fun increment() = ++n
+    }
+
+    fun main() {
+      // let(): Access object with 'it'
+      // Returns last expression in lambda
+      Tag(1).let {
+        it.s = "let: ${it.n}"
+        it.increment()
+      } eq 2
+
+      // let() with named lambda argument:
+      Tag(2).let { tag ->
+        tag.s = "let: ${tag.n}"
+        tag.increment()
+      } eq 3
+
+      // run(): Access object with 'this'
+      // Returns last expression in lambda
+      Tag(3).run {
+        s = "run: $n" // Implicit 'this'
+        increment()   // Implicit 'this'
+      } eq 4
+
+      // with(): Access object with 'this'
+      // Returns last expression in lambda
+      with(Tag(4)) {
+        s = "with: $n"
+        increment()
+      } eq 5
+
+      // apply(): Access object with 'this'
+      // Returns modified object
+      Tag(5).apply {
+        s = "apply: $n"
+        increment()
+      } eq "Tag(n=6)"
+
+      // also(): Access object with 'it'
+      // Returns modified object
+      Tag(6).also {
+        it.s = "also: ${it.n}"
+        it.increment()
+      } eq "Tag(n=7)"
+
+      // also() with named lambda argument:
+      Tag(7).also { tag ->
+        tag.s = "also: ${tag.n}"
+        tag.increment()
+      } eq "Tag(n=8)"
+    }
+  learner_created: false
+- name: src/AndNullability.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/AndNullability.kt
+    package scopefunctions
+    import atomictest.eq
+    import kotlin.random.Random
+
+    fun gets(): String? =
+      if (Random.nextBoolean()) "str!" else null
+
+    fun main() {
+      gets()?.let {
+        it.removeSuffix("!") + it.length
+      }?.eq("str4")
+    }
+  learner_created: false
+- name: src/Gnome.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/Gnome.kt
+    package scopefunctions
+
+    class Gnome(val name: String) {
+      fun who() = "Gnome: $name"
+    }
+
+    fun whatGnome(gnome: Gnome?) {
+      gnome?.let { it.who() }     // [1]
+      gnome.let { it?.who() }
+      gnome?.run { who() }        // [2]
+      gnome.run { this?.who() }
+      gnome?.apply { who() }      // [3]
+      gnome.apply { this?.who() }
+      gnome?.also { it.who() }    // [4]
+      gnome.also { it?.who() }
+      // No help for nullability:
+      with(gnome) { this?.who() }
+    }
+  learner_created: false
+- name: src/NullGnome.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/NullGnome.kt
+    package scopefunctions
+    import atomictest.*
+
+    fun whichGnome(gnome: Gnome?) {
+      trace(gnome?.name)
+      gnome?.let { trace(it.who()) }
+      gnome?.run { trace(who()) }
+      gnome?.apply { trace(who()) }
+      gnome?.also { trace(it.who()) }
+    }
+
+    fun main() {
+      whichGnome(Gnome("Bob"))
+      whichGnome(null)
+      trace eq """
+        Bob
+        Gnome: Bob
+        Gnome: Bob
+        Gnome: Bob
+        Gnome: Bob
+        null
+      """
+    }
+  learner_created: false
+- name: src/MapLookup.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/MapLookup.kt
+    package scopefunctions
+    import atomictest.*
+
+    data class Plumbus(var id: Int)
+
+    fun display(map: Map<String, Plumbus>) {
+      trace("displaying $map")
+      val pb1: Plumbus = map["main"]?.let {
+        it.id += 10
+        it
+      } ?: return
+      trace(pb1)
+
+      val pb2: Plumbus? = map["main"]?.run {
+        id += 9
+        this
+      }
+      trace(pb2)
+
+      val pb3: Plumbus? = map["main"]?.apply {
+        id += 8
+      }
+      trace(pb3)
+
+      val pb4: Plumbus? = map["main"]?.also {
+        it.id += 7
+      }
+      trace(pb4)
+    }
+
+    fun main() {
+      display(mapOf("main" to Plumbus(1)))
+      display(mapOf("none" to Plumbus(2)))
+      trace eq """
+        displaying {main=Plumbus(id=1)}
+        Plumbus(id=11)
+        Plumbus(id=20)
+        Plumbus(id=28)
+        Plumbus(id=35)
+        displaying {none=Plumbus(id=2)}
+      """
+    }
+  learner_created: false
+- name: src/NameTag.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/NameTag.kt
+    package scopefunctions
+    import atomictest.trace
+
+    val functions = listOf(
+      fun(name: String?) {
+        name
+          ?.takeUnless { it.isBlank() }
+          ?.let { trace("$it in let") }
+      },
+      fun(name: String?) {
+        name
+          ?.takeUnless { it.isBlank() }
+          ?.run { trace("$this in run") }
+      },
+      fun(name: String?) {
+        name
+          ?.takeUnless { it.isBlank() }
+          ?.apply { trace("$this in apply") }
+      },
+      fun(name: String?) {
+        name
+          ?.takeUnless { it.isBlank() }
+          ?.also { trace("$it in also") }
+      },
+    )
+
+    fun main() {
+      functions.forEach { it(null) }
+      functions.forEach { it("  ") }
+      functions.forEach { it("Yumyulack") }
+      trace eq """
+        Yumyulack in let
+        Yumyulack in run
+        Yumyulack in apply
+        Yumyulack in also
+      """
+    }
+  learner_created: false
+- name: src/Nesting.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/Nesting.kt
+    package scopefunctions
+    import atomictest.eq
+
+    fun nesting(s: String, i: Int): String =
+      with(s) {
+        with(i) {
+          toString()
+        }
+      } +
+      s.let {
+        i.let {
+          it.toString()
+        }
+      } +
+      s.run {
+        i.run {
+          toString()
+        }
+      } +
+      s.apply {
+        i.apply {
+          toString()
+        }
+      } +
+      s.also {
+        i.also {
+          it.toString()
+        }
+      }
+
+    fun main() {
+      nesting("X", 7) eq "777XX"
+    }
+  learner_created: false
+- name: src/Blob.kt
+  visible: true
+  text: |-
+    // ScopeFunctions/Blob.kt
+    package scopefunctions
+    import atomictest.*
+
+    data class Blob(val id: Int) : AutoCloseable {
+      override fun toString() = "Blob($id)"
+      fun show() { trace("$this")}
+      override fun close() = trace("Close $this")
+    }
+
+    fun main() {
+      Blob(1).let { it.show() }
+      Blob(2).run { show() }
+      with(Blob(3)) { show() }
+      Blob(4).apply { show() }
+      Blob(5).also { it.show() }
+      Blob(6).use { it.show() }
+      Blob(7).use { it.run { show() } }
+      Blob(8).apply { show() }.also { it.close() }
+      Blob(9).also { it.show() }.apply { close() }
+      Blob(10).apply { show() }.use {  }
+      trace eq """
+        Blob(1)
+        Blob(2)
+        Blob(3)
+        Blob(4)
+        Blob(5)
+        Blob(6)
+        Close Blob(6)
+        Blob(7)
+        Close Blob(7)
+        Blob(8)
+        Close Blob(8)
+        Blob(9)
+        Close Blob(9)
+        Blob(10)
+        Close Blob(10)
+      """
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

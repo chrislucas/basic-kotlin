@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AtomicKotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/AtomicKotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ElementsOfKotlinBook.iml" filepath="$PROJECT_DIR$/.idea/ElementsOfKotlinBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KotlinInAction.iml" filepath="$PROJECT_DIR$/.idea/modules/KotlinInAction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MasteringHighPerformanceWithKotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/MasteringHighPerformanceWithKotlin.iml" />
+    </modules>
+  </component>
+</project>

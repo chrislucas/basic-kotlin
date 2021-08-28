@@ -1,0 +1,26 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Maps/Task4.kt
+    package mapsExercise4
+
+    fun main() {
+      val map = mapOf(
+        1 to "one",
+        2 to "two",
+        3 to "three",
+      )
+      println(map)
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package mapsExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Maps+%2F+Exercise4
+status: Unchecked
+record: -1

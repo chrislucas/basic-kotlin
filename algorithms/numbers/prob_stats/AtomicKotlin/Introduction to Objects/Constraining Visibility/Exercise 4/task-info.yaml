@@ -1,0 +1,33 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Visibility/Task4.kt
+    package constrainingVisibilityExercise4
+
+    fun printSum(x: Int) {
+      if (x <= 0) {
+        println("Incorrect input: $x should be positive")
+        return
+      }
+      println((0..x).sum())
+    }
+
+    fun main() {
+      printSum(-10)
+    }
+    /* Output:
+    Incorrect input: -10 should be positive
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |+
+    package constrainingVisibilityExercise4
+
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Constraining+Visibility+%2F+Exercise3
+status: Unchecked
+record: -1

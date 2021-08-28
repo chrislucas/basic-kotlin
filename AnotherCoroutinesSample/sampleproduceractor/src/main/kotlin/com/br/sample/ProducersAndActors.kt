@@ -14,8 +14,13 @@ suspend fun helloworld() {
     println(0xff)
 }
 
-fun main() {
-    CoroutineScope(Dispatchers.Unconfined).launch {
+fun callHelloWorld() {
+    CoroutineScope(Dispatchers.Default).launch {
         helloworld()
     }
+}
+
+fun main() {
+
+
 }

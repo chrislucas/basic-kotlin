@@ -1,0 +1,74 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 128
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 128
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: a + b + c
+  - offset: 151
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 151
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      sum(1, 1, 1) eq 3
+        sum(1, 2, 3) eq 6
+        sum(1, 2, 3) neq 5
+        sum(-1, -10, -100) eq -111
+        sum(2131, 81783, 16085) eq 99999
+  text: |-
+    // Testing/Task2.kt
+    package testingExercise2
+    import atomictest.eq
+    import atomictest.neq
+
+    fun sum(a: Int, b: Int, c: Int): Int = TODO()
+
+    fun main() {
+      TODO()
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package testingExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.runAndGetSystemOutput
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestTestingExercise2 {
+      @Test(timeout = TIMEOUT)
+      fun test1Sum() {
+        Assert.assertEquals("The 'sum(1, 2, 3)' call returns the wrong result",
+          6, sum(1, 2, 3))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2Main() {
+        val output = runAndGetSystemOutput(::main)
+        Assert.assertTrue("All the tests are expected to succeed, " +
+          "the output should contain no 'Error'", "Error" !in output)
+        Assert.assertTrue("The 'sum' function is expected to be tested for " +
+          "at least five different argument combinations", output.lines().size >= 5)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

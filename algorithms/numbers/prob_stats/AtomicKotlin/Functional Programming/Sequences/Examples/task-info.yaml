@@ -1,0 +1,187 @@
+type: theory
+files:
+- name: src/EagerEvaluation.kt
+  visible: true
+  text: |-
+    // Sequences/EagerEvaluation.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+
+      list.filter { it % 2 == 0 }
+        .map { it * it }
+        .any { it < 10 } eq true
+
+      // Equivalent to:
+      val mid1 = list.filter { it % 2 == 0 }
+      mid1 eq listOf(2, 4)
+      val mid2 = mid1.map { it * it }
+      mid2 eq listOf(4, 16)
+      mid2.any { it < 10 } eq true
+    }
+  learner_created: false
+- name: src/EagerVsLazyEvaluation.kt
+  visible: true
+  text: |-
+    // Sequences/EagerVsLazyEvaluation.kt
+    package sequences
+    import atomictest.*
+
+    fun Int.isEven(): Boolean {
+      trace("$this.isEven()")
+      return this % 2 == 0
+    }
+
+    fun Int.square(): Int {
+      trace("$this.square()")
+      return this * this
+    }
+
+    fun Int.lessThanTen(): Boolean {
+      trace("$this.lessThanTen()")
+      return this < 10
+    }
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+      trace(">>> List:")
+      trace(
+        list
+          .filter(Int::isEven)
+          .map(Int::square)
+          .any(Int::lessThanTen)
+      )
+      trace(">>> Sequence:")
+      trace(
+        list.asSequence()
+          .filter(Int::isEven)
+          .map(Int::square)
+          .any(Int::lessThanTen)
+      )
+      trace eq """
+        >>> List:
+        1.isEven()
+        2.isEven()
+        3.isEven()
+        4.isEven()
+        2.square()
+        4.square()
+        4.lessThanTen()
+        true
+        >>> Sequence:
+        1.isEven()
+        2.isEven()
+        2.square()
+        4.lessThanTen()
+        true
+      """
+    }
+  learner_created: false
+- name: src/NoComputationYet.kt
+  visible: true
+  text: |-
+    // Sequences/NoComputationYet.kt
+    import atomictest.eq
+    import sequences.*
+
+    fun main() {
+      val r = listOf(1, 2, 3, 4)
+        .asSequence()
+        .filter(Int::isEven)
+        .map(Int::square)
+      r.toString().substringBefore("@") eq
+        "kotlin.sequences.TransformingSequence"
+    }
+  learner_created: false
+- name: src/TerminalOperations.kt
+  visible: true
+  text: |-
+    // Sequences/TerminalOperations.kt
+    import sequences.*
+    import atomictest.*
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+      trace(list.asSequence()
+        .filter(Int::isEven)
+        .map(Int::square)
+        .toList())
+      trace eq """
+        1.isEven()
+        2.isEven()
+        2.square()
+        3.isEven()
+        4.isEven()
+        4.square()
+        [4, 16]
+      """
+    }
+  learner_created: false
+- name: src/GenerateSequence1.kt
+  visible: true
+  text: |-
+    // Sequences/GenerateSequence1.kt
+    import atomictest.eq
+
+    fun main() {
+      val naturalNumbers =
+        generateSequence(1) { it + 1 }
+      naturalNumbers.take(3).toList() eq
+        listOf(1, 2, 3)
+      naturalNumbers.take(10).sum() eq 55
+    }
+  learner_created: false
+- name: src/GenerateSequence2.kt
+  visible: true
+  text: |-
+    // Sequences/GenerateSequence2.kt
+    import atomictest.*
+
+    fun main() {
+      val items = mutableListOf(
+        "first", "second", "third", "XXX", "4th"
+      )
+      val seq = generateSequence {
+        items.removeAt(0).takeIf { it != "XXX" }
+      }
+      seq.toList() eq "[first, second, third]"
+      capture {
+        seq.toList()
+      } eq "IllegalStateException: This " +
+        "sequence can be consumed only once."
+    }
+  learner_created: false
+- name: src/DefineTakeIf.kt
+  visible: true
+  text: |-
+    // Sequences/DefineTakeIf.kt
+    package sequences
+    import atomictest.eq
+
+    fun <T> T.takeIf(
+      predicate: (T) -> Boolean
+    ): T? {
+      return if (predicate(this)) this else null
+    }
+
+    fun main() {
+      "abc".takeIf { it != "XXX" } eq "abc"
+      "XXX".takeIf { it != "XXX" } eq null
+    }
+  learner_created: false
+- name: src/NumberSequence2.kt
+  visible: true
+  text: |-
+    // Sequences/NumberSequence2.kt
+    import atomictest.eq
+
+    fun main() {
+      generateSequence(6) {
+        (it - 1).takeIf { it > 0 }
+      }.toList() eq listOf(6, 5, 4, 3, 2, 1)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

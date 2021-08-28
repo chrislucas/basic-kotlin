@@ -1,0 +1,185 @@
+type: theory
+files:
+- name: src/NarrowingUpcast.kt
+  visible: true
+  text: |-
+    // DownCasting/NarrowingUpcast.kt
+    package downcasting
+
+    interface Base {
+      fun f()
+    }
+
+    class Derived1 : Base {
+      override fun f() {}
+      fun g() {}
+    }
+
+    class Derived2 : Base {
+      override fun f() {}
+      fun h() {}
+    }
+
+    fun main() {
+      val b1: Base = Derived1() // Upcast
+      b1.f()    // Part of Base
+      // b1.g() // Not part of Base
+      val b2: Base = Derived2() // Upcast
+      b2.f()    // Part of Base
+      // b2.h() // Not part of Base
+    }
+  learner_created: false
+- name: src/IsKeyword.kt
+  visible: true
+  text: |-
+    // DownCasting/IsKeyword.kt
+    import downcasting.*
+
+    fun main() {
+      val b1: Base = Derived1() // Upcast
+      if(b1 is Derived1)
+        b1.g() // Within scope of "is" check
+      val b2: Base = Derived2() // Upcast
+      if(b2 is Derived2)
+        b2.h() // Within scope of "is" check
+    }
+  learner_created: false
+- name: src/Creature.kt
+  visible: true
+  text: |-
+    // DownCasting/Creature.kt
+    package downcasting
+    import atomictest.eq
+
+    interface Creature
+
+    class Human : Creature {
+      fun greeting() = "I'm Human"
+    }
+
+    class Dog : Creature {
+      fun bark() = "Yip!"
+    }
+
+    class Alien : Creature {
+      fun mobility() = "Three legs"
+    }
+
+    fun what(c: Creature): String =
+      when (c) {
+        is Human -> c.greeting()
+        is Dog -> c.bark()
+        is Alien -> c.mobility()
+        else -> "Something else"
+      }
+
+    fun main() {
+      val c: Creature = Human()
+      what(c) eq "I'm Human"
+      what(Dog()) eq "Yip!"
+      what(Alien()) eq "Three legs"
+      class Who : Creature
+      what(Who()) eq "Something else"
+    }
+  learner_created: false
+- name: src/MutableSmartCast.kt
+  visible: true
+  text: |-
+    // DownCasting/MutableSmartCast.kt
+    package downcasting
+
+    class SmartCast1(val c: Creature) {
+      fun contact() {
+        when (c) {
+          is Human -> c.greeting()
+          is Dog -> c.bark()
+          is Alien -> c.mobility()
+        }
+      }
+    }
+
+    class SmartCast2(var c: Creature) {
+      fun contact() {
+        when (val c = c) {           // [1]
+          is Human -> c.greeting()   // [2]
+          is Dog -> c.bark()
+          is Alien -> c.mobility()
+        }
+      }
+    }
+  learner_created: false
+- name: src/Unsafe.kt
+  visible: true
+  text: |-
+    // DownCasting/Unsafe.kt
+    package downcasting
+    import atomictest.*
+
+    fun dogBarkUnsafe(c: Creature) =
+      (c as Dog).bark()
+
+    fun dogBarkUnsafe2(c: Creature): String {
+      c as Dog
+      c.bark()
+      return c.bark() + c.bark()
+    }
+
+    fun main() {
+      dogBarkUnsafe(Dog()) eq "Yip!"
+      dogBarkUnsafe2(Dog()) eq "Yip!Yip!"
+      (capture {
+        dogBarkUnsafe(Human())
+      }) contains listOf("ClassCastException")
+    }
+  learner_created: false
+- name: src/Safe.kt
+  visible: true
+  text: |-
+    // DownCasting/Safe.kt
+    package downcasting
+    import atomictest.eq
+
+    fun dogBarkSafe(c: Creature) =
+      (c as? Dog)?.bark() ?: "Not a Dog"
+
+    fun main() {
+      dogBarkSafe(Dog()) eq "Yip!"
+      dogBarkSafe(Human()) eq "Not a Dog"
+    }
+  learner_created: false
+- name: src/FindType.kt
+  visible: true
+  text: |-
+    // DownCasting/FindType.kt
+    package downcasting
+    import atomictest.eq
+
+    val group: List<Creature> = listOf(
+      Human(), Human(), Dog(), Alien(), Dog()
+    )
+
+    fun main() {
+      val dog = group
+        .find { it is Dog } as Dog?    // [1]
+      dog?.bark() eq "Yip!"            // [2]
+    }
+  learner_created: false
+- name: src/FilterIsInstance.kt
+  visible: true
+  text: |-
+    // DownCasting/FilterIsInstance.kt
+    import downcasting.*
+    import atomictest.eq
+
+    fun main() {
+      val humans1: List<Creature> =
+        group.filter { it is Human }
+      humans1.size eq 2
+      val humans2: List<Human> =
+        group.filterIsInstance<Human>()
+      humans2 eq humans1
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

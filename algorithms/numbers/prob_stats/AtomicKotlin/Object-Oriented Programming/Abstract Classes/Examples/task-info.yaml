@@ -1,0 +1,176 @@
+type: theory
+files:
+- name: src/AbstractKeyword.kt
+  visible: true
+  text: |-
+    // Abstract/AbstractKeyword.kt
+    package abstractclasses
+
+    abstract class WithProperty {
+      abstract val x: Int
+    }
+
+    abstract class WithFunctions {
+      abstract fun f(): Int
+      abstract fun g(n: Double)
+    }
+  learner_created: false
+- name: src/Redundant.kt
+  visible: true
+  text: |-
+    // Abstract/Redundant.kt
+    package abstractclasses
+
+    interface Redundant {
+      abstract val x: Int
+      abstract fun f(): Int
+      abstract fun g(n: Double)
+    }
+
+    interface Removed {
+      val x: Int
+      fun f(): Int
+      fun g(n: Double)
+    }
+  learner_created: false
+- name: src/StateOfAClass.kt
+  visible: true
+  text: |-
+    // Abstract/StateOfAClass.kt
+    package abstractstate
+    import atomictest.eq
+
+    class IntList(val name: String) {
+      val list = mutableListOf<Int>()
+    }
+
+    fun main() {
+      val ints = IntList("numbers")
+      ints.name eq "numbers"
+      ints.list += 7
+      ints.list eq listOf(7)
+    }
+  learner_created: false
+- name: src/NoStateInInterfaces.kt
+  visible: true
+  text: |-
+    // Abstract/NoStateInInterfaces.kt
+    package abstractclasses
+
+    interface IntList {
+      val name: String
+      // Doesn't compile:
+      // val list = listOf(0)
+    }
+  learner_created: false
+- name: src/Implementations.kt
+  visible: true
+  text: |-
+    // Abstract/Implementations.kt
+    package abstractclasses
+    import atomictest.eq
+
+    interface Parent {
+      val ch: Char
+      fun f(): Int
+      fun g() = "ch = $ch; f() = ${f()}"
+    }
+
+    class Actual(
+      override val ch: Char        // [1]
+    ): Parent {
+      override fun f() = 17        // [2]
+    }
+
+    class Other : Parent {
+      override val ch: Char        // [3]
+        get() = 'B'
+      override fun f() = 34        // [4]
+    }
+
+    fun main() {
+      Actual('A').g() eq "ch = A; f() = 17" // [5]
+      Other().g() eq "ch = B; f() = 34"     // [6]
+    }
+  learner_created: false
+- name: src/PropertyAccessor.kt
+  visible: true
+  text: |-
+    // Abstract/PropertyAccessor.kt
+    package abstractclasses
+    import atomictest.eq
+
+    interface PropertyAccessor {
+      val a: Int
+        get() = 11
+    }
+
+    class Impl : PropertyAccessor
+
+    fun main() {
+      Impl().a eq 11
+    }
+  learner_created: false
+- name: src/NoMultipleInheritance.kt
+  visible: true
+  text: |-
+    // Abstract/NoMultipleInheritance.kt
+    package multipleinheritance1
+
+    open class Animal
+    open class Mammal : Animal()
+    open class AquaticAnimal : Animal()
+
+    // More than one base class doesn't compile:
+    // class Dolphin : Mammal(), AquaticAnimal()
+  learner_created: false
+- name: src/MultipleInterfaceInheritance.kt
+  visible: true
+  text: |-
+    // Abstract/MultipleInterfaceInheritance.kt
+    package multipleinheritance2
+
+    interface Animal
+    interface Mammal: Animal
+    interface AquaticAnimal: Animal
+
+    class Dolphin : Mammal, AquaticAnimal
+  learner_created: false
+- name: src/InterfaceCollision.kt
+  visible: true
+  text: |-
+    // Abstract/InterfaceCollision.kt
+    package collision
+    import atomictest.eq
+
+    interface A {
+      fun f() = 1
+      fun g() = "A.g"
+      val n: Double
+        get() = 1.1
+    }
+
+    interface B {
+      fun f() = 2
+      fun g() = "B.g"
+      val n: Double
+        get() = 2.2
+    }
+
+    class C : A, B {
+      override fun f() = 0
+      override fun g() = super<A>.g()
+      override val n: Double
+        get() = super<A>.n + super<B>.n
+    }
+
+    fun main() {
+      val c = C()
+      c.f() eq 0
+      c.g() eq "A.g"
+      c.n eq 3.3
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

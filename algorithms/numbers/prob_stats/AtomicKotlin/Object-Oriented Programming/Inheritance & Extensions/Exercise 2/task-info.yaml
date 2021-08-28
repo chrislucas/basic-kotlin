@@ -1,0 +1,158 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 404
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 404
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      speak()
+        sit()
+  - offset: 437
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 437
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      (this as Dog).play()
+        feed()
+  - offset: 469
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 469
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      (this as Dog).play()
+        changeBatteries()
+  - offset: 550
+    length: 4
+    placeholder_text: TODO
+    initial_state:
+      length: 4
+      offset: 550
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      b.a.r.k.
+          Sitting...
+  text: |-
+    // InheritanceExtensions/InhExtensionsEx1.kt
+    package inheritanceAndExtensionsExercise2
+    import atomictest.*
+
+    open class Dog {
+      open fun speak() = trace("Bark!")
+      open fun sit() = trace("Sitting...")
+    }
+
+    open class RealDog : Dog() {
+      fun feed() = trace("Feed")
+    }
+
+    class ToyDog : Dog() {
+      override fun speak() = trace("b.a.r.k.")
+      fun changeBatteries() = trace("Change batteries")
+    }
+
+    fun Dog.play() {
+      TODO()
+    }
+
+    fun RealDog.play() {
+      TODO()
+    }
+
+    fun ToyDog.play() {
+      TODO()
+    }
+
+    fun main() {
+      val dog: Dog = ToyDog()
+      dog.play()
+      trace eq """
+        TODO
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package inheritanceAndExtensionsExercise2
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestInheritanceAndExtensionsExercise2 : TestTrace() {
+
+      private val packageName = "inheritanceAndExtensionsExercise2"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        val dogClass = loadClass("Dog").apply {
+          assertOpen()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("speak")
+          assertDeclaredMemberFunction("sit")
+        }
+        val realDogClass = loadClass("RealDog").apply {
+          assertOpen()
+          assertInheritance("Dog")
+          assertDeclaredMemberFunction("feed")
+        }
+        val toyDogClass = loadClass("ToyDog").apply {
+          assertInheritance("Dog")
+          assertDeclaredMemberFunction("speak")
+          assertDeclaredMemberFunction("changeBatteries")
+        }
+
+        val fileFacade = loadFileFacade(packageName)
+        loadToplevelFunction(fileFacade, "play", dogClass)
+        loadToplevelFunction(fileFacade, "play", realDogClass)
+        loadToplevelFunction(fileFacade, "play", toyDogClass)
+      }
+
+      @Test
+      fun `#02 play with toy dog`() {
+        val fileFacade = loadFileFacade(packageName)
+        val dogClass = loadClass("Dog")
+        val toyDogClass = loadClass("ToyDog")
+        val play = loadToplevelFunction(fileFacade, "play", dogClass)
+        play.invoke(null, toyDogClass.createInstance())
+
+        assertEquals(
+            message = "Incorrect sequence of bites and panic",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "b.a.r.k.",
+                "Sitting..."
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

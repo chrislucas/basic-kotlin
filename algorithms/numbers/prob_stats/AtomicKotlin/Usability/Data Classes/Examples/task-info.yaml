@@ -1,0 +1,100 @@
+type: theory
+files:
+- name: src/Simple.kt
+  visible: true
+  text: |-
+    // DataClasses/Simple.kt
+    package dataclasses
+    import atomictest.eq
+
+    data class Simple(
+      val arg1: String,
+      var arg2: Int
+    )
+
+    fun main() {
+      val s1 = Simple("Hi", 29)
+      val s2 = Simple("Hi", 29)
+      s1 eq "Simple(arg1=Hi, arg2=29)"
+      s1 eq s2
+    }
+  learner_created: false
+- name: src/DataClasses.kt
+  visible: true
+  text: |-
+    // DataClasses/DataClasses.kt
+    package dataclasses
+    import atomictest.*
+
+    class Person(val name: String)
+
+    data class Contact(
+      val name: String,
+      val number: String
+    )
+
+    fun main() {
+      // These seem the same, but they're not:
+      Person("Cleo") neq Person("Cleo")
+      // A data class defines equality sensibly:
+      Contact("Miffy", "1-234-567890") eq
+      Contact("Miffy", "1-234-567890")
+    }
+    /* Sample output:
+    dataclasses.Person@54bedef2
+    Contact(name=Miffy, number=1-234-567890)
+    */
+  learner_created: false
+- name: src/CopyDataClass.kt
+  visible: true
+  text: |-
+    // DataClasses/CopyDataClass.kt
+    package dataclasses
+    import atomictest.eq
+
+    data class DetailedContact(
+      val name: String,
+      val surname: String,
+      val number: String,
+      val address: String
+    )
+
+    fun main() {
+      val contact = DetailedContact(
+        "Miffy",
+        "Miller",
+        "1-234-567890",
+        "1600 Amphitheatre Parkway")
+      val newContact = contact.copy(
+        number = "098-765-4321",
+        address = "Brandschenkestrasse 110")
+      newContact eq DetailedContact(
+        "Miffy",
+        "Miller",
+        "098-765-4321",
+        "Brandschenkestrasse 110")
+    }
+  learner_created: false
+- name: src/HashCode.kt
+  visible: true
+  text: |-
+    // DataClasses/HashCode.kt
+    package dataclasses
+    import atomictest.eq
+
+    data class Key(val name: String, val id: Int)
+
+    fun main() {
+      val korvo: Key = Key("Korvo", 19)
+      korvo.hashCode() eq -2041757108
+      val map = HashMap<Key, String>()
+      map[korvo] = "Alien"
+      map[korvo] eq "Alien"
+      val set = HashSet<Key>()
+      set.add(korvo)
+      set.contains(korvo) eq true
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

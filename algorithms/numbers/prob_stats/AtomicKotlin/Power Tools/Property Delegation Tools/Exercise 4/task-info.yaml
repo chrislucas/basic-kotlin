@@ -1,0 +1,53 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 177
+    length: 18
+    placeholder_text: = TODO() // by ...
+    initial_state:
+      length: 18
+      offset: 177
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      by Delegates.vetoable(i) {
+          _, _, new -> new > 0
+        }
+  text: |-
+    // DelegationTools/DelegToolsSoln3.kt
+    package propertyDelegationToolsExercise4
+    import atomictest.eq
+    import kotlin.properties.Delegates
+
+    class PositiveInt(i: Int) {
+      var n: Int = TODO() // by ...
+    }
+
+    fun main() {
+      var pi = PositiveInt(2)
+      pi.n eq 2
+      pi.n = 200
+      pi.n eq 200
+      pi.n = -1
+      pi.n eq 200
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationToolsExercise4
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationToolsExercise4 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

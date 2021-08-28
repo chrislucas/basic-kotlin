@@ -1,0 +1,99 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 475
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 475
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (hamster in hamsters) {
+            if (hamster.name == name) {
+              return hamster
+            }
+          }
+          throw NoSuchElementException("No hamster called $name")
+  text: |-
+    // Maps/Task2.kt
+    package mapsExercise2
+    import atomictest.capture
+    import atomictest.eq
+
+    class Hamster(val name: String) {
+      override fun toString(): String {
+        return "Hamster('$name')"
+      }
+    }
+
+    class Cage(private val maxCapacity: Int) {
+      private val hamsters =
+        mutableListOf<Hamster>()
+
+      fun put(hamster: Hamster): Boolean =
+        if (hamsters.size == maxCapacity)
+          false
+        else {
+          hamsters += hamster
+          true
+        }
+
+      fun get(name: String): Hamster {
+        TODO()
+      }
+    }
+
+    fun main() {
+      val cage = Cage(2)
+      cage.put(Hamster("Alice")) eq true
+      cage.get("Alice") eq "Hamster('Alice')"
+      capture {
+        cage.get("Bob")
+      } eq "NoSuchElementException: " +
+        "No hamster called Bob"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package mapsExercise2
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestMapsExercise2 {
+      @Test(timeout = TIMEOUT)
+      fun test1SampleSuccess() {
+        val cage = Cage(2)
+        cage.put(Hamster("Alice"))
+        Assert.assertEquals("'get' should return a hamster with a given name",
+          "Hamster('Alice')", cage.get("Alice").toString())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2SampleNoHamster() {
+        val cage = Cage(2)
+        cage.put(Hamster("Alice"))
+        try {
+          cage.get("Bob")
+        } catch (e: NoSuchElementException) {
+          Assert.assertEquals("Expected 'NoSuchElementException' when the cage doesn't contain a hamster with a given name:",
+            e.javaClass.simpleName + (e.message?.let { ": $it" } ?: ""),
+            "NoSuchElementException: No hamster called Bob")
+        }
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Maps+%2F+Exercise2
+status: Unchecked
+record: -1

@@ -1,0 +1,277 @@
+type: theory
+files:
+- name: src/BasicRead.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/BasicRead.kt
+    package propertydelegation
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class Readable(val i: Int) {
+      val value: String by BasicRead()
+    }
+
+    class BasicRead {
+      operator fun getValue(
+        r: Readable,
+        property: KProperty<*>
+      ) = "getValue: ${r.i}"
+    }
+
+    fun main() {
+      val x = Readable(11)
+      val y = Readable(17)
+      x.value eq "getValue: 11"
+      y.value eq "getValue: 17"
+    }
+  learner_created: false
+- name: src/BasicReadWrite.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/BasicReadWrite.kt
+    package propertydelegation
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class ReadWriteable(var i: Int) {
+      var msg = ""
+      var value: String by BasicReadWrite()
+    }
+
+    class BasicReadWrite {
+      operator fun getValue(
+        rw: ReadWriteable,
+        property: KProperty<*>
+      ) = "getValue: ${rw.i}"
+      operator fun setValue(
+        rw: ReadWriteable,
+        property: KProperty<*>,
+        s: String
+      ) {
+        rw.i = s.toIntOrNull() ?: 0
+        rw.msg = "setValue to ${rw.i}"
+      }
+    }
+
+    fun main() {
+      val x = ReadWriteable(11)
+      x.value eq "getValue: 11"
+      x.value = "99"
+      x.msg eq "setValue to 99"
+      x.value eq "getValue: 99"
+    }
+  learner_created: false
+- name: src/BasicRead2.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/BasicRead2.kt
+    package propertydelegation
+    import atomictest.eq
+    import kotlin.properties.ReadOnlyProperty
+    import kotlin.reflect.KProperty
+
+    class Readable2(val i: Int) {
+      val value: String by BasicRead2()
+      // SAM conversion:
+      val value2: String by
+      ReadOnlyProperty { _, _ -> "getValue: $i" }
+    }
+
+    class BasicRead2 :
+      ReadOnlyProperty<Readable2, String> {
+      override operator fun getValue(
+        thisRef: Readable2,
+        property: KProperty<*>
+      ) = "getValue: ${thisRef.i}"
+    }
+
+    fun main() {
+      val x = Readable2(11)
+      val y = Readable2(17)
+      x.value eq "getValue: 11"
+      x.value2 eq "getValue: 11"
+      y.value eq "getValue: 17"
+      y.value2 eq "getValue: 17"
+    }
+  learner_created: false
+- name: src/BasicReadWrite2.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/BasicReadWrite2.kt
+    package propertydelegation
+    import atomictest.eq
+    import kotlin.properties.ReadWriteProperty
+    import kotlin.reflect.KProperty
+
+    class ReadWriteable2(var i: Int) {
+      var msg = ""
+      var value: String by BasicReadWrite2()
+    }
+
+    class BasicReadWrite2 :
+      ReadWriteProperty<ReadWriteable2, String> {
+      override operator fun getValue(
+        rw: ReadWriteable2,
+        property: KProperty<*>
+      ) = "getValue: ${rw.i}"
+      override operator fun setValue(
+        rw: ReadWriteable2,
+        property: KProperty<*>,
+        s: String
+      ) {
+        rw.i = s.toIntOrNull() ?: 0
+        rw.msg = "setValue to ${rw.i}"
+      }
+    }
+
+    fun main() {
+      val x = ReadWriteable2(11)
+      x.value eq "getValue: 11"
+      x.value = "99"
+      x.msg eq "setValue to 99"
+      x.value eq "getValue: 99"
+    }
+  learner_created: false
+- name: src/Accessibility.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/Accessibility.kt
+    package propertydelegation
+    import atomictest.eq
+    import kotlin.properties.ReadOnlyProperty
+    import kotlin.reflect.KProperty
+
+    class Person(
+      private val first: String,
+      private val last: String
+    ) {
+      val name by     // SAM conversion:
+      ReadOnlyProperty<Person, String> { _, _ ->
+        "$first $last"
+      }
+    }
+
+    fun main() {
+      val alien = Person("Floopy", "Noopers")
+      alien.name eq "Floopy Noopers"
+    }
+  learner_created: false
+- name: src/Add.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/Add.kt
+    package propertydelegation2
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class Add(val a: Int, val b: Int) {
+      val sum by Sum()
+    }
+
+    class Sum
+
+    operator fun Sum.getValue(
+      thisRef: Add,
+      property: KProperty<*>
+    ) = thisRef.a + thisRef.b
+
+    fun main() {
+      val addition = Add(144, 12)
+      addition.sum eq 156
+    }
+  learner_created: false
+- name: src/FibonacciProperty.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/FibonacciProperty.kt
+    package propertydelegation
+    import kotlin.properties.ReadWriteProperty
+    import kotlin.reflect.KProperty
+    import recursion.fibonacci
+    import atomictest.eq
+
+    class Fibonacci :
+      ReadWriteProperty<Any?, Long> {
+      private var current: Long = 0
+      override operator fun getValue(
+        thisRef: Any?,
+        property: KProperty<*>
+      ) = current
+      override operator fun setValue(
+        thisRef: Any?,
+        property: KProperty<*>,
+        value: Long
+      ) {
+        current = fibonacci(value.toInt())
+      }
+    }
+
+    fun main() {
+      var fib by Fibonacci()
+      fib eq 0L
+      fib = 22L
+      fib eq 17711L
+      fib = 90L
+      fib eq 2880067194370816120L
+    }
+  learner_created: false
+- name: src/FileDelegate.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/FileDelegate.kt
+    package propertydelegation
+    import kotlin.properties.ReadWriteProperty
+    import kotlin.reflect.KProperty
+    import checkinstructions.DataFile
+
+    class FileDelegate :
+      ReadWriteProperty<Any?, String> {
+      override fun getValue(
+        thisRef: Any?,
+        property: KProperty<*>
+      ): String {
+        val file =
+          DataFile(property.name + ".txt")
+        return if (file.exists())
+          file.readText()
+        else ""
+      }
+      override fun setValue(
+        thisRef: Any?,
+        property: KProperty<*>,
+        value: String
+      ) {
+        DataFile(property.name + ".txt")
+          .writeText(value)
+      }
+    }
+  learner_created: false
+- name: src/Configuration.kt
+  visible: true
+  text: |-
+    // PropertyDelegation/Configuration.kt
+    package propertydelegation
+    import checkinstructions.DataFile
+    import atomictest.eq
+
+    class Configuration {
+      var user by FileDelegate()
+      var id by FileDelegate()
+      var project by FileDelegate()
+    }
+
+    fun main() {
+      val config = Configuration()
+      config.user = "Luciano"
+      config.id = "Ramalho47"
+      config.project = "MyLittlePython"
+      DataFile("user.txt").readText() eq "Luciano"
+      DataFile("id.txt").readText() eq "Ramalho47"
+      DataFile("project.txt").readText() eq
+        "MyLittlePython"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

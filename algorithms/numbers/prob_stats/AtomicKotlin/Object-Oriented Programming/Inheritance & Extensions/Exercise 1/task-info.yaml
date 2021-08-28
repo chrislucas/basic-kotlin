@@ -1,0 +1,189 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 562
+    length: 45
+    placeholder_text: |-
+      class CrocoDuck(
+        val crocodile: Crocodile
+      )
+    initial_state:
+      length: 45
+      offset: 562
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class CrocoDuck(
+          val crocodile: Crocodile
+      ) : Duck {
+        override fun quack() = crocodile.bite()
+        override fun swim() = crocodile.bite()
+      }
+  - offset: 662
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 662
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: CrocoDuck(crocodile)
+  - offset: 731
+    length: 84
+    placeholder_text: |-
+      //  interactWithDuck(honestlyDuck)
+      //  interactWithCrocodile(honestlyDuck.crocodile)
+    initial_state:
+      length: 84
+      offset: 731
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        interactWithDuck(honestlyDuck)
+        interactWithCrocodile(honestlyDuck.crocodile)
+  text: |-
+    // InheritanceExtensions/Task1.kt
+    package inheritanceAndExtensionsExercise1
+    import atomictest.trace
+
+    // Duck Library
+    interface Duck {
+      fun quack()
+      fun swim()
+    }
+
+    class RealDuck : Duck {
+      override fun quack() = trace("quack")
+      override fun swim() = trace("swim")
+    }
+
+    fun interactWithDuck(duck: Duck) {
+      duck.quack()
+      duck.swim()
+    }
+
+    // Our codebase
+    interface Crocodile {
+      fun bite()
+    }
+
+    class RealCrocodile : Crocodile {
+      override fun bite() = trace("Mnom-mnom")
+    }
+
+    fun interactWithCrocodile(crocodile: Crocodile) {
+      trace("Panic!!!")
+      crocodile.bite()
+    }
+
+    class CrocoDuck(
+      val crocodile: Crocodile
+    )
+
+    fun mimicDuck(crocodile: Crocodile): CrocoDuck =
+        TODO()
+
+    fun main() {
+      val honestlyDuck = mimicDuck(RealCrocodile())
+    //  interactWithDuck(honestlyDuck)
+    //  interactWithCrocodile(honestlyDuck.crocodile)
+      trace eq """
+        Mnom-mnom
+        Mnom-mnom
+        Panic!!!
+        Mnom-mnom
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package inheritanceAndExtensionsExercise1
+
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.full.createInstance
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestInheritanceAndExtensionsExercise1 : TestTrace() {
+
+      private val packageName = "inheritanceAndExtensionsExercise1"
+
+      private fun loadClass(className: String): KClass<*> = loadClass(packageName, className)
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass("Duck").apply {
+          assertInterface()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("quack")
+          assertDeclaredMemberFunction("swim")
+        }
+        loadClass("RealDuck").apply {
+          assertInheritance("Duck")
+          assertDeclaredMemberFunction("quack")
+          assertDeclaredMemberFunction("swim")
+        }
+
+        val crocodileClass = loadClass("Crocodile").apply {
+          assertInterface()
+          assertNoInheritance()
+          assertDeclaredMemberFunction("bite")
+        }
+        loadClass("RealCrocodile").apply {
+          assertInheritance("Crocodile")
+          assertDeclaredMemberFunction("bite")
+        }
+        loadClass("CrocoDuck").apply {
+          assertInheritance("Duck")
+          assertDeclaredMemberProperty("crocodile", crocodileClass)
+          assertDeclaredMemberFunction("quack")
+          assertDeclaredMemberFunction("swim")
+        }
+
+        val fileFacade = loadFileFacade(packageName)
+        loadToplevelFunction(fileFacade, "interactWithDuck")
+        loadToplevelFunction(fileFacade, "interactWithCrocodile")
+        loadToplevelFunction(fileFacade, "mimicDuck")
+      }
+
+      @Test
+      fun `#02 ducks and crocodiles`() {
+        val fileFacade = loadFileFacade(packageName)
+        val interactWithDuck = loadToplevelFunction(fileFacade, "interactWithDuck")
+        val interactWithCrocodile = loadToplevelFunction(fileFacade, "interactWithCrocodile")
+        val mimicDuck = loadToplevelFunction(fileFacade, "mimicDuck")
+
+        val honestlyDuck = mimicDuck(null, loadClass("RealCrocodile")
+            .createInstance())
+        interactWithDuck(null, honestlyDuck)
+
+        val crocodile = loadClass("CrocoDuck")
+            .assertMemberProperty("crocodile")
+            .call(honestlyDuck)
+        interactWithCrocodile(null, crocodile)
+
+        assertEquals(
+            message = "Incorrect sequence of bites and panic",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "Mnom-mnom",
+                "Mnom-mnom",
+                "Panic!!!",
+                "Mnom-mnom"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

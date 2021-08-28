@@ -1,0 +1,121 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 115
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 115
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      mapOf(
+        "M" to 1000,
+        "CM" to 900,
+        "D" to 500,
+        "CD" to 400,
+        "C" to 100,
+        "XC" to 90,
+        "L" to 50,
+        "XL" to 40,
+        "X" to 10,
+        "IX" to 9,
+        "V" to 5,
+        "IV" to 4,
+        "I" to 1)
+  - offset: 168
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 168
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var result = 0
+        var max = 0
+        for (romanNumeral in roman.reversed()) {
+          val int = romanNumeralToIntMap.getValue("$romanNumeral")
+          if (int >= max) {
+            result += int
+            max = int
+          } else {
+            result -= int
+          }
+        }
+        return result
+  text: |-
+    // Summary2/Task8.kt
+    package summaryIIExercise8
+    import atomictest.eq
+
+    val romanNumeralToIntMap: Map<String, Int> = TODO()
+
+    fun convertFromRoman(roman: String): Int {
+      TODO()
+    }
+
+    fun main() {
+      convertFromRoman("XXIII") eq 23
+      convertFromRoman("XLIV") eq 44
+      convertFromRoman("C") eq 100
+      convertFromRoman("MMXVIII") eq 2018
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package summaryIIExercise8
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestSummaryIIExercise8 {
+      private fun checkNumber(number: Int, roman: String) {
+        Assert.assertEquals("Wrong result for $roman:", number, convertFromRoman(roman))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test01Sample1() = checkNumber(23, "XXIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test02Sample2() = checkNumber(44, "XLIV")
+
+      @Test(timeout = TIMEOUT)
+      fun test0Sample3() = checkNumber(100, "C")
+
+      @Test(timeout = TIMEOUT)
+      fun test04Sample4() = checkNumber(2018, "MMXVIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test05VII() = checkNumber(7, "VII")
+
+      @Test(timeout = TIMEOUT)
+      fun test06XXXIX() = checkNumber(39, "XXXIX")
+
+      @Test(timeout = TIMEOUT)
+      fun test07DCLXXXIII() = checkNumber(683, "DCLXXXIII")
+
+      @Test(timeout = TIMEOUT)
+      fun test08MCMXCIX() = checkNumber(1999, "MCMXCIX")
+
+      @Test(timeout = TIMEOUT)
+      fun test09CDXCIV() = checkNumber(494, "CDXCIV")
+
+      @Test(timeout = TIMEOUT)
+      fun test10MDLV() = checkNumber(1555, "MDLV")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Summary+2+%2F+Exercise2
+status: Unchecked
+record: -1

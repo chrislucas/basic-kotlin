@@ -1,0 +1,89 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 248
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 248
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var onlyLetters = ""
+        for (ch in s) {
+          if (ch in 'a'..'z' || ch in 'A'..'Z') {
+            onlyLetters += ch
+          }
+        }
+        return isPalIgnoreCase(onlyLetters)
+  text: |-
+    // ObjectsEverywhere/Task3.kt
+    package objectsEverywhereExercise3
+
+    fun isPalindrome(s: String): Boolean =
+      s.reversed() == s
+
+    fun isPalIgnoreCase(s: String): Boolean =
+      isPalindrome(s.toLowerCase())
+
+    fun isPalIgnoreSpecial(s: String): Boolean {
+      TODO()
+    }
+
+    fun main() {
+      println(isPalIgnoreSpecial("Was It A Rat I Saw? ..."))  // true
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package objectsEverywhereExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestObjectsEverywhereExercise3 {
+      private fun checkPalindrome(s: String, expected: Boolean) {
+        Assert.assertEquals("""Wrong result for isPalIgnoreSpecial("$s"):""", expected, isPalIgnoreSpecial(s))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome0() = checkPalindrome("AAA!", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome1() = checkPalindrome("Was It A Rat I Saw? ...", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome2() = checkPalindrome("A Man, A Plan, A Canal-Panama!", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome3() = checkPalindrome("Madam In Eden, I'm Adam", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome4() = checkPalindrome("Mr. Owl Ate My Metal Worm", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome5() = checkPalindrome("A Santa Lived As a Devil At NASA", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome6() = checkPalindrome("Dammit, I'm Mad! ...", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome7() = checkPalindrome("Do Geese See God?", true)
+
+      @Test(timeout = TIMEOUT)
+      fun testPalindrome8() = checkPalindrome("Not a palindrome!", false)
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Objects+Everywhere+%2F+Exercise3
+status: Unchecked
+record: -1

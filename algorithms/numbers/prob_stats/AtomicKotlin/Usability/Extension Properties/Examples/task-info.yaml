@@ -1,0 +1,62 @@
+type: theory
+files:
+- name: src/StringIndices.kt
+  visible: true
+  text: |-
+    // ExtensionProperties/StringIndices.kt
+    package extensionproperties
+    import atomictest.eq
+
+    val String.indices: IntRange
+      get() = 0 until length
+
+    fun main() {
+      "abc".indices eq 0..2
+    }
+  learner_created: false
+- name: src/GenericListExt.kt
+  visible: true
+  text: |-
+    // ExtensionProperties/GenericListExt.kt
+    package extensionproperties
+    import atomictest.eq
+
+    val <T> List<T>.firstOrNull: T?
+      get() = if (isEmpty()) null else this[0]
+
+    fun main() {
+      listOf(1, 2, 3).firstOrNull eq 1
+      listOf<String>().firstOrNull eq null
+    }
+  learner_created: false
+- name: src/ListOfStar.kt
+  visible: true
+  text: |-
+    // ExtensionProperties/ListOfStar.kt
+    package extensionproperties
+    import atomictest.eq
+
+    val List<*>.indices: IntRange
+      get() = 0 until size
+
+    fun main() {
+      listOf(1).indices eq 0..0
+      listOf('a', 'b', 'c', 'd').indices eq 0..3
+      emptyList<Int>().indices eq IntRange.EMPTY
+    }
+  learner_created: false
+- name: src/AnyFromListOfStar.kt
+  visible: true
+  text: |-
+    // ExtensionProperties/AnyFromListOfStar.kt
+    import atomictest.eq
+
+    fun main() {
+      val list: List<*> = listOf(1, 2)
+      val any: Any? = list[0]
+      any eq 1
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

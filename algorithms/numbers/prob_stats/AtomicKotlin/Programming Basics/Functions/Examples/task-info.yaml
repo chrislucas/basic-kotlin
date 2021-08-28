@@ -1,0 +1,75 @@
+type: theory
+files:
+- name: src/MultiplyByTwo.kt
+  visible: true
+  text: |-
+    // Functions/MultiplyByTwo.kt
+
+    fun multiplyByTwo(x: Int): Int {  // [1]
+      println("Inside multiplyByTwo") // [2]
+      return x * 2
+    }
+
+    fun main() {
+      val r = multiplyByTwo(5)        // [3]
+      println(r)
+    }
+    /* Output:
+    Inside multiplyByTwo
+    10
+    */
+  learner_created: false
+- name: src/SayHello.kt
+  visible: true
+  text: |-
+    // Functions/SayHello.kt
+
+    fun sayHello() {
+      println("Hallo!")
+    }
+
+    fun sayGoodbye(): Unit {
+      println("Auf Wiedersehen!")
+    }
+
+    fun main() {
+      sayHello()
+      sayGoodbye()
+    }
+    /* Output:
+    Hallo!
+    Auf Wiedersehen!
+    */
+  learner_created: false
+- name: src/MultiplyByThree.kt
+  visible: true
+  text: |-
+    // Functions/MultiplyByThree.kt
+
+    fun multiplyByThree(x: Int): Int = x * 3
+
+    fun main() {
+      println(multiplyByThree(5))
+    }
+    /* Output:
+    15
+    */
+  learner_created: false
+- name: src/MultiplyByFour.kt
+  visible: true
+  text: |-
+    // Functions/MultiplyByFour.kt
+
+    fun multiplyByFour(x: Int) = x * 4
+
+    fun main() {
+      val result: Int = multiplyByFour(5)
+      println(result)
+    }
+    /* Output:
+    20
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,148 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 242
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 242
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val result = mutableMapOf<Author, MutableList<Book>>()
+        for (book in books) {
+          for (author in book.authors) {
+            if (!result.containsKey(author)) {
+              result[author] = mutableListOf()
+            }
+            result.getValue(author) += book
+          }
+        }
+        return result
+  text: |-
+    // DataClasses/Task3.kt
+    package dataClassesExercise3
+    import atomictest.eq
+
+    data class Book(val title: String, val authors: List<Author>)
+
+    data class Author(val name: String)
+
+    fun authorBooksMap(books: List<Book>): Map<Author, List<Book>> {
+      TODO()
+    }
+
+    fun main() {
+      val books = listOf(
+        Book("Computer Interfacing with Pascal & C", listOf(Author("Bruce Eckel"))),
+        Book("Using C++", listOf(Author("Bruce Eckel"))),
+        Book("C++ Inside & Out", listOf(Author("Bruce Eckel"))),
+        Book("Blackbelt C++: The Masters Collection", listOf(Author("Bruce Eckel"))),
+        Book("Thinking in C++: Introduction to Standard C++", listOf(Author("Bruce Eckel"))),
+        Book("Thinking in C++, Vol. 2: Practical Programming", listOf(Author("Bruce Eckel"), Author("Chuck Allison"))),
+        Book("Thinking in Java", listOf(Author("Bruce Eckel"))),
+        Book("First Steps in Flex", listOf(Author("Bruce Eckel"))),
+        Book("Atomic Scala", listOf(Author("Bruce Eckel"), Author("Dianne Marsh"))),
+        Book("On Java 8", listOf(Author("Bruce Eckel"))),
+        Book("Kotlin in Action", listOf(Author("Dmitry Jemerov"), Author("Svetlana Isakova"))),
+        Book("Atomic Kotlin", listOf(Author("Bruce Eckel"), Author("Svetlana Isakova")))
+      )
+      val authorToBooksMap = authorBooksMap(books)
+      authorToBooksMap.getValue(Author("Bruce Eckel")).size eq 11
+      authorToBooksMap.getValue(Author("Svetlana Isakova")).first().title eq "Kotlin in Action"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package dataClassesExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestDataClassesExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun test2SimpleOneBookOneAuthor() {
+        val book = Book("Book", listOf(Author("Author")))
+        val list = listOf(book)
+        Assert.assertEquals("Wrong result for $list:",
+          mapOf(Author("Author") to listOf(book)),
+          authorBooksMap(list))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2SimpleOneBookTwoAuthors() {
+        val book = Book("Book", listOf(Author("first author"), Author("second author")))
+        val list = listOf(book)
+        Assert.assertEquals("Wrong result for $list:",
+          mapOf(Author("first author") to listOf(book),
+            Author("second author") to listOf(book)),
+          authorBooksMap(list))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2SimpleOneAuthorTwoBook() {
+        val list = listOf(Book("first Book", listOf(Author("Author"))),
+          Book("second Book", listOf(Author("Author"))))
+        Assert.assertEquals("Wrong result for $list:",
+          mapOf(Author("Author") to list),
+          authorBooksMap(list))
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() {
+        val bruce = Author("Bruce Eckel")
+        val chuck = Author("Chuck Allison")
+        val dianne = Author("Dianne Marsh")
+        val dmitry = Author("Dmitry Jemerov")
+        val svetlana = Author("Svetlana Isakova")
+
+        val first = Book("Computer Interfacing with Pascal & C", listOf(bruce))
+        val second = Book("Using C++", listOf(bruce))
+        val third = Book("C++ Inside & Out", listOf(bruce))
+        val fourth = Book("Blackbelt C++: The Masters Collection", listOf(bruce))
+        val thinkingInCPlusPlus = Book("Thinking in C++: Introduction to Standard C++", listOf(bruce))
+        val thinkingInCPlusPlusVolume2 = Book("Thinking in C++, Vol. 2: Practical Programming", listOf(bruce, chuck))
+        val thinkingInJava = Book("Thinking in Java", listOf(bruce))
+        val flex = Book("First Steps in Flex", listOf(bruce))
+        val atomicScala = Book("Atomic Scala", listOf(bruce, dianne))
+        val onJava8 = Book("On Java 8", listOf(bruce))
+        val kotlinInAction = Book("Kotlin in Action", listOf(dmitry, svetlana))
+        val atomicKotlin = Book("Atomic Kotlin", listOf(bruce, svetlana))
+        val books = listOf(
+          first, second, third, fourth,
+          thinkingInCPlusPlus,
+          thinkingInCPlusPlusVolume2,
+          thinkingInJava,
+          flex,
+          atomicScala,
+          onJava8,
+          kotlinInAction,
+          atomicKotlin
+        )
+        val expected = mapOf(
+          bruce to listOf(first, second, third, fourth,
+            thinkingInCPlusPlus, thinkingInCPlusPlusVolume2,
+            thinkingInJava, flex, atomicScala, onJava8, atomicKotlin),
+          chuck to listOf(thinkingInCPlusPlusVolume2),
+          dianne to listOf(atomicScala),
+          dmitry to listOf(kotlinInAction),
+          svetlana to listOf(kotlinInAction, atomicKotlin)
+        )
+        val actual = authorBooksMap(books)
+        Assert.assertEquals("Wrong result for sample:", expected, actual)
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Usability+%2F+Data+Classes+%2F+Exercise2
+status: Unchecked
+record: -1

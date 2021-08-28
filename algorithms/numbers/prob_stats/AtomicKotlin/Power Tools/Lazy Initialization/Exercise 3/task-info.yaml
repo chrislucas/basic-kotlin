@@ -1,0 +1,155 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 119
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 119
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace("A constructor")
+  - offset: 139
+    length: 13
+    placeholder_text: = B() // TODO
+    initial_state:
+      length: 13
+      offset: 139
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      by lazy {
+          trace("Initializing A.b")
+          B()
+        }
+  - offset: 161
+    length: 11
+    placeholder_text: = 1 // TODO
+    initial_state:
+      length: 11
+      offset: 161
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      by lazy {
+          trace("Initializing A.i")
+          1
+        }
+  - offset: 185
+    length: 9
+    placeholder_text: 0 // TODO
+    initial_state:
+      length: 9
+      offset: 185
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: i + b.g()
+  - offset: 221
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 221
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: trace("B constructor")
+  - offset: 241
+    length: 11
+    placeholder_text: = 2 // TODO
+    initial_state:
+      length: 11
+      offset: 241
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      by lazy {
+          trace("Initializing B.j")
+          2
+        }
+  - offset: 265
+    length: 9
+    placeholder_text: 0 // TODO
+    initial_state:
+      length: 9
+      offset: 265
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: j
+  - offset: 299
+    length: 13
+    placeholder_text: = A() // TODO
+    initial_state:
+      length: 13
+      offset: 299
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      by lazy {
+          trace("Initializing A")
+          A()
+        }
+  text: |-
+    // LazyInitialization/LazyInitSoln3.kt
+    package lazyInitializationExercise3
+    import atomictest.*
+
+    class A {
+      init {
+        // TODO
+      }
+      val b = B() // TODO
+      val i = 1 // TODO
+      fun f() = 0 // TODO
+    }
+
+    class B {
+      init {
+        // TODO
+      }
+      val j = 2 // TODO
+      fun g() = 0 // TODO
+    }
+
+    fun main() {
+      val a = A() // TODO
+      trace("'a' defined")
+      trace(a.f())
+      trace eq """
+        'a' defined
+        Initializing A
+        A constructor
+        Initializing A.i
+        Initializing A.b
+        B constructor
+        Initializing B.j
+        3
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package lazyInitializationExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestLazyInitializationExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

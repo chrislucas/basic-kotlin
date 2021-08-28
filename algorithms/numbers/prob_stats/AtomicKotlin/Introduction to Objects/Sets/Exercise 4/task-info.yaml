@@ -1,0 +1,22 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // Sets/Task4.kt
+    package setsExercise4
+
+    fun main() {
+      val list = listOf(1, 2, 3, 4)
+      println(list)
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package setsExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Sets+%2F+Exercise3
+status: Unchecked
+record: -1

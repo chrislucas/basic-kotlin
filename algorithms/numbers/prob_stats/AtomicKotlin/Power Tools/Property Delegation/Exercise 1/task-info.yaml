@@ -1,0 +1,82 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 173
+    length: 3
+    placeholder_text: val
+    initial_state:
+      length: 3
+      offset: 173
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: var
+  - offset: 297
+    length: 28
+    placeholder_text: // operator fun Sum.setValue
+    initial_state:
+      length: 28
+      offset: 297
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      operator fun Sum.setValue(
+        thisRef: Add, property: KProperty<*>,
+        value: Int
+      ) {
+        thisRef.a = value
+      }
+  - offset: 392
+    length: 21
+    placeholder_text: //  addition.sum = 10
+    initial_state:
+      length: 21
+      offset: 392
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  addition.sum = 10'
+  text: |-
+    // PropertyDelegation/PropDelegationSoln2.kt
+    package propertyDelegationExercise1
+    import atomictest.eq
+    import kotlin.reflect.KProperty
+
+    class Add(var a: Int, val b: Int) {
+      val sum by Sum()
+    }
+
+    class Sum
+
+    operator fun Sum.getValue(
+      thisRef: Add, property: KProperty<*>
+    ) = thisRef.a + thisRef.b
+
+    // operator fun Sum.setValue
+
+    fun main() {
+      val addition = Add(144, 12)
+      addition.sum eq 156
+    //  addition.sum = 10
+      addition.sum eq 22
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

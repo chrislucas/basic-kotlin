@@ -1,0 +1,157 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 500
+    length: 37
+    placeholder_text: |-
+      fun cleanser(): Cleanser {
+        TODO()
+      }
+    initial_state:
+      length: 37
+      offset: 500
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun cleanser(
+        formula: Cleanser.() -> Unit
+      ): Cleanser {
+        val result = Cleanser()
+        result.selectContainer()
+        result.formula()
+        result.sealContainer()
+        return result
+      }
+  - offset: 539
+    length: 47
+    placeholder_text: |-
+      fun sprayCleanser(): SprayCleanser {
+        TODO()
+      }
+    initial_state:
+      length: 47
+      offset: 539
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun sprayCleanser(
+        formula: SprayCleanser.() -> Unit
+      ): SprayCleanser {
+        val result = SprayCleanser()
+        result.selectContainer()
+        result.selectSprayer()
+        result.formula()
+        result.sealContainer()
+        return result
+      }
+  - offset: 601
+    length: 349
+    placeholder_text: |-
+      /*
+        val c: Cleanser = cleanser {
+          detergent()
+          abrasive()
+        }
+        c eq "[Container selected, detergent, " +
+          "abrasive, Container sealed]"
+        val sc: SprayCleanser = sprayCleanser {
+          detergent()
+          ammonia()
+          water()
+        }
+        sc eq "[Container selected, " +
+          "Sprayer selected, detergent, " +
+          "ammonia, water, Container sealed]"
+      */
+    initial_state:
+      length: 349
+      offset: 601
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+        val c: Cleanser = cleanser {
+          detergent()
+          abrasive()
+        }
+        c eq "[Container selected, detergent, " +
+          "abrasive, Container sealed]"
+        val sc: SprayCleanser = sprayCleanser {
+          detergent()
+          ammonia()
+          water()
+        }
+        sc eq "[Container selected, " +
+          "Sprayer selected, detergent, " +
+          "ammonia, water, Container sealed]"
+  text: |-
+    // ExtensionLambdas/ExtensionLambdasSoln3.kt
+    package extensionLambdasExercise3
+    import atomictest.eq
+
+    open class Cleanser : ArrayList<String>() {
+      fun selectContainer() {
+        add("Container selected")
+      }
+      fun sealContainer() {
+        add("Container sealed")
+      }
+      fun detergent() { add("detergent") }
+      fun abrasive() { add("abrasive") }
+      fun ammonia() { add("ammonia") }
+      fun water() { add("water") }
+    }
+
+    class SprayCleanser : Cleanser() {
+      fun selectSprayer() {
+        add("Sprayer selected")
+      }
+    }
+
+    fun cleanser(): Cleanser {
+      TODO()
+    }
+
+    fun sprayCleanser(): SprayCleanser {
+      TODO()
+    }
+
+    fun main() {
+    /*
+      val c: Cleanser = cleanser {
+        detergent()
+        abrasive()
+      }
+      c eq "[Container selected, detergent, " +
+        "abrasive, Container sealed]"
+      val sc: SprayCleanser = sprayCleanser {
+        detergent()
+        ammonia()
+        water()
+      }
+      sc eq "[Container selected, " +
+        "Sprayer selected, detergent, " +
+        "ammonia, water, Container sealed]"
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package extensionLambdasExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestExtensionLambdasExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

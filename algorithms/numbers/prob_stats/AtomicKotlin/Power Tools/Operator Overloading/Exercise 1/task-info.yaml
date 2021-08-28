@@ -1,0 +1,115 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 201
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 201
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      require(current in range) {
+            "'current' out of range: $current"
+          }
+  - offset: 290
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 290
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      current = (current + 1) % (range.last + 1)
+          return this
+  - offset: 339
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 339
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (current - 1 < 0)
+            current = range.last
+          else
+            current--
+          return this
+  text: |-
+    // OperatorOverloading/OpOverloadingSoln1.kt
+    package operatorOverloadingExercise1
+    import atomictest.*
+
+    class WrapRange(
+      val range: IntRange,
+      private var current: Int = range.start
+    ) {
+      init {
+        // TODO
+      }
+      override fun toString() = "$current"
+      operator fun inc(): WrapRange {
+        TODO()
+      }
+      operator fun dec(): WrapRange {
+        TODO()
+      }
+    }
+
+    fun main() {
+      val range = 0..5
+      var wr = WrapRange(range)
+      fun testUp() =
+        trace("${wr}, ${wr++}")
+      fun testDown() =
+        trace("${wr}, ${wr--}")
+      range.forEach { testUp() }
+      trace("-----------")
+      range.forEach { testDown() }
+      capture { WrapRange(range, 6) } eq
+        "IllegalArgumentException: " +
+        "'current' out of range: 6"
+      capture { WrapRange(range, -1) } eq
+        "IllegalArgumentException: " +
+        "'current' out of range: -1"
+      trace eq """
+        0, 1
+        1, 2
+        2, 3
+        3, 4
+        4, 5
+        5, 0
+        -----------
+        0, 5
+        5, 4
+        4, 3
+        3, 2
+        2, 1
+        1, 0
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package operatorOverloadingExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestOperatorOverloadingExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

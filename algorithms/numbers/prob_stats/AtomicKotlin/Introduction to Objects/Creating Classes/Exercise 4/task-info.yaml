@@ -1,0 +1,26 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // CreatingClasses/Task4.kt
+    package creatingClassesExercise4
+
+    fun main() {
+      val s: String = "Hello!"
+      println(s.toUpperCase())
+      println(s.toLowerCase())
+    }
+    /* Output:
+    HELLO!
+    hello!
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: package creatingClassesExercise4
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Creating+Classes+%2F+Exercise2
+status: Unchecked
+record: -1

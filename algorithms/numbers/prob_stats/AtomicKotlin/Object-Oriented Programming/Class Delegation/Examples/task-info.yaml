@@ -1,0 +1,157 @@
+type: theory
+files:
+- name: src/SpaceShipControls.kt
+  visible: true
+  text: |-
+    // ClassDelegation/SpaceShipControls.kt
+    package classdelegation
+
+    interface Controls {
+      fun up(velocity: Int): String
+      fun down(velocity: Int): String
+      fun left(velocity: Int): String
+      fun right(velocity: Int): String
+      fun forward(velocity: Int): String
+      fun back(velocity: Int): String
+      fun turboBoost(): String
+    }
+
+    class SpaceShipControls : Controls {
+      override fun up(velocity: Int) =
+        "up $velocity"
+      override fun down(velocity: Int) =
+        "down $velocity"
+      override fun left(velocity: Int) =
+        "left $velocity"
+      override fun right(velocity: Int) =
+        "right $velocity"
+      override fun forward(velocity: Int) =
+        "forward $velocity"
+      override fun back(velocity: Int) =
+        "back $velocity"
+      override fun turboBoost() = "turbo boost"
+    }
+  learner_created: false
+- name: src/ExplicitDelegation.kt
+  visible: true
+  text: |-
+    // ClassDelegation/ExplicitDelegation.kt
+    package classdelegation
+    import atomictest.eq
+
+    class ExplicitControls : Controls {
+      private val controls = SpaceShipControls()
+      // Delegation by hand:
+      override fun up(velocity: Int) =
+        controls.up(velocity)
+      override fun back(velocity: Int) =
+        controls.back(velocity)
+      override fun down(velocity: Int) =
+        controls.down(velocity)
+      override fun forward(velocity: Int) =
+        controls.forward(velocity)
+      override fun left(velocity: Int) =
+        controls.left(velocity)
+      override fun right(velocity: Int) =
+        controls.right(velocity)
+      // Modified implementation:
+      override fun turboBoost(): String =
+        controls.turboBoost() + "... boooooost!"
+    }
+
+    fun main() {
+      val controls = ExplicitControls()
+      controls.forward(100) eq "forward 100"
+      controls.turboBoost() eq
+        "turbo boost... boooooost!"
+    }
+  learner_created: false
+- name: src/BasicDelegation.kt
+  visible: true
+  text: |-
+    // ClassDelegation/BasicDelegation.kt
+    package classdelegation
+
+    interface AI
+    class A : AI
+
+    class B(val a: A) : AI by a
+  learner_created: false
+- name: src/DelegatedControls.kt
+  visible: true
+  text: |-
+    // ClassDelegation/DelegatedControls.kt
+    package classdelegation
+    import atomictest.eq
+
+    class DelegatedControls(
+      private val controls: SpaceShipControls =
+        SpaceShipControls()
+    ): Controls by controls {
+      override fun turboBoost(): String =
+        "${controls.turboBoost()}... boooooost!"
+    }
+
+    fun main() {
+      val controls = DelegatedControls()
+      controls.forward(100) eq "forward 100"
+      controls.turboBoost() eq
+        "turbo boost... boooooost!"
+    }
+  learner_created: false
+- name: src/ModelingMI.kt
+  visible: true
+  text: |-
+    // ClassDelegation/ModelingMI.kt
+    package classdelegation
+    import atomictest.eq
+
+    interface Rectangle {
+      fun paint(): String
+    }
+
+    class ButtonImage(
+      val width: Int,
+      val height: Int
+    ): Rectangle {
+      override fun paint() =
+        "painting ButtonImage($width, $height)"
+    }
+
+    interface MouseManager {
+      fun clicked(): Boolean
+      fun hovering(): Boolean
+    }
+
+    class UserInput : MouseManager {
+      override fun clicked() = true
+      override fun hovering() = true
+    }
+
+    // Even if we make the classes open, we
+    // get an error because only one class may
+    // appear in a supertype list:
+    // class Button : ButtonImage(), UserInput()
+
+    class Button(
+      val width: Int,
+      val height: Int,
+      var image: Rectangle =
+        ButtonImage(width, height),
+      private var input: MouseManager = UserInput()
+    ): Rectangle by image, MouseManager by input
+
+    fun main() {
+      val button = Button(10, 5)
+      button.paint() eq
+        "painting ButtonImage(10, 5)"
+      button.clicked() eq true
+      button.hovering() eq true
+      // Can upcast to both delegated types:
+      val rectangle: Rectangle = button
+      val mouseManager: MouseManager = button
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

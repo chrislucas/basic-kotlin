@@ -1,0 +1,112 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 87
+    length: 36
+    placeholder_text: '// TODO: create class MessageStorage'
+    initial_state:
+      length: 36
+      offset: 87
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class MessageStorage {
+        private val _messages = mutableListOf<String>()
+
+        val messages: List<String>
+          get() = _messages
+
+        fun addMessage(message: String) {
+          _messages += message
+        }
+      }
+  text: |-
+    // PropertyAccessors/Task3.kt
+    package propertyAccessorsExercise3
+    import atomictest.eq
+
+    // TODO: create class MessageStorage
+
+    fun main() {
+    /*
+      val messageStorage = MessageStorage()
+      messageStorage.addMessage("first")
+      messageStorage.addMessage("second")
+      messageStorage.messages eq listOf("first", "second")
+      // doesn't compile:
+    //  messageStorage.messages.remove("first")
+    */
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyAccessorsExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.reflect.KClass
+    import kotlin.reflect.KVisibility
+    import kotlin.reflect.full.createInstance
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestPropertyAccessorsExercise3 {
+
+      private fun loadMessageStorageClass(): KClass<*> =
+        loadClass("propertyAccessorsExercise3", "MessageStorage")
+
+      @Test(timeout = TIMEOUT)
+      fun test1PrivateProp() {
+        val msClass = loadMessageStorageClass()
+        val privateMessagesProp = loadMemberProperty(msClass, "_messages")
+        Assert.assertTrue("'_messages' property should be private", privateMessagesProp.visibility == KVisibility.PRIVATE)
+
+        Assert.assertEquals("The type of '_messages' should be 'MutableList<String>'",
+          privateMessagesProp.returnType.toString(), "kotlin.collections.MutableList<kotlin.String>")
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2PublicProp() {
+        val msClass = loadMessageStorageClass()
+        val publicMessagesProp = loadMemberProperty(msClass, "messages")
+        Assert.assertTrue("'messages' property should be public", publicMessagesProp.visibility == KVisibility.PUBLIC)
+
+        Assert.assertEquals("The type of 'messages' should be 'List<String>'",
+          publicMessagesProp.returnType.toString(), "kotlin.collections.List<kotlin.String>")
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3AddMessage() {
+        val msClass = loadMessageStorageClass()
+        val addMsgFunction = loadMemberFunction(msClass, "addMessage")
+        checkParametersOfMemberFunction(addMsgFunction, listOf("" to "kotlin.String"))
+
+        Assert.assertTrue("'addMessage' function should be public", addMsgFunction.visibility == KVisibility.PUBLIC)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test4Access() {
+        val msClass = loadMessageStorageClass()
+        val instance = msClass.createInstance()
+
+        val addMsgFunction = loadMemberFunction(msClass, "addMessage")
+        val publicMessagesProp = loadMemberProperty(msClass, "messages")
+
+        addMsgFunction.call(instance, "first message")
+        addMsgFunction.call(instance, "second message")
+
+        val messages = publicMessagesProp.getter.call(instance)
+
+        Assert.assertEquals("Wrong value for 'messages' after adding two messages \"first message\", \"second message\"",
+          listOf("first message", "second message"), messages)
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

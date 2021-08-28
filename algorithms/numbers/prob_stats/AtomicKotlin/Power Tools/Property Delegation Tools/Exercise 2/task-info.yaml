@@ -1,0 +1,64 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 191
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 191
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var d: Double by Delegates.notNull()
+        var s by Delegates.notNull<String>()
+        var f: Flag by Delegates.notNull()
+        capture {
+          d
+        } eq "IllegalStateException: Property " +
+          "d should be initialized before get."
+        capture {
+          s
+        } eq "IllegalStateException: Property " +
+          "s should be initialized before get."
+        capture {
+          f
+        } eq "IllegalStateException: Property " +
+          "f should be initialized before get."
+        d = 1.1
+        s = "yes"
+        f = Flag(true)
+        d eq 1.1
+        s eq "yes"
+        f eq "Flag(b=true)"
+  text: |-
+    // DelegationTools/DelegToolsSoln1.kt
+    package propertyDelegationToolsExercise2
+    import kotlin.properties.Delegates
+    import atomictest.*
+
+    data class Flag(val b: Boolean = false)
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package propertyDelegationToolsExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestPropertyDelegationToolsExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,96 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 118
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 118
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return s1.toList().sorted() == s2.toList().sorted()
+  text: |-
+    // Lists/Task3.kt
+    package listsExercise3
+    import atomictest.eq
+
+    fun checkAnagrams(s1: String, s2: String): Boolean {
+      TODO()
+    }
+
+    fun main() {
+      checkAnagrams("thing", "night") eq true
+      checkAnagrams("leader", "dealer") eq true
+      checkAnagrams("sector", "escort") eq true
+      checkAnagrams("tablet", "battle") eq true
+      checkAnagrams("friend", "finder") eq true
+      checkAnagrams("senator", "treason") eq true
+      checkAnagrams("terrain", "trainer") eq true
+      checkAnagrams("teaching", "cheating") eq true
+
+      checkAnagrams("pots", "stops") eq false
+      checkAnagrams("escort", "sectors") eq false
+      checkAnagrams("sections", "notices") eq false
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package listsExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestListsExercise3 {
+      private fun testAnagrams(word: String, anagram: String) =
+        Assert.assertTrue("'$word' and '$anagram' should be anagrams", checkAnagrams(word, anagram))
+
+      private fun testNotAnagrams(word: String, other: String) =
+        Assert.assertFalse("'$word' and '$other' should not be anagrams", checkAnagrams(word, other))
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams1() = testAnagrams("thing", "night")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams2() = testAnagrams("leader", "dealer")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams3() = testAnagrams("sector", "escort")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams4() = testAnagrams("tablet", "battle")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams5() = testAnagrams("friend", "finder")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams6() = testAnagrams("senator", "treason")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams7() = testAnagrams("terrain", "trainer")
+
+      @Test(timeout = TIMEOUT)
+      fun testAnagrams8() = testAnagrams("teaching", "cheating")
+
+      @Test(timeout = TIMEOUT)
+      fun testNotAnagrams1() = testNotAnagrams("pots", "stops")
+
+      @Test(timeout = TIMEOUT)
+      fun testNotAnagrams2() = testNotAnagrams("escort", "sectors")
+
+      @Test(timeout = TIMEOUT)
+      fun testNotAnagrams3() = testNotAnagrams("sections", "notices")
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Introduction+to+Objects+%2F+Lists+%2F+Exercise3
+status: Unchecked
+record: -1

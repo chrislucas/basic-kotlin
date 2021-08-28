@@ -1,0 +1,187 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 74
+    length: 101
+    placeholder_text: |-
+      class Shape(
+        val name: String,
+        open val color: String
+      ) {
+        fun draw() = "drawing $color $name"
+      }
+    initial_state:
+      length: 101
+      offset: 74
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      open class Shape(
+        val name: String,
+        open val color: String
+      ) {
+        fun draw() = "drawing $color $name"
+      }
+  - offset: 177
+    length: 153
+    placeholder_text: |-
+      class Circle(
+        val radius: Int,
+        val color: String,
+        val shape: Shape =
+          Shape("circle of radius $radius", color)
+      ) {
+        fun draw() = shape.draw()
+      }
+    initial_state:
+      length: 153
+      offset: 177
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Circle(
+        val radius: Int,
+        override val color: String
+      ): Shape("circle of radius $radius", color)
+  - offset: 332
+    length: 184
+    placeholder_text: |-
+      class Rectangle(
+        val height: Int,
+        val width: Int,
+        val color: String,
+        val shape: Shape =
+          Shape("rectangle of size ${height}x$width", color)
+      ) {
+        fun draw() = shape.draw()
+      }
+    initial_state:
+      length: 184
+      offset: 332
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Rectangle(
+        val height: Int,
+        val width: Int,
+        override val color: String
+      ) : Shape("rectangle of size ${height}x$width", color)
+  text: |-
+    // Composition/Task1.kt
+    package compositionExercise1
+    import atomictest.*
+
+    class Shape(
+      val name: String,
+      open val color: String
+    ) {
+      fun draw() = "drawing $color $name"
+    }
+
+    class Circle(
+      val radius: Int,
+      val color: String,
+      val shape: Shape =
+        Shape("circle of radius $radius", color)
+    ) {
+      fun draw() = shape.draw()
+    }
+
+    class Rectangle(
+      val height: Int,
+      val width: Int,
+      val color: String,
+      val shape: Shape =
+        Shape("rectangle of size ${height}x$width", color)
+    ) {
+      fun draw() = shape.draw()
+    }
+
+    fun main() {
+      val circle = Circle(10, "red")
+      val rectangle = Rectangle(3, 4, "blue")
+      trace(circle.draw())
+      trace(rectangle.draw())
+      trace eq """
+        drawing red circle of radius 10
+        drawing blue rectangle of size 3x4
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package compositionExercise1
+    import atomictest.trace
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.*
+    import kotlin.test.assertEquals
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestCompositionExercise1 : TestTrace() {
+
+      private val packageName = "compositionExercise1"
+
+      @Test
+      fun `#01 classes structure`() {
+        loadClass(packageName, "Shape").apply {
+          loadMemberProperty(this, "name")
+          loadMemberProperty(this, "color")
+          loadMemberFunction(this, "draw")
+        }
+
+        loadClass(packageName, "Circle").apply {
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "radius" to Int::class,
+              "color" to String::class
+          )
+          assertInheritance("Shape")
+        }
+        loadClass(packageName, "Rectangle").apply {
+          assertConstructorNumber(1)
+          assertParametersOfFirstConstructor(
+              "height" to Int::class,
+              "width" to Int::class,
+              "color" to String::class
+          )
+          assertInheritance("Shape")
+        }
+      }
+
+      @Test
+      fun `#02 how are the shapes drawn`() {
+        loadClass(packageName, "Circle").also { circleClass ->
+          circleClass.constructors.first()
+              .call(10, "red")
+              .let { loadMemberFunction(circleClass, "draw").call(it) }
+              .also { trace(it as String) }
+        }
+
+        loadClass(packageName, "Rectangle").also { rectangleClass ->
+          rectangleClass.constructors.first()
+              .call(3, 4, "blue")
+              .let { loadMemberFunction(rectangleClass, "draw").call(it) }
+              .also { trace(it as String) }
+        }
+
+        assertEquals(
+            message = "Incorrect result of shapes drawing",
+            actual = loadTraceContent(),
+            expected = listOf(
+                "drawing red circle of radius 10",
+                "drawing blue rectangle of size 3x4"
+            )
+        )
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

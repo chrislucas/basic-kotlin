@@ -1,0 +1,142 @@
+type: theory
+files:
+- name: src/UnSealed.kt
+  visible: true
+  text: |-
+    // SealedClasses/UnSealed.kt
+    package withoutsealedclasses
+    import atomictest.eq
+
+    open class Transport
+
+    data class Train(
+      val line: String
+    ): Transport()
+
+    data class Bus(
+      val number: String,
+      val capacity: Int
+    ): Transport()
+
+    fun travel(transport: Transport) =
+      when (transport) {
+        is Train ->
+          "Train ${transport.line}"
+        is Bus ->
+          "Bus ${transport.number}: " +
+          "size ${transport.capacity}"
+        else -> "$transport is in limbo!"
+      }
+
+    fun main() {
+      listOf(Train("S1"), Bus("11", 90))
+        .map(::travel) eq
+        "[Train S1, Bus 11: size 90]"
+    }
+  learner_created: false
+- name: src/SealedClasses.kt
+  visible: true
+  text: |-
+    // SealedClasses/SealedClasses.kt
+    package sealedclasses
+    import atomictest.eq
+
+    sealed class Transport
+
+    data class Train(
+      val line: String
+    ) : Transport()
+
+    data class Bus(
+      val number: String,
+      val capacity: Int
+    ) : Transport()
+
+    fun travel(transport: Transport) =
+      when (transport) {
+        is Train ->
+          "Train ${transport.line}"
+        is Bus ->
+          "Bus ${transport.number}: " +
+          "size ${transport.capacity}"
+      }
+
+    fun main() {
+      listOf(Train("S1"), Bus("11", 90))
+        .map(::travel) eq
+        "[Train S1, Bus 11: size 90]"
+    }
+  learner_created: false
+- name: src/SealedVsAbstract.kt
+  visible: true
+  text: |-
+    // SealedClasses/SealedVsAbstract.kt
+    package sealedclasses
+
+    abstract class Abstract(val av: String) {
+      open fun concreteFunction() {}
+      open val concreteProperty = ""
+      abstract fun abstractFunction(): String
+      abstract val abstractProperty: String
+      init {}
+      constructor(c: Char) : this(c.toString())
+    }
+
+    open class Concrete() : Abstract("") {
+      override fun concreteFunction() {}
+      override val concreteProperty = ""
+      override fun abstractFunction() = ""
+      override val abstractProperty = ""
+    }
+
+    sealed class Sealed(val av: String) {
+      open fun concreteFunction() {}
+      open val concreteProperty = ""
+      abstract fun abstractFunction(): String
+      abstract val abstractProperty: String
+      init {}
+      constructor(c: Char) : this(c.toString())
+    }
+
+    open class SealedSubclass() : Sealed("") {
+      override fun concreteFunction() {}
+      override val concreteProperty = ""
+      override fun abstractFunction() = ""
+      override val abstractProperty = ""
+    }
+
+    fun main() {
+      Concrete()
+      SealedSubclass()
+    }
+  learner_created: false
+- name: src/ThirdLevelSealed.kt
+  visible: true
+  text: |-
+    // SealedClasses/ThirdLevelSealed.kt
+    package sealedclasses
+
+    class ThirdLevel : SealedSubclass()
+  learner_created: false
+- name: src/SealedSubclasses.kt
+  visible: true
+  text: |-
+    // SealedClasses/SealedSubclasses.kt
+    package sealedclasses
+    import atomictest.eq
+
+    sealed class Top
+    class Middle1 : Top()
+    class Middle2 : Top()
+    open class Middle3 : Top()
+    class Bottom3 : Middle3()
+
+    fun main() {
+      Top::class.sealedSubclasses
+        .map { it.simpleName } eq
+        "[Middle1, Middle2, Middle3]"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

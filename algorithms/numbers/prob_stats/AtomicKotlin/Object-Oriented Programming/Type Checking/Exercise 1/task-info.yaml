@@ -1,0 +1,63 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 114
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 114
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      interface Shape {
+        fun draw() = "${this.name}: Draw"
+        fun rotate() = ""
+      }
+
+      class Circle: Shape
+
+      class Square: Shape {
+        override fun rotate() = "Square: Rotate"
+      }
+
+      class Triangle: Shape {
+        override fun rotate() = "Triangle: Rotate"
+      }
+
+      fun turn(s: Shape) = s.rotate()
+
+      fun main() {
+        val shapes = listOf(Circle(), Square())
+        shapes.map { it.draw() } eq
+          "[Circle: Draw, Square: Draw]"
+        shapes.map { turn(it) } eq
+          "[, Square: Rotate]"
+      }
+  text: |-
+    // TypeChecking/TypeCheckingSoln1.kt
+    package typeCheckingExercise1
+    import atomictest.eq
+    import typechecking.name
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package typeCheckingExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestTypeCheckingExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

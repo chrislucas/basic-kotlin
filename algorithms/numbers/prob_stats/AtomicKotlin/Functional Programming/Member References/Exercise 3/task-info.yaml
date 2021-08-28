@@ -1,0 +1,164 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 269
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 269
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return (2 until num).filter { num % it == 0 }
+  - offset: 310
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 310
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return this != 1 && getNonTrivialDivisors(this).isEmpty()
+  - offset: 357
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 357
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return num != 1 && 1 + getNonTrivialDivisors(num).sum()
+      == num
+  - offset: 428
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 428
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Int::isEven
+  - offset: 483
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 483
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Int::isPrime
+  - offset: 640
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 640
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ::isPerfect
+  text: |-
+    // MemberReferences/Task3.kt
+    package memberReferencesExercise3
+    import atomictest.eq
+
+    val Int.isEven: Boolean
+      get() = this % 2 == 0
+
+    // Returns all the divisors of the number
+    // except 1 and the number itself
+    private fun getNonTrivialDivisors(num: Int): List<Int> {
+      TODO()
+    }
+
+    fun Int.isPrime(): Boolean {
+      TODO()
+    }
+
+    fun isPerfect(num: Int): Boolean {
+      TODO()
+    }
+
+    fun main() {
+      val range = 1..1000
+      val even = range.filter(TODO())
+      even.size eq 500
+
+      val prime = range.filter(TODO())
+      prime.take(7) eq listOf(2, 3, 5, 7, 11, 13, 17)
+      prime.takeLast(7) eq
+        listOf(953, 967, 971, 977, 983, 991, 997)
+
+      val perfect = range.filter(TODO())
+      perfect eq listOf(6, 28, 496)
+      // 6 = 1 + 2 + 3
+      // 28 = 1 + 2 + 4 + 7 + 14
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package memberReferencesExercise3
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestMemberReferencesExercise3 {
+      @Test(timeout = TIMEOUT)
+      fun test1Sample() {
+        val range = 1..1000
+        val even = range.filter(Int::isEven)
+        Assert.assertEquals("Wrong result for `even` collection:", 500, even.size)
+
+        val prime = range.filter(Int::isPrime)
+        Assert.assertEquals("Wrong result for `prime` collection:",
+          listOf(953, 967, 971, 977, 983, 991, 997), prime.takeLast(7))
+
+        val perfect = range.filter(::isPerfect)
+        Assert.assertEquals("Wrong result for `perfect` collection:",
+          listOf(6, 28, 496), perfect)
+
+      }
+
+      private fun testPrime(i: Int, isPrime: Boolean) {
+        Assert.assertEquals("The number $i ${if (isPrime) "should" else "shouldn't"} be prime", isPrime, i.isPrime())
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test2Prime() {
+        testPrime(2, true)
+        testPrime(5, true)
+        testPrime(1861, true)
+        testPrime(2399, true)
+        testPrime(5569, true)
+        testPrime(6737, true)
+        testPrime(12007, true)
+
+        testPrime(1, false)
+        testPrime(10, false)
+        testPrime(2397, false)
+        testPrime(6739, false)
+      }
+
+      @Test(timeout = TIMEOUT)
+      fun test3Perfect() {
+        val i = 8128
+        Assert.assertTrue("The number $i should be perfect", isPerfect(i))
+      }
+    }
+  learner_created: false
+feedback_link: |
+  https://docs.google.com/forms/d/e/1FAIpQLSdkaliSwYkjiV21bZl0yP-In2g5p17sAQCfaGjyHx_QYMWTiQ/viewform?usp=pp_url&entry.189755027=Functional+Programming+%2F+Member+References+%2F+Exercise2
+status: Unchecked
+record: -1

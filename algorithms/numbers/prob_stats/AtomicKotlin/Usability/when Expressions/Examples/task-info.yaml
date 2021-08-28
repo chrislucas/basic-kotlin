@@ -1,0 +1,173 @@
+type: theory
+files:
+- name: src/GermanOrdinals.kt
+  visible: true
+  text: |-
+    // WhenExpressions/GermanOrdinals.kt
+    package whenexpressions
+    import atomictest.eq
+
+    val numbers = mapOf(
+      1 to "eins", 2 to "zwei", 3 to "drei",
+      4 to "vier", 5 to "fuenf", 6 to "sechs",
+      7 to "sieben", 8 to "acht", 9 to "neun",
+      10 to "zehn", 11 to "elf", 12 to "zwoelf",
+      13 to "dreizehn", 14 to "vierzehn",
+      15 to "fuenfzehn", 16 to "sechzehn",
+      17 to "siebzehn", 18 to "achtzehn",
+      19 to "neunzehn", 20 to "zwanzig"
+    )
+
+    fun ordinal(i: Int): String =
+      when (i) {                            // [1]
+        1 -> "erste"                        // [2]
+        3 -> "dritte"
+        7 -> "siebte"
+        8 -> "achte"
+        20 -> "zwanzigste"
+        else -> numbers.getValue(i) + "te"  // [3]
+      }
+
+    fun main() {
+      ordinal(2) eq "zweite"
+      ordinal(3) eq "dritte"
+      ordinal(11) eq "elfte"
+    }
+  learner_created: false
+- name: src/AnalyzeInput.kt
+  visible: true
+  text: |-
+    // WhenExpressions/AnalyzeInput.kt
+    package whenexpressions
+    import atomictest.*
+
+    class Coordinates {
+      var x: Int = 0
+        set(value) {
+          trace("x gets $value")
+          field = value
+        }
+      var y: Int = 0
+        set(value) {
+          trace("y gets $value")
+          field = value
+        }
+      override fun toString() = "($x, $y)"
+    }
+
+    fun processInputs(inputs: List<String>) {
+      val coordinates = Coordinates()
+      for (input in inputs) {
+        when (input) {                   // [1]
+          "up", "u" -> coordinates.y--   // [2]
+          "down", "d" -> coordinates.y++
+          "left", "l" -> coordinates.x--
+          "right", "r" -> {              // [3]
+            trace("Moving right")
+            coordinates.x++
+          }
+          "nowhere" -> {}                // [4]
+          "exit" -> return               // [5]
+          else -> trace("bad input: $input")
+        }
+      }
+    }
+
+    fun main() {
+      processInputs(listOf("up", "d", "nowhere",
+        "left",  "right", "exit", "r"))
+      trace eq """
+        y gets -1
+        y gets 0
+        x gets -1
+        Moving right
+        x gets 0
+      """
+    }
+  learner_created: false
+- name: src/MatchingAgainstVals.kt
+  visible: true
+  text: |-
+    // WhenExpressions/MatchingAgainstVals.kt
+    import atomictest.*
+
+    fun main() {
+      val yes = "A"
+      val no = "B"
+      for (choice in listOf(yes, no, yes)) {
+        when (choice) {
+          yes -> trace("Hooray!")
+          no -> trace("Too bad!")
+        }
+        // The same logic using 'if':
+        if (choice == yes) trace("Hooray!")
+        else if (choice == no) trace("Too bad!")
+      }
+      trace eq """
+        Hooray!
+        Hooray!
+        Too bad!
+        Too bad!
+        Hooray!
+        Hooray!
+      """
+    }
+  learner_created: false
+- name: src/MixColors.kt
+  visible: true
+  text: |-
+    // WhenExpressions/MixColors.kt
+    package whenexpressions
+    import atomictest.eq
+
+    fun mixColors(first: String, second: String) =
+      when (setOf(first, second)) {
+        setOf("red", "blue") -> "purple"
+        setOf("red", "yellow") -> "orange"
+        setOf("blue", "yellow") -> "green"
+        else -> "unknown"
+      }
+
+    fun main() {
+      mixColors("red", "blue") eq "purple"
+      mixColors("blue", "red") eq "purple"
+      mixColors("blue", "purple") eq "unknown"
+    }
+  learner_created: false
+- name: src/BmiWhen.kt
+  visible: true
+  text: |-
+    // WhenExpressions/BmiWhen.kt
+    package whenexpressions
+    import atomictest.eq
+
+    fun bmiMetricOld(
+      kg: Double,
+      heightM: Double
+    ): String {
+      val bmi = kg / (heightM * heightM)
+      return if (bmi < 18.5) "Underweight"
+        else if (bmi < 25) "Normal weight"
+        else "Overweight"
+    }
+
+    fun bmiMetricWithWhen(
+      kg: Double,
+      heightM: Double
+    ): String {
+      val bmi = kg / (heightM * heightM)
+      return when {
+        bmi < 18.5 -> "Underweight"
+        bmi < 25 -> "Normal weight"
+        else -> "Overweight"
+      }
+    }
+
+    fun main() {
+      bmiMetricOld(72.57, 1.727) eq
+        bmiMetricWithWhen(72.57, 1.727)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

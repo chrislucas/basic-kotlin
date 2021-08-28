@@ -1,0 +1,409 @@
+type: theory
+files:
+- name: src/Num.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Num.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    data class Num(val n: Int)
+
+    operator fun Num.plus(rval: Num) =
+      Num(n + rval.n)
+
+    fun main() {
+      Num(4) + Num(5) eq Num(9)
+      Num(4).plus(Num(5)) eq Num(9)
+    }
+  learner_created: false
+- name: src/MemberOperator.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/MemberOperator.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    data class Num2(private val n: Int) {
+      operator fun plus(rval: Num2) =
+        Num2(n + rval.n)
+    }
+
+    // Cannot access 'n': it is private in 'Num2':
+    // operator fun Num2.minus(rval: Num2) =
+    //   Num2(n - rval.n)
+
+    fun main() {
+      Num2(4) + Num2(5) eq Num2(9)
+    }
+  learner_created: false
+- name: src/Molecule.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Molecule.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    data class Molecule(
+      val id: Int = idCount++,
+      var attached: Molecule? = null
+    ) {
+      companion object {
+        private var idCount = 0
+      }
+      operator fun plus(other: Molecule) {
+        attached = other
+      }
+    }
+
+    fun main() {
+      val m1 = Molecule()
+      val m2 = Molecule()
+      m1 + m2                       // [1]
+      m1 eq "Molecule(id=0, attached=" +
+        "Molecule(id=1, attached=null))"
+    }
+  learner_created: false
+- name: src/DefaultEquality.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/DefaultEquality.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    class A(val i: Int)
+    data class D(val i: Int)
+
+    fun main() {
+      // Normal class:
+      val a = A(1)
+      val b = A(1)
+      val c = a
+      (a == b) eq false
+      (a == c) eq true
+      // Data class:
+      val d = D(1)
+      val e = D(1)
+      (d == e) eq true
+    }
+  learner_created: false
+- name: src/DefiningEquality.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/DefiningEquality.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    class E(var v: Int) {
+      override fun equals(other: Any?) = when {
+        this === other -> true           // [1]
+        other !is E -> false             // [2]
+        else -> v == other.v             // [3]
+      }
+      override fun hashCode(): Int = v
+      override fun toString() = "E($v)"
+    }
+
+    fun main() {
+      val a = E(1)
+      val b = E(2)
+      (a == b) eq false   // a.equals(b)
+      (a != b) eq true    // !a.equals(b)
+      // Reference equality:
+      (E(1) === E(1)) eq false
+    }
+  learner_created: false
+- name: src/EqualsForNullable.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/EqualsForNullable.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    fun equalsWithIf(a: E?, b: E?) =
+      if (a === null)
+        b === null
+      else
+        a == b
+
+    fun equalsWithElvis(a: E?, b: E?) =
+      a?.equals(b) ?: (b === null)
+
+    fun main() {
+      val x: E? = null
+      val y = E(0)
+      val z: E? = null
+      (x == y) eq false
+      (x == z) eq true
+      equalsWithIf(x, y) eq false
+      equalsWithIf(x, z) eq true
+      equalsWithElvis(x, y) eq false
+      equalsWithElvis(x, z) eq true
+    }
+  learner_created: false
+- name: src/ArithmeticOperators.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/ArithmeticOperators.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    // Unary operators:
+    operator fun E.unaryPlus() = E(v)
+    operator fun E.unaryMinus() = E(-v)
+    operator fun E.not() = this
+
+    // Increment/decrement:
+    operator fun E.inc() = E(v + 1)
+    operator fun E.dec() = E(v - 1)
+
+    fun unary(a: E) {
+      +a               // unaryPlus()
+      -a               // unaryMinus()
+      !a               // not()
+
+      var b = a
+      b++             // inc() (must be var)
+      b--             // dec() (must be var)
+    }
+
+    // Binary operators:
+    operator fun E.plus(e: E) = E(v + e.v)
+    operator fun E.minus(e: E) = E(v - e.v)
+    operator fun E.times(e: E) = E(v * e.v)
+    operator fun E.div(e: E) = E(v % e.v)
+    operator fun E.rem(e: E) = E(v / e.v)
+
+    fun binary(a: E, b: E) {
+      a + b            // a.plus(b)
+      a - b            // a.minus(b)
+      a * b            // a.times(b)
+      a / b            // a.div(b)
+      a % b            // a.rem(b)
+    }
+
+    // Augmented assignment:
+    operator fun E.plusAssign(e: E) { v += e.v }
+    operator fun E.minusAssign(e: E) { v - e.v }
+    operator fun E.timesAssign(e: E) { v *= e.v }
+    operator fun E.divAssign(e: E) { v /= e.v }
+    operator fun E.remAssign(e: E) { v %= e.v }
+
+    fun assignment(a: E, b: E) {
+      a += b           // a.plusAssign(b)
+      a -= b           // a.minusAssign(b)
+      a *= b           // a.timesAssign(b)
+      a /= b           // a.divAssign(b)
+      a %= b           // a.remAssign(b)
+    }
+
+    fun main() {
+      val a = E(2)
+      val b = E(3)
+      a + b eq E(5)
+      a * b eq E(6)
+      val x = E(1)
+      x += b * b
+      x eq E(10)
+    }
+  learner_created: false
+- name: src/DifferentTypes.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/DifferentTypes.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    operator fun E.plus(i: Int) = E(v + i)
+
+    fun main() {
+      E(1) + 10 eq E(11)
+    }
+  learner_created: false
+- name: src/ConfusingPrecedence.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/ConfusingPrecedence.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    fun main() {
+      val x: Int? = 1
+      val y: Int = 2
+      val sum = x ?: 0 + y
+      sum eq 1
+      (x ?: 0) + y eq 3    // [1]
+      x ?: (0 + y) eq 1    // [2]
+    }
+  learner_created: false
+- name: src/Comparison.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Comparison.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    operator fun E.compareTo(e: E): Int =
+      v.compareTo(e.v)
+
+    fun main() {
+      val a = E(2)
+      val b = E(3)
+      (a < b) eq true     // a.compareTo(b) < 0
+      (a > b) eq false    // a.compareTo(b) > 0
+      (a <= b) eq true    // a.compareTo(b) <= 0
+      (a >= b) eq false   // a.compareTo(b) >= 0
+    }
+  learner_created: false
+- name: src/Ranges.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Ranges.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    data class R(val r: IntRange) { // Range
+      override fun toString() = "R($r)"
+    }
+
+    operator fun E.rangeTo(e: E) = R(v..e.v)
+
+    operator fun R.contains(e: E): Boolean =
+      e.v in r
+
+    fun main() {
+      val a = E(2)
+      val b = E(3)
+      val r = a..b        // a.rangeTo(b)
+      (a in r) eq true    // r.contains(a)
+      (a !in r) eq false  // !r.contains(a)
+      r eq R(2..3)
+    }
+  learner_created: false
+- name: src/ContainerAccess.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/ContainerAccess.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    data class C(val c: MutableList<Int>) {
+      override fun toString() = "C($c)"
+    }
+
+    operator fun C.contains(e: E) = e.v in c
+
+    operator fun C.get(i: Int): E = E(c[i])
+
+    operator fun C.set(i: Int, e: E) {
+      c[i] = e.v
+    }
+
+    fun main() {
+      val c = C(mutableListOf(2, 3))
+      (E(2) in c) eq true  // c.contains(E(2))
+      (E(4) in c) eq false // c.contains(E(4))
+      c[1] eq E(3)         // c.get(1)
+      c[1] = E(4)          // c.set(2, E(4))
+      c eq C(mutableListOf(2, 4))
+    }
+  learner_created: false
+- name: src/Invoke.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Invoke.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    class Func {
+      operator fun invoke() = "invoke()"
+      operator fun invoke(i: Int) = "invoke($i)"
+      operator fun invoke(i: Int, j: String) =
+        "invoke($i, $j)"
+      operator fun invoke(
+        i: Int, j: String, k: Double
+      ) = "invoke($i, $j, $k)"
+    }
+
+    fun main() {
+      val f = Func()
+      f() eq "invoke()"
+      f(22) eq "invoke(22)"
+      f(22, "Hi") eq "invoke(22, Hi)"
+      f(22, "Three", 3.1416) eq
+        "invoke(22, Three, 3.1416)"
+    }
+  learner_created: false
+- name: src/StringInvoke.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/StringInvoke.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    operator fun String.invoke(
+      f: (s: String) -> String
+    ) = f(this)
+
+    fun main() {
+      "mumbling" { it.toUpperCase() } eq
+        "MUMBLING"
+    }
+  learner_created: false
+- name: src/InvokeFunctionType.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/InvokeFunctionType.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    fun main() {
+      val func: (String) -> Int = { it.length }
+      func("abc") eq 3
+      func.invoke("abc") eq 3
+
+      val nullableFunc: ((String) -> Int)? = null
+      if (nullableFunc != null) {
+        nullableFunc("abc")
+      }
+      nullableFunc?.invoke("abc")  // [1]
+    }
+  learner_created: false
+- name: src/Backticks.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Backticks.kt
+    package operatoroverloading
+
+    fun `A long name with spaces`() = Unit
+
+    fun `*how* is this working?`() = Unit
+
+    fun `'when' is a keyword`() = Unit
+
+    // fun `Illegal characters :<>`() = Unit
+
+    fun main() {
+      `A long name with spaces`()
+      `*how* is this working?`()
+      `'when' is a keyword`()
+    }
+  learner_created: false
+- name: src/Swearing.kt
+  visible: true
+  text: |-
+    // OperatorOverloading/Swearing.kt
+    package operatoroverloading
+    import atomictest.eq
+
+    infix fun String.`#!%`(s: String) =
+      "$this Rowzafrazaca $s"
+
+    fun main() {
+      "howdy" `#!%` "Ma'am!" eq
+        "howdy Rowzafrazaca Ma'am!"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

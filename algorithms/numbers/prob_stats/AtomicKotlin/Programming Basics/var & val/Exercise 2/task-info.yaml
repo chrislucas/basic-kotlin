@@ -1,0 +1,36 @@
+type: output
+files:
+- name: test/output.txt
+  visible: false
+  text: |
+    42
+    10
+  learner_created: false
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 65
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 65
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      var a = 10
+        val b = a
+        a = 42
+        println(a)
+        println(b)
+  text: |-
+    // VarAndVal/Task2.kt
+    package varAndValExercise2
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,126 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 231
+    length: 23
+    placeholder_text: ' = Generator(0) // TODO'
+    initial_state:
+      length: 23
+      offset: 231
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+
+          get() {
+            if(!::_generator.isInitialized)
+              _generator = Generator(id)
+            return _generator
+          }
+  - offset: 319
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 319
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '"${::_generator.isInitialized}"'
+  - offset: 412
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 412
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: List(nTurbines) { Turbine(it) }
+  - offset: 465
+    length: 6
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 465
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      require(number in 0..turbines.size)
+          return turbines[number].generator
+  - offset: 493
+    length: 6
+    placeholder_text: '"TODO"'
+    initial_state:
+      length: 6
+      offset: 493
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      turbines.forEach {
+          trace(it.toString())
+        }
+  text: |-
+    // LateInitialization/LateInitSoln3.kt
+    package lateInitializationExercise3
+    import atomictest.*
+
+    data class Generator(val id: Int)
+
+    class Turbine(val id: Int) {
+      private lateinit var _generator: Generator
+      val generator: Generator = Generator(0) // TODO
+      override fun toString() =
+        "Generator $id running: " +
+        TODO()
+    }
+
+    class PowerPlant(nTurbines: Int = 4) {
+      private val turbines: List<Turbine> =
+        TODO()
+      fun generator(number: Int): Generator {
+        TODO()
+      }
+      fun status() = "TODO"
+    }
+
+    fun main() {
+      val plant = PowerPlant()
+      plant.status()
+      trace(plant.generator(1))
+      trace(plant.generator(3))
+      plant.status()
+      trace eq """
+        Generator 0 running: false
+        Generator 1 running: false
+        Generator 2 running: false
+        Generator 3 running: false
+        Generator(id=1)
+        Generator(id=3)
+        Generator 0 running: false
+        Generator 1 running: true
+        Generator 2 running: false
+        Generator 3 running: true
+      """
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package lateInitializationExercise3
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestLateInitializationExercise3 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

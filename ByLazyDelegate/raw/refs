@@ -1,0 +1,34 @@
+kotlin lazy
+https://medium.com/android-dev-br/quando-utilizar-inicializa%C3%A7%C3%A3o-lazy-do-kotlin-45377c8b68ad
+
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-lazy/
+
+https://www.baeldung.com/kotlin/lazy-initialization
+
+kotlin by lazy
+https://kotlinlang.org/docs/delegated-properties.html
+https://stackoverflow.com/questions/36623177/kotlin-property-initialization-using-by-lazy-vs-lateinit
+https://blog.mindorks.com/learn-kotlin-lateinit-vs-lazy
+
+Pergunta interessante
+How to Lazy Initialize with a parameter in Kotlin
+https://stackoverflow.com/questions/36232137/how-to-lazy-initialize-with-a-parameter-in-kotlin
+
+
+kotlin lazy delegate
+https://kotlinlang.org/docs/delegated-properties.html
+https://medium.com/til-kotlin/how-kotlins-delegated-properties-and-lazy-initialization-work-552cbad8be60
+https://medium.com/tompee/idiomatic-kotlin-property-delegates-and-lazy-11207213a788
+
+Delegated Properties
+https://www.baeldung.com/kotlin/delegated-properties
+
+ the delegate pattern and the lazy method:
+ https://kotlinlang.org/docs/delegated-properties.html#lazy
+https://blog.moetz.dev/kotlin/how-lazy-is-converted-into-a-delegated-property/
+
+
+Delegation
+https://kotlinlang.org/docs/delegation.html
+
+https://antonioleiva.com/property-delegation-kotlin/

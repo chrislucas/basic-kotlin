@@ -1,0 +1,116 @@
+type: theory
+files:
+- name: src/Wombat.kt
+  visible: true
+  text: |-
+    // Constructors/Wombat.kt
+
+    class Wombat
+
+    fun main() {
+      val wombat = Wombat()
+    }
+  learner_created: false
+- name: src/Arg.kt
+  visible: true
+  text: |-
+    // Constructors/Arg.kt
+
+    class Alien(name: String) {
+      val greeting = "Poor $name!"
+    }
+
+    fun main() {
+      val alien = Alien("Mr. Meeseeks")
+      println(alien.greeting)
+      // alien.name // Error     // [1]
+    }
+    /* Output:
+    Poor Mr. Meeseeks!
+    */
+  learner_created: false
+- name: src/VisibleArgs.kt
+  visible: true
+  text: |-
+    // Constructors/VisibleArgs.kt
+
+    class MutableNameAlien(var name: String)
+
+    class FixedNameAlien(val name: String)
+
+    fun main() {
+      val alien1 =
+        MutableNameAlien("Reverse Giraffe")
+      val alien2 =
+        FixedNameAlien("Krombopolis Michael")
+
+      alien1.name = "Parasite"
+      // Can't do this:
+      // alien2.name = "Parasite"
+    }
+  learner_created: false
+- name: src/MultipleArgs.kt
+  visible: true
+  text: |-
+    // Constructors/MultipleArgs.kt
+
+    class AlienSpecies(
+      val name: String,
+      val eyes: Int,
+      val hands: Int,
+      val legs: Int
+    ) {
+      fun describe() =
+        "$name with $eyes eyes, " +
+          "$hands hands and $legs legs"
+    }
+
+    fun main() {
+      val kevin =
+        AlienSpecies("Zigerion", 2, 2, 2)
+      val mortyJr =
+        AlienSpecies("Gazorpian", 2, 6, 2)
+      println(kevin.describe())
+      println(mortyJr.describe())
+    }
+    /* Output:
+    Zigerion with 2 eyes, 2 hands and 2 legs
+    Gazorpian with 2 eyes, 6 hands and 2 legs
+    */
+  learner_created: false
+- name: src/DisplayAlienSpecies.kt
+  visible: true
+  text: |-
+    // Constructors/DisplayAlienSpecies.kt
+
+    fun main() {
+      val krombopulosMichael =
+        AlienSpecies("Gromflomite", 2, 2, 2)
+      println(krombopulosMichael)
+    }
+    /* Sample output:
+    AlienSpecies@4d7e1886
+    */
+  learner_created: false
+- name: src/Scientist.kt
+  visible: true
+  text: |-
+    // Constructors/Scientist.kt
+
+    class Scientist(val name: String) {
+      override fun toString(): String {
+        return "Scientist('$name')"
+      }
+    }
+
+    fun main() {
+      val zeep = Scientist("Zeep Xanflorp")
+      println(zeep)
+    }
+    /* Output:
+    Scientist('Zeep Xanflorp')
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

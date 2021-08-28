@@ -1,0 +1,80 @@
+type: theory
+files:
+- name: src/WhileLoop.kt
+  visible: true
+  text: |-
+    // RepetitionWithWhile/WhileLoop.kt
+
+    fun condition(i: Int) = i < 100  // [1]
+
+    fun main() {
+      var i = 0
+      while (condition(i)) {         // [2]
+        print(".")
+        i += 10                      // [3]
+      }
+    }
+    /* Output:
+    ..........
+    */
+  learner_created: false
+- name: src/DoWhileLoop.kt
+  visible: true
+  text: |-
+    // RepetitionWithWhile/DoWhileLoop.kt
+
+    fun main() {
+      var i = 0
+      do {
+        print(".")
+        i += 10
+      } while (condition(i))
+    }
+    /* Output:
+    ..........
+    */
+  learner_created: false
+- name: src/AssignmentOperators.kt
+  visible: true
+  text: |-
+    // RepetitionWithWhile/AssignmentOperators.kt
+
+    fun main() {
+      var n = 10
+      val d = 3
+      print(n)
+      while (n > d) {
+        n -= d
+        print(" - $d")
+      }
+      println(" = $n")
+
+      var m = 10
+      print(m)
+      m %= d
+      println(" % $d = $m")
+    }
+    /* Output:
+    10 - 3 - 3 - 3 = 1
+    10 % 3 = 1
+    */
+  learner_created: false
+- name: src/IncrementOperator.kt
+  visible: true
+  text: |-
+    // RepetitionWithWhile/IncrementOperator.kt
+
+    fun main() {
+      var i = 0
+      while (i < 4) {
+        print(".")
+        i++
+      }
+    }
+    /* Output:
+    ....
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

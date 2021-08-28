@@ -1,0 +1,273 @@
+type: theory
+files:
+- name: src/DefiningExceptions.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/DefiningExceptions.kt
+    package exceptionhandling
+    import atomictest.*
+
+    class Exception1(
+      val value: Int
+    ): Exception("wrong value: $value")
+
+    open class Exception2(
+      description: String
+    ): Exception(description)
+
+    class Exception3(
+      description: String
+    ): Exception2(description)
+
+    fun main() {
+      capture {
+        throw Exception1(13)
+      } eq "Exception1: wrong value: 13"
+      capture {
+        throw Exception3("error")
+      } eq "Exception3: error"
+    }
+  learner_created: false
+- name: src/Stacktrace.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/Stacktrace.kt
+    package stacktrace
+    import exceptionhandling.Exception1
+
+    fun function1(): Int =
+      throw Exception1(-52)
+
+    fun function2() = function1()
+
+    fun function3() = function2()
+
+    fun main() {
+    //  function3()
+    }
+  learner_created: false
+- name: src/Handlers.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/Handlers.kt
+    package exceptionhandling
+    import atomictest.eq
+
+    fun toss(which: Int) = when (which) {
+      1 -> throw Exception1(1)
+      2 -> throw Exception2("Exception 2")
+      3 -> throw Exception3("Exception 3")
+      else -> "OK"
+    }
+
+    fun test(which: Int): Any? =
+      try {
+        toss(which)
+      } catch (e: Exception1) {
+        e.value
+      } catch (e: Exception3) {
+        e.message
+      } catch (e: Exception2) {
+        e.message
+      }
+
+    fun main() {
+      test(0) eq "OK"
+      test(1) eq 1
+      test(2) eq "Exception 2"
+      test(3) eq "Exception 3"
+    }
+  learner_created: false
+- name: src/Hierarchy.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/Hierarchy.kt
+    package exceptionhandling
+    import atomictest.eq
+
+    fun testCatchOrder(which: Int) =
+      try {
+        toss(which)
+      } catch (e: Exception2) {    // [1]
+        "Handler for Exception2 got ${e.message}"
+      } catch (e: Exception3) {    // [2]
+        "Handler for Exception3 got ${e.message}"
+      }
+
+    fun main() {
+      testCatchOrder(2) eq
+        "Handler for Exception2 got Exception 2"
+      testCatchOrder(3) eq
+        "Handler for Exception2 got Exception 3"
+    }
+  learner_created: false
+- name: src/LibraryException.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/LibraryException.kt
+    package exceptionhandling
+    import atomictest.*
+
+    fun testCode(code: Int) {
+      if (code <= 1000) {
+        throw IllegalArgumentException(
+          "'code' must be > 1000: $code")
+      }
+    }
+
+    fun main() {
+      try {
+        // A1 is 161 in base-16 (hex) notation:
+        testCode("A1".toInt(16))
+      } catch (e: IllegalArgumentException) {
+        e.message eq
+          "'code' must be > 1000: 161"
+      }
+      try {
+        testCode("0".toInt(1))
+      } catch (e: IllegalArgumentException) {
+        e.message eq
+          "radix 1 was not in valid range 2..36"
+      }
+    }
+  learner_created: false
+- name: src/NewException.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/NewException.kt
+    package exceptionhandling
+    import atomictest.eq
+
+    class IncorrectInputException(
+      message: String
+    ): Exception(message)
+
+    fun checkCode(code: Int) {
+      if (code <= 1000) {
+        throw IncorrectInputException(
+          "Code must be > 1000: $code")
+      }
+    }
+
+    fun main() {
+      try {
+        checkCode("A1".toInt(16))
+      } catch (e: IncorrectInputException) {
+        e.message eq "Code must be > 1000: 161"
+      } catch (e: IllegalArgumentException) {
+        "Produces error" eq "if it gets here"
+      }
+      try {
+        checkCode("1".toInt(1))
+      } catch (e: IncorrectInputException) {
+        "Produces error" eq "if it gets here"
+      } catch (e: IllegalArgumentException) {
+        e.message eq
+          "radix 1 was not in valid range 2..36"
+      }
+    }
+  learner_created: false
+- name: src/TryFinally.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/TryFinally.kt
+    package exceptionhandling
+    import atomictest.*
+
+    fun checkValue(value: Int) {
+      try {
+        trace(value)
+        if (value <= 0)
+          throw IllegalArgumentException(
+            "value must be positive: $value")
+      } finally {
+        trace("In finally clause for $value")
+      }
+    }
+
+    fun main() {
+      listOf(10, -10).forEach {
+        try {
+          checkValue(it)
+        } catch (e: IllegalArgumentException) {
+          trace("In catch clause for main()")
+          trace(e.message)
+        }
+      }
+      trace eq """
+        10
+        In finally clause for 10
+        -10
+        In finally clause for -10
+        In catch clause for main()
+        value must be positive: -10
+      """
+    }
+  learner_created: false
+- name: src/GuaranteedCleanup.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/GuaranteedCleanup.kt
+    package exceptionhandling
+    import atomictest.eq
+
+    data class Switch(
+      var on: Boolean = false,
+      var result: String = "OK"
+    )
+
+    fun testFinally(i: Int): Switch {
+      val sw = Switch()
+      try {
+        sw.on = true
+        when (i) {
+          0 -> throw IllegalStateException()
+          1 -> return sw                 // [1]
+        }
+      } catch (e: IllegalStateException) {
+        sw.result = "exception"
+      } finally {
+        sw.on = false
+      }
+      return sw
+    }
+
+    fun main() {
+      testFinally(0) eq
+        "Switch(on=false, result=exception)"
+      testFinally(1) eq
+        "Switch(on=false, result=OK)"    // [2]
+      testFinally(2) eq
+        "Switch(on=false, result=OK)"
+    }
+  learner_created: false
+- name: src/CaptureImplementation.kt
+  visible: true
+  text: |-
+    // ExceptionHandling/CaptureImplementation.kt
+    package exceptionhandling
+    import atomictest.CapturedException
+
+    fun capture(f:() -> Unit): CapturedException =
+      try {                                 // [1]
+        f()
+        CapturedException(null,
+          "<Error>: Expected an exception") // [2]
+      } catch (e: Throwable) {              // [3]
+        CapturedException(e::class,         // [4]
+          if (e.message != null) ": ${e.message}"
+          else "")
+      }
+
+    fun main() {
+      capture {
+        throw Exception("!!!")
+      } eq "Exception: !!!"                 // [5]
+      capture {
+        1
+      } eq "<Error>: Expected an exception"
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

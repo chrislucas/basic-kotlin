@@ -1,0 +1,117 @@
+type: theory
+files:
+- name: src/Maps.kt
+  visible: true
+  text: |-
+    // Maps/Maps.kt
+    import atomictest.eq
+
+    fun main() {
+      val constants = mapOf(
+        "Pi" to 3.141,
+        "e" to 2.718,
+        "phi" to 1.618
+      )
+      constants eq
+        "{Pi=3.141, e=2.718, phi=1.618}"
+
+      // Look up a value from a key:
+      constants["e"] eq 2.718              // [1]
+      constants.keys eq setOf("Pi", "e", "phi")
+      constants.values eq "[3.141, 2.718, 1.618]"
+
+      var s = ""
+      // Iterate through key-value pairs:
+      for (entry in constants) {           // [2]
+        s += "${entry.key}=${entry.value}, "
+      }
+      s eq "Pi=3.141, e=2.718, phi=1.618,"
+
+      s = ""
+      // Unpack during iteration:
+      for ((key, value) in constants)      // [3]
+        s += "$key=$value, "
+      s eq "Pi=3.141, e=2.718, phi=1.618,"
+    }
+  learner_created: false
+- name: src/MutableMaps.kt
+  visible: true
+  text: |-
+    // Maps/MutableMaps.kt
+    import atomictest.eq
+
+    fun main() {
+      val m =
+        mutableMapOf(5 to "five", 6 to "six")
+      m[5] eq "five"
+      m[5] = "5ive"
+      m[5] eq "5ive"
+      m += 4 to "four"
+      m eq mapOf(5 to "5ive",
+        4 to "four", 6 to "six")
+    }
+  learner_created: false
+- name: src/ReadOnlyMaps.kt
+  visible: true
+  text: |-
+    // Maps/ReadOnlyMaps.kt
+    import atomictest.eq
+
+    fun main() {
+      val m = mapOf(5 to "five", 6 to "six")
+      m[5] eq "five"
+      // m[5] = "5ive" // Fails
+      // m += (4 to "four") // Fails
+      m + (4 to "four") // Doesn't change m
+      m eq mapOf(5 to "five", 6 to "six")
+      val m2 = m + (4 to "four")
+      m2 eq mapOf(
+        5 to "five", 6 to "six", 4 to "four")
+    }
+  learner_created: false
+- name: src/GetValue.kt
+  visible: true
+  text: |-
+    // Maps/GetValue.kt
+    import atomictest.*
+
+    fun main() {
+      val map = mapOf('a' to "attempt")
+      map['b'] eq null
+      capture {
+        map.getValue('b')
+      } eq "NoSuchElementException: " +
+        "Key b is missing in the map."
+      map.getOrDefault('a', "??") eq "attempt"
+      map.getOrDefault('b', "??") eq "??"
+    }
+  learner_created: false
+- name: src/ContactMap.kt
+  visible: true
+  text: |-
+    // Maps/ContactMap.kt
+    package maps
+    import atomictest.eq
+
+    class Contact(
+      val name: String,
+      val phone: String
+    ) {
+      override fun toString(): String {
+        return "Contact('$name', '$phone')"
+      }
+    }
+
+    fun main() {
+      val miffy = Contact("Miffy", "1-234-567890")
+      val cleo = Contact("Cleo", "098-765-4321")
+      val contacts = mapOf(
+        miffy.phone to miffy,
+        cleo.phone to cleo)
+      contacts["1-234-567890"] eq miffy
+      contacts["1-111-111111"] eq null
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

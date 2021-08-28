@@ -1,0 +1,111 @@
+type: theory
+files:
+- name: src/Overloading.kt
+  visible: true
+  text: |-
+    // Overloading/Overloading.kt
+    package overloading
+    import atomictest.eq
+
+    class Overloading {
+      fun f() = 0
+      fun f(n: Int) = n + 2
+    }
+
+    fun main() {
+      val o = Overloading()
+      o.f() eq 0
+      o.f(11) eq 13
+    }
+  learner_created: false
+- name: src/MemberVsExtension.kt
+  visible: true
+  text: |-
+    // Overloading/MemberVsExtension.kt
+    package overloading
+    import atomictest.eq
+
+    class My {
+      fun foo() = 0
+    }
+
+    fun My.foo() = 1             // [1]
+
+    fun My.foo(i: Int) = i + 2   // [2]
+
+    fun main() {
+      My().foo() eq 0
+      My().foo(1) eq 3
+    }
+  learner_created: false
+- name: src/WithoutDefaultArguments.kt
+  visible: true
+  text: |-
+    // Overloading/WithoutDefaultArguments.kt
+    package withoutdefaultarguments
+    import atomictest.eq
+
+    fun f(n: Int) = n + 373
+    fun f() = f(0)
+
+    fun main() {
+      f() eq 373
+    }
+  learner_created: false
+- name: src/WithDefaultArguments.kt
+  visible: true
+  text: |-
+    // Overloading/WithDefaultArguments.kt
+    package withdefaultarguments
+    import atomictest.eq
+
+    fun f(n: Int = 0) = n + 373
+
+    fun main() {
+      f() eq 373
+    }
+  learner_created: false
+- name: src/OverloadedVsDefaultArg.kt
+  visible: true
+  text: |-
+    // Overloading/OverloadedVsDefaultArg.kt
+    package overloadingvsdefaultargs
+    import atomictest.*
+
+    fun foo(n: Int = 99) = trace("foo-1-$n")
+
+    fun foo() {
+      trace("foo-2")
+      foo(14)
+    }
+
+    fun main() {
+      foo()
+      trace eq """
+        foo-2
+        foo-1-14
+      """
+    }
+  learner_created: false
+- name: src/OverloadingAdd.kt
+  visible: true
+  text: |-
+    // Overloading/OverloadingAdd.kt
+    package overloading
+    import atomictest.eq
+
+    fun addInt(i: Int, j: Int) = i + j
+    fun addDouble(i: Double, j: Double) = i + j
+
+    fun add(i: Int, j: Int) = i + j
+    fun add(i: Double, j: Double) = i + j
+
+    fun main() {
+      addInt(5, 6) eq add(5, 6)
+      addDouble(56.23, 44.77) eq
+        add(56.23, 44.77)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

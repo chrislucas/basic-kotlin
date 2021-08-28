@@ -1,0 +1,65 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 76
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 76
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      interface PowerPlant
+      class ElectricMotor : PowerPlant
+      class CombustionEngine : PowerPlant
+
+      class Vehicle {
+        lateinit var powerPlant: PowerPlant
+      }
+
+      lateinit var car: Vehicle
+  - offset: 100
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 100
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      lateinit var truck: Vehicle
+        car = Vehicle()
+        car.powerPlant = ElectricMotor()
+        truck = Vehicle()
+        truck.powerPlant = CombustionEngine()
+  text: |-
+    // LateInitialization/LateInitSoln1.kt
+    package lateInitializationExercise1
+
+    // TODO
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package lateInitializationExercise1
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestLateInitializationExercise1 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

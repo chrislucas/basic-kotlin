@@ -1,0 +1,112 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 75
+    length: 15
+    placeholder_text: class Rectangle
+    initial_state:
+      length: 15
+      offset: 75
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Rectangle(
+        val side1: Double = 1.0,
+        val side2: Double = 2.0,
+        val color: String = "yellow"
+      ) {
+        override fun toString(): String {
+          return "Rectangle ${side1}x$side2 of '$color' color"
+        }
+      }
+  - offset: 131
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 131
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      // Without argument names
+        println(Rectangle(1.1))
+        println(Rectangle(1.1, 2.2, "blue"))
+
+        // Mixed positional and named arguments
+        println(Rectangle(1.1, 2.2, color = "blue"))
+        println(Rectangle(side1 = 1.1, side2 = 2.2, "blue"))
+
+        // Names for all arguments
+        println(Rectangle(color = "blue"))
+        println(Rectangle(side1 = 1.1, side2 = 2.2, color = "blue"))
+  text: |-
+    // NamedAndDefaultArgs/Task1.kt
+    package namedAndDefaultArgumentsExercise1
+
+    class Rectangle
+
+    fun main() {
+      println(Rectangle())
+
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package namedAndDefaultArgumentsExercise1
+
+    import org.junit.Assert
+    import org.junit.FixMethodOrder
+    import org.junit.Test
+    import org.junit.runners.MethodSorters
+    import util.TIMEOUT
+    import util.assertParametersOfFirstConstructor
+
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    class TestNamedAndDefaultArgumentsExercise1 {
+      @Test(timeout = TIMEOUT)
+      fun testBuildingClass() {
+        val rectangleClass = Rectangle::class.apply {
+          assertParametersOfFirstConstructor(
+              "side1" to Double::class,
+              "side2" to Double::class,
+              "color" to String::class
+          )
+        }
+        val constructor = rectangleClass.constructors.first()
+        val (side1, side2, color) = constructor.parameters
+        fun testValues(map: Map<String, Any>) {
+          val paramMap = map.mapKeys { (paramName, _) ->
+            when (paramName) {
+              "side1" -> side1
+              "side2" -> side2
+              "color" -> color
+              else -> throw AssertionError("Unknown parameter $paramName")
+            }
+          }
+          val instance = constructor.callBy(paramMap)
+          val side1Value = map["side1"] ?: 1.0
+          val side2Value = map["side2"] ?: 2.0
+          val colorValue = map["color"] ?: "yellow"
+          val expected = "Rectangle ${side1Value}x$side2Value of '$colorValue' color"
+          val message = "Wrong result for " + if (map.isEmpty()) "no parameters" else "parameters $map"
+          Assert.assertEquals(message, expected, instance.toString())
+        }
+
+        testValues(mapOf())
+        testValues(mapOf("side1" to 1.1))
+        testValues(mapOf("side2" to 2.2))
+        testValues(mapOf("color" to "blue"))
+        testValues(mapOf("side1" to 1.1, "color" to "blue"))
+        testValues(mapOf("side1" to 1.1, "side2" to 2.2))
+        testValues(mapOf("side2" to 2.2, "color" to "blue"))
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

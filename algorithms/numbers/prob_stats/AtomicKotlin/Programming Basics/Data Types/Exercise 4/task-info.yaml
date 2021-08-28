@@ -1,0 +1,41 @@
+type: ide
+files:
+- name: src/Task.kt
+  visible: true
+  text: |-
+    // DataTypes/Task4.kt
+    package dataTypesExercise4
+
+    fun main() {
+      val whole = 11
+      val fractional = 1.4
+      val trueOrFalse = true
+      val words = "A value"
+      val character = 'z'
+      val lines = """Triple quotes let
+    you have many lines
+    in your string"""
+      println(whole)
+      println(fractional)
+      println(trueOrFalse)
+      println(words)
+      println(character)
+      println(lines)
+    }
+    /* Output:
+    11
+    1.4
+    true
+    A value
+    z
+    Triple quotes let
+    you have many lines
+    in your string
+    */
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: package dataTypesExercise4
+  learner_created: false
+status: Unchecked
+record: -1

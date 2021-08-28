@@ -1,0 +1,53 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 101
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 101
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Cleanup : AutoCloseable {
+        fun f() = trace("f()")
+        fun g() = trace("g()")
+        fun h() = trace("h()")
+        override fun close() = trace("close()")
+      }
+
+      fun main() {
+        Cleanup().use {
+          it.f()
+          it.g()
+          it.h()
+        }
+        trace eq "f() g() h() close()"
+      }
+  text: |-
+    // ResourceCleanup/ResourceCleanupSoln2.kt
+    package resourceCleanupExercise2
+    import atomictest.trace
+
+    // TODO
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package resourceCleanupExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestResourceCleanupExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

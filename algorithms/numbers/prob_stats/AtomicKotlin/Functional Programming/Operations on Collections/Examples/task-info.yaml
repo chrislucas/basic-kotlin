@@ -1,0 +1,171 @@
+type: theory
+files:
+- name: src/CreatingLists.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/CreatingLists.kt
+    import atomictest.eq
+
+    fun main() {
+      // The lambda argument is the element index:
+      val list1 = List(10) { it }
+      list1 eq "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+
+      // A list of a single value:
+      val list2 = List(10) { 0 }
+      list2 eq "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
+
+      // A list of letters:
+      val list3 = List(10) { 'a' + it }
+      list3 eq "[a, b, c, d, e, f, g, h, i, j]"
+
+      // Cycle through a sequence:
+      val list4 = List(10) { list3[it % 3] }
+      list4 eq "[a, b, c, a, b, c, a, b, c, a]"
+    }
+  learner_created: false
+- name: src/ListInit.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/ListInit.kt
+    import atomictest.eq
+
+    fun main() {
+      val mutableList1 =
+        MutableList(5, { 10 * (it + 1) })
+      mutableList1 eq "[10, 20, 30, 40, 50]"
+      val mutableList2 =
+        MutableList(5) { 10 * (it + 1) }
+      mutableList2 eq "[10, 20, 30, 40, 50]"
+    }
+  learner_created: false
+- name: src/Predicates.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/Predicates.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(-3, -1, 5, 7, 10)
+
+      list.filter { it > 0 } eq listOf(5, 7, 10)
+      list.count { it > 0 } eq 3
+
+      list.find { it > 0 } eq 5
+      list.firstOrNull { it > 0 } eq 5
+      list.lastOrNull { it < 0 } eq -1
+
+      list.any { it > 0 } eq true
+      list.any { it != 0 } eq true
+
+      list.all { it > 0 } eq false
+      list.all { it != 0 } eq true
+
+      list.none { it > 0 } eq false
+      list.none { it == 0 } eq true
+    }
+  learner_created: false
+- name: src/Partition.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/Partition.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(-3, -1, 5, 7, 10)
+      val isPositive = { i: Int -> i > 0 }
+
+      list.filter(isPositive) eq "[5, 7, 10]"
+      list.filterNot(isPositive) eq "[-3, -1]"
+
+      val (pos, neg) = list.partition { it > 0 }
+      pos eq "[5, 7, 10]"
+      neg eq "[-3, -1]"
+    }
+  learner_created: false
+- name: src/PairOfLists.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/PairOfLists.kt
+    package operationsoncollections
+    import atomictest.eq
+
+    fun createPair() = Pair(1, "one")
+
+    fun main() {
+      val (i, s) = createPair()
+      i eq 1
+      s eq "one"
+    }
+  learner_created: false
+- name: src/FilterNotNull.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/FilterNotNull.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf(1, 2, null)
+      list.filterNotNull() eq "[1, 2]"
+    }
+  learner_created: false
+- name: src/ByOperations.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/ByOperations.kt
+    package operationsoncollections
+    import atomictest.eq
+
+    data class Product(
+      val description: String,
+      val price: Double
+    )
+
+    fun main() {
+      val products = listOf(
+        Product("bread", 2.0),
+        Product("wine", 5.0)
+      )
+      products.sumByDouble { it.price } eq 7.0
+
+      products.sortedByDescending { it.price } eq
+        "[Product(description=wine, price=5.0)," +
+        " Product(description=bread, price=2.0)]"
+      products.minByOrNull { it.price } eq
+        Product("bread", 2.0)
+    }
+  learner_created: false
+- name: src/TakeOrDrop.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/TakeOrDrop.kt
+    import atomictest.eq
+
+    fun main() {
+      val list = listOf('a', 'b', 'c', 'X', 'Z')
+      list.takeLast(3) eq "[c, X, Z]"
+      list.takeLastWhile { it.isUpperCase() } eq
+        "[X, Z]"
+      list.drop(1) eq "[b, c, X, Z]"
+      list.dropWhile { it.isLowerCase() } eq
+        "[X, Z]"
+    }
+  learner_created: false
+- name: src/SetOperations.kt
+  visible: true
+  text: |-
+    // OperationsOnCollections/SetOperations.kt
+    import atomictest.eq
+
+    fun main() {
+      val set = setOf("a", "ab", "ac")
+      set.maxByOrNull { it.length }?.length eq 2
+      set.filter {
+        it.contains('b')
+      } eq listOf("ab")
+      set.map { it.length } eq listOf(1, 2, 2)
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

@@ -1,0 +1,104 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 91
+    length: 10
+    placeholder_text: data class
+    initial_state:
+      length: 10
+      offset: 91
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: class
+  - offset: 153
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 153
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+       {
+        operator fun component1() = data
+        operator fun component2() = info
+      }
+  text: |-
+    // Destructuring/Task2.kt
+    package destructuringDeclarationsExercise2
+    import atomictest.eq
+
+    data class Computation(
+      val data: Int,
+      val info: String,
+    )
+
+    fun evaluate(input: Int) =
+      if (input > 5)
+        Computation(input * 2, "High")
+      else
+        Computation(input * 2, "Low")
+
+    fun main() {
+      val (value, description) = evaluate(7)
+      value eq 14
+      description eq "High"
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |
+    package destructuringDeclarationsExercise2
+
+    import org.junit.Test
+    import kotlin.reflect.full.createType
+    import kotlin.test.assertEquals
+    import kotlin.test.assertFalse
+
+    class TestDestructuringDeclarationsExercise2 {
+
+        @Test
+        fun `class declaration`() {
+            val actualClass = Computation::class
+            assertFalse(
+                    actual = actualClass.isData,
+                    message = "Computation should not be declared as a data class"
+            )
+        }
+
+        @Test
+        fun destructuring() {
+            val (value, description) = evaluate(7)
+            assertEquals(
+                    expected = Int::class.createType(),
+                    actual = value::class.createType(),
+                    message = "First destructured value should be Int"
+            )
+            assertEquals(
+                    expected = String::class.createType(),
+                    actual = description::class.createType(),
+                    message = "Second destructured value should be Boolean"
+            )
+        }
+
+        @Test
+        fun solution() {
+            assert(3, 6 to "Low")
+            assert(7, 14 to "High")
+            assert(5, 10 to "Low")
+            assert(0, 0 to "Low")
+            assert(-1, -2 to "Low")
+        }
+
+        private fun assert(input: Int, expectedOutput: Pair<Int, String>) {
+            val actualOutput = evaluate(input).let { it.data to it.info }
+            assertEquals(expectedOutput, actualOutput, "Incorrect result for evaluate($input)")
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

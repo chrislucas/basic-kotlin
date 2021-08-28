@@ -1,0 +1,82 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 86
+    length: 31
+    placeholder_text: // fun List<Int>.headPlusTail()
+    initial_state:
+      length: 31
+      offset: 86
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      fun List<Int>.headPlusTail(): Triple<Int?, Int?, Int?> =
+        when {
+          isEmpty() -> Triple(null, null, null)
+          size == 1 -> Triple(first(), null, first())
+          else -> Triple(first(), last(), first() + last())
+        }
+  - offset: 134
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 134
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      val ints = mutableListOf<Int>()
+        trace(ints.headPlusTail())
+        for (n in -2..10 step 2) {
+          ints.add(n)
+          trace(ints.headPlusTail())
+          trace(ints.headPlusTail()!!.third)
+        }
+        trace eq """
+          (null, null, null)
+          (-2, null, -2)
+          -2
+          (-2, 0, -2)
+          -2
+          (-2, 2, 0)
+          0
+          (-2, 4, 2)
+          2
+          (-2, 6, 4)
+          4
+          (-2, 8, 6)
+          6
+          (-2, 10, 8)
+          8
+        """
+  text: |-
+    // NonNullAssertions/Task2.kt
+    package nonNullAssertionsExercise2
+    import atomictest.*
+
+    // fun List<Int>.headPlusTail()
+
+    fun main() {
+      // TODO
+    }
+  learner_created: false
+- name: test/Tests.kt
+  visible: false
+  text: |-
+    package nonNullAssertionsExercise2
+
+    import org.junit.Test
+    import util.unimplementedTest
+
+    class TestNonNullAssertionsExercise2 {
+        @Test fun testSolution() {
+            unimplementedTest()
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

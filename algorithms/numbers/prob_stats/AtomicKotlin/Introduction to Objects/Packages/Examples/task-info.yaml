@@ -1,0 +1,105 @@
+type: theory
+files:
+- name: src/ImportClass.kt
+  visible: true
+  text: |-
+    // Packages/ImportClass.kt
+    import kotlin.math.PI
+    import kotlin.math.cos  // Cosine
+
+    fun main() {
+      println(PI)
+      println(cos(PI))
+      println(cos(2 * PI))
+    }
+    /* Output:
+    3.141592653589793
+    -1.0
+    1.0
+    */
+  learner_created: false
+- name: src/ImportNameChange.kt
+  visible: true
+  text: |-
+    // Packages/ImportNameChange.kt
+    import kotlin.math.PI as circleRatio
+    import kotlin.math.cos as cosine
+
+    fun main() {
+      println(circleRatio)
+      println(cosine(circleRatio))
+      println(cosine(2 * circleRatio))
+    }
+    /* Output:
+    3.141592653589793
+    -1.0
+    1.0
+    */
+  learner_created: false
+- name: src/FullyQualify.kt
+  visible: true
+  text: |-
+    // Packages/FullyQualify.kt
+
+    fun main() {
+      println(kotlin.math.PI)
+      println(kotlin.math.cos(kotlin.math.PI))
+      println(kotlin.math.cos(2 * kotlin.math.PI))
+    }
+    /* Output:
+    3.141592653589793
+    -1.0
+    1.0
+    */
+  learner_created: false
+- name: src/ImportEverything.kt
+  visible: true
+  text: |-
+    // Packages/ImportEverything.kt
+    import kotlin.math.*
+
+    fun main() {
+      println(E)
+      println(E.roundToInt())
+      println(E.toInt())
+    }
+    /* Output:
+    2.718281828459045
+    3
+    2
+    */
+  learner_created: false
+- name: src/PythagoreanTheorem.kt
+  visible: true
+  text: |-
+    // Packages/PythagoreanTheorem.kt
+    package pythagorean
+    import kotlin.math.sqrt
+
+    class RightTriangle(
+      val a: Double,
+      val b: Double
+    ) {
+      fun hypotenuse() = sqrt(a * a + b * b)
+      fun area() = a * b / 2
+    }
+  learner_created: false
+- name: src/ImportPythagorean.kt
+  visible: true
+  text: |-
+    // Packages/ImportPythagorean.kt
+    import pythagorean.RightTriangle
+
+    fun main() {
+      val rt = RightTriangle(3.0, 4.0)
+      println(rt.hypotenuse())
+      println(rt.area())
+    }
+    /* Output:
+    5.0
+    6.0
+    */
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true
