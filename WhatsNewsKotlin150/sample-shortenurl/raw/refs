@@ -1,19 +1,25 @@
-
-https://www.quora.com/What-are-the-http-bit-ly-and-t-co-shortening-algorithms
-https://medium.com/double-pointer/system-design-interview-url-shortener-c45819b252cd
-
-https://dzone.com/articles/url-shortener-detailed-explanation#
-
-
 https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener
+
+http://blog.gainlo.co/index.php/2016/03/08/system-design-interview-question-create-tinyurl-system/?utm_campaign=quora&utm_medium=What+are+the+http://bit.ly+and+t.co+shortening+algorithms?&utm_source=quora
 
 https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
 
+https://leetcode.com/discuss/interview-question/124658/Design-a-URL-Shortener-(-TinyURL-)-System/
+
+https://www.interviewbit.com/problems/design-url-shortener/
+
+https://medium.com/@adhasmana/system-design-create-a-url-shortening-service-part-1-overview-26aae5597914
+
+https://codeburst.io/creating-custom-url-shortener-with-nodejs-de10bbbb89c7
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+https://www.quora.com/What-are-the-http-bit-ly-and-t-co-shortening-algorithms
+https://medium.com/double-pointer/system-design-interview-url-shortener-c45819b252cd
+https://dzone.com/articles/url-shortener-detailed-explanation#
+https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener
+https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
 https://www.educative.io/courses/grokking-the-system-design-interview/m2ygV4E81AR
-
 https://nlogn.in/designing-a-realtime-scalable-url-shortening-service-like-tiny-url/
-
 https://www.linqz.io/2018/10/how-to-build-a-tiny-url-service-that-scales-to-billions.html
-
-
 https://metacpan.org/release/ALEXBIO/Algorithm-URL-Shorten-0.07/view/lib/Algorithm/URL/Shorten.pm

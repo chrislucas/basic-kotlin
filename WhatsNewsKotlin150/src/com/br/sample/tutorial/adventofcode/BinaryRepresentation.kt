@@ -32,8 +32,10 @@ private fun test1() {
         "FFFBBBFRRR",
         "BBFFBBFRLL",
         "FFFFFFFRRR",
+        "FFFFFFFLLL",
         "BBBBBBBRRR",
-        "BBBBBBBLLL"
+        "BBBBBBBLLL",
+        "BBBBBBBRRR",
     ).forEach { it ->
         val r1 = it.substring(0, 7).parseEach(0, 127) { it == 'F' } // F == LOWER HALF
         val r2 = it.substring(7, it.length).parseEach(0, 7) { it == 'L' } // L == LOWER HALF

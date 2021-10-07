@@ -1,0 +1,61 @@
+Sec 1
+https://www.raywenderlich.com/books/kotlin-coroutines-by-tutorials/v2.0/chapters/1-what-is-asynchronous-programming
+
+
+The most important data structures used in thread safe systems.
+
+Queues (or pipelines in a special case)
+
+- Threds ususlly communicate using queues, and they can act on them as PRODUCERS or CONSUMERS
+
+- PRODUCERS: Is a thread that puts information into the queue
+
+- CONSUMER: Is the one that reads from queues and uses the read data
+
+FIFO - first in first out
+
+Producers append data to the end of queue and consumers read data from the top, first data
+appended to the end of queue is the first data read from top
+
+Message: The data/object  appended into the queue, which encapsulate the information to share
+
+A queue nao eh somente um container de dados, mas prove sincornizacao com objetivo de permitir
+que a thread consuma a mensagem somente se estiver dispoinivel.
+
+- A Thread pode, se assim for implementado, esperar ate que a mensagem esteja disponivel
+
+- Se estamos lidando com uma BlockingQueue, o CONSUMER pode aguardar (ficar num estado bloqueado)
+a esperar pela mensagem ou tentar recuperar a informacao em outro momento
+
+- Se a Queue estiver cheia o mesmo estado de espera pode ser atribuido para ao PRODUCER
+
+Thread Safe
+
+- Podemos evitar o problema de Race Condition utulizando estruturas de dados thread safe
+- Para isso precisamos de estruturas de dados imutáveis, cujo o consumidor só tenha acesso
+a leitura
+- Dessa forma mesmo que multiplas instancias acessem o mesmo dado ao mesmo tempo, esse dado
+continua consistente uma vez que ninguem pode muda-lo, so le-lo
+
+Pipelines
+
+Analogo ao funcionamento de um CANO que conduz o trafego de um fluido e uma TORNEIRA que libera
+esse trafego é  funcionamento do processo denominado pipelines ou pipe em programação.
+
+- A um pipe que conduz o trafedo de data  (stream) e existe um LISTENER (o "escutador".
+aquele que está observando e consumindo o dado)
+
+- o dado eh usualmente um stream de bytes que o "escutador" está processando|convertendo em
+algo mais significativo
+
+Podemos ver o mecanismo de pipes como blocking queues por onde passam blocos de bytes
+
+* Manipulando dados de retorno de processos finalizados usando Callbacks
+
+- De todos os mecanismos existentes em programacao assincrona, o callback e um dos mais utilizados.
+Esse recurso encapsula metodos que podem ser utilizados apos a execucao de um metodo
+
+
+
+Sec 2
+https://www.raywenderlich.com/books/kotlin-coroutines-by-tutorials/v2.0/chapters/12-broadcast-channels

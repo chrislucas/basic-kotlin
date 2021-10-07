@@ -18,5 +18,4 @@ fun String.getLines(): StringBuilder {
     }
 }
 
-
 fun readFile(fileName: String): List<String> = File(fileName).bufferedReader().readLines()

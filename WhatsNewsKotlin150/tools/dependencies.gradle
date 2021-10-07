@@ -1,0 +1,13 @@
+def versions = [:]
+
+versions.coroutinesCore = '1.5.0'
+
+def coroutines = [:]
+coroutines.core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinesCore}"
+
+def deps = [:]
+
+deps.coroutines = coroutines
+
+
+extensions.deps = deps

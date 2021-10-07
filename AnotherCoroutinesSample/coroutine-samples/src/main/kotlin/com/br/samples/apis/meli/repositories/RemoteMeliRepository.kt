@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteMeliRepository : ObserverRemoteRepository {
 
-
     private val endpoint = ProvideRetrofitinstance.meliInstanceEndpoint(
         ProvideRetrofitinstance.SITE_MLA, GsonConverterFactory.create()
     ).create(MercadoLivreEndpoint::class.java)
