@@ -14,6 +14,24 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kotlin170" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kotlin170" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/newsInKotlin1620" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/newsInKotlin1620" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/overview" />
         <option name="modules">
           <set>
@@ -23,10 +41,28 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/sample-jacksonlib" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/sample-jacksonlib" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/sample-shortenurl" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/sample-shortenurl" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/samplektsscript" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/samplektsscript" />
           </set>
         </option>
       </GradleProjectSettings>

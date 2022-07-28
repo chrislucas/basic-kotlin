@@ -1,0 +1,28 @@
+//import org.jetbrains.kotlin.gradle.tasks.KotlinCompile;
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.20'
+}
+
+//kotlin = true
+// https://kotlinlang.org/docs/gradle.html#compiler-options
+
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xcontext-receivers"
+    }
+}
+

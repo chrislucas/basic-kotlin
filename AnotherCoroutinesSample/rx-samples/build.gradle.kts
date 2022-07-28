@@ -4,7 +4,7 @@ apply ("../tools/dependencies-version.gradle")
 
 plugins {
     java
-    kotlin("jvm") version "1.4.20-M1"
+    kotlin("jvm") version "1.6.20"
 }
 
 group = "org.example"

@@ -12,5 +12,5 @@ interface MetaData {
     fun asyncRequestProject(@Path("project") project: String): Call<MetaProject>
 
     @GET("meta/projects/{project}")
-    fun requestProject(@Path("project") project: String): Response<MetaProject>
+    suspend fun requestProject(@Path("project") project: String): Response<MetaProject>
 }

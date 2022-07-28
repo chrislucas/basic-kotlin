@@ -2,11 +2,14 @@ package com.br.samples.ext.http
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 val IOScope = CoroutineScope(Dispatchers.IO)
+
+val IO_SCOPE_SUPERVISOR_JOB = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
 interface CallbackRequest<T> {
     fun onSuccess(call: Call<T>, response: Response<T>)

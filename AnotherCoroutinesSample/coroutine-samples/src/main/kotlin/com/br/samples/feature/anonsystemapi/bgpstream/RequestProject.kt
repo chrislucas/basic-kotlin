@@ -31,19 +31,29 @@ private val callbackRequest: CallbackRequest<MetaProject>
             println(t)
         }
     }
+private val endpoint: MetaData = getEndpoint("https://broker.bgpstream.caida.org/v2/", MetaData::class.java)
 
 
 private suspend fun requestProject(projectName: String) {
     IOScope.launch {
-        val endpoint: MetaData = getEndpoint("https://broker.bgpstream.caida.org/v2/", MetaData::class.java)
         val call = endpoint.asyncRequestProject(projectName)
         doAsyncRequest(call, callbackRequest)
     }.join()
 }
 
+private suspend fun getProject(projectName: String) {
+    IOScope.launch {
+        val response: Response<MetaProject> = endpoint.requestProject(projectName)
+        println(response)
+    }.join()
+}
+
 fun main() {
     runBlocking {
-        requestProject("ris")
         requestProject("routeviews")
+        requestProject("ris")
+
+        getProject("routerviews")
+        getProject("ris")
     }
 }

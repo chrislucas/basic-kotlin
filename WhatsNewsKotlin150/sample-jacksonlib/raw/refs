@@ -1,0 +1,21 @@
+https://github.com/FasterXML/jackson
+
+
+Deserializacao de subtipos
+https://www.baeldung.com/jackson-inheritance
+https://andrewtarry.com/posts/deserialising-an-interface-with-jackson/
+https://stackoverflow.com/questions/21485923/java-jackson-polymorphic-json-deserialization-of-an-object-with-an-interface-pr
+
+
+Tutorials
+https://www.baeldung.com/jackson
+
+
+Jackson Annotation
+https://www.baeldung.com/jackson-annotations
+
+jackson
+https://www.baeldung.com/jackson
+
+Jackson Annotations - @JsonSubTypes
+https://www.tutorialspoint.com/jackson_annotations/jackson_annotations_jsonsubtypes.htm
